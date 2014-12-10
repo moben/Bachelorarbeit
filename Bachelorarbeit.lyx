@@ -63,6 +63,9 @@
 \end_preamble
 \options final
 \use_default_options true
+\begin_modules
+eqs-within-sections
+\end_modules
 \maintain_unincluded_children false
 \language ngerman
 \language_package default
@@ -213,7 +216,7 @@
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\nsum}[2]{\sum\limits _{#1}^{#2}\negmedspace'}
+\newcommand{\nsum}[2]{\sideset{}{^{\prime}}\sum\limits _{#1}^{#2}}
 {\sum_{\substack{#1\\
 \neq
 }
@@ -321,6 +324,226 @@ Benedikt Morbach
 
 \begin_layout Section
 Einleitung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Einleitung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Coulomb-Problem kann mit Hilfe der Ewald-Summation[
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ewald
+\end_layout
+
+\end_inset
+
+] und der schnellen Summation mittels nicht-äquidistanter schnellen Fourier-Tran
+sformationen[
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+potts
+\end_layout
+
+\end_inset
+
+] (NFFT) gelöst werden.
+ Für 3-periodische Randbedingungen wurde Dies in [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+potts,seidel?,
+\end_layout
+
+\end_inset
+
+] behandelt.
+ Die dabei verwendeten Algorithmen wurden in [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NePiPo
+\end_layout
+
+\end_inset
+
+] auf 2d- und 1d-periodische Randbedingungen erweitert.
+ Im Zuge dieser Arbeit werden diese Erkenntnisse auf das Coulomb-Problem
+ mit nichtperiodischen Randbedingungen angewendet.
+ Außerdem wird der dabei gewonnene Algorithmus innerhalb der ScaFaCos Bibliothek
+[
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+scafacos
+\end_layout
+
+\end_inset
+
+] implementiert.
+ Im Folgenden wird der Aufbau der Arbeit kurz erläutert.
+\end_layout
+
+\begin_layout Standard
+In Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Notation"
+
+\end_inset
+
+ werden zunächst einige Notationen eingeführt, die im weiteren Verlauf der
+ Arbeit verwendet werden.
+\end_layout
+
+\begin_layout Standard
+In Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Problemstellung"
+
+\end_inset
+
+ wird zunächst das Coulomb-Problem eingeführt.
+ Dabei wird die algorithmische Komplexität einer direkten Berechnung betrachtet.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Diese wird später mit der algorithmischen Komplexität der Algorithmen auf
+ NFFT-Basis verglichen.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:NFFT"
+
+\end_inset
+
+ wird die nicht-äquidistante diskrete Fourier-Transformation (NDFT), sowie
+ ihre Approximation durch die nicht-äquidistante schnelle Fourier-Transformation
+ erläutert.
+\end_layout
+
+\begin_layout Standard
+Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:3d-Ewald"
+
+\end_inset
+
+ fasst die Lösung des 3d-periodischen Problems mittels der Ewald-Notation
+ zusammen.
+ Und erläutert an welchen Stellen in diesem Algorithmus durch die Approximation
+ Fehler entstehen.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ und vergleicht die Komplexität des NFFT-basierten Algorithmus mit der der
+ der direkten Berechnung.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:0d-Ewald"
+
+\end_inset
+
+ werden die Verfahren mit in [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NePiPo
+\end_layout
+
+\end_inset
+
+] denen Algorithmen für das 1d- und 2-periodische Coulomb-Problem entwickelt
+ wurden auf den 0d-periodischen Fall angewandt.
+ Dabei wird vor allem darauf eingegangen wie man die Eingabe periodisch
+ approximieren muss um NFFT-basierte Methoden mit einer hinreichend hohen
+ Genauigkeit anwenden kann.
+\end_layout
+
+\begin_layout Standard
+Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Fehlerformel"
+
+\end_inset
+
+ erläutert wie die Parameter des Algorithmus aus Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:3d-Ewald"
+
+\end_inset
+
+ gewählt werden müssen, damit ein vorgegebener Fehler nicht überschritten
+ wird.
+\end_layout
+
+\begin_layout Standard
+Zuletzt wird in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Test"
+
+\end_inset
+
+ numerisch untersucht, ob inwiefern die Fehlerformel aus Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Fehlerformel"
+
+\end_inset
+
+ auch auf den neuen Algorithmus für den nicht-periodischen Fall anwendbar
+ ist.
+ Außerdem wird die Geschwindigkeit der Implementierung des neuen Algorithmus
+ mit der eines ähnlichen Algorithmus verglichen, der bereits innerhalb der
+ ScaFaCos Bibliothek implementiert ist.
 \end_layout
 
 \begin_layout Standard
@@ -369,78 +592,22 @@ Warum neuer Algorithmus?
 
 \end_layout
 
-\begin_layout Section
-Problemstellung
-\end_layout
-
 \begin_layout Standard
-Wir setzen 
-\begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
-\end_inset
-
- bezeichnen mit 
-\begin_inset Formula $\mathbb{T}^{3}=\left[-\frac{1}{2},\frac{1}{2}\right)^{3}$
-\end_inset
-
- den dreidimensionalen Torus.
- Seien 
-\begin_inset Formula $N\in\mathbb{N}$
-\end_inset
-
- Ladungen 
-\begin_inset Formula $q_{j}\in\mathbb{R}$
-\end_inset
-
-, 
-\begin_inset Formula $j=\range 1N$
-\end_inset
-
-, sowie zu jeder Ladung ihre Position 
-\begin_inset Formula $\v x_{j}\in\set T^{3}$
-\end_inset
-
-, 
-\begin_inset Formula $j=\range 1N$
-\end_inset
-
- gegeben.
- Uns interessiert hierbei die Berechnung der Potentiale 
-\begin_inset Formula 
-\begin{equation}
-\phi_{j}=\phi\left(\v x_{j}\right)=\nsum{k=1}Nq_{k}\frac{1}{\norm{\v x_{jk}}{}},\qquad j=\range 1N,\label{eq:general:potential}
-\end{equation}
-
-\end_inset
-
- sowie der Felder 
-\begin_inset Formula 
-\begin{equation}
-E_{j}=-\nabla\phi\left(\v x_{j}\right)=\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}}{}^{3}},\qquad j=\range 1N.
-\end{equation}
-
+\begin_inset Newpage pagebreak
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Dabei bezeichnet 
-\begin_inset Formula $\nsum{k=1}Na_{k}$
-\end_inset
-
- die Summe über alle 
-\begin_inset Formula $a_{k}\in\left\{ k\in\range 1N\midd |k\neq j\right\} $
-\end_inset
-
- und 
-\begin_inset Formula $\v x_{jk}=\v x_{j}-\v x_{k}$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Section
 Notation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Notation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -464,40 +631,199 @@ Seien
  Dann definieren wir 
 \begin_inset Formula 
 \begin{align*}
-\frac{1}{\v M} & \coloneqq\left(\frac{1}{M_{1}},\frac{1}{M_{2}},\frac{1}{M_{3}}\right)\\
-\v k\odot\v j & \coloneqq\left(k_{1}j_{1},k_{2}j_{2},k_{3}j_{3}\right),
+\frac{1}{\v M} & \coloneqq\left(\frac{1}{M_{1}},\frac{1}{M_{2}},\frac{1}{M_{3}}\right),
 \end{align*}
 
 \end_inset
 
- sowie 
+ sowie das komponentenweise Produkt 
+\begin_inset Formula $\v k\odot\v j\coloneqq\left(k_{1}j_{1},k_{2}j_{2},k_{3}j_{3}\right)$
+\end_inset
+
+ und das Skalarprodukt 
+\begin_inset Formula $\v k\v j\coloneqq\norm{\v k\odot\v j}1=k_{1}j_{1}+k_{2}j_{2}+k_{3}j_{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Damit ist auch 
 \begin_inset Formula 
 \[
-\v k\v j\coloneqq\norm{\v k\odot\v j}1=k_{1}j_{1}+k_{2}j_{2}+k_{3}j_{3}
+\frac{\v k}{\v M}\coloneqq\v k\odot\frac{1}{\v M}
 \]
 
+\end_inset
+
+definiert.
+\end_layout
+
+\begin_layout Section
+Problemstellung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Problemstellung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wir setzen 
+\begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
+\end_inset
+
+ bezeichnen mit 
+\begin_inset Formula $\mathbb{T}^{3}=\left[-\frac{1}{2},\frac{1}{2}\right)^{3}$
+\end_inset
+
+ den dreidimensionalen Torus und 
+\begin_inset Formula $L\in\set R$
+\end_inset
+
+ .
+ Seien 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ Ladungen 
+\begin_inset Formula $q_{j}\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+, sowie zu jeder Ladung ihre Position 
+\begin_inset Formula $\v x_{j}\in L\set T^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ gegeben.
+ Diese erfüllen die Bedingung 
+\begin_inset Formula 
+\begin{equation}
+\sum_{j=1}^{N}q_{j}=0,\label{eq:general:charge-neutrality}
+\end{equation}
+
+\end_inset
+
+ d.h.
+ der Würfel 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ ist ladungsneutral.
+\end_layout
+
+\begin_layout Standard
+Uns interessiert hierbei für 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ die Berechnung der Potentiale 
+\begin_inset Formula 
+\begin{equation}
+\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}},\label{eq:general:potential}
+\end{equation}
+
+\end_inset
+
+ sowie der Felder 
+\begin_inset Formula 
+\begin{equation}
+E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}+L\v n}{}^{3}}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dabei bezeichnet 
+\begin_inset Formula $\v x_{jk}=\v x_{j}-\v x_{k}$
+\end_inset
+
+ die Distanz zwischen 
+\begin_inset Formula $\v x_{j}$
 \end_inset
 
  und 
-\begin_inset Formula 
-\[
-\frac{\v k}{\v M}\coloneqq\v k\odot\frac{1}{\v M}.
-\]
-
+\begin_inset Formula $\v x_{k}$
 \end_inset
 
+ und 
+\begin_inset Formula $\nsum{k=1}Na_{k}$
+\end_inset
 
+ die Summe über alle 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+ mit 
+\begin_inset Formula $k=\range 1N$
+\end_inset
+
+, 
+\begin_inset Formula $k\neq j$
+\end_inset
+
+ wenn 
+\begin_inset Formula $\v n=\v 0$
+\end_inset
+
+ und 
+\begin_inset Formula $k=\range 1N$
+\end_inset
+
+ wenn 
+\begin_inset Formula $\v n\neq\v 0$
+\end_inset
+
+.
+ Für 
+\begin_inset Formula $d\in\left\{ 0,3\right\} $
+\end_inset
+
+ definieren wir 
+\begin_inset Formula $\mathcal{S}_{d}\coloneqq\set Z^{d}\times\left\{ 0\right\} ^{3-d}$
+\end_inset
+
+.
+ Wir sprechen für 
+\begin_inset Formula $d=3$
+\end_inset
+
+ von 3d-periodischen Randbedingungen, d.h.
+ der Würfel 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ wird periodisch in jede der drei Dimensionen fortgesetzt, und für 
+\begin_inset Formula $d=0$
+\end_inset
+
+ von nichtperiodischen Randbedingungen.
 \end_layout
 
 \begin_layout Section
 NFFT
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:NFFT"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 In diesem Abschnitt werden wir die nicht-äquidistante diskrete Fourier-Transform
 ation (
 \begin_inset Preview
@@ -545,46 +871,13 @@ NFFT/
 ) einführen.
 \end_layout
 
-\begin_layout Plain Layout
-Mit für 
-\begin_inset Formula $\mathbf{k},\mathbf{x}\in\mathbb{R}^{3}$
-\end_inset
-
- bezeichnen wir mit 
-\begin_inset Formula $\mathbf{k}\mathbf{x}=k_{0}x_{0}+k_{1}x_{1}+k_{2}x_{2}$
-\end_inset
-
- das Skalarprodukt und mit 
-\begin_inset Formula $\mathbf{k}\odot\mathbf{x}=\left(k_{0}x_{0},k_{1}x_{1},k_{2}x_{2}\right)$
-\end_inset
-
- das komponentenweise Produkt von 
-\begin_inset Formula $\mathbf{k}$
-\end_inset
-
- und 
-\begin_inset Formula $\mathbf{x}$
-\end_inset
-
-.
- Außerdem sei 
-\begin_inset Formula $\mathbf{k}^{-1}=\left(k_{0}^{-1},k_{2}^{-1},k_{2}^{-1}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Plain Layout
+\begin_layout Standard
 Seien ein Vektor 
 \begin_inset Formula $\mathbf{N}=\left(N_{0},N_{1},N_{2}\right)\in2\mathbb{N}^{3}$
 \end_inset
 
 , sowie die Indexmenge 
-\begin_inset Formula 
-\[
-\mathcal{I}_{\mathbf{N}}=\thrange{N_{0}}{N_{1}}{N_{2}}
-\]
-
+\begin_inset Formula $\mathcal{I}_{\mathbf{N}}=\thrange{N_{0}}{N_{1}}{N_{2}}$
 \end_inset
 
  gegeben.
@@ -678,7 +971,7 @@ NDFT/
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 Analog definiert man die adjungierte nicht-äquidistante Fourier-Transformation
  (
 \begin_inset Preview
@@ -736,7 +1029,7 @@ aNDFT/
 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 Wie in [] sei 
 \begin_inset Formula $\mathrm{\psi}\in L_{2}\left(\mathbb{R}\right)$
 \end_inset
@@ -752,7 +1045,11 @@ Wie in [] sei
 
 eine gleichmäßig konvergierende Fourier-Reihe besitzt und auch im Frequenz
  und Ortsbereich gut lokalisiert ist.
- Also kann die periodische Fortsetzung durch ihre Fourier-Reihe
+ Also kann 
+\begin_inset Formula $\tilde{\psi}$
+\end_inset
+
+ durch ihre Fourier-Reihe
 \begin_inset Formula 
 \[
 \tilde{\psi}\left(x\right)=\sum_{k\in\mathbb{Z}}\hat{\psi}\left(k\right)\mathrm{e}^{-\tpii kx}
@@ -791,7 +1088,7 @@ ihre 1-periodische Version, deren Fourier-Koeffizienten
  gegeben sind.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
 Sei außerdem 
 \begin_inset Formula $\mathbf{n}\in2\mathbb{N}^{3}$
 \end_inset
@@ -801,15 +1098,16 @@ Sei außerdem
 \end_inset
 
 , wobei die Ungleichung komponentenweise gelte, sowie 
-\begin_inset Formula 
-\[
-\mathcal{I}_{\mathbf{n}}=\thrange{n_{0}}{n_{1}}{n_{2}}
-\]
-
+\begin_inset Formula $\mathcal{I}_{\mathbf{n}}=\thrange{n_{0}}{n_{1}}{n_{2}}$
 \end_inset
 
-eine weitere Indexmenge.
- Es seien weiterhin
+ eine weitere Indexmenge.
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Es seien weiterhin
 \begin_inset Formula 
 \[
 \mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}\right)=\left\{ \mathbf{k}=\left(k_{0},k_{1},k_{2}\right)\in\mathcal{I}_{\mathbf{n}}\,\middle|\,\left|n_{t}x_{t}-k_{t}\right|\leq m\vee\left|n_{t}x_{t}-k_{t}\right|\geq n_{t}-m,\: t=0,1,2\right\} 
@@ -864,7 +1162,12 @@ die Indizes aus
  eingeschränkt werden.
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Als nicht-äquidistante schnelle Fourier-Transformation (
 \begin_inset Preview
 
@@ -910,91 +1213,45 @@ NDFT/
  nach [], 
 \begin_inset Formula 
 \[
-f_{l}\approx\sum_{\mathbf{k}\in\mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}_{l}\right)}\left(\sum_{\mathbf{j}\in\mathcal{I}_{\mathbf{N}}}\frac{\hat{f_{\mathbf{j}}}}{\left|\mathcal{I}_{\mathbf{n}}\right|\hat{\varphi}_{\mathbf{j}}}\mathrm{e}^{-\tpii\mathbf{j}\frac{\mathbf{k}}{\mathbf{n}}}\right)\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right),\qquad l=\range 1M.
+f_{l}\approx\sum_{\mathbf{k}\in\mathcal{I}_{\mathbf{n}}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right),\qquad l=\range 1M.
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
-Die Berechnung erfolgt dabei im Wesentlichen in drei Schritten.
- Als erstes erfolgt eine Entfaltung im Frequenzbereich,
-\begin_inset Formula 
-\begin{equation}
-\hat{g}_{\mathbf{j}}:=\frac{\hat{f_{\mathbf{j}}}}{\left|\mathcal{I}_{\mathbf{n}}\right|\hat{\varphi}_{\mathbf{j}}},\qquad\mathbf{j}\in\mathcal{I}_{\mathbf{N}}.\label{eq:trf_D}
-\end{equation}
-
-\end_inset
-
-Als zweiter Schritt folgt eine dreidimensionale 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ODFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- der Größe 
-\begin_inset Formula $\left|\mathcal{I}_{\mathbf{n}}\right|$
-\end_inset
-
-,
-\begin_inset Formula 
-\begin{equation}
-g_{\mathbf{k}}:=\sum_{\mathbf{j}\in\mathcal{I}_{\mathbf{N}}}\hat{g}_{\mathbf{j}}\mathrm{e}^{-\tpii\mathbf{j}\frac{\mathbf{k}}{\mathbf{n}}},\qquad\mathbf{k}\in\mathcal{I}_{\mathbf{n}}.\label{eq:trf_F}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Der dritte Schritt besteht aus der Auswertung der Fensterfunktion 
+ Dabei können die Summen abgeschnitten werden, da 
 \begin_inset Formula $\tilde{\varphi}$
 \end_inset
 
- in der Umgebung des Knotens 
-\begin_inset Formula $\mathbf{x}_{l}$
+ gut lokalisert ist.
+ Die Koeffizienten 
+\begin_inset Formula $g_{\v k}$
 \end_inset
 
-,
+ sind dabei gegeben durch
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
-\begin{equation}
-f_{l}\approx s_{l}:=\sum_{\mathbf{k}\in\mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}_{l}\right)}g_{\mathbf{k}}\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right),\qquad l=\range 1M,\label{eq:trf_B}
-\end{equation}
+\[
+g_{\mathbf{k}}:=\sum_{\mathbf{j}\in\mathcal{I}_{\mathbf{N}}}\frac{\hat{f_{\mathbf{j}}}}{\left|\mathcal{I}_{\mathbf{n}}\right|\hat{\varphi}_{\mathbf{j}}}\mathrm{e}^{-\tpii\mathbf{j}\odot\mathbf{k}/\mathbf{n}},\qquad\mathbf{k}\in\mathcal{I}_{\mathbf{n}}
+\]
 
 \end_inset
 
-wobei pro Knoten höchstens 
-\begin_inset Formula $\left(2m+1\right)^{3}$
-\end_inset
-
- Terme addiert werden müssen.
- Diese drei Schritte können mit einer arithmetischen Komplexität von 
+ und können mittels schneller Fourier-Transformationen berechnet werden.
+ Diese Approximation kann mit einer arithmetischen Komplexität von 
 \begin_inset Formula $\mathcal{O}\left(\left|\mathcal{I}_{\mathbf{N}}\right|+\left|\mathcal{I}_{\mathbf{n}}\right|\log\left|\mathcal{I}_{\mathbf{n}}\right|+\left(2m+1\right)^{3}M\right)$
 \end_inset
 
- ausgeführt werden.
+ ausgeführt werden, wobei 
+\begin_inset Formula $m$
+\end_inset
+
+ ein für die Fensterfunktion spezifischer Abschneideparameter ist.
 \end_layout
 
-\begin_layout Plain Layout
-In der Matrix-Notation können diese Schritte auch geschrieben werden als
+\begin_layout Standard
+In der Matrix-Notation die NFFT auch geschrieben werden als
 \begin_inset Formula 
 \[
 \mathbf{A}\hat{\mathbf{f}}\approx\mathbf{B}\mathbf{F}\mathbf{D}\hat{\mathbf{f}}
@@ -1015,31 +1272,22 @@ mit
 
 \end_inset
 
-für die Schritte
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:trf_D"
 
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:trf_F"
-
-\end_inset
-
- und 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:trf_B"
-
-\end_inset
-
-.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+wobei 
+\begin_inset Formula $\mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}_{l}\right)$
+\end_inset
+
+ die Indizes aus 
+\begin_inset Formula $\mathcal{I}_{\mathbf{n}}$
+\end_inset
+
+ bezeichnet auf denen die Fensterfunktion konzentriert ist.
+\end_layout
+
+\begin_layout Standard
 Analog wird die 
 \begin_inset Preview
 
@@ -1098,72 +1346,102 @@ aNFFT/
 ).
 \end_layout
 
+\begin_layout Section
+3d-periodische Ewald Summation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:3d-Ewald"
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Section
-3D Ewald Summation
+\begin_layout Standard
+Im Folgenden sei 
+\begin_inset Formula $d=3$
+\end_inset
+
+.
+ Für 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ sind dann die Potentiale 
+\begin_inset Formula $\phi_{3}\left(\v x_{j}\right)$
+\end_inset
+
+ gegeben durch
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Ewald-Splitting
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Formula 
-\begin{align*}
-\phi_{3}\left(\v x_{j}\right) & =\sum_{s=0}^{\infty}\sum_{\substack{\v n\in\set Z^{3}\\
-\norm{\v n}{}^{2}=s
-}
-}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}\\
- & =\sum_{s=0}^{\infty}\sum_{\substack{\v n\in\set Z^{3}\\
-\norm{\v n}{}^{2}=s
-}
-}\nsum{k=1}Nq_{k}\left(\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}+\frac{\erf{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}\right)
-\end{align*}
+\begin{align}
+\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}.\label{eq:3d:potential}
+\end{align}
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-Summationsreihenfolge zu beachten
-\end_layout
-
-\begin_layout Plain Layout
-Ergebnis []: adjungierte NDFT + NDFT
-\end_layout
-
-\begin_layout Plain Layout
-Berechnung mit NFFT
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-0D Ewald Summation
 \end_layout
 
 \begin_layout Standard
-Unter Verwendung der Fehlerfunktion
+Diese Summe ist nur bedingt konvergent.
+ Wählt man jedoch eine sphärische Summationsreihenfolge, d.h.
+ 
 \begin_inset Formula 
 \[
-\erf x\coloneqq\frac{2}{\sqrt{\pi}}\int_{0}^{x}\e^{-t^{2}}\d t,
+\phi_{3}\left(\v x_{j}\right)=\sum_{s=0}^{\infty}\sum_{\substack{\v n\in\set Z^{3}\\
+\norm{\v n}{}^{2}=s
+}
+}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}},
 \]
 
 \end_inset
 
- sowie der komplementären Fehlerfunktion
+so kann unter Verwendung von 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:general:charge-neutrality"
+
+\end_inset
+
+ gezeigt werden
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[~nesfr]
+\end_layout
+
+\end_inset
+
+, dass diese Summe konvergiert.
+ Im weiteren Verlauf dieses Abschnittes ist mit 
+\begin_inset Formula $\sum_{\v n\in\set Z^{3}}$
+\end_inset
+
+ stets diese Summationsreihenfolge gemeint.
+ Dies geschieht mittels der Ewald Summation 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+nach [ewald]
+\end_layout
+
+\end_inset
+
+.
+ Dazu sei
+\begin_inset Formula 
+\[
+\erf x\coloneqq\frac{2}{\sqrt{\pi}}\int_{0}^{x}\e^{-t^{2}}\d t
+\]
+
+\end_inset
+
+ die Fehlerfunktion, sowie
 \begin_inset Formula 
 \[
 \erfc x\coloneqq1-\erf x
@@ -1171,22 +1449,248 @@ Unter Verwendung der Fehlerfunktion
 
 \end_inset
 
- und 
+ die komplementäre Fehlerfunktion.
+ Die Ewald Summation wendet die Identität 
 \begin_inset Formula 
 \[
-\frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r},
+\frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r}
 \]
 
 \end_inset
 
- erhalten wir aus 
+ für 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ auf 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3d:potential"
+
+\end_inset
+
+ an und erhält somit 
+\begin_inset Formula 
+\begin{align*}
+\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{k=1}Nq_{k}\left(\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}+\frac{\erf{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}\right),\qquad j=\range 1N.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als Resultat wird 
+\begin_inset Formula $\phi_{3}\left(\v x_{j}\right)$
+\end_inset
+
+ in drei Teile geteilt.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[NePiPo]
+\end_layout
+
+\end_inset
+
+ Der kurzreichweitige Teil 
+\begin_inset Formula 
+\[
+\phi_{3,\mathrm{N}}\left(\v x_{j}\right)=\sum_{\v n\in\set Z^{3}}\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}
+\]
+
+\end_inset
+
+ wird durch diejenigen Ladungen 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+ dominiert deren Position 
+\begin_inset Formula $\v x_{k}$
+\end_inset
+
+ sich nahe an 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+, der Position von 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+, befinden.
+ Der langreichweitige Teil 
+\begin_inset Formula 
+\[
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{1}{\pi L}\sum_{\v l\in\set Z^{3}\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{k}/L}\right)\e^{-\tpii\v l\cdot\v x_{j}/L}
+\]
+
+\end_inset
+
+ ergibt sich aus einer Fourier-Transformation 
+\begin_inset Formula $\frac{\erf r}{r}$
+\end_inset
+
+ und wird durch die Ladungen 
+\begin_inset Formula $q_{k}$
+\end_inset
+
+ dominiert deren Position 
+\begin_inset Formula $\v x_{k}$
+\end_inset
+
+ weiter von 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ entfernt ist.
+ Das Eigenpotential 
+\begin_inset Formula 
+\[
+\phi_{3,\mathrm{E}}\left(\v x_{j}\right)=-\frac{2\alpha}{\sqrt{\pi}}q_{j}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Damit gilt
+\begin_inset Formula 
+\[
+\phi\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da die Summanden des kurzreichweitigen Terms 
+\begin_inset Formula $\phi_{3,\mathrm{N}}$
+\end_inset
+
+ exponentiell schnell gegen 
+\begin_inset Formula $0$
+\end_inset
+
+ konvergieren kann die Summe z.B.
+ durch 
+\begin_inset Formula 
+\[
+\phi_{3,\mathrm{N}}\left(\v x_{j}\right)\approx\sum_{\v n\in\set Z^{3}}\nsum{\substack{k=1\\
+\norm{\v x_{jk}+L\v n}{}<r_{\mathrm{cut}}
+}
+}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}
+\]
+
+\end_inset
+
+ abgeschnitten werden.
+ Auch die unendliche Summe im langreichweitigen Term 
+\begin_inset Formula $\phi_{3,\mathrm{F}}$
+\end_inset
+
+ kann abgeschnitten werden, wobei ein Fehler entsteht.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Wie groß ist der Fehler?
+\end_layout
+
+\end_inset
+
+ Sei 
+\begin_inset Formula $\v M=\left(M_{1},M_{2},M_{3}\right)\in2\set N^{3}$
+\end_inset
+
+ und 
+\begin_inset Formula $\I{\v M}$
+\end_inset
+
+=
+\begin_inset Formula $\thrange{M_{1}}{M_{2}}{M_{3}}$
+\end_inset
+
+.
+ Damit erhalten wir die Approximation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\frac{1}{\pi L}\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{k}/L}\right)\e^{-\tpii\v l\cdot\v x_{j}/L},\qquad j=\range 1N.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dies kann effizient berechnet werden durch eine adjungierte NFFT 
+\begin_inset Formula 
+\[
+\hat{b}_{\v l}\coloneqq\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{k}/L},\qquad\v l\in\I M,
+\]
+
+\end_inset
+
+ gefolgt von einer NFFT 
+\begin_inset Formula 
+\[
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\hat{a}_{\v l}\hat{b}_{\v l}\e^{-\tpii\v l\cdot\v x_{j}/L},\qquad j=\range 1N,
+\]
+
+\end_inset
+
+ mit 
+\begin_inset Formula $\hat{a}_{\v l}=\frac{1}{\pi L}\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Nichtperiodische Ewald Summation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:0d-Ewald"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $d=0$
+\end_inset
+
+ ergeben sich für nichtperiodische Randbedingungen aus 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:general:potential"
 
 \end_inset
 
- für 
+ die Potentiale 
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}}{}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unter Verwendung der Fehlerfunktion erhalten wir für 
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
@@ -1196,8 +1700,7 @@ reference "eq:general:potential"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\phi_{0}\left(\v x_{j}\right) & =\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}}{}}\\
- & =\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}+\nsum{k=1}Nq_{k}\frac{\erf{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}
+\phi_{0}\left(\v x_{j}\right) & =\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}+\nsum{k=1}Nq_{k}\frac{\erf{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}
 \end{align*}
 
 \end_inset
@@ -1206,19 +1709,13 @@ reference "eq:general:potential"
 \end_layout
 
 \begin_layout Standard
-Wir definieren
-\begin_inset Formula 
-\begin{align*}
-\phi_{0,S}\left(\v x_{j}\right) & =\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}\\
-\phi_{0,L}\left(\v x_{j}\right) & =\nsum{k=1}Nq_{k}\frac{\erf{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}.
-\end{align*}
-
-\end_inset
-
-Damit gilt
+Im Weiteren sei 
 \begin_inset Formula 
 \[
-\phi_{o}\left(\v x_{j}\right)=\phi_{0,S}\left(\v x_{j}\right)+\phi_{0,L}\left(\v x_{j}\right).
+\Tf r\coloneqq\begin{cases}
+\frac{2\alpha}{\sqrt{\pi}} & :r=0\\
+\frac{\erf{\alpha r}}{r} & :\text{sonst}.
+\end{cases}
 \]
 
 \end_inset
@@ -1227,13 +1724,43 @@ Damit gilt
 \end_layout
 
 \begin_layout Standard
+Damit definieren wir für 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+  
+\begin_inset Formula 
+\begin{align*}
+\phi_{0,\mathrm{N}}\left(\v x_{j}\right) & =\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}\\
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{k=1}^{N}q_{k}\Tf{\alpha\norm{\v x_{jk}}{}}\\
+\phi_{0,\mathrm{E}}\left(\v x_{j}\right) & =-\frac{2\alpha}{\sqrt{\pi}}q_{j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Woraus sich
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\phi_{0,\mathrm{N}}\left(\v x_{j}\right)+\phi_{0,\mathrm{F}}\left(\v x_{j}\right)+\phi_{0,\mathrm{E}}\left(\v x_{j}\right)
+\]
+
+\end_inset
+
+ ergibt.
+\end_layout
+
+\begin_layout Standard
 Dabei bezeichnet 
-\begin_inset Formula $\phi_{0,S}$
+\begin_inset Formula $\phi_{0,\mathrm{N}}$
 \end_inset
 
  den kurzreichweitigen Teil der Summe, d.h.
  
-\begin_inset Formula $\phi_{0,S}$
+\begin_inset Formula $\phi_{0,\mathrm{N}}$
 \end_inset
 
  wird dominiert durch die Punkte 
@@ -1263,7 +1790,7 @@ Wie groß ist der Fehler?
 
 \begin_layout Standard
 Mit 
-\begin_inset Formula $\phi_{0,L}$
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
 \end_inset
 
  bezeichnen wir den langreichweitigen Teil der Summe, der von den weiter
@@ -1280,21 +1807,9 @@ Mit
 \end_layout
 
 \begin_layout Standard
-Im Weiteren sei 
-\begin_inset Formula 
-\[
-\Tf r\coloneqq\frac{\erf r}{r}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
  Term 
-\begin_inset Formula $\phi_{0,L}$
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
 \end_inset
 
  mittels einer NDFT berechnen, allerdings ist er nicht periodisch.
@@ -1456,7 +1971,7 @@ Sei
 -mal differenzierbar ist konvergieren die Fourierkoeffizienten 
 \begin_inset Formula 
 \[
-\hat{b}_{\v k}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v l\in\I{\v M}}\KRf{h\cdot\norm{\frac{\v l}{\v M}}{}}\e^{-\tpii\frac{\v k\v l}{\v M}},\qquad\v k\in\I{\v M}
+\hat{b}_{\v l}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v k\in\I{\v M}}\KRf{h\cdot\norm{\frac{\v k}{\v M}}{}}\e^{-\tpii\frac{\v k\v l}{\v M}},\qquad\v l\in\I{\v M}
 \]
 
 \end_inset
@@ -1477,7 +1992,7 @@ Sei
  durch die Partialsumme ihrer Fourierreihe,
 \begin_inset Formula 
 \[
-\Tf{\norm{\v x}{}}\approx\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x/h}
+\Tf{\norm{\v x}{}}\approx\sum_{\v l\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v l\cdot\v x/h}
 \]
 
 \end_inset
@@ -1503,7 +2018,7 @@ Wie groß ist der Fehler?
 
 \begin_layout Standard
 Daraus ergibt sich für die Potentiale 
-\begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
+\begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
 , 
@@ -1513,8 +2028,8 @@ Daraus ergibt sich für die Potentiale
  
 \begin_inset Formula 
 \begin{align*}
-\phi_{0}\left(\v x_{j}\right) & \approx\sum_{l=1}^{N}q_{l}\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x_{lj}/h}\\
- & =\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\left(\sum_{l=1}^{N}q_{l}\e^{\tpii\v k\cdot\v x_{l}/h}\right)\e^{-\tpii\v k\cdot\v x_{j}/h}.
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{k=1}^{N}q_{k}\sum_{\v l\in\I{\v M}}\hat{b}_{\v l}\e^{\tpii\v l\cdot\v x_{lj}/h}\\
+ & =\sum_{\v l\in\I{\v M}}\hat{b}_{\v l}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{l}/h}\right)\e^{-\tpii\v l\cdot\v x_{j}/h}.
 \end{align*}
 
 \end_inset
@@ -1536,6 +2051,13 @@ NFFT
 
 \begin_layout Section
 Fehlerformel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Fehlerformel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1564,7 +2086,14 @@ NFFT muss hinreichend genau sein.
 \end_layout
 
 \begin_layout Section
-Laufzeit
+Laufzeit- und Ergebnisvergleich
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Test"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1586,6 +2115,13 @@ Wie stellt man das sicher? → Fehlerformel
 
 \begin_layout Section
 Fazit
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Fazit"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
