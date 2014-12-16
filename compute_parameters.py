@@ -234,7 +234,7 @@ def print_errors(kc):
 
 def print_parameter_list():
   print("Options:")
-  print("\tnd\t\t1d, 2d, or 3d")
+  print("\tnd\t\t0d, 1d, 2d, or 3d")
   print("\ttestcase\t1 (cloud wall), 2 (silica melt), 3 (uniformly random), 4 (nacl crystal)")
   print("\ttestsize\tmultiplier of each box length")
   print("\ttol\t\taccuracy goal")
@@ -288,8 +288,8 @@ ignore_field = set_str(14,"0")
 nprocs = set_int(15,1)
 
 # parameter sanity checks
-if nd not in ("1d", "2d", "3d"):
-  print("1st parameter 'nd' must be either '1d', '2d', or '3d'")
+if nd not in ("0d", "1d", "2d", "3d"):
+  print("1st parameter 'nd' must be either '0d', '1d', '2d', or '3d'")
   sys.exit()
 if tc not in (1,2,3,4):
   print("2nd parameter 'testcase' must be either '1', '2', '3', or '4'")
@@ -341,6 +341,8 @@ elif w == 4:
 elif w == 5:
   window = "bessel_i0"
 
+test_dir = "nonperiodic" if nd == "0d" else nd +"-periodic"
+
 # switch test case
 if tc==1:
   # cloud_wall
@@ -351,7 +353,7 @@ if tc==1:
   Q2 = N
   Q4 = N
   tn = "cloud_wall"
-  testname = "systems/"+ nd +"-periodic/cloud_wall_" + str(N) + ".xml.gz"
+  testname = "systems/"+ test_dir +"/cloud_wall_" + str(N) + ".xml.gz"
 elif tc==2:
   # silica melt
   scale = 2**(ts-1)
@@ -361,7 +363,7 @@ elif tc==2:
   Q2 = 3.73248000e+04 * scale**3
   Q4 = 1.61243136e+05 * scale**3
   tn = "silica_melt"
-  testname = "systems/"+ nd +"-periodic/silica_melt_" + str(N) + ".xml.gz"
+  testname = "systems/"+ test_dir +"/silica_melt_" + str(N) + ".xml.gz"
 elif tc==3:
   # random distribution
   N  = 11000 *(ts-1) + 1000
@@ -380,7 +382,7 @@ else:
   Q2 = N
   Q4 = N
   tn = "nacl"
-  testname = "systems/"+ nd +"-periodic/nacl_" + str(N) + ".xml.gz"
+  testname = "systems/"+ test_dir +"/nacl_" + str(N) + ".xml.gz"
 
 print("Tune for tol = "+ str('%.2e' % tol))
 print("L  = "+ str('%.2f' % L))
@@ -405,6 +407,8 @@ if nd == "2d":
   kc0 = inv_kolper_kc(alpha, 2*L, Q2, N, tol * split_tol, tol_type)
 if nd == "1d":
   kc0 = inv_kolper_kc(alpha, sqrt(2)*2*L, Q2, N, tol * split_tol, tol_type)
+if nd == "0d":
+  kc0 = inv_kolper_kc(alpha, sqrt(3)*2*L, Q2, N, tol * split_tol, tol_type)
 
 M0 = M1 = M2 = M
 m0 = m1 = m2 = oversampled_gridsize(M, m, osp)
@@ -414,6 +418,9 @@ if nd == "2d":
 if nd == "1d":
   M0 = M1 = even( kc2M(kc0) + P )
   m0 = m1 = oversampled_gridsize(M0, m, osn)
+if nd == "0d":
+  M0 = M1 = M2 = even( kc2M(kc0) + P )
+  m0 = m1 = m2 = oversampled_gridsize(M0, m, osn)
 
 h = L*M0/M
 
@@ -452,6 +459,8 @@ if use_kc != "0":
   conf += "p2nfft_k_cut,"+ str(kc) +","
 if ignore_field != "0":
   conf += "p2nfft_ignore_field,1,"
+
+conf += "p2nfft_reg_kernel,0,"
 
 nofield=""
 # nofield+=" -u nofield"
