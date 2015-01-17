@@ -34,6 +34,8 @@
 \renewcommand*{\titlepagestyle}{empty}
 \pagestyle{scrheadings}
 
+\def\foo {\emph{foo}}
+\def\bar\ {\emph{bar}}
 
 % I think \PFFT/ is slightly less ugly than \PFFT{}
 \def\FFTW/{\emph{FFTW}}
@@ -145,7 +147,7 @@ eqs-within-sections
 
 \begin_layout Standard
 \begin_inset Branch Fold
-status collapsed
+status open
 
 \begin_layout Standard
 \begin_inset Note Note
