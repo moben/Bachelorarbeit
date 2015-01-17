@@ -4,24 +4,23 @@
 \begin_header
 \textclass scrartcl
 \begin_preamble
+\usepackage[style=numeric,backend=biber]{biblatex}
+\addbibresource{Bachelorarbeit.bib}
+
 \usepackage{parskip}
 \usepackage{babel}
-
-%\usepackage{libertine}
-%\usepackage[libertine]{newtxmath}
-
-\usepackage[style=numeric,backend=biber]{biblatex}
-\addbibresource{/home/moben/Dokumente/Uni/Bachelorarbeit/Bachelorarbeit.bib}
-
-
+\usepackage{csquotes}
+%\usepackage{setspace}
+%\onehalfspacing
 
 \usepackage[usenames,dvipsnames,pdftex]{xcolor}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.10}
 \usepackage{pgfplotstable}
 
-%\usepackage{setspace}
-%\onehalfspacing
+%\usepackage{libertine}
+%\usepackage[libertine]{newtxmath}
+
 
 \usepackage[headsepline, ilines]{scrpage2}
 \usepackage{microtype}
@@ -29,16 +28,12 @@
 \ohead{}
 \chead{\pagemark}
 \cfoot{}
+
 \sloppy
 \recalctypearea
-\usepackage{csquotes}
+\renewcommand*{\titlepagestyle}{empty}
+\pagestyle{scrheadings}
 
-%\renewcommand*{\titlepagestyle}{scrheadings}
-%\pagestyle{scrheadings}
-%\ihead{}
-%\ohead{}
-%\chead{\pagemark}
-%\cfoot{} 
 
 % I think \PFFT/ is slightly less ugly than \PFFT{}
 \def\FFTW/{\emph{FFTW}}
@@ -122,6 +117,11 @@ eqs-within-sections
 \suppress_date false
 \justification true
 \use_refstyle 1
+\branch Fold
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -142,6 +142,23 @@ eqs-within-sections
 \end_header
 
 \begin_body
+
+\begin_layout Standard
+\begin_inset Branch Fold
+status collapsed
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Macro definitions
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Standard
 \begin_inset FormulaMacro
@@ -314,6 +331,27 @@ eqs-within-sections
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{empty} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 Erweiterung der Ewald-Summation auf nichtperiodische Randbedingungen
 \end_layout
@@ -340,6 +378,22 @@ LatexCommand tableofcontents
 
 \begin_layout Standard
 \begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{scrheadings} 
+\end_layout
+
 \end_inset
 
 
