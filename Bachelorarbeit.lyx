@@ -11,13 +11,14 @@
 %\usepackage[libertine]{newtxmath}
 
 \usepackage[style=numeric,backend=biber]{biblatex}
-\addbibresource{/home/benny/Dokumente/Uni/Bachelorarbeit/Bachelorarbeit.bib}
+\addbibresource{/home/moben/Dokumente/Uni/Bachelorarbeit/Bachelorarbeit.bib}
 
 
 
 \usepackage[usenames,dvipsnames,pdftex]{xcolor}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.8}
+\pgfplotsset{compat=1.10}
+\usepackage{pgfplotstable}
 
 %\usepackage{setspace}
 %\onehalfspacing
@@ -260,6 +261,12 @@ eqs-within-sections
 \begin_inset FormulaMacro
 \newcommand{\erfc}[1]{\operatorname{erfc}\left(#1\right)}
 {erfc\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\LambertW}[1]{\operatorname{W}\left(#1\right)}
+{\mathrm{W}\left(#1\right)}
 \end_inset
 
 
@@ -732,6 +739,10 @@ Uns interessiert hierbei für
 \phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}},\label{eq:general:potential}
 \end{equation}
 
+\end_inset
+
+ und dazugehörigen Energien 
+\begin_inset Formula $U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)$
 \end_inset
 
  sowie der Felder 
@@ -1728,7 +1739,7 @@ Damit definieren wir für
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
-  
+ 
 \begin_inset Formula 
 \begin{align*}
 \phi_{0,\mathrm{N}}\left(\v x_{j}\right) & =\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}\\
@@ -2061,6 +2072,424 @@ name "sec:Fehlerformel"
 \end_layout
 
 \begin_layout Standard
+Die folgenden Parameter sind so zu setzen, dass für die Energie eine gegebene
+ Abweichung im Quadratischen Mittel, 
+\begin_inset Formula $\Delta U_{d}$
+\end_inset
+
+ eingehalten wird:
+\end_layout
+
+\begin_layout Itemize
+Der Abschneideparameter 
+\begin_inset Formula $r_{\mathrm{cut}}$
+\end_inset
+
+ für 
+\begin_inset Formula $\phi_{d,\mathrm{N}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+der Ewald-Splitting Parameter 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+die 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NFFT/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Größe 
+\begin_inset Formula $\v M=\left(M,M,M\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+die Oversampling-Größe der 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NFFT/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\v m=\left(m,m,m\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+die Ordnung der B-Spline Fensterfunktion der 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NFFT/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+die Länge 
+\begin_inset Formula $h$
+\end_inset
+
+ des Definitionsbereichs des periodisch fortgesetzten Kerns 
+\begin_inset Formula $\KR$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+den Grad der Glattheit von 
+\begin_inset Formula $\KR$
+\end_inset
+
+, 
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Wie relevant ist die Wahl des Fensters und der Interpolationsordnung?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Parameter lassen sich wie folgt gewinnen:
+\end_layout
+
+\begin_layout Enumerate
+Zunächst werden die Parameter so gewählt, dass die 3d-periodische Ewald-Summatio
+n die gewünschte Genauigkeit erreicht.
+ Dazu wählt man 
+\begin_inset Formula $r_{\mathrm{cut}}$
+\end_inset
+
+ so, dass 
+\begin_inset Formula $\phi_{d,\mathrm{N}}$
+\end_inset
+
+ schnell approximiert werden kann.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Raten.
+ Laufzeitverhältnis nah fern betrachten.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+TODO: ursprüngliche Formel, 
+\begin_inset Formula $\LambertW{\cdot}$
+\end_inset
+
+, 
+\begin_inset Formula $Q$
+\end_inset
+
+ erläutern.
+\begin_inset Newline newline
+\end_inset
+
+Durch Auflösen der Fehlerabschätzung von Kolafa und Perram[
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+kolper
+\end_layout
+
+\end_inset
+
+] erhält man daraus 
+\begin_inset Formula 
+\[
+\alpha=\frac{1}{r_{\mathrm{cut}}}\sqrt{\LambertW{\frac{2}{\Delta U_{d}}Q\sqrt{\frac{r_{\mathrm{cut}}}{NL^{3}}}}}
+\]
+
+\end_inset
+
+ bzw 
+\begin_inset Formula 
+\[
+k_{\mathrm{cut}}=\frac{\sqrt{3}L\alpha}{2\pi}\sqrt{\LambertW{\frac{4}{3L^{2}}\left(\frac{2}{N\alpha\pi}\right)^{2/3}\left(Q\frac{2}{\Delta U_{d}}\right)^{4/3}}}.
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Da die 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NFFT/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ über die Fourierkoeffizienten bis zum Index 
+\begin_inset Formula $k_{\mathrm{cut}}$
+\end_inset
+
+ berechnet wird, muss die FFT Größe 
+\begin_inset Formula $\v M'=\left(M',M',M'\right)$
+\end_inset
+
+ groß genug sein um diese aufzunehmen.
+ Daher ist 
+\begin_inset Formula 
+\[
+M'=2\left\lceil k_{\mathrm{cut}}\right\rceil +2.
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Wie in [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NePiPo
+\end_layout
+
+\end_inset
+
+] werden wir numerisch demonstrieren, dass die Oversampling-Größe 
+\begin_inset Formula $\v m'$
+\end_inset
+
+ für einen kleinen Testfall bestimmt werden kann und anschließend der Oversampli
+ng-Faktor 
+\begin_inset Formula $\v{m'}/\v M'$
+\end_inset
+
+ sowie die B-Spline Ordnung der 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NFFT/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ für größere Systeme übernommen werden können.
+ Beide Parameter müssen so gewählt werden, dass der beider Approximation
+ durch dir 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NFFT/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ entstehende Fehler verschwindet.
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $P\in2\set N$
+\end_inset
+
+ die Anzahl der Punkte in jeder Dimension um die die FFT Größe erweitert
+ wird um die Fortsetzung von 
+\begin_inset Formula $\phi_{d,\mathrm{F}}$
+\end_inset
+
+ aufzunehmen.
+ Der Polynomgrad 
+\begin_inset Formula $p$
+\end_inset
+
+ wird so gewählt, dass 
+\begin_inset Formula $\KR$
+\end_inset
+
+ hinreichend glatt wird und 
+\begin_inset Formula $P$
+\end_inset
+
+ wird erneut numerisch mittels eines kleinen Testfalls bestimmt.
+ Beide Parameter bleiben für größere Systeme konstant.
+\end_layout
+
+\begin_layout Enumerate
+Zuletzt wird die FFT Größe 
+\begin_inset Formula $\v M=\left(M,M,M\right)$
+\end_inset
+
+ des um 
+\begin_inset Formula $P$
+\end_inset
+
+ erweiterten Systems definiert durch 
+\begin_inset Formula $M=2M'+P$
+\end_inset
+
+ .
+ Entsprechend sei 
+\begin_inset Formula $m=M\cdot\frac{m'}{M'}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Man benötigt also als Eingabeparameter nur 
+\begin_inset Formula $\Delta U_{d}$
+\end_inset
+
+ und muss numerisch auf kleinen Testsystemen 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+, 
+\begin_inset Formula $\v m'$
+\end_inset
+
+ und die Ordnung der B-Spline Fensterfunktion der 
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NFFT/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ bestimmen.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -2094,6 +2523,541 @@ name "sec:Test"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+TODO
+\end_layout
+
+\begin_layout Standard
+Überprüfen, dass Kolafa und Perram Formel für 3dp sich auch auf nicht-periodisch
+e Randbedingungen anwenden lässt.
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ hinreichend groß, plotten über 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, mehrere Kurven für verschiedene 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ Kolafa Perram 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ vergleichen mit heuristisch bestem 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Genauigkeitstest
+\end_layout
+
+\begin_layout Standard
+Wir wollen nun zeigen, dass die nichtperiodische Ewald-Summation mit der
+ Parameterwahl aus Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Fehlerformel"
+
+\end_inset
+
+ einen gegebenen Fehler einhalten kann.
+ Dazu verwenden wir wie in [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NePiPo
+\end_layout
+
+\end_inset
+
+] ein System von 
+\begin_inset Formula $N=1000$
+\end_inset
+
+ Ladungen 
+\begin_inset Formula $q_{j}=\left(-1\right)^{j}$
+\end_inset
+
+, deren Positionen 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ gleichmäßig zufällig auf den Würfel 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ der Länge 
+\begin_inset Formula $L=1$
+\end_inset
+
+ verteilt sind.
+ Damit gilt 
+\begin_inset Formula $\sum_{j=1}^{N}q_{j}=0$
+\end_inset
+
+, das System ist also ladungsneutral.
+\end_layout
+
+\begin_layout Standard
+Für dieses Ladungssystem wählen wir wie in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Fehlerformel"
+
+\end_inset
+
+ die Parameter so, dass der mittlere quadratische Fehler der Energie 
+\begin_inset Formula $\Delta U_{0}$
+\end_inset
+
+ die Größenordnung 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+ erreicht.
+ Anschließend wird die Anzahl der Ladungen auf 
+\begin_inset Formula $N=1000+11000n$
+\end_inset
+
+, 
+\begin_inset Formula $n=\range 19$
+\end_inset
+
+ und entsprechend die Kantenlänge 
+\begin_inset Formula $L$
+\end_inset
+
+ des Systems auf 
+\begin_inset Formula $L=\sqrt[3]{N}$
+\end_inset
+
+ erhöht und überprüft, ob mit den gleichen Parametern die Genauigkeit von
+ 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+ weiterhin eingehalten wird.
+\end_layout
+
+\begin_layout Standard
+Dazu wählen wir zunächst die Parameter für die 3d-periodische Ewald-Summation
+ auf dem gleichen System.
+ Wir setzen 
+\begin_inset Formula $r_{\mathrm{cut}}=0,62$
+\end_inset
+
+, so dass der Anteil an Rechenzeit im Nah- und Fernfeld gleich groß wird.
+ Daraus ergeben sich nach [KolafaPerram] 
+\begin_inset Formula $\alpha=7,489225$
+\end_inset
+
+ und die FFT-Größe 
+\begin_inset Formula $M'\in2\set N$
+\end_inset
+
+.
+ Dann werden der Oversampling-Faktor 
+\begin_inset Formula $m'/M'$
+\end_inset
+
+ und die B-Spline Ordnung so ermittelt, dass der durch die NFFT entstehende
+ Fehler nicht mehr sichtbar ist.
+ Hier wird dies für 
+\begin_inset Formula $m'/M'=1,23$
+\end_inset
+
+ und eine B-Spline Ordnung von 
+\begin_inset Formula $7$
+\end_inset
+
+ erreicht.
+\end_layout
+
+\begin_layout Standard
+Anschließend wählen wir 
+\begin_inset Formula $p=10$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\KR$
+\end_inset
+
+ 
+\begin_inset Formula $9$
+\end_inset
+
+-mal stetig differenzierbar ist und setzen die Anzahl an Regularisierungsknoten
+ 
+\begin_inset Formula $P\in2\set N$
+\end_inset
+
+ so, dass die gewünschte Genauigkeit erreicht wird.
+ Zuletzt sei 
+\begin_inset Formula $M=2M'+P$
+\end_inset
+
+ und 
+\begin_inset Formula $m=1.23M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wie Tabelle 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "table:0dp-error"
+
+\end_inset
+
+ zu entnehmen ist wird die gewünschte Genauigkeit für alle Testgrößen eingehalte
+n.
+ Allerdings steigt der Fehler stetig an.
+ TODO: Warum? bug? falsch gemessen? 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/test.0dp.N.txt}
+\backslash
+ndptest
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstabletypesetfile[
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns={N,L,h,M0,m0,abs_energy},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/N/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		fixed, dec sep align,
+\end_layout
+
+\begin_layout Plain Layout
+
+		set thousands separator={
+\backslash
+,}
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/abs_energy/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		column name=$
+\backslash
+Delta U$,
+\end_layout
+
+\begin_layout Plain Layout
+
+		sci precision=2, sci zerofill, sci e
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/M0/.style={column name=$M$},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/m0/.style={column name=$m$},
+\end_layout
+
+\begin_layout Plain Layout
+
+	column type/.add={|}{},
+\end_layout
+
+\begin_layout Plain Layout
+
+	every first column/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		column type={c}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+]{
+\backslash
+ndptest}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "table:0dp-error"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Erreichte Genauigkeit
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{axis}[
+\end_layout
+
+\begin_layout Plain Layout
+
+		title=Laufzeit der nichtperiodischen Ewald-Summation,
+\end_layout
+
+\begin_layout Plain Layout
+
+		xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+		ylabel={Zeit[Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot table [y=rt-run] {
+\backslash
+ndptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot table [y=rt-near] {
+\backslash
+ndptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot table [y=rt-far] {
+\backslash
+ndptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "graph:0dp-time"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+rot: Nahfeld
+\begin_inset Newline newline
+\end_inset
+
+braun: Fernfeld
+\begin_inset Newline newline
+\end_inset
+
+blau: Gesamtzeit
+\begin_inset Newline newline
+\end_inset
+
+TODO: Vergleich zur 3dp Summation kommt noch
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Zeigen, dass Parameter aus kleinen Testgrößen auch bei großen Systemen verwendet
+ werden können und den gleichen Fehler einhalten.
+\begin_inset Newline newline
+\end_inset
+
+Bestimme 
+\begin_inset Formula $\v m/\v M$
+\end_inset
+
+, B-Spline, 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+, führe Tests mit verschiedenen Größen durch.
+ Vergleiche Fehler.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+TODO
+\end_layout
+
+\begin_layout Standard
+Vergleich Laufzeit 3dp, gleiche Genauigkeit
 \end_layout
 
 \begin_layout Standard
