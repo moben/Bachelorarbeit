@@ -329,6 +329,22 @@ Benedikt Morbach
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Einleitung
 \begin_inset CommandInset label
