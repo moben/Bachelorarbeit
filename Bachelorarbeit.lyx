@@ -417,9 +417,13 @@ Viele Anwendungen erfordern die Simulation von Partikelsystemen und somit
  die Berechnung der Kräfte die auf die einzelnen Partikel wirken.
  Ein Beispiel hierfür ist die Simulation von Plasma, für die die Coulomb-Wechsel
 wirkungen in Systemen geladener Teilchen berechnet werden müssen.
- Eine vielzahl von Algorithmen wurden entwickelt um diese und andere Wechselwirk
-ungen effizient zu simulieren.
- 
+ Eine Vielzahl von Algorithmen wurde entwickelt um diese und andere Wechselwirku
+ngen effizient zu simulieren.
+ Oft wird angenommen, dass das betrachtete System in allen drei Raumdimensionen
+ periodisch ist.
+ Ein weit verbreiteter Ansatz um die Interaktionen in einem solchen System
+ zu berechnen ist die Ewald Summation, die die auf jeden Partikel wirkende
+ Kraft in einen langreichweitigen und einen kurzeichweitigen Anteil aufteilt.
 \end_layout
 
 \begin_layout Standard
