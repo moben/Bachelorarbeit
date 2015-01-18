@@ -417,6 +417,8 @@ Viele Anwendungen erfordern die Simulation von Partikelsystemen und somit
  die Berechnung der Kräfte die auf die einzelnen Partikel wirken.
  Ein Beispiel hierfür ist die Simulation von Plasma, für die die Coulomb-Wechsel
 wirkungen in Systemen geladener Teilchen berechnet werden müssen.
+ Eine vielzahl von Algorithmen wurden entwickelt um diese und andere Wechselwirk
+ungen effizient zu simulieren.
  
 \end_layout
 
