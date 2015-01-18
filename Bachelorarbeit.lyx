@@ -413,6 +413,38 @@ name "sec:Einleitung"
 \end_layout
 
 \begin_layout Standard
+Viele Anwendungen erfordern die Simulation von Partikelsystemen und somit
+ die Berechnung der Kräfte die auf die einzelnen Partikel wirken.
+ Ein Beispiel hierfür ist die Simulation von Plasma, für die die Coulomb-Wechsel
+wirkungen in Systemen geladener Teilchen berechnet werden müssen.
+ 
+\end_layout
+
+\begin_layout Standard
+3dp O(N²)
+\end_layout
+
+\begin_layout Standard
+Ewald
+\end_layout
+
+\begin_layout Standard
+fft / nfft? -> O(N logN)
+\end_layout
+
+\begin_layout Standard
+2dp/1dp
+\end_layout
+
+\begin_layout Standard
+-> 0dp
+\end_layout
+
+\begin_layout Standard
+ScaFaCoS
+\end_layout
+
+\begin_layout Standard
 Das Coulomb-Problem kann mit Hilfe der Ewald-Summation[
 \begin_inset Note Note
 status open
