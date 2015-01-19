@@ -485,25 +485,75 @@ j\neq k
 
  ignoriert werden.
  Ein weit verbreiteter Ansatz um die Interaktionen in einem solchen periodischen
- System zu berechnen ist die Ewald-Summation, die diese Summe in zwei schnell
- konvergierende Summen aufteilt.
+ System zu berechnen ist die Ewald-Summation[
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ewald
+\end_layout
+
+\end_inset
+
+], die diese Summe in zwei Summen aufteilt von denen Eine im Ortsraum und
+ die Andere im Frequenzraum schnell konvergiert.
  Diese können dann mit unterschiedlichen Methoden einzeln approximiert werden.
+ So lässt sich beispielsweise durch Approximation der Summe im Frequenzraum
+ mit Hilfe der nicht-äquidistanten schnellen Fourier-Transformation (NFFT)
+ eine Komplexität von 
+\begin_inset Formula $\O{N\log N}$
+\end_inset
+
+ erreichen.
 \end_layout
 
 \begin_layout Standard
-fft / nfft? -> O(N logN)
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+fft -> O(N log N), fmm -> O(N)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+In [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NePiPo
+\end_layout
+
+\end_inset
+
+] wurde dieser Ansatz auf Systeme verallgemeinert, die nur eine oder zwei
+ der Dimensionen periodisch sind.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 2dp/1dp
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 -> 0dp
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 ScaFaCoS
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
