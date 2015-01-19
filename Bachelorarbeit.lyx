@@ -688,50 +688,47 @@ NePiPo
 
 ] Algorithmen für die Berechnung der Energie in 1d- und 2-periodischen Systemen
  entwickelt wurden auf den 0d-periodischen Fall an.
- Dabei wird vor allem darauf eingegangen wie man die Eingabe periodisch
- approximieren muss um NFFT-basierte Methoden mit einer hinreichend hohen
- Genauigkeit anwenden kann.
-\end_layout
+ Dabei entwickeln wir zunächst in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:0d-Ewald-Theore"
 
-\begin_layout Standard
-Abschnitt 
+\end_inset
+
+ die Regularisierung, die die Summe durch eine periodische Funktion annähert
+ und es erlaubt die nur für periodische Daten definierte NFFT zur effizienten
+ Berechnung der Summe anzuwenden.
+ In Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Fehlerformel"
 
 \end_inset
 
- erläutert wie die Parameter des Algorithmus aus Abschnitt 
+ erweitern wir die Betrachtung der Parameter aus Kapitel 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chapter:3d-Ewald"
 
 \end_inset
 
- gewählt werden müssen, damit ein vorgegebener Fehler nicht überschritten
- wird.
-\end_layout
-
-\begin_layout Standard
-Zuletzt wird in Abschnitt 
+ um die bei der Regularisierung auftretenden Parameter und geben erneut
+ eine Möglichkeit an wie diese gewählt werden können, damit ein vorgegebener
+ Fehler nicht überschritten wird.
+ Zuletzt überprüfen wir in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Test"
 
 \end_inset
 
- numerisch untersucht, ob inwiefern die Fehlerformel aus Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Fehlerformel"
-
-\end_inset
-
- auch auf den neuen Algorithmus für den nicht-periodischen Fall anwendbar
- ist.
- Außerdem wird die Geschwindigkeit der Implementierung des neuen Algorithmus
- mit der eines ähnlichen Algorithmus verglichen, der bereits innerhalb der
- ScaFaCos Bibliothek implementiert ist.
+ numerisch diese Parameterwahl und zeigen, dass die gewählte Genauigkeit
+ erreicht werden kann.
+ Außerdem betrachten wir die Geschwindigkeit der Implementierung des neuen
+ Algorithmus und vergleichen diese sowohl mit der Geschwindigkeit der 3d-periodi
+schen Ewald-Summation als auch der einer nicht-Ewald Methode für 0d-periodische
+ Systeme, die beide bereits in der P2NFFT Bibliothek als Teil von ScaFaCoS
+ implementiert sind.
 \end_layout
 
 \begin_layout Standard
@@ -772,7 +769,7 @@ Warum 0D-periodisch?
 \end_layout
 
 \begin_layout Plain Layout
-Warum neuer Algorithmus?
+Warum neuer Algorithmus? -> Fehler im Griff
 \end_layout
 
 \end_inset
