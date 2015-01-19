@@ -606,7 +606,7 @@ reference "sec:Problemstellung"
 
 \end_inset
 
- wird das Coulomb-Problem allgemein eingeführt.
+ das Coulomb-Problem allgemein eingeführt.
  Dabei wird die algorithmische Komplexität einer direkten Berechnung betrachtet.
  
 \begin_inset Note Note
@@ -642,17 +642,18 @@ reference "sec:NFFT"
 \end_layout
 
 \begin_layout Standard
-Abschnitt 
+Kapitel 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chapter:3d-Ewald"
 
 \end_inset
 
- fasst die Lösung des 3d-periodischen Problems mittels der Ewald-Notation
- zusammen.
- Und erläutert an welchen Stellen in diesem Algorithmus durch die Approximation
- Fehler entstehen.
+ erläutert die Ewald-Summation des 3d-periodischen Problems, sowie die schnelle
+ Berechnung der Energie mittels der NFFT.
+ Insbesondere betrachten wir dabei wie die Parameter der Approximation die
+ Genauigkeit des Ergebnisses beeinflussen und geben eine Möglichkeit an
+ diese so zu wählen, dass eine gewünschte Genauigkeit erreicht wird.
  
 \begin_inset Note Note
 status open
@@ -668,14 +669,14 @@ status open
 \end_layout
 
 \begin_layout Standard
-In Abschnitt 
+In Kapitel 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chapter:0d-Ewald"
 
 \end_inset
 
- werden die Verfahren mit in [
+ wenden wir die Verfahren mit denen in [
 \begin_inset Note Note
 status open
 
@@ -685,8 +686,8 @@ NePiPo
 
 \end_inset
 
-] denen Algorithmen für das 1d- und 2-periodische Coulomb-Problem entwickelt
- wurden auf den 0d-periodischen Fall angewandt.
+] Algorithmen für die Berechnung der Energie in 1d- und 2-periodischen Systemen
+ entwickelt wurden auf den 0d-periodischen Fall an.
  Dabei wird vor allem darauf eingegangen wie man die Eingabe periodisch
  approximieren muss um NFFT-basierte Methoden mit einer hinreichend hohen
  Genauigkeit anwenden kann.
