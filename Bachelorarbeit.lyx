@@ -504,7 +504,27 @@ ewald
 \begin_inset Formula $\O{N\log N}$
 \end_inset
 
- erreichen.
+ erreichen, wie 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+beispielsweise?
+\end_layout
+
+\end_inset
+
+ in [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+potts,seidel?,
+\end_layout
+
+\end_inset
+
+] gezeigt wurde.
 \end_layout
 
 \begin_layout Standard
@@ -533,19 +553,17 @@ NePiPo
 
 ] wurde dieser Ansatz auf Systeme verallgemeinert, die nur eine oder zwei
  der Dimensionen periodisch sind.
-\end_layout
+ Dazu der Summand in den nicht-periodischen Dimensionen zunächst durch eine
+ periodische Funktion, bzw deren Fourier-Reihe approximiert.
+ Anschließend kann die Summe erneut mittels der NFFT in 
+\begin_inset Formula $\O{N\log N}$
+\end_inset
 
-\begin_layout Standard
+ arithmetischen Operationen berechnet werden.
+ Diese NFFT basierten Algorithmen sind als P2NFFT, neben anderen Methoden
+ zur Simulation der Coulomb-Wechselwirkungen in der ScaFaCoS[
 \begin_inset Note Note
 status open
-
-\begin_layout Plain Layout
-2dp/1dp
-\end_layout
-
-\begin_layout Plain Layout
--> 0dp
-\end_layout
 
 \begin_layout Plain Layout
 ScaFaCoS
@@ -553,68 +571,14 @@ ScaFaCoS
 
 \end_inset
 
-
+] (Scalable Fast Coulomb Solvers) Softwarebibliothek implementiert.
 \end_layout
 
 \begin_layout Standard
-Das Coulomb-Problem kann mit Hilfe der Ewald-Summation[
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ewald
-\end_layout
-
-\end_inset
-
-] und der schnellen Summation mittels nicht-äquidistanter schnellen Fourier-Tran
-sformationen[
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-potts
-\end_layout
-
-\end_inset
-
-] (NFFT) gelöst werden.
- Für 3-periodische Randbedingungen wurde Dies in [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-potts,seidel?,
-\end_layout
-
-\end_inset
-
-] behandelt.
- Die dabei verwendeten Algorithmen wurden in [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NePiPo
-\end_layout
-
-\end_inset
-
-] auf 2d- und 1d-periodische Randbedingungen erweitert.
- Im Zuge dieser Arbeit werden diese Erkenntnisse auf das Coulomb-Problem
- mit nichtperiodischen Randbedingungen angewendet.
+Im Zuge dieser Arbeit werden diese Erkenntnisse auf das Problem mit nichtperiodi
+schen Randbedingungen angewendet.
  Außerdem wird der dabei gewonnene Algorithmus innerhalb der ScaFaCos Bibliothek
-[
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-scafacos
-\end_layout
-
-\end_inset
-
-] implementiert.
+ implementiert.
  Im Folgenden wird der Aufbau der Arbeit kurz erläutert.
 \end_layout
 
