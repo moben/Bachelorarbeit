@@ -535,26 +535,30 @@ scafacos
 \end_layout
 
 \begin_layout Standard
-In Abschnitt 
+In Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chapter:Grundlagen"
+
+\end_inset
+
+ werden zunächst in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Notation"
 
 \end_inset
 
- werden zunächst einige Notationen eingeführt, die im weiteren Verlauf der
- Arbeit verwendet werden.
-\end_layout
-
-\begin_layout Standard
-In Abschnitt 
+ einige Notationen eingeführt, die im weiteren Verlauf der Arbeit verwendet
+ werden.
+ Anschließend wird in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Problemstellung"
 
 \end_inset
 
- wird zunächst das Coulomb-Problem eingeführt.
+ wird das Coulomb-Problem allgemein eingeführt.
  Dabei wird die algorithmische Komplexität einer direkten Berechnung betrachtet.
  
 \begin_inset Note Note
@@ -597,7 +601,7 @@ reference "sec:NFFT"
 Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:3d-Ewald"
+reference "chapter:3d-Ewald"
 
 \end_inset
 
@@ -623,7 +627,7 @@ status open
 In Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:0d-Ewald"
+reference "chapter:0d-Ewald"
 
 \end_inset
 
@@ -655,7 +659,7 @@ reference "sec:Fehlerformel"
  erläutert wie die Parameter des Algorithmus aus Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:3d-Ewald"
+reference "chapter:3d-Ewald"
 
 \end_inset
 
@@ -740,6 +744,13 @@ Warum neuer Algorithmus?
 
 \begin_layout Section
 Grundlagen
+\begin_inset CommandInset label
+LatexCommand label
+name "chapter:Grundlagen"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1497,7 +1508,7 @@ aNFFT/
 3d-periodische Ewald Summation
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:3d-Ewald"
+name "chapter:3d-Ewald"
 
 \end_inset
 
@@ -1806,7 +1817,7 @@ Dies kann effizient berechnet werden durch eine adjungierte NFFT
 Nichtperiodische Ewald Summation
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:0d-Ewald"
+name "chapter:0d-Ewald"
 
 \end_inset
 
@@ -1815,6 +1826,13 @@ name "sec:0d-Ewald"
 
 \begin_layout Subsection
 Theorie
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:0d-Ewald-Theore"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3221,7 +3239,7 @@ Wie stellt man das sicher? → Fehlerformel
 Fazit
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Fazit"
+name "chapter:Fazit"
 
 \end_inset
 
