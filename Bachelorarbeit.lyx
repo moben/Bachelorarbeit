@@ -2731,7 +2731,11 @@ name "sec:Test"
 \end_layout
 
 \begin_layout Subsubsection
-TODO
+Überprüfung der Fehlerformel, optimales 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3258,7 +3262,7 @@ Bestimme
 \end_layout
 
 \begin_layout Subsubsection
-TODO
+Laufzeitvergleich 3dp
 \end_layout
 
 \begin_layout Standard
@@ -3280,6 +3284,10 @@ Wie stellt man das sicher? → Fehlerformel
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Laufzeitvergleich 0dp
 \end_layout
 
 \begin_layout Section
