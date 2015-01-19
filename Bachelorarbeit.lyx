@@ -575,10 +575,15 @@ ScaFaCoS
 \end_layout
 
 \begin_layout Standard
-Im Zuge dieser Arbeit werden diese Erkenntnisse auf das Problem mit nichtperiodi
-schen Randbedingungen angewendet.
- Außerdem wird der dabei gewonnene Algorithmus innerhalb der ScaFaCos Bibliothek
- implementiert.
+Ziel dieser Arbeit ist es diese Erkenntnisse auf das Problem mit nicht-periodisc
+hen Randbedingungen anzuwenden und eine Ewald-Summation für nicht-periodische
+ Systeme innerhalb der P2NFFT zu implementieren.
+ Gegenüber des bereits in der P2NFFT vorhandenen nicht Ewald-basierten Algorithm
+us hat dieser den Vorteil, dass für Ewald-Methoden der bei der Approximation
+ entstehende Fehler leicht vorhersagbar ist.
+ Da sich diese Fehlerbetrachtung schon auf den 2d- und 3d-periodischen Algorithm
+us übertragen ließ, gehen wir davon aus, dass dies auch im nicht-periodischen
+ Fall gelingt.
  Im Folgenden wird der Aufbau der Arbeit kurz erläutert.
 \end_layout
 
