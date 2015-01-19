@@ -200,6 +200,12 @@ Macro definitions
 \end_inset
 
 
+\begin_inset FormulaMacro
+\renewcommand{\O}[1]{\operatorname{\mathcal{O}}\left(#1\right)}
+{\mathcal{O}\left(#1\right)}
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -415,15 +421,31 @@ name "sec:Einleitung"
 \begin_layout Standard
 Viele Anwendungen erfordern die Simulation von Partikelsystemen und somit
  die Berechnung der Kräfte die auf die einzelnen Partikel wirken.
- Ein Beispiel hierfür ist die Simulation von Plasma, für die die Coulomb-Wechsel
-wirkungen in Systemen geladener Teilchen berechnet werden müssen.
- Eine Vielzahl von Algorithmen wurde entwickelt um diese und andere Wechselwirku
-ngen effizient zu simulieren.
+ Beispiele hierfür sind die Gravitationskräfte zwischen Massenteilchen oder
+ die Coulomb-Wechselwirkungen in Systemen geladener Teilchen.
+ Da die direkte Berechnung der Wechselwirkungen zwischen 
+\begin_inset Formula $N$
+\end_inset
+
+ Partikeln eine Komplexität von 
+\begin_inset Formula $\O{N^{2}}$
+\end_inset
+
+ hat wurde eine Vielzahl von Algorithmen entwickelt um diese zu reduzieren.
  Oft wird angenommen, dass das betrachtete System in allen drei Raumdimensionen
  periodisch ist.
- Ein weit verbreiteter Ansatz um die Interaktionen in einem solchen System
- zu berechnen ist die Ewald Summation, die die auf jeden Partikel wirkende
- Kraft in einen langreichweitigen und einen kurzeichweitigen Anteil aufteilt.
+ Dabei müssen jedoch für jeden Partikel nicht nur die Interaktionen mit
+ 
+\begin_inset Formula $N-1$
+\end_inset
+
+ anderen Partikeln betrachtet werden, sondern durch die Periodizität sogar
+ unendlich viele.
+ Ein weit verbreiteter Ansatz um die Interaktionen in einem solchen periodischen
+ System zu berechnen ist die Ewald-Summation, die die auf jeden Partikel
+ wirkende Kraft in einen langreichweitigen und einen kurzeichweitigen Anteil
+ aufteilt.
+ Diese können einzeln approximiert werden.
 \end_layout
 
 \begin_layout Standard
@@ -717,6 +739,10 @@ Warum neuer Algorithmus?
 \end_layout
 
 \begin_layout Section
+Grundlagen
+\end_layout
+
+\begin_layout Subsection
 Notation
 \begin_inset CommandInset label
 LatexCommand label
@@ -776,7 +802,7 @@ Damit ist auch
 definiert.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Problemstellung
 \begin_inset CommandInset label
 LatexCommand label
@@ -933,7 +959,7 @@ Dabei bezeichnet
  von nichtperiodischen Randbedingungen.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 NFFT
 \begin_inset CommandInset label
 LatexCommand label
@@ -1787,6 +1813,10 @@ name "sec:0d-Ewald"
 
 \end_layout
 
+\begin_layout Subsection
+Theorie
+\end_layout
+
 \begin_layout Standard
 Für 
 \begin_inset Formula $d=0$
@@ -2170,7 +2200,7 @@ NFFT
  berechnet werden.
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Fehlerformel
 \begin_inset CommandInset label
 LatexCommand label
@@ -2624,7 +2654,7 @@ NFFT muss hinreichend genau sein.
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Laufzeit- und Ergebnisvergleich
 \begin_inset CommandInset label
 LatexCommand label
@@ -2635,7 +2665,7 @@ name "sec:Test"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 TODO
 \end_layout
 
@@ -2666,7 +2696,7 @@ e Randbedingungen anwenden lässt.
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Genauigkeitstest
 \end_layout
 
@@ -3162,7 +3192,7 @@ Bestimme
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 TODO
 \end_layout
 
