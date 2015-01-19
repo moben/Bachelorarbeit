@@ -459,26 +459,35 @@ j\neq k
  hat wurde eine Vielzahl von Algorithmen entwickelt um diese zu reduzieren.
  Oft wird angenommen, dass das betrachtete System in allen drei Raumdimensionen
  periodisch ist.
- Dabei müssen jedoch für jeden Partikel nicht nur die Interaktionen mit
- 
-\begin_inset Formula $N-1$
+ Bei einer Periode von 
+\begin_inset Formula $L\in\set R$
 \end_inset
 
- anderen Partikeln betrachtet werden, sondern durch die Periodizität sogar
- unendlich viele.
+ in jeder Dimension ist dann die Energie des Systems gegeben durch 
+\begin_inset Formula 
+\[
+\sum_{\v n\in\set N^{3}}\sum_{k=1}^{N}\nsum{j=1}N\frac{q_{j}q_{k}}{\norm{\v x_{j}-\v x_{k}+\v nL}{}}.
+\]
+
+\end_inset
+
+ Dabei bedeutet 
+\begin_inset Formula $\nsum{}{}$
+\end_inset
+
+, dass für 
+\begin_inset Formula $\v n=\v 0$
+\end_inset
+
+ die Terme 
+\begin_inset Formula $k=j$
+\end_inset
+
+ ignoriert werden.
  Ein weit verbreiteter Ansatz um die Interaktionen in einem solchen periodischen
- System zu berechnen ist die Ewald-Summation, die die auf jeden Partikel
- wirkende Kraft in einen langreichweitigen und einen kurzeichweitigen Anteil
- aufteilt.
- Diese können einzeln approximiert werden.
-\end_layout
-
-\begin_layout Standard
-3dp O(N²)
-\end_layout
-
-\begin_layout Standard
-Ewald
+ System zu berechnen ist die Ewald-Summation, die diese Summe in zwei schnell
+ konvergierende Summen aufteilt.
+ Diese können dann mit unterschiedlichen Methoden einzeln approximiert werden.
 \end_layout
 
 \begin_layout Standard
