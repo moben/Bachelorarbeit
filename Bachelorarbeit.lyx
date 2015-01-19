@@ -423,6 +423,31 @@ Viele Anwendungen erfordern die Simulation von Partikelsystemen und somit
  die Berechnung der Kräfte die auf die einzelnen Partikel wirken.
  Beispiele hierfür sind die Gravitationskräfte zwischen Massenteilchen oder
  die Coulomb-Wechselwirkungen in Systemen geladener Teilchen.
+ Beispielsweise ist für 
+\begin_inset Formula $N$
+\end_inset
+
+ Ladungen 
+\begin_inset Formula $q_{j}\in\set R$
+\end_inset
+
+ und deren jeweilige Position im Raum 
+\begin_inset Formula $\v x_{j}\in\set R^{3}$
+\end_inset
+
+ die potentielle Energie des Systems bis auf einen konstanten Faktor durch
+ 
+\begin_inset Formula 
+\[
+\sum_{k=1}^{N}\sum_{\substack{j=1\\
+j\neq k
+}
+}^{N}\frac{q_{j}q_{k}}{\norm{\v x_{j}-\v x_{k}}{}}
+\]
+
+\end_inset
+
+ gegeben.
  Da die direkte Berechnung der Wechselwirkungen zwischen 
 \begin_inset Formula $N$
 \end_inset
@@ -581,11 +606,7 @@ TODO
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-In Abschnitt 
+ In Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:NFFT"
