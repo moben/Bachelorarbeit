@@ -14,9 +14,11 @@
 %\onehalfspacing
 
 \usepackage[usenames,dvipsnames,pdftex]{xcolor}
+\usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.10}
 \usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
 
 %\usepackage{libertine}
 %\usepackage[libertine]{newtxmath}
@@ -84,6 +86,7 @@ eqs-within-sections
 \output_sync 0
 \bibtex_command biber
 \index_command default
+\float_placement h
 \paperfontsize default
 \spacing single
 \use_hyperref true
@@ -2959,6 +2962,15 @@ pgfplotstableread{data/test.0dp.N.txt}
 ndptest
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/test.3dp.N.txt}
+\backslash
+tdptest
+\end_layout
+
 \end_inset
 
 
@@ -2966,7 +2978,6 @@ ndptest
 
 \begin_layout Standard
 \begin_inset Float table
-placement h
 wide false
 sideways false
 status open
@@ -3097,13 +3108,18 @@ Erreichte Genauigkeit
 \end_inset
 
 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Separate versions of figure below
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \noindent
@@ -3122,12 +3138,7 @@ begin{tikzpicture}
 
 	
 \backslash
-begin{axis}[
-\end_layout
-
-\begin_layout Plain Layout
-
-		title=Laufzeit der nichtperiodischen Ewald-Summation,
+begin{loglogaxis}[
 \end_layout
 
 \begin_layout Plain Layout
@@ -3139,7 +3150,38 @@ begin{axis}[
 
 \begin_layout Plain Layout
 
-		ylabel={Zeit[Sekunden]},
+		ylabel={Zeit [Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend cell align=left,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend pos=outer north east,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend entries={
+\end_layout
+
+\begin_layout Plain Layout
+
+			nicht-periodisch Gesamtzeit,nicht-periodisch Fernfeld,nicht-periodisch
+ Nahfeld,
+\end_layout
+
+\begin_layout Plain Layout
+
+			3d-periodisch Gesamtzeit,3d-periodisch Fernfeld,3d-periodisch Nahfeld
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
 \end_layout
 
 \begin_layout Plain Layout
@@ -3151,7 +3193,7 @@ begin{axis}[
 
 		
 \backslash
-addplot table [y=rt-run] {
+addplot+[mark=o,color=orange]   table [y=rt-run]  {
 \backslash
 ndptest};
 \end_layout
@@ -3160,7 +3202,7 @@ ndptest};
 
 		
 \backslash
-addplot table [y=rt-near] {
+addplot+[mark=o,color=darkgray]  table [y=rt-far]  {
 \backslash
 ndptest};
 \end_layout
@@ -3169,16 +3211,43 @@ ndptest};
 
 		
 \backslash
-addplot table [y=rt-far] {
+addplot+[mark=o,color=magenta] table [y=rt-near] {
 \backslash
 ndptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot+[mark=triangle,color=orange]   table [y=rt-run]  {
+\backslash
+tdptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot+[mark=triangle,color=darkgray] table [y=rt-far]  {
+\backslash
+tdptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot+[mark=triangle,color=magenta]  table [y=rt-near] {
+\backslash
+tdptest};
 \end_layout
 
 \begin_layout Plain Layout
 
 	
 \backslash
-end{axis}
+end{loglogaxis}
 \end_layout
 
 \begin_layout Plain Layout
@@ -3201,19 +3270,12 @@ name "graph:0dp-time"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-rot: Nahfeld
-\begin_inset Newline newline
+Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT
+\end_layout
+
 \end_inset
 
-braun: Fernfeld
-\begin_inset Newline newline
-\end_inset
 
-blau: Gesamtzeit
-\begin_inset Newline newline
-\end_inset
-
-TODO: Vergleich zur 3dp Summation kommt noch
 \end_layout
 
 \end_inset
@@ -3222,6 +3284,417 @@ TODO: Vergleich zur 3dp Summation kommt noch
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{semilogxaxis}[
+\end_layout
+
+\begin_layout Plain Layout
+
+		xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+		ylabel={Zeit/Ladung [Sekunden]}
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot+[mark=o,color=orange]   table [y expr=
+\backslash
+thisrow{rt-run}/
+\backslash
+thisrow{N}]  {
+\backslash
+ndptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+addplot+[mark=triangle,color=orange]   table [y expr=
+\backslash
+thisrow{rt-run}/
+\backslash
+thisrow{N}]  {
+\backslash
+tdptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{semilogxaxis}		
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=0.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{groupplot}[
+\end_layout
+
+\begin_layout Plain Layout
+
+		group style={
+\end_layout
+
+\begin_layout Plain Layout
+
+			group size=2 by 1,
+\end_layout
+
+\begin_layout Plain Layout
+
+			horizontal sep=1.5cm
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend columns=2,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend cell align=left,
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+			ylabel={Zeit [Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			ymode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			legend to name=grouplegend,
+\end_layout
+
+\begin_layout Plain Layout
+
+			legend style={/tikz/every even column/.append style={column sep=0.5cm}}
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=orange]   table [y=rt-run]   {
+\backslash
+ndptest};  
+\backslash
+addlegendentry{nicht-periodisch Gesamtzeit}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=orange]   table [y=rt-run]   {
+\backslash
+tdptest};  
+\backslash
+addlegendentry{3d-periodisch Gesamtzeit}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=magenta]  table [y=rt-near]  {
+\backslash
+ndptest};  
+\backslash
+addlegendentry{nicht-periodisch Nahfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=magenta]  table [y=rt-near]  {
+\backslash
+tdptest};  
+\backslash
+addlegendentry{3d-periodisch Nahfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=darkgray] table [y=rt-far]   {
+\backslash
+ndptest};  
+\backslash
+addlegendentry{nicht-periodisch Fernfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=darkgray] table [y=rt-far]   {
+\backslash
+tdptest};  
+\backslash
+addlegendentry{3d-periodisch Fernfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+			ylabel={Zeit/Ladung [Sekunden]}
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=orange]   table [y expr=
+\backslash
+thisrow{rt-run}/
+\backslash
+thisrow{N}]  {
+\backslash
+ndptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=orange]   table [y expr=
+\backslash
+thisrow{rt-run}/
+\backslash
+thisrow{N}]  {
+\backslash
+tdptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (legend) at ($(group c1r1.south)!0.5!(group c2r1.south)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+		[below, yshift=-2
+\backslash
+pgfkeysvalueof{/pgfplots/every axis title shift}]
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\backslash
+ref{grouplegend}};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "table:0dp-error-1"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT,
+ jeweils mit 
+\begin_inset Formula $r_{\mathrm{cut}}=0,62$
+\end_inset
+
+.
+ Als Oversampling-Faktor wurde in beiden Fällen 
+\begin_inset Formula $1,23$
+\end_inset
+
+ und als B-Spline Ordnung 7 gewählt.
+ Im nicht-periodischen Fall wurde 
+\begin_inset Formula $p=10$
+\end_inset
+
+ und 
+\begin_inset Formula $P=40$
+\end_inset
+
+ gewählt.
+ Damit wurde in beiden Tests ein RMS Fehler der Energie von 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+ nicht überschritten.
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
