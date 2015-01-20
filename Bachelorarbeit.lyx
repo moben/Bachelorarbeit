@@ -469,7 +469,7 @@ j\neq k
  in jeder Dimension ist dann die Energie des Systems gegeben durch 
 \begin_inset Formula 
 \[
-\sum_{\v n\in\set N^{3}}\sum_{k=1}^{N}\nsum{j=1}N\frac{q_{j}q_{k}}{\norm{\v x_{j}-\v x_{k}+\v nL}{}}.
+\sum_{\v n\in\set Z^{3}}\sum_{k=1}^{N}\nsum{j=1}N\frac{q_{j}q_{k}}{\norm{\v x_{j}-\v x_{k}+\v nL}{}}.
 \]
 
 \end_inset
@@ -815,11 +815,13 @@ name "sec:Notation"
 \end_layout
 
 \begin_layout Standard
-Seien 
+In diesem Kapitel werden wir zunächst einige Notationen einführen, die im
+ weiteren Verlauf der Arbeit verwendet werden.
+ Seien dazu drei Vektoren 
 \begin_inset Formula $\v k,\v j,\v M\in\set R^{3}$
 \end_inset
 
- drei Vektoren, 
+ gegeben, mit 
 \begin_inset Formula $\v k=\left(k_{1},k_{2},k_{3}\right)$
 \end_inset
 
@@ -832,35 +834,80 @@ Seien
 \end_inset
 
 .
- Dann definieren wir 
+ Dann definieren wir für 
+\begin_inset Formula $0\not\in\left\{ M_{1},M_{2},M_{3}\right\} $
+\end_inset
+
+ das Reziproke von 
+\begin_inset Formula $\v M$
+\end_inset
+
+ als 
 \begin_inset Formula 
 \begin{align*}
-\frac{1}{\v M} & \coloneqq\left(\frac{1}{M_{1}},\frac{1}{M_{2}},\frac{1}{M_{3}}\right),
+\frac{1}{\v M} & \coloneqq\left(\frac{1}{M_{1}},\frac{1}{M_{2}},\frac{1}{M_{3}}\right).
 \end{align*}
 
 \end_inset
 
- sowie das komponentenweise Produkt 
+Des Weiteren bezeichnen wir das komponentenweise Produkt von 
+\begin_inset Formula $\v k$
+\end_inset
+
+ und 
+\begin_inset Formula $\v j$
+\end_inset
+
+ mit 
 \begin_inset Formula $\v k\odot\v j\coloneqq\left(k_{1}j_{1},k_{2}j_{2},k_{3}j_{3}\right)$
 \end_inset
 
- und das Skalarprodukt 
+ und das Skalarprodukt von 
+\begin_inset Formula $\v k$
+\end_inset
+
+ und 
+\begin_inset Formula $\v j$
+\end_inset
+
+ mit 
 \begin_inset Formula $\v k\v j\coloneqq\norm{\v k\odot\v j}1=k_{1}j_{1}+k_{2}j_{2}+k_{3}j_{3}$
 \end_inset
 
 .
+ Damit ist auch 
+\begin_inset Formula $\frac{\v k}{\v M}\coloneqq\v k\odot\frac{1}{\v M}$
+\end_inset
+
+ definiert.
 \end_layout
 
 \begin_layout Standard
-Damit ist auch 
+Außerdem bezeichnen wir wie zu Beginn bereits erwähnt in der Summe 
 \begin_inset Formula 
 \[
-\frac{\v k}{\v M}\coloneqq\v k\odot\frac{1}{\v M}
+\sum_{\v n\in\set Z^{3}}\sum_{k=1}^{N}\nsum{j=1}Na_{\v nkj}
 \]
 
 \end_inset
 
-definiert.
+ mit 
+\begin_inset Formula $\nsum{}{}$
+\end_inset
+
+ gerade die Summe aller 
+\begin_inset Formula $a_{\v nkj}$
+\end_inset
+
+, wobei für 
+\begin_inset Formula $\v n=\v 0$
+\end_inset
+
+ die Terme mit 
+\begin_inset Formula $k=j$
+\end_inset
+
+ ignoriert werden.
 \end_layout
 
 \begin_layout Subsection
