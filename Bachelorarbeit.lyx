@@ -3197,13 +3197,63 @@ Laufzeitvergleich 3dp
 \end_layout
 
 \begin_layout Standard
+In Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "graph:0dp-3dp-runtime"
 
 \end_inset
 
+ werden die Laufzeiten einer nicht-periodischen P2NFFT mit denen der 3d-periodis
+chen P2NFFT bei gleicher Problemgröße verglichen.
+ Beide wurden mittels der zuvor eingeführten Algorithmen so aufgerufen,
+ dass ein 
+\begin_inset Formula $\Delta U<10^{-9}$
+\end_inset
 
+ gilt.
+ Offensichtlich ist die Berechnung des nicht-periodischen Falls um einen
+ Faktor von ca.
+\begin_inset space \thinspace{}
+\end_inset
+
+ 6-8 langsamer, vor allem da durch die Regularisierung die FFT-Größe steigt,
+ was den Aufwand für die Berechnung des Fernfeldes erhöht.
+ Allerdings wurden beide Tests aus Gründen der Vergleichbarkeit untereinander,
+ sowie unter anderem mit Ergebnissen aus [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+mixed paper, siehe NePiPo quelle
+\end_layout
+
+\end_inset
+
+] und [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+NePiPo
+\end_layout
+
+\end_inset
+
+] mit 
+\begin_inset Formula $r_{\mathrm{cut}}=0.62$
+\end_inset
+
+ durchgeführt.
+ Dies hat jedoch im nicht-periodischen Fall zur Folge, dass sowohl die Laufzeit
+ als auch der Fehler sehr ungleichmäßig zwischen der Nahfeld- und Fernfeld-Appro
+ximation aufgeteilt sind.
+ Durch eine bessere Wahl von 
+\begin_inset Formula $r_{\mathrm{cut}}$
+\end_inset
+
+ ließen sich sowohl Laufzeit als auch Genauigkeit noch weiter verbessern.
+ 
 \end_layout
 
 \begin_layout Standard
