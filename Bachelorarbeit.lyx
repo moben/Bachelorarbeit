@@ -815,8 +815,8 @@ name "sec:Notation"
 \end_layout
 
 \begin_layout Standard
-In diesem Kapitel werden wir zunächst einige Notationen einführen, die im
- weiteren Verlauf der Arbeit verwendet werden.
+In diesem Abschnitt werden wir zunächst einige Notationen einführen, die
+ im weiteren Verlauf der Arbeit verwendet werden.
  Seien dazu drei Vektoren 
 \begin_inset Formula $\v k,\v j,\v M\in\set R^{3}$
 \end_inset
@@ -911,7 +911,7 @@ Außerdem bezeichnen wir wie zu Beginn bereits erwähnt in der Summe
 \end_layout
 
 \begin_layout Subsection
-Problemstellung
+Das Coulomb-Problem
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Problemstellung"
@@ -922,7 +922,10 @@ name "sec:Problemstellung"
 \end_layout
 
 \begin_layout Standard
-Wir setzen 
+Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
+ fassen die sowohl für den 3d-periodischen als auch den nicht-periodischen
+ Fall geeignet ist.
+ Wir setzen dazu 
 \begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
 \end_inset
 
@@ -930,12 +933,20 @@ Wir setzen
 \begin_inset Formula $\mathbb{T}^{3}=\left[-\frac{1}{2},\frac{1}{2}\right)^{3}$
 \end_inset
 
- den dreidimensionalen Torus und 
+ den dreidimensionalen Torus, so dass für 
 \begin_inset Formula $L\in\set R$
 \end_inset
 
- .
- Seien 
+ durch 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ ein Würfel der Kantenlänge 
+\begin_inset Formula $L$
+\end_inset
+
+ gegeben ist.
+ Seien außerdem 
 \begin_inset Formula $N\in\mathbb{N}$
 \end_inset
 
@@ -965,11 +976,7 @@ Wir setzen
 \end_inset
 
  d.h.
- der Würfel 
-\begin_inset Formula $L\set T^{3}$
-\end_inset
-
- ist ladungsneutral.
+ das System ist ladungsneutral.
 \end_layout
 
 \begin_layout Standard
