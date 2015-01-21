@@ -816,7 +816,8 @@ name "sec:Notation"
 
 \begin_layout Standard
 In diesem Abschnitt werden wir zunächst einige Notationen einführen, die
- im weiteren Verlauf der Arbeit verwendet werden.
+ im weiteren Verlauf der Arbeit verwendet werden, vor allem um die Definition
+ der NFFT zu vereinfachen.
  Seien dazu drei Vektoren 
 \begin_inset Formula $\v k,\v j,\v M\in\set R^{3}$
 \end_inset
@@ -875,11 +876,6 @@ Des Weiteren bezeichnen wir das komponentenweise Produkt von
 \end_inset
 
 .
- Damit ist auch 
-\begin_inset Formula $\frac{\v k}{\v M}\coloneqq\v k\odot\frac{1}{\v M}$
-\end_inset
-
- definiert.
 \end_layout
 
 \begin_layout Standard
@@ -1018,34 +1014,6 @@ Dabei bezeichnet
 
  und 
 \begin_inset Formula $\v x_{k}$
-\end_inset
-
- und 
-\begin_inset Formula $\nsum{k=1}Na_{k}$
-\end_inset
-
- die Summe über alle 
-\begin_inset Formula $a_{k}$
-\end_inset
-
- mit 
-\begin_inset Formula $k=\range 1N$
-\end_inset
-
-, 
-\begin_inset Formula $k\neq j$
-\end_inset
-
- wenn 
-\begin_inset Formula $\v n=\v 0$
-\end_inset
-
- und 
-\begin_inset Formula $k=\range 1N$
-\end_inset
-
- wenn 
-\begin_inset Formula $\v n\neq\v 0$
 \end_inset
 
 .
@@ -3852,6 +3820,10 @@ name "graph:0dp-3dp-runtime"
 
 \end_layout
 
+\begin_layout Subsubsection
+Laufzeitvergleich 0dp
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status open
@@ -3867,10 +3839,6 @@ Wie stellt man das sicher? → Fehlerformel
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsubsection
-Laufzeitvergleich 0dp
 \end_layout
 
 \begin_layout Section
