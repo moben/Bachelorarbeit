@@ -983,16 +983,25 @@ Uns interessiert hierbei für
  die Berechnung der Potentiale 
 \begin_inset Formula 
 \begin{equation}
-\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}},\label{eq:general:potential}
+\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}.\label{eq:general:potential}
 \end{equation}
 
 \end_inset
 
- und dazugehörigen Energien 
-\begin_inset Formula $U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)$
+Die potentielle Energie der Ladung 
+\begin_inset Formula $q_{j}$
 \end_inset
 
- sowie der Felder 
+ ist damit durch 
+\begin_inset Formula 
+\begin{equation}
+U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-energy}
+\end{equation}
+
+\end_inset
+
+ gegeben.
+ 
 \begin_inset Formula 
 \begin{equation}
 E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}+L\v n}{}^{3}}.
@@ -1031,15 +1040,15 @@ Dabei bezeichnet
 \end_inset
 
  von 3d-periodischen Randbedingungen, d.h.
- der Würfel 
+ die Ladungen im Würfel 
 \begin_inset Formula $L\set T^{3}$
 \end_inset
 
- wird periodisch in jede der drei Dimensionen fortgesetzt, und für 
+ werden periodisch in jede der drei Dimensionen dupliziert, und für 
 \begin_inset Formula $d=0$
 \end_inset
 
- von nichtperiodischen Randbedingungen.
+ von nicht-periodischen Randbedingungen.
 \end_layout
 
 \begin_layout Subsection
