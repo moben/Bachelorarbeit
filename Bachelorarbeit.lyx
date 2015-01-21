@@ -983,12 +983,17 @@ Uns interessiert hierbei für
  die Berechnung der Potentiale 
 \begin_inset Formula 
 \begin{equation}
-\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}.\label{eq:general:potential}
+\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}},\label{eq:general:potential}
 \end{equation}
 
 \end_inset
 
-Die potentielle Energie der Ladung 
+wobei wir den konstanten Faktor 
+\begin_inset Formula $\frac{1}{4\pi\varepsilon_{0}}$
+\end_inset
+
+, der für die physikalische Korrektheit notwendig wäre ignorieren.
+ Die potentielle Energie der Ladung 
 \begin_inset Formula $q_{j}$
 \end_inset
 
@@ -1001,15 +1006,27 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 \end_inset
 
  gegeben.
- 
+ Außerdem interessieren uns das Elektrische Feld im Punkt 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+, gegeben durch 
 \begin_inset Formula 
 \begin{equation}
-E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}+L\v n}{}^{3}}.
+\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}+L\v n}{}^{3}},
 \end{equation}
 
 \end_inset
 
+ sowie die Kraft 
+\begin_inset Formula $\v F_{d}\left(\v x_{j}\right)=q_{j}\v E_{d}\left(\v x_{j}\right)$
+\end_inset
 
+ die auf den Partikel 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ wirkt.
 \end_layout
 
 \begin_layout Standard
