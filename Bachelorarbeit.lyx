@@ -926,7 +926,7 @@ ante Fourier-Transformation (NFFT) einführen.
 \end_layout
 
 \begin_layout Standard
-Seien ein Vektor 
+Seien dazu ein Vektor 
 \begin_inset Formula $\mathbf{N}=\left(N_{0},N_{1},N_{2}\right)\in2\mathbb{N}^{3}$
 \end_inset
 
@@ -936,7 +936,7 @@ Seien ein Vektor
 
  gegeben.
  Für 
-\begin_inset Formula $\left|\I{\v N}\right|$
+\begin_inset Formula $\abs{\I{\v N}}$
 \end_inset
 
  komplexe Zahlen 
@@ -944,13 +944,13 @@ Seien ein Vektor
 \end_inset
 
 , 
-\begin_inset Formula $\mathbf{k}\in\mathcal{I}_{\mathbf{N}}$
+\begin_inset Formula $\mathbf{k}\in\I{\v N}$
 \end_inset
 
  wird durch
 \begin_inset Formula 
 \begin{equation}
-f\left(\mathbf{x}\right)=\sum\limits _{\mathbf{k}\in\mathcal{I}_{\mathbf{N}}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}}
+f\left(\mathbf{x}\right)=\sum\limits _{\mathbf{k}\in\I{\v N}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}}
 \end{equation}
 
 \end_inset
@@ -975,7 +975,7 @@ f\left(\mathbf{x}\right)=\sum\limits _{\mathbf{k}\in\mathcal{I}_{\mathbf{N}}}\ha
 , dass heißt die Berechnung von 
 \begin_inset Formula 
 \[
-f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\mathcal{I}_{\mathbf{N}}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}},\qquad j=\range 1M,
+f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v N}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}},\qquad j=\range 1M,
 \]
 
 \end_inset
@@ -1007,11 +1007,11 @@ NDFT/
 \end_inset
 
 , 
-\begin_inset Formula $\mathbf{\hat{f}}=\left(\hat{f}_{\mathbf{k}}\right)_{\mathbf{k}\in\mathcal{I}_{\mathbf{N}}}$
+\begin_inset Formula $\mathbf{\hat{f}}=\left(\hat{f}_{\mathbf{k}}\right)_{\mathbf{k}\in\I{\v N}}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathbf{A}=\left(\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}}\right)_{j\in\left\{ \range 1M\right\} ;\mathbf{k}\in\mathcal{I}_{\mathbf{N}}}$
+\begin_inset Formula $\mathbf{A}=\left(\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}}\right)_{j\in\left\{ \range 1M\right\} ;\mathbf{k}\in\I{\v N}}$
 \end_inset
 
  kann sie auch in Matrixnotation geschrieben werden als
@@ -1063,13 +1063,13 @@ aNDFT/
  als
 \begin_inset Formula 
 \[
-\hat{h}_{\mathbf{k}}=\sum\limits _{j=1}^{M}f_{j}\mathrm{e}^{+\tpii\mathbf{k}\mathbf{x}_{j}},\qquad\mathbf{k}\in\mathcal{I}_{\mathbf{N}},
+\hat{h}_{\mathbf{k}}=\sum\limits _{j=1}^{M}f_{j}\mathrm{e}^{+\tpii\mathbf{k}\mathbf{x}_{j}},\qquad\mathbf{k}\in\I{\v N},
 \]
 
 \end_inset
 
  bzw mit 
-\begin_inset Formula $\hat{\mathbf{h}}=\left(\hat{h}_{\mathbf{k}}\right)_{\mathbf{k}\in\mathcal{I}_{\mathbf{N}}}$
+\begin_inset Formula $\hat{\mathbf{h}}=\left(\hat{h}_{\mathbf{k}}\right)_{\mathbf{k}\in\I{\v N}}$
 \end_inset
 
  in Matrixnotation als
@@ -1152,7 +1152,7 @@ Sei außerdem
 \end_inset
 
 , wobei die Ungleichung komponentenweise gelte, sowie 
-\begin_inset Formula $\mathcal{I}_{\mathbf{n}}=\thrange{n_{0}}{n_{1}}{n_{2}}$
+\begin_inset Formula $\I{\v n}=\thrange{n_{0}}{n_{1}}{n_{2}}$
 \end_inset
 
  eine weitere Indexmenge.
@@ -1164,13 +1164,13 @@ status collapsed
 Es seien weiterhin
 \begin_inset Formula 
 \[
-\mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}\right)=\left\{ \mathbf{k}=\left(k_{0},k_{1},k_{2}\right)\in\mathcal{I}_{\mathbf{n}}\,\middle|\,\left|n_{t}x_{t}-k_{t}\right|\leq m\vee\left|n_{t}x_{t}-k_{t}\right|\geq n_{t}-m,\: t=0,1,2\right\} 
+\I{\v n,m}\left(\mathbf{x}\right)=\left\{ \mathbf{k}=\left(k_{0},k_{1},k_{2}\right)\in\I{\v n}\,\middle|\,\left|n_{t}x_{t}-k_{t}\right|\leq m\vee\left|n_{t}x_{t}-k_{t}\right|\geq n_{t}-m,\: t=0,1,2\right\} 
 \]
 
 \end_inset
 
 die Indizes aus 
-\begin_inset Formula $\mathcal{I}_{\mathbf{n}}$
+\begin_inset Formula $\I{\v n}$
 \end_inset
 
  auf denen die Fensterfunktion 
@@ -1267,7 +1267,7 @@ NDFT/
  nach [], 
 \begin_inset Formula 
 \[
-f_{l}\approx\sum_{\mathbf{k}\in\mathcal{I}_{\mathbf{n}}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right),\qquad l=\range 1M.
+f_{l}\approx\sum_{\mathbf{k}\in\I{\v n}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right),\qquad l=\range 1M.
 \]
 
 \end_inset
@@ -1287,14 +1287,14 @@ f_{l}\approx\sum_{\mathbf{k}\in\mathcal{I}_{\mathbf{n}}}g_{\v k}\mathrm{\tilde{\
 \begin_layout Standard
 \begin_inset Formula 
 \[
-g_{\mathbf{k}}:=\sum_{\mathbf{j}\in\mathcal{I}_{\mathbf{N}}}\frac{\hat{f_{\mathbf{j}}}}{\left|\mathcal{I}_{\mathbf{n}}\right|\hat{\varphi}_{\mathbf{j}}}\mathrm{e}^{-\tpii\mathbf{j}\odot\mathbf{k}/\mathbf{n}},\qquad\mathbf{k}\in\mathcal{I}_{\mathbf{n}}
+g_{\mathbf{k}}:=\sum_{\mathbf{j}\in\I{\v N}}\frac{\hat{f_{\mathbf{j}}}}{\left|\I{\v n}\right|\hat{\varphi}_{\mathbf{j}}}\mathrm{e}^{-\tpii\mathbf{j}\odot\mathbf{k}/\mathbf{n}},\qquad\mathbf{k}\in\I{\v n}
 \]
 
 \end_inset
 
  und können mittels schneller Fourier-Transformationen berechnet werden.
  Diese Approximation kann mit einer arithmetischen Komplexität von 
-\begin_inset Formula $\mathcal{O}\left(\left|\mathcal{I}_{\mathbf{N}}\right|+\left|\mathcal{I}_{\mathbf{n}}\right|\log\left|\mathcal{I}_{\mathbf{n}}\right|+\left(2m+1\right)^{3}M\right)$
+\begin_inset Formula $\mathcal{O}\left(\left|\I{\v N}\right|+\left|\I{\v n}\right|\log\left|\I{\v n}\right|+\left(2m+1\right)^{3}M\right)$
 \end_inset
 
  ausgeführt werden, wobei 
@@ -1316,11 +1316,11 @@ In der Matrix-Notation die NFFT auch geschrieben werden als
 mit
 \begin_inset Formula 
 \begin{align*}
-\mathbf{D} & =\mathrm{diag}\left(\frac{1}{\left|\mathcal{I}_{\mathbf{n}}\right|\hat{\varphi}_{\mathbf{j}}}\right)_{\mathbf{j}\in\mathcal{I}_{\mathbf{N}}},\\
-\mathbf{F} & =\left(\mathrm{e}^{-\tpii\mathbf{j}\frac{\mathbf{k}}{\mathbf{n}}}\right)_{\mathbf{j}\in\mathcal{I}_{\mathbf{N}};\mathbf{k}\in\mathcal{I}_{\mathbf{n}}},\\
-\mathbf{B} & =\left(b_{l\mathbf{k}}\right)_{l=\range 1M;\mathbf{k}\in\mathcal{I}_{\mathbf{n}}},\qquad b_{l\mathbf{k}}=\begin{cases}
-\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right) & :\mathbf{k}\in\mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}_{l}\right)\\
-0 & :\mathbf{k}\not\in\mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}_{l}\right)
+\mathbf{D} & =\mathrm{diag}\left(\frac{1}{\left|\I{\v n}\right|\hat{\varphi}_{\mathbf{j}}}\right)_{\mathbf{j}\in\I{\v N}},\\
+\mathbf{F} & =\left(\mathrm{e}^{-\tpii\mathbf{j}\frac{\mathbf{k}}{\mathbf{n}}}\right)_{\mathbf{j}\in\I{\v N};\mathbf{k}\in\I{\v n}},\\
+\mathbf{B} & =\left(b_{l\mathbf{k}}\right)_{l=\range 1M;\mathbf{k}\in\I{\v n}},\qquad b_{l\mathbf{k}}=\begin{cases}
+\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right) & :\mathbf{k}\in\I{\v n,m}\left(\mathbf{x}_{l}\right)\\
+0 & :\mathbf{k}\not\in\I{\v n,m}\left(\mathbf{x}_{l}\right)
 \end{cases},
 \end{align*}
 
@@ -1331,11 +1331,11 @@ mit
 
 \begin_layout Standard
 wobei 
-\begin_inset Formula $\mathcal{I}_{\mathbf{n},m}\left(\mathbf{x}_{l}\right)$
+\begin_inset Formula $\I{\v n,m}\left(\mathbf{x}_{l}\right)$
 \end_inset
 
  die Indizes aus 
-\begin_inset Formula $\mathcal{I}_{\mathbf{n}}$
+\begin_inset Formula $\I{\v n}$
 \end_inset
 
  bezeichnet auf denen die Fensterfunktion konzentriert ist.
