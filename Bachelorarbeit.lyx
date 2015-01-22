@@ -3005,6 +3005,24 @@ pgfplotstableread{data/test.3dp.N.txt}
 tdptest
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/speed.error.0dp.other.1e-4.txt}
+\backslash
+ndptestOtherEfour
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/speed.error.0dp.ewald.1e-4.txt}
+\backslash
+ndptestEwaldEfour
+\end_layout
+
 \end_inset
 
 
@@ -3637,7 +3655,7 @@ addlegendentry{nicht-periodisch Gesamtzeit}
 
 			
 \backslash
-addplot+[mark=triangle,color=orange]   table [y=rt-run]   {
+addplot+[mark=triangle,color=blue]   table [y=rt-run]   {
 \backslash
 tdptest};  
 \backslash
@@ -3659,7 +3677,7 @@ addlegendentry{nicht-periodisch Nahfeld}
 
 			
 \backslash
-addplot+[mark=triangle,color=magenta]  table [y=rt-near]  {
+addplot+[mark=triangle,color=red]  table [y=rt-near]  {
 \backslash
 tdptest};  
 \backslash
@@ -3681,7 +3699,7 @@ addlegendentry{nicht-periodisch Fernfeld}
 
 			
 \backslash
-addplot+[mark=triangle,color=darkgray] table [y=rt-far]   {
+addplot+[mark=triangle,color=green!70!black] table [y=rt-far]   {
 \backslash
 tdptest};  
 \backslash
@@ -3734,7 +3752,7 @@ ndptest};
 
 			
 \backslash
-addplot+[mark=triangle,color=orange]   table [y expr=
+addplot+[mark=triangle,color=blue]   table [y expr=
 \backslash
 thisrow{rt-run}/
 \backslash
@@ -3834,6 +3852,312 @@ name "graph:0dp-3dp-runtime"
 
 \begin_layout Subsubsection
 Laufzeitvergleich 0dp
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=0.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{groupplot}[
+\end_layout
+
+\begin_layout Plain Layout
+
+		group style={
+\end_layout
+
+\begin_layout Plain Layout
+
+			group size=2 by 1,
+\end_layout
+
+\begin_layout Plain Layout
+
+			horizontal sep=1.5cm
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend columns=3,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend cell align=left,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend pos=south east,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend entries={
+\end_layout
+
+\begin_layout Plain Layout
+
+			Gesamtzeit,
+\end_layout
+
+\begin_layout Plain Layout
+
+			Nahfeld,
+\end_layout
+
+\begin_layout Plain Layout
+
+			Fernfeld
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+			ylabel={Zeit [Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			ymode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=orange]   table [y=rt-run]   {
+\backslash
+ndptestEwaldEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=magenta]  table [y=rt-near]  {
+\backslash
+ndptestEwaldEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=darkgray] table [y=rt-far]   {
+\backslash
+ndptestEwaldEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+%			ylabel={Zeit [Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			ymode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=orange]   table [y=rt-run]   {
+\backslash
+ndptestOtherEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=magenta]  table [y=rt-near]  {
+\backslash
+ndptestOtherEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=darkgray] table [y=rt-far]   {
+\backslash
+ndptestOtherEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (legend) at ($(group c1r1.south)!0.5!(group c2r1.south)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+		[below, yshift=-2
+\backslash
+pgfkeysvalueof{/pgfplots/every axis title shift}]
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\backslash
+ref{grouplegend}};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT,
+ jeweils mit 
+\begin_inset Formula $r_{\mathrm{cut}}=0,62$
+\end_inset
+
+.
+ Als Oversampling-Faktor wurde in beiden Fällen 
+\begin_inset Formula $1,23$
+\end_inset
+
+ und als B-Spline Ordnung 7 gewählt.
+ Im nicht-periodischen Fall wurde 
+\begin_inset Formula $p=10$
+\end_inset
+
+ und 
+\begin_inset Formula $P=40$
+\end_inset
+
+ gewählt.
+ Damit wurde in beiden Tests ein RMS Fehler der Energie von 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+ nicht überschritten.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "graph:0dp-ewald-other-runtime"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
