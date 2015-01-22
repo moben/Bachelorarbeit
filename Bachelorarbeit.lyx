@@ -3627,7 +3627,7 @@ nextgroupplot[
 
 \begin_layout Plain Layout
 
-			legend to name=grouplegend,
+			legend to name=grouplegend3,
 \end_layout
 
 \begin_layout Plain Layout
@@ -3790,7 +3790,7 @@ pgfkeysvalueof{/pgfplots/every axis title shift}]
 
 		{
 \backslash
-ref{grouplegend}};
+ref{grouplegend3}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -3892,12 +3892,42 @@ begin{groupplot}[
 
 \begin_layout Plain Layout
 
-			horizontal sep=1.5cm
+			horizontal sep=1.5cm,
+\end_layout
+
+\begin_layout Plain Layout
+
+			every plot/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+				ymin=0.001,
+\end_layout
+
+\begin_layout Plain Layout
+
+				ymax=10,
+\end_layout
+
+\begin_layout Plain Layout
+
+				enlargelimits=true
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
 \end_layout
 
 \begin_layout Plain Layout
 
 		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend to name=grouplegend0,
 \end_layout
 
 \begin_layout Plain Layout
@@ -3913,6 +3943,11 @@ begin{groupplot}[
 \begin_layout Plain Layout
 
 		legend pos=south east,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend style={/tikz/every even column/.append style={column sep=0.5cm}},
 \end_layout
 
 \begin_layout Plain Layout
@@ -3937,7 +3972,7 @@ begin{groupplot}[
 
 \begin_layout Plain Layout
 
-		}
+		},
 \end_layout
 
 \begin_layout Plain Layout
@@ -3972,6 +4007,11 @@ nextgroupplot[
 \begin_layout Plain Layout
 
 			ymode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			title=Ewald-Summation
 \end_layout
 
 \begin_layout Plain Layout
@@ -4041,6 +4081,13 @@ nextgroupplot[
 
 \begin_layout Plain Layout
 
+			title=$
+\backslash
+frac1x$-Summation
+\end_layout
+
+\begin_layout Plain Layout
+
 		]
 \end_layout
 
@@ -4100,7 +4147,7 @@ pgfkeysvalueof{/pgfplots/every axis title shift}]
 
 		{
 \backslash
-ref{grouplegend}};
+ref{grouplegend0}};
 \end_layout
 
 \begin_layout Plain Layout
@@ -4116,31 +4163,70 @@ end{tikzpicture}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT,
- jeweils mit 
-\begin_inset Formula $r_{\mathrm{cut}}=0,62$
+Vergleich der Laufzeiten von Ewald-Summation und 
+\begin_inset Formula $\frac{1}{x}$
+\end_inset
+
+-Summation innerhalb der P2NFFT, mit einem Energie RMS Fehler 
+\begin_inset Formula $<10^{-4}$
 \end_inset
 
 .
- Als Oversampling-Faktor wurde in beiden Fällen 
-\begin_inset Formula $1,23$
+ Parameter der 
+\begin_inset Formula $\frac{1}{x}$
 \end_inset
 
- und als B-Spline Ordnung 7 gewählt.
- Im nicht-periodischen Fall wurde 
+-Summation: 
+\begin_inset Formula $M=170$
+\end_inset
+
+, 
+\begin_inset Formula $m=192$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{B}=\varepsilon_{I}=0,037$
+\end_inset
+
+, 
 \begin_inset Formula $p=10$
 \end_inset
 
- und 
-\begin_inset Formula $P=40$
+, 
+\begin_inset Formula $m\text{(Fenster)}=4$
 \end_inset
 
- gewählt.
- Damit wurde in beiden Tests ein RMS Fehler der Energie von 
-\begin_inset Formula $10^{-9}$
+, Taylor-IC Interpolation.
+\begin_inset Newline newline
 \end_inset
 
- nicht überschritten.
+Die Parameter der Ewald-Summation wurden mittels Kolafa-Peram so gewählt,
+ dass die gleiche Genauigkeit erreicht wurde.
+ 
+\begin_inset Formula $m=4$
+\end_inset
+
+, 
+\begin_inset Formula $P=12$
+\end_inset
+
+, 
+\begin_inset Formula $p=6$
+\end_inset
+
+, Oversampling Faktor 
+\begin_inset Formula $1,16$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+FIXME: 
+\begin_inset Formula $m$
+\end_inset
+
+ umbenennen! erwähnen, dass grad_ad verwendet wurde (bei NFFT einführen)
 \end_layout
 
 \end_inset
