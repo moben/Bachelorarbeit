@@ -1,0 +1,36 @@
+1000   P2NFFT_TIMING: Near field computation takes 1.106977e-03 s
+1000   P2NFFT_TIMING: Far field computation takes 9.621410e-01 s
+1000       Total time:   9.650500e-01
+1000            abs_rms_energy_error =    4.131740e-05
+1000   P2NFFT_TIMING: Near field computation takes 1.108885e-03 s
+1000   P2NFFT_TIMING: Far field computation takes 9.620180e-01 s
+1000       Total time:   9.636190e-01
+1000            abs_rms_energy_error =    4.131740e-05
+1000   P2NFFT_TIMING: Near field computation takes 1.085997e-03 s
+1000   P2NFFT_TIMING: Far field computation takes 9.608400e-01 s
+1000       Total time:   9.624341e-01
+1000            abs_rms_energy_error =    4.131740e-05
+56000   P2NFFT_TIMING: Near field computation takes 1.014370e+00 s
+56000   P2NFFT_TIMING: Far field computation takes 1.198266e+00 s
+56000       Total time:   2.231626e+00
+56000            abs_rms_energy_error =    7.341345e-05
+56000   P2NFFT_TIMING: Near field computation takes 1.016933e+00 s
+56000   P2NFFT_TIMING: Far field computation takes 1.194789e+00 s
+56000       Total time:   2.233763e+00
+56000            abs_rms_energy_error =    7.341345e-05
+56000   P2NFFT_TIMING: Near field computation takes 1.017141e+00 s
+56000   P2NFFT_TIMING: Far field computation takes 1.197111e+00 s
+56000       Total time:   2.234907e+00
+56000            abs_rms_energy_error =    7.341345e-05
+100000   P2NFFT_TIMING: Near field computation takes 3.206160e+00 s
+100000   P2NFFT_TIMING: Far field computation takes 1.380484e+00 s
+100000       Total time:   4.618132e+00
+100000            abs_rms_energy_error =    8.133587e-05
+100000   P2NFFT_TIMING: Near field computation takes 3.222362e+00 s
+100000   P2NFFT_TIMING: Far field computation takes 1.381390e+00 s
+100000       Total time:   4.636318e+00
+100000            abs_rms_energy_error =    8.133587e-05
+100000   P2NFFT_TIMING: Near field computation takes 3.211628e+00 s
+100000   P2NFFT_TIMING: Far field computation takes 1.380182e+00 s
+100000       Total time:   4.624631e+00
+100000            abs_rms_energy_error =    8.133587e-05
