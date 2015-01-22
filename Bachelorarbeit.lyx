@@ -607,6 +607,16 @@ reference "sec:Notation"
 
  einige Notationen eingeführt, die im weiteren Verlauf der Arbeit verwendet
  werden.
+ In Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:NFFT"
+
+\end_inset
+
+ wird die nicht-äquidistante diskrete Fourier-Transformation (NDFT), sowie
+ ihre Approximation durch die nicht-äquidistante schnelle Fourier-Transformation
+ erläutert.
  Anschließend wird in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -637,16 +647,7 @@ TODO
 
 \end_inset
 
- In Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:NFFT"
-
-\end_inset
-
- wird die nicht-äquidistante diskrete Fourier-Transformation (NDFT), sowie
- ihre Approximation durch die nicht-äquidistante schnelle Fourier-Transformation
- erläutert.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -903,204 +904,12 @@ Außerdem bezeichnen wir wie zu Beginn bereits erwähnt in der Summe
 \begin_inset Formula $k=j$
 \end_inset
 
- ignoriert werden.
-\end_layout
-
-\begin_layout Subsection
-Das Coulomb-Problem
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Problemstellung"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
- fassen die sowohl für den 3d-periodischen als auch den nicht-periodischen
- Fall geeignet ist.
- Wir setzen dazu 
-\begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
-\end_inset
-
- bezeichnen mit 
-\begin_inset Formula $\mathbb{T}^{3}=\left[-\frac{1}{2},\frac{1}{2}\right)^{3}$
-\end_inset
-
- den dreidimensionalen Torus, so dass für 
-\begin_inset Formula $L\in\set R$
-\end_inset
-
- durch 
-\begin_inset Formula $L\set T^{3}$
-\end_inset
-
- ein Würfel der Kantenlänge 
-\begin_inset Formula $L$
-\end_inset
-
- gegeben ist.
- Seien außerdem 
-\begin_inset Formula $N\in\mathbb{N}$
-\end_inset
-
- Ladungen 
-\begin_inset Formula $q_{j}\in\mathbb{R}$
-\end_inset
-
-, 
-\begin_inset Formula $j=\range 1N$
-\end_inset
-
-, sowie zu jeder Ladung ihre Position 
-\begin_inset Formula $\v x_{j}\in L\set T^{3}$
-\end_inset
-
-, 
-\begin_inset Formula $j=\range 1N$
-\end_inset
-
- gegeben.
- Diese erfüllen die Bedingung 
-\begin_inset Formula 
-\begin{equation}
-\sum_{j=1}^{N}q_{j}=0,\label{eq:general:charge-neutrality}
-\end{equation}
-
-\end_inset
-
- d.h.
- das System ist ladungsneutral.
-\end_layout
-
-\begin_layout Standard
-Mit 
-\begin_inset Formula $d\in\left\{ 0,3\right\} $
-\end_inset
-
- sei die Periodizität des Systems gegeben.
- Das heißt 
-\begin_inset Formula $d=3$
-\end_inset
-
-, wenn angenommen wird, dass für alle 
-\begin_inset Formula $\v n\in\set Z^{3}$
-\end_inset
-
- und jeden Partikel mit der Ladung 
-\begin_inset Formula $q_{j}$
-\end_inset
-
- an der Position 
-\begin_inset Formula $\v x_{j}$
-\end_inset
-
- ein weiterer Partikel mit der Ladung 
-\begin_inset Formula $q_{j}$
-\end_inset
-
- an der Position 
-\begin_inset Formula $\v x_{j}+L\v n$
-\end_inset
-
- existiert, also die Ladungen im Würfel 
-\begin_inset Formula $L\set T^{3}$
-\end_inset
-
- periodisch in jede der drei Dimensionen dupliziert werden.
- und für 
-\begin_inset Formula $d=0$
-\end_inset
-
- wenn dies nicht der Fall ist.
- Man spricht hierbei von 3-periodischen, bzw von nicht-periodischen oder
- auch offenen Randbedingungen.
-\end_layout
-
-\begin_layout Standard
-Für 
-\begin_inset Formula $d\in\left\{ 0,3\right\} $
-\end_inset
-
- definieren wir nun 
-\begin_inset Formula $\mathcal{S}_{d}\coloneqq\set Z^{d}\times\left\{ 0\right\} ^{3-d}$
-\end_inset
-
-.
- Uns interessiert hierbei für 
-\begin_inset Formula $j=\range 1N$
-\end_inset
-
- die Berechnung der Potentiale 
-\begin_inset Formula 
-\begin{equation}
-\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}},\label{eq:general:potential}
-\end{equation}
-
-\end_inset
-
-wobei wir einen konstanten Faktor 
-\begin_inset Formula $\frac{1}{4\pi\varepsilon_{0}}$
-\end_inset
-
-, der für die physikalische Korrektheit notwendig wäre ignorieren.
- Die potentielle Energie der Ladung 
-\begin_inset Formula $q_{j}$
-\end_inset
-
- ist damit durch 
-\begin_inset Formula 
-\begin{equation}
-U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-energy}
-\end{equation}
-
-\end_inset
-
- gegeben.
- Außerdem interessieren uns das Elektrische Feld im Punkt 
-\begin_inset Formula $\v x_{j}$
-\end_inset
-
-, gegeben durch 
-\begin_inset Formula 
-\begin{equation}
-\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}+L\v n}{}^{3}},
-\end{equation}
-
-\end_inset
-
- sowie die Kraft 
-\begin_inset Formula $\v F_{d}\left(\v x_{j}\right)=q_{j}\v E_{d}\left(\v x_{j}\right)$
-\end_inset
-
- die auf den Partikel 
-\begin_inset Formula $q_{j}$
-\end_inset
-
- wirkt.
-\end_layout
-
-\begin_layout Standard
-Dabei bezeichnet 
-\begin_inset Formula $\v x_{jk}=\v x_{j}-\v x_{k}$
-\end_inset
-
- die Distanz zwischen 
-\begin_inset Formula $\v x_{j}$
-\end_inset
-
- und 
-\begin_inset Formula $\v x_{k}$
-\end_inset
-
-.
+ ignoriert werden..
  
 \end_layout
 
 \begin_layout Subsection
-NFFT
+Die nicht-äquidistante schnelle Fourier-Transformation (NFFT)
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:NFFT"
@@ -1112,50 +921,8 @@ name "sec:NFFT"
 
 \begin_layout Standard
 In diesem Abschnitt werden wir die nicht-äquidistante diskrete Fourier-Transform
-ation (
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NDFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-), sowie ihre effiziente Berechnung durch die schnelle nicht-äquidistante
- Fourier-Transformation (
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-) einführen.
+ation (NDFT), sowie ihre effiziente Berechnung durch die schnelle nicht-äquidist
+ante Fourier-Transformation (NFFT) einführen.
 \end_layout
 
 \begin_layout Standard
@@ -1164,12 +931,12 @@ Seien ein Vektor
 \end_inset
 
 , sowie die Indexmenge 
-\begin_inset Formula $\mathcal{I}_{\mathbf{N}}=\thrange{N_{0}}{N_{1}}{N_{2}}$
+\begin_inset Formula $\I{\v N}=\thrange{N_{0}}{N_{1}}{N_{2}}$
 \end_inset
 
  gegeben.
  Für 
-\begin_inset Formula $\left|\mathcal{I}_{\mathbf{N}}\right|$
+\begin_inset Formula $\left|\I{\v N}\right|$
 \end_inset
 
  komplexe Zahlen 
@@ -1631,6 +1398,198 @@ aNFFT/
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Subsection
+Das Coulomb-Problem
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Problemstellung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
+ fassen die sowohl für den 3d-periodischen als auch den nicht-periodischen
+ Fall geeignet ist.
+ Wir setzen dazu 
+\begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
+\end_inset
+
+ bezeichnen mit 
+\begin_inset Formula $\mathbb{T}^{3}=\left[-\frac{1}{2},\frac{1}{2}\right)^{3}$
+\end_inset
+
+ den dreidimensionalen Torus, so dass für 
+\begin_inset Formula $L\in\set R$
+\end_inset
+
+ durch 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ ein Würfel der Kantenlänge 
+\begin_inset Formula $L$
+\end_inset
+
+ gegeben ist.
+ Seien außerdem 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ Ladungen 
+\begin_inset Formula $q_{j}\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+, sowie zu jeder Ladung ihre Position 
+\begin_inset Formula $\v x_{j}\in L\set T^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ gegeben.
+ Diese erfüllen die Bedingung 
+\begin_inset Formula 
+\begin{equation}
+\sum_{j=1}^{N}q_{j}=0,\label{eq:general:charge-neutrality}
+\end{equation}
+
+\end_inset
+
+ d.h.
+ das System ist ladungsneutral.
+\end_layout
+
+\begin_layout Standard
+Mit 
+\begin_inset Formula $d\in\left\{ 0,3\right\} $
+\end_inset
+
+ sei die Periodizität des Systems gegeben.
+ Das heißt 
+\begin_inset Formula $d=3$
+\end_inset
+
+, wenn angenommen wird, dass für alle 
+\begin_inset Formula $\v n\in\set Z^{3}$
+\end_inset
+
+ und jeden Partikel mit der Ladung 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ an der Position 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ ein weiterer Partikel mit der Ladung 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ an der Position 
+\begin_inset Formula $\v x_{j}+L\v n$
+\end_inset
+
+ existiert, also die Ladungen im Würfel 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ periodisch in jede der drei Dimensionen dupliziert werden.
+ und für 
+\begin_inset Formula $d=0$
+\end_inset
+
+ wenn dies nicht der Fall ist.
+ Man spricht hierbei von 3-periodischen, bzw von nicht-periodischen oder
+ auch offenen Randbedingungen.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $d\in\left\{ 0,3\right\} $
+\end_inset
+
+ definieren wir nun 
+\begin_inset Formula $\mathcal{S}_{d}\coloneqq\set Z^{d}\times\left\{ 0\right\} ^{3-d}$
+\end_inset
+
+.
+ Uns interessiert hierbei für 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ die Berechnung der Potentiale 
+\begin_inset Formula 
+\begin{equation}
+\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}.\label{eq:general:potential}
+\end{equation}
+
+\end_inset
+
+Hierbei ignorieren wir der Einfachheit halber einen konstanten Faktor 
+\begin_inset Formula $\frac{1}{4\pi\varepsilon_{0}}$
+\end_inset
+
+ vor der Summe, der für die physikalische Korrektheit notwendig wäre.
+ Die potentielle Energie der Ladung 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ ist damit durch 
+\begin_inset Formula 
+\begin{equation}
+U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-energy}
+\end{equation}
+
+\end_inset
+
+ gegeben.
+ Außerdem interessieren uns das Elektrische Feld im Punkt 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+, gegeben durch 
+\begin_inset Formula 
+\begin{equation}
+\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}+L\v n}{}^{3}},
+\end{equation}
+
+\end_inset
+
+ sowie die Kraft 
+\begin_inset Formula $\v F_{d}\left(\v x_{j}\right)=q_{j}\v E_{d}\left(\v x_{j}\right)$
+\end_inset
+
+ die auf den Partikel 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ wirkt.
+\end_layout
+
+\begin_layout Standard
+Dabei bezeichnet 
+\begin_inset Formula $\v x_{jk}=\v x_{j}-\v x_{k}$
+\end_inset
+
+ die Distanz zwischen 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ und 
+\begin_inset Formula $\v x_{k}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
