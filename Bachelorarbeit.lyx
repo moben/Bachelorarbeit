@@ -976,7 +976,60 @@ Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
 \end_layout
 
 \begin_layout Standard
-Uns interessiert hierbei für 
+Mit 
+\begin_inset Formula $d\in\left\{ 0,3\right\} $
+\end_inset
+
+ sei die Periodizität des Systems gegeben.
+ Das heißt 
+\begin_inset Formula $d=3$
+\end_inset
+
+, wenn angenommen wird, dass für alle 
+\begin_inset Formula $\v n\in\set Z^{3}$
+\end_inset
+
+ und jeden Partikel mit der Ladung 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ an der Position 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ ein weiterer Partikel mit der Ladung 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ an der Position 
+\begin_inset Formula $\v x_{j}+L\v n$
+\end_inset
+
+ existiert, also die Ladungen im Würfel 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ periodisch in jede der drei Dimensionen dupliziert werden.
+ und für 
+\begin_inset Formula $d=0$
+\end_inset
+
+ wenn dies nicht der Fall ist.
+ Man spricht hierbei von 3-periodischen, bzw von nicht-periodischen oder
+ auch offenen Randbedingungen.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $d\in\left\{ 0,3\right\} $
+\end_inset
+
+ definieren wir nun 
+\begin_inset Formula $\mathcal{S}_{d}\coloneqq\set Z^{d}\times\left\{ 0\right\} ^{3-d}$
+\end_inset
+
+.
+ Uns interessiert hierbei für 
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
@@ -988,7 +1041,7 @@ Uns interessiert hierbei für
 
 \end_inset
 
-wobei wir den konstanten Faktor 
+wobei wir einen konstanten Faktor 
 \begin_inset Formula $\frac{1}{4\pi\varepsilon_{0}}$
 \end_inset
 
@@ -1043,29 +1096,7 @@ Dabei bezeichnet
 \end_inset
 
 .
- Für 
-\begin_inset Formula $d\in\left\{ 0,3\right\} $
-\end_inset
-
- definieren wir 
-\begin_inset Formula $\mathcal{S}_{d}\coloneqq\set Z^{d}\times\left\{ 0\right\} ^{3-d}$
-\end_inset
-
-.
- Wir sprechen für 
-\begin_inset Formula $d=3$
-\end_inset
-
- von 3d-periodischen Randbedingungen, d.h.
- die Ladungen im Würfel 
-\begin_inset Formula $L\set T^{3}$
-\end_inset
-
- werden periodisch in jede der drei Dimensionen dupliziert, und für 
-\begin_inset Formula $d=0$
-\end_inset
-
- von nicht-periodischen Randbedingungen.
+ 
 \end_layout
 
 \begin_layout Subsection
