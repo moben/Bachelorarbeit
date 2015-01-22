@@ -926,7 +926,16 @@ ante Fourier-Transformation (NFFT) einführen.
 \end_layout
 
 \begin_layout Standard
-Seien dazu ein Vektor 
+Wir setzen dazu 
+\begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
+\end_inset
+
+ bezeichnen mit 
+\begin_inset Formula $\mathbb{T}^{3}=\left[-\frac{1}{2},\frac{1}{2}\right)^{3}$
+\end_inset
+
+ den dreidimensionalen Torus.
+ Seien nun ein Vektor 
 \begin_inset Formula $\mathbf{N}=\left(N_{0},N_{1},N_{2}\right)\in2\mathbb{N}^{3}$
 \end_inset
 
@@ -1158,7 +1167,7 @@ Sei außerdem
  eine weitere Indexmenge.
  
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Es seien weiterhin
@@ -1415,28 +1424,7 @@ name "sec:Problemstellung"
 Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
  fassen die sowohl für den 3d-periodischen als auch den nicht-periodischen
  Fall geeignet ist.
- Wir setzen dazu 
-\begin_inset Formula $\mathbb{T}=\left[-\frac{1}{2},\frac{1}{2}\right)$
-\end_inset
-
- bezeichnen mit 
-\begin_inset Formula $\mathbb{T}^{3}=\left[-\frac{1}{2},\frac{1}{2}\right)^{3}$
-\end_inset
-
- den dreidimensionalen Torus, so dass für 
-\begin_inset Formula $L\in\set R$
-\end_inset
-
- durch 
-\begin_inset Formula $L\set T^{3}$
-\end_inset
-
- ein Würfel der Kantenlänge 
-\begin_inset Formula $L$
-\end_inset
-
- gegeben ist.
- Seien außerdem 
+ Seien dazu
 \begin_inset Formula $N\in\mathbb{N}$
 \end_inset
 
@@ -1456,8 +1444,16 @@ Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
+ im Würfel 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ der Kantenlänge 
+\begin_inset Formula $L$
+\end_inset
+
  gegeben.
- Diese erfüllen die Bedingung 
+ Diese sollen die Bedingung 
 \begin_inset Formula 
 \begin{equation}
 \sum_{j=1}^{N}q_{j}=0,\label{eq:general:charge-neutrality}
@@ -1465,7 +1461,7 @@ Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
 
 \end_inset
 
- d.h.
+erfüllen, d.h.
  das System ist ladungsneutral.
 \end_layout
 
