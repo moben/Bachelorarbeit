@@ -1,20 +1,27 @@
 # ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_1000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,52,52,52,pnfft_n,60,60,60,p2nfft_epsI,0.117,p2nfft_epsB,0.117,p2nfft_p,10,pnfft_m,4
+
+
 # ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_34000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,150,150,150,pnfft_n,160,160,160,p2nfft_epsI,0.043,p2nfft_epsB,0.043,p2nfft_p,10,pnfft_m,4
+
 # ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_56000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,170,170,170,pnfft_n,192,192,192,p2nfft_epsI,0.037,p2nfft_epsB,0.037,p2nfft_p,10,pnfft_m,4
+
 # ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_78000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,192,192,192,pnfft_n,210,210,210,p2nfft_epsI,0.033,p2nfft_epsB,0.033,p2nfft_p,10,pnfft_m,4
 
+# ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_100000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,208,208,208,pnfft_n,224,224,224,p2nfft_epsI,0.031,p2nfft_epsB,0.031,p2nfft_p,10,pnfft_m,4
 
+
+
+# alt/falsch:
 # ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_${N}_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,170,170,170,pnfft_n,192,192,192,p2nfft_epsI,0.037,p2nfft_epsB,0.037,p2nfft_p,10,pnfft_m,4
-
-N		abs_energy	abs_force		rt-run		rt-near		rt-far
-    1000	4.131740e-05	6.514467e-03		9.082501e-01	1.056910e-03	9.067218e-01
-   12000	5.723331e-05	3.974335e-03		1.011758e+00	5.253077e-02	9.558530e-01
-   23000	6.307562e-05	3.506021e-03		1.188932e+00	1.798348e-01	1.002658e+00
-   34000	6.760083e-05	3.299584e-03		1.438793e+00	3.806100e-01	1.048743e+00
-   45000	7.069715e-05	3.152301e-03		1.767849e+00	6.575441e-01	1.098026e+00
-   56000	7.341345e-05	3.035302e-03		2.179547e+00	1.019984e+00	1.143741e+00
-   67000	7.594416e-05	2.944798e-03		2.663363e+00	1.450608e+00	1.193902e+00
-   78000	7.790578e-05	2.874771e-03		3.214955e+00	1.952329e+00	1.240712e+00
-   89000	7.989284e-05	2.825117e-03		3.864466e+00	2.552489e+00	1.286580e+00
-  100000	8.133587e-05	2.765237e-03		4.569151e+00	3.207170e+00	1.333782e+00
-
+#N		abs_energy	abs_force		rt-run		rt-near		rt-far
+#    1000	4.131740e-05	6.514467e-03		9.082501e-01	1.056910e-03	9.067218e-01
+#   12000	5.723331e-05	3.974335e-03		1.011758e+00	5.253077e-02	9.558530e-01
+#   23000	6.307562e-05	3.506021e-03		1.188932e+00	1.798348e-01	1.002658e+00
+#   34000	6.760083e-05	3.299584e-03		1.438793e+00	3.806100e-01	1.048743e+00
+#   45000	7.069715e-05	3.152301e-03		1.767849e+00	6.575441e-01	1.098026e+00
+#   56000	7.341345e-05	3.035302e-03		2.179547e+00	1.019984e+00	1.143741e+00
+#   67000	7.594416e-05	2.944798e-03		2.663363e+00	1.450608e+00	1.193902e+00
+#   78000	7.790578e-05	2.874771e-03		3.214955e+00	1.952329e+00	1.240712e+00
+#   89000	7.989284e-05	2.825117e-03		3.864466e+00	2.552489e+00	1.286580e+00
+#  100000	8.133587e-05	2.765237e-03		4.569151e+00	3.207170e+00	1.333782e+00
+#
