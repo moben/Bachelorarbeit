@@ -1,3 +1,9 @@
+# ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_1000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,52,52,52,pnfft_n,60,60,60,p2nfft_epsI,0.117,p2nfft_epsB,0.117,p2nfft_p,10,pnfft_m,4
+# ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_34000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,150,150,150,pnfft_n,160,160,160,p2nfft_epsI,0.043,p2nfft_epsB,0.043,p2nfft_p,10,pnfft_m,4
+# ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_56000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,170,170,170,pnfft_n,192,192,192,p2nfft_epsI,0.037,p2nfft_epsB,0.037,p2nfft_p,10,pnfft_m,4
+# ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_78000_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,192,192,192,pnfft_n,210,210,210,p2nfft_epsI,0.033,p2nfft_epsB,0.033,p2nfft_p,10,pnfft_m,4
+
+
 # ./scafacos_test p2nfft numerics/accuracy-tests-increased-box/rand_0dp_${N}_fmm.xml.gz -c p2nfft_verbose_tuning,1,p2nfft_reg_near_name,t2p,p2nfft_reg_far_name,rad_t2p_ic,pnfft_N,170,170,170,pnfft_n,192,192,192,p2nfft_epsI,0.037,p2nfft_epsB,0.037,p2nfft_p,10,pnfft_m,4
 
 N		abs_energy	abs_force		rt-run		rt-near		rt-far
