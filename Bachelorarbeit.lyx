@@ -1017,28 +1017,16 @@ f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{
 \begin_layout Standard
 Analog definiert man die adjungierte nicht-äquidistante Fourier-Transformation
  (NDFT
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
+\begin_inset script superscript
 
 \begin_layout Plain Layout
-
-
-\backslash
-aNDFT/
-\end_layout
-
-\end_inset
-
-
+H
 \end_layout
 
 \end_inset
 
 ) von 
-\begin_inset Formula $M\in\mathbb{N}$
+\begin_inset Formula $N\in\mathbb{N}$
 \end_inset
 
  komplexen Zahlen 
@@ -1046,19 +1034,19 @@ aNDFT/
 \end_inset
 
 , 
-\begin_inset Formula $j=\range 1M$
+\begin_inset Formula $j=\range 1N$
 \end_inset
 
  als
 \begin_inset Formula 
 \[
-\hat{h}_{\mathbf{k}}=\sum\limits _{j=1}^{M}f_{j}\mathrm{e}^{+\tpii\mathbf{k}\mathbf{x}_{j}},\qquad\mathbf{k}\in\I{\v N},
+\hat{h}_{\mathbf{k}}=\sum\limits _{j=1}^{N}f_{j}\mathrm{e}^{+\tpii\mathbf{k}\mathbf{x}_{j}},\qquad\mathbf{k}\in\I{\v M},
 \]
 
 \end_inset
 
  bzw mit 
-\begin_inset Formula $\hat{\mathbf{h}}=\left(\hat{h}_{\mathbf{k}}\right)_{\mathbf{k}\in\I{\v N}}$
+\begin_inset Formula $\hat{\mathbf{h}}=\left(\hat{h}_{\mathbf{k}}\right)_{\mathbf{k}\in\I{\v M}}$
 \end_inset
 
  in Matrixnotation als
@@ -1133,15 +1121,15 @@ ihre 1-periodische Version, deren Fourier-Koeffizienten
 
 \begin_layout Standard
 Sei außerdem 
-\begin_inset Formula $\mathbf{n}\in2\mathbb{N}^{3}$
+\begin_inset Formula $\v m\in2\mathbb{N}^{3}$
 \end_inset
 
 , 
-\begin_inset Formula $\mathbf{n}\geq\mathbf{N}$
+\begin_inset Formula $\v m\geq M$
 \end_inset
 
 , wobei die Ungleichung komponentenweise gelte, sowie 
-\begin_inset Formula $\I{\v n}=\thrange{n_{0}}{n_{1}}{n_{2}}$
+\begin_inset Formula $\I{\v m}=\thrange{m_{0}}{m_{1}}{m_{2}}$
 \end_inset
 
  eine weitere Indexmenge.
@@ -1153,13 +1141,13 @@ status open
 Es seien weiterhin
 \begin_inset Formula 
 \[
-\I{\v n,m}\left(\mathbf{x}\right)=\left\{ \mathbf{k}=\left(k_{0},k_{1},k_{2}\right)\in\I{\v n}\,\middle|\,\left|n_{t}x_{t}-k_{t}\right|\leq m\vee\left|n_{t}x_{t}-k_{t}\right|\geq n_{t}-m,\: t=0,1,2\right\} 
+\I{\v m,b}\left(\mathbf{x}\right)=\left\{ \mathbf{k}=\left(k_{0},k_{1},k_{2}\right)\in\I{\v m}\,\middle|\,\left|m_{t}x_{t}-k_{t}\right|\leq b\vee\left|m_{t}x_{t}-k_{t}\right|\geq m_{t}-b,\: t=0,1,2\right\} 
 \]
 
 \end_inset
 
 die Indizes aus 
-\begin_inset Formula $\I{\v n}$
+\begin_inset Formula $\I{\v m}$
 \end_inset
 
  auf denen die Fensterfunktion 
@@ -1168,7 +1156,7 @@ die Indizes aus
 
  konzentriert ist.
  Hierbei ist 
-\begin_inset Formula $m$
+\begin_inset Formula $b$
 \end_inset
 
  ein für die Fensterfunktion spezifischer Abschneideparameter.
@@ -1178,7 +1166,7 @@ die Indizes aus
 
  im Ortsbereich gut lokalisiert ist kann sie durch die abgeschnittene Funktion
  
-\begin_inset Formula $\psi^{\prime}=\psi\cdot\chi_{\left[-\frac{m}{n_{0}},\frac{m}{n_{0}}\right]}$
+\begin_inset Formula $\psi^{\prime}=\psi\cdot\chi_{\left[-\frac{b}{n_{0}},\frac{b}{n_{0}}\right]}$
 \end_inset
 
  approximiert werden.
@@ -1199,7 +1187,7 @@ die Indizes aus
 \end_inset
 
  auf einen Quader der Größe 
-\begin_inset Formula $\frac{m}{n_{0}}\times\frac{m}{n_{1}}\times\frac{m}{n_{2}}$
+\begin_inset Formula $\frac{b}{m_{0}}\times\frac{b}{m_{1}}\times\frac{b}{m_{2}}$
 \end_inset
 
  eingeschränkt werden.
@@ -1211,52 +1199,11 @@ die Indizes aus
 \end_layout
 
 \begin_layout Standard
-Als nicht-äquidistante schnelle Fourier-Transformation (
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-) bezeichnen wir die Approximation der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NDFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- nach [], 
+Als nicht-äquidistante schnelle Fourier-Transformation (NFFT) bezeichnen
+ wir die Approximation der NDFT nach [], 
 \begin_inset Formula 
 \[
-f_{l}\approx\sum_{\mathbf{k}\in\I{\v n}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right),\qquad l=\range 1M.
+f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}-\frac{\v k}{\v m}\right),\qquad l=\range 1N.
 \]
 
 \end_inset
@@ -1276,21 +1223,21 @@ f_{l}\approx\sum_{\mathbf{k}\in\I{\v n}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\m
 \begin_layout Standard
 \begin_inset Formula 
 \[
-g_{\mathbf{k}}:=\sum_{\mathbf{j}\in\I{\v N}}\frac{\hat{f_{\mathbf{j}}}}{\left|\I{\v n}\right|\hat{\varphi}_{\mathbf{j}}}\mathrm{e}^{-\tpii\mathbf{j}\odot\mathbf{k}/\mathbf{n}},\qquad\mathbf{k}\in\I{\v n}
+g_{\mathbf{k}}:=\sum_{\v j\in\I{\v M}}\frac{\hat{f_{\v j}}}{\left|\I{\v m}\right|\hat{\varphi}_{\v j}}\mathrm{e}^{-\tpii\v j\odot\v k/\mathbf{m}},\qquad\v k\in\I{\v m}
 \]
 
 \end_inset
 
  und können mittels schneller Fourier-Transformationen berechnet werden.
  Diese Approximation kann mit einer arithmetischen Komplexität von 
-\begin_inset Formula $\mathcal{O}\left(\left|\I{\v N}\right|+\left|\I{\v n}\right|\log\left|\I{\v n}\right|+\left(2m+1\right)^{3}M\right)$
+\begin_inset Formula $\mathcal{O}\left(\left|\I{\v M}\right|+\left|\I{\v m}\right|\log\left|\I{\v m}\right|+\left(2b+1\right)^{3}N\right)$
 \end_inset
 
  ausgeführt werden, wobei 
-\begin_inset Formula $m$
+\begin_inset Formula $b\in\set N$
 \end_inset
 
- ein für die Fensterfunktion spezifischer Abschneideparameter ist.
+  ein für die Fensterfunktion spezifischer Abschneideparameter ist.
 \end_layout
 
 \begin_layout Standard
