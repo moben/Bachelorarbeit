@@ -3823,7 +3823,7 @@ begin{groupplot}[
 
 \begin_layout Plain Layout
 
-				ymin=0.0001,
+				ymin=0.01,
 \end_layout
 
 \begin_layout Plain Layout
