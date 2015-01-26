@@ -910,7 +910,7 @@ Außerdem bezeichnen wir wie zu Beginn bereits erwähnt in der Summe
 \end_layout
 
 \begin_layout Subsection
-Die nicht-äquidistante schnelle Fourier-Transformation (NFFT)
+Die nicht-äquidistante schnelle Fourier-Transformation 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:NFFT"
