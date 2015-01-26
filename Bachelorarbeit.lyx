@@ -937,16 +937,16 @@ Wir setzen dazu
 
  den dreidimensionalen Torus.
  Seien nun ein Vektor 
-\begin_inset Formula $\mathbf{N}=\left(N_{0},N_{1},N_{2}\right)\in2\mathbb{N}^{3}$
+\begin_inset Formula $\v M=\left(M_{0},M_{1},M_{2}\right)\in2\mathbb{N}^{3}$
 \end_inset
 
 , sowie die Indexmenge 
-\begin_inset Formula $\I{\v N}=\thrange{N_{0}}{N_{1}}{N_{2}}$
+\begin_inset Formula $\I{\v M}=\thrange{M_{0}}{M_{1}}{M_{2}}$
 \end_inset
 
  gegeben.
  Für 
-\begin_inset Formula $\abs{\I{\v N}}$
+\begin_inset Formula $\abs{\I{\v M}}$
 \end_inset
 
  komplexe Zahlen 
@@ -954,13 +954,13 @@ Wir setzen dazu
 \end_inset
 
 , 
-\begin_inset Formula $\mathbf{k}\in\I{\v N}$
+\begin_inset Formula $\mathbf{k}\in\I{\v M}$
 \end_inset
 
  wird durch
 \begin_inset Formula 
 \begin{equation}
-f\left(\mathbf{x}\right)=\sum\limits _{\mathbf{k}\in\I{\v N}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}}
+f\left(\mathbf{x}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}}
 \end{equation}
 
 \end_inset
@@ -975,53 +975,32 @@ f\left(\mathbf{x}\right)=\sum\limits _{\mathbf{k}\in\I{\v N}}\hat{f}_{\mathbf{k}
 \end_inset
 
 , 
-\begin_inset Formula $j=\range 1M$
+\begin_inset Formula $j=\range 1N$
 \end_inset
 
 , 
-\begin_inset Formula $M\in\mathbb{N}$
+\begin_inset Formula $N\in\mathbb{N}$
 \end_inset
 
 , dass heißt die Berechnung von 
 \begin_inset Formula 
 \[
-f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v N}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}},\qquad j=\range 1M,
+f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}},\qquad j=\range 1N,
 \]
 
 \end_inset
 
- bezeichnet man als nicht-äquidistante diskrete Fourier-Transformation (
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NDFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-).
+ bezeichnet man als nicht-äquidistante diskrete Fourier-Transformation (NDFT).
  Mit 
-\begin_inset Formula $\mathbf{f}=\left(f_{j}\right)_{j\in\left\{ \range 1M\right\} }$
+\begin_inset Formula $\mathbf{f}=\left(f_{j}\right)_{j\in\left\{ \range 1N\right\} }$
 \end_inset
 
 , 
-\begin_inset Formula $\mathbf{\hat{f}}=\left(\hat{f}_{\mathbf{k}}\right)_{\mathbf{k}\in\I{\v N}}$
+\begin_inset Formula $\mathbf{\hat{f}}=\left(\hat{f}_{\mathbf{k}}\right)_{\mathbf{k}\in\I{\v M}}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathbf{A}=\left(\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}}\right)_{j\in\left\{ \range 1M\right\} ;\mathbf{k}\in\I{\v N}}$
+\begin_inset Formula $\mathbf{A}=\left(\mathrm{e}^{-\tpii\mathbf{k}\mathbf{x}_{j}}\right)_{j\in\left\{ \range 1N\right\} ;\mathbf{k}\in\I{\v M}}$
 \end_inset
 
  kann sie auch in Matrixnotation geschrieben werden als
@@ -1037,7 +1016,7 @@ NDFT/
 
 \begin_layout Standard
 Analog definiert man die adjungierte nicht-äquidistante Fourier-Transformation
- (
+ (NDFT
 \begin_inset Preview
 
 \begin_layout Standard
