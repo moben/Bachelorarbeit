@@ -1237,7 +1237,7 @@ g_{\mathbf{k}}:=\sum_{\v j\in\I{\v M}}\frac{\hat{f_{\v j}}}{\left|\I{\v m}\right
 \begin_inset Formula $b\in\set N$
 \end_inset
 
-  ein für die Fensterfunktion spezifischer Abschneideparameter ist.
+ ein für die Fensterfunktion spezifischer Abschneideparameter ist.
 \end_layout
 
 \begin_layout Standard
@@ -1252,11 +1252,11 @@ In der Matrix-Notation die NFFT auch geschrieben werden als
 mit
 \begin_inset Formula 
 \begin{align*}
-\mathbf{D} & =\mathrm{diag}\left(\frac{1}{\left|\I{\v n}\right|\hat{\varphi}_{\mathbf{j}}}\right)_{\mathbf{j}\in\I{\v N}},\\
-\mathbf{F} & =\left(\mathrm{e}^{-\tpii\mathbf{j}\frac{\mathbf{k}}{\mathbf{n}}}\right)_{\mathbf{j}\in\I{\v N};\mathbf{k}\in\I{\v n}},\\
-\mathbf{B} & =\left(b_{l\mathbf{k}}\right)_{l=\range 1M;\mathbf{k}\in\I{\v n}},\qquad b_{l\mathbf{k}}=\begin{cases}
-\mathrm{\tilde{\varphi}}\left(\mathbf{x}_{l}-\frac{\mathbf{k}}{\mathbf{n}}\right) & :\mathbf{k}\in\I{\v n,m}\left(\mathbf{x}_{l}\right)\\
-0 & :\mathbf{k}\not\in\I{\v n,m}\left(\mathbf{x}_{l}\right)
+\mathbf{D} & =\mathrm{diag}\left(\frac{1}{\left|\I{\v m}\right|\hat{\varphi}_{\mathbf{j}}}\right)_{\mathbf{j}\in\I{\v M}},\\
+\mathbf{F} & =\left(\mathrm{e}^{-\tpii\v j\frac{\v k}{\v m}}\right)_{\v j\in\I{\v M};\v k\in\I{\v m}},\\
+\mathbf{B} & =\left(b_{l\v k}\right)_{l=\range 1N;\v k\in\I{\v m}},\qquad b_{l\v k}=\begin{cases}
+\mathrm{\tilde{\varphi}}\left(\v x_{l}-\frac{\v k}{\v m}\right) & :\v k\in\I{\v m,b}\left(\v x_{l}\right)\\
+0 & :\v k\in\I{\v m,b}\left(\v x_{l}\right)
 \end{cases},
 \end{align*}
 
@@ -1267,34 +1267,22 @@ mit
 
 \begin_layout Standard
 wobei 
-\begin_inset Formula $\I{\v n,m}\left(\mathbf{x}_{l}\right)$
+\begin_inset Formula $\I{\v m,b}\left(\v x_{l}\right)$
 \end_inset
 
  die Indizes aus 
-\begin_inset Formula $\I{\v n}$
+\begin_inset Formula $\I{\v m}$
 \end_inset
 
  bezeichnet auf denen die Fensterfunktion konzentriert ist.
 \end_layout
 
 \begin_layout Standard
-Analog wird die 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
+Analog wird die NDFT
+\begin_inset script superscript
 
 \begin_layout Plain Layout
-
-
-\backslash
-aNDFT/
-\end_layout
-
-\end_inset
-
-
+H
 \end_layout
 
 \end_inset
@@ -1311,24 +1299,12 @@ approximiert durch
 
 \end_inset
 
- dies bezeichnet man als adjungierte nicht-äquidistante schnelle Fourier-Transfo
-rmation (
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
+Dies bezeichnet man als adjungierte nicht-äquidistante schnelle Fourier-Transfor
+mation (NFFT
+\begin_inset script superscript
 
 \begin_layout Plain Layout
-
-
-\backslash
-aNFFT/
-\end_layout
-
-\end_inset
-
-
+H
 \end_layout
 
 \end_inset
