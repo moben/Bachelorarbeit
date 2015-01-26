@@ -1061,7 +1061,25 @@ H
 \end_layout
 
 \begin_layout Standard
-Wie in [] sei 
+Wie leicht zu sehen ist hat die direkte Berechnung sowohl der NDFT als auch
+ der NDFT
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+H
+\end_layout
+
+\end_inset
+
+ eine arithmetische Komplexität von 
+\begin_inset Formula $\O{N\cdot\abs{\I{\v M}}}$
+\end_inset
+
+.
+ Da die für viele Anwendungen zu rechenintensiv ist werden wir die Approximation
+ der NDFT durch die so genannte schnelle nicht-äquidistante Fourier-Transformati
+on nach [] einführen.
+ Sei dazu 
 \begin_inset Formula $\mathrm{\psi}\in L_{2}\left(\mathbb{R}\right)$
 \end_inset
 
@@ -3805,7 +3823,7 @@ begin{groupplot}[
 
 \begin_layout Plain Layout
 
-				ymin=0.001,
+				ymin=0.0001,
 \end_layout
 
 \begin_layout Plain Layout
