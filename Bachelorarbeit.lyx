@@ -555,8 +555,8 @@ NePiPo
 
 \end_inset
 
-] wurde dieser Ansatz auf Systeme verallgemeinert, die nur eine oder zwei
- der Dimensionen periodisch sind.
+] wurde dieser Ansatz auf Systeme verallgemeinert, die nur in einer oder
+ zwei der Dimensionen periodisch sind.
  Dazu der Summand in den nicht-periodischen Dimensionen zunächst durch eine
  periodische Funktion, bzw deren Fourier-Reihe approximiert.
  Anschließend kann die Summe erneut mittels der NFFT in 
