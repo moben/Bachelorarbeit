@@ -426,7 +426,7 @@ Viele Anwendungen erfordern die Simulation von Partikelsystemen.
  Dabei wird in der Regel der Zeitverlauf diskretisiert und zu jedem Zeitschritt
  werden die Kräfte die auf die einzelnen Partikel wirken berechnet.
  Beispiele hierfür sind die Gravitationskräfte zwischen Massenteilchen oder
- die Coulomb-Wechselwirkungen in Systemen geladener Teilchen.
+ die Coulomb-Wechselwirkungen in Systemen geladener Partikel.
  Beispielsweise ist für 
 \begin_inset Formula $N$
 \end_inset
