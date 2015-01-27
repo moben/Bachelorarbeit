@@ -838,7 +838,7 @@ In diesem Abschnitt werden wir zunächst einige Notationen einführen, die
 
 .
  Dann definieren wir für 
-\begin_inset Formula $0\not\in\left\{ M_{1},M_{2},M_{3}\right\} $
+\begin_inset Formula $\v{0\not}\in\left\{ M_{1},M_{2},M_{3}\right\} $
 \end_inset
 
  das Reziproke von 
