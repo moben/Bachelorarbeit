@@ -1119,7 +1119,7 @@ H
 .
  Da die für viele Anwendungen zu rechenintensiv ist werden wir die Approximation
  der NDFT durch die so genannte schnelle nicht-äquidistante Fourier-Transformati
-on nach [] einführen.
+on (NFFT) nach [] einführen.
 \end_layout
 
 \begin_layout Standard
@@ -1380,20 +1380,8 @@ H
 
 \end_inset
 
-
-\emph on
- 
-\emph default
-approximiert durch
-\begin_inset Formula 
-\[
-\mathbf{A}^{H}\mathbf{f}\approx\mathbf{D}\mathbf{F}^{H}\mathbf{B}^{T}\mathbf{f}.
-\]
-
-\end_inset
-
-Dies bezeichnet man als adjungierte nicht-äquidistante schnelle Fourier-Transfor
-mation (NFFT
+ durch die adjungierte nicht-äquidistante schnelle Fourier-Transformation
+ (NFFT
 \begin_inset script superscript
 
 \begin_layout Plain Layout
@@ -1402,7 +1390,34 @@ H
 
 \end_inset
 
-).
+) approximiert, welche durch
+\begin_inset Formula 
+\[
+\mathbf{A}^{H}\mathbf{f}\approx\mathbf{D}\mathbf{F}^{H}\mathbf{B}^{T}\mathbf{f}
+\]
+
+\end_inset
+
+ gegeben ist.
+ Die Genauigkeit der Approximation sowohl der NFFT als auch der NFFT
+\begin_inset script superscript
+
+\begin_layout Plain Layout
+H 
+\end_layout
+
+\end_inset
+
+wird durch die Wahl der Fensterfunktion, des Abschneideparameters, bzw der
+ B-Spline-Ordnung 
+\begin_inset Formula $b$
+\end_inset
+
+, sowie den Oversampling-Faktor 
+\begin_inset Formula $\v m/\v M$
+\end_inset
+
+ bestimmt.
 \end_layout
 
 \begin_layout Subsection
