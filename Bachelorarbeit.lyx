@@ -1329,7 +1329,8 @@ g_{\mathbf{k}}:=\sum_{\v j\in\I{\v M}}\frac{\hat{f_{\v j}}}{\left|\I{\v m}\right
 \begin_inset Formula $b\in\set N$
 \end_inset
 
- ein für die Fensterfunktion spezifischer Abschneideparameter ist.
+ ein für die Fensterfunktion spezifischer Abschneideparameter, bzw im Fall
+ einer B-Spline-basierten Fensterfunktion die B-Spline Ordnung ist.
 \end_layout
 
 \begin_layout Standard
