@@ -1011,6 +1011,35 @@ f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{
 
 \end_inset
 
+ Mit 
+\begin_inset Formula $\tilde{f}:L\set T^{3}\rightarrow\set C$
+\end_inset
+
+ kann die NDFT statt auf dem Einheitswürfel auch auf 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+, dem Würfel der Kantenlänge 
+\begin_inset Formula $L\in\left(0,\infty\right)$
+\end_inset
+
+ definiert werden.
+ Dabei sind 
+\begin_inset Formula $\v{\tilde{x}}_{j}\in L\set T^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ und die NDFT ist gegeben durch 
+\begin_inset Formula 
+\[
+f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\v{\tilde{x}}_{j}/L},\qquad j=\range 1N.
+\]
+
+\end_inset
+
 
 \end_layout
 
