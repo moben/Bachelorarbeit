@@ -1035,12 +1035,24 @@ f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{
  und die NDFT ist gegeben durch 
 \begin_inset Formula 
 \[
-f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\v{\tilde{x}}_{j}/L},\qquad j=\range 1N.
+\tilde{f}_{j}=\tilde{f}\left(\v{\tilde{x}}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{\mathbf{k}}\mathrm{e}^{-\tpii\mathbf{k}\v{\tilde{x}}_{j}/L},\qquad j=\range 1N.
 \]
 
 \end_inset
 
+ Da sich dies jedoch durch 
+\begin_inset Formula $\tilde{f}\left(\v{\tilde{x}}_{j}\right)=f\left(\frac{\v{\tilde{x}}_{j}}{L}\right)$
+\end_inset
 
+ auf den Fall 
+\begin_inset Formula $L=1$
+\end_inset
+
+ zurückführen lässt werden wir in Abschnitt nur 
+\begin_inset Formula $f:\mathbb{T}^{3}\rightarrow\mathbb{C}$
+\end_inset
+
+ betrachten.
 \end_layout
 
 \begin_layout Standard
@@ -1108,12 +1120,45 @@ H
  Da die für viele Anwendungen zu rechenintensiv ist werden wir die Approximation
  der NDFT durch die so genannte schnelle nicht-äquidistante Fourier-Transformati
 on nach [] einführen.
- Sei dazu 
+\end_layout
+
+\begin_layout Standard
+Sei dazu 
 \begin_inset Formula $\mathrm{\psi}\in L_{2}\left(\mathbb{R}\right)$
 \end_inset
 
- eine Fensterfunktion, die im Frequenz und Ortsbereich gut lokalisiert ist
- und so gewählt wird, dass ihre 1-periodische Fortsetzung
+ eine Fensterfunktion, die im Frequenz und Ortsbereich gut lokalisiert ist.
+ Zur Definition von 
+\begin_inset Formula $\psi$
+\end_inset
+
+ existieren verschiedene Ansätze, zum Beispiel als Gauß-Funktion nach [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+habil,31
+\end_layout
+
+\end_inset
+
+] oder Kaiser-Bessel-Funktionen nach [
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+habil, 44,45
+\end_layout
+
+\end_inset
+
+], wir werden jedoch im weiteren Verlauf der Arbeit eine B-Spline-basierte
+ Fensterfunktion 
+\begin_inset Formula $\psi$
+\end_inset
+
+ verwenden.
+ Diese muss so gewählt wird, dass ihre 1-periodische Fortsetzung
 \begin_inset Formula 
 \[
 \tilde{\psi}\left(x\right)=\sum_{r\in\mathbb{Z}}\psi\left(x+r\right)
@@ -1124,7 +1169,7 @@ on nach [] einführen.
 eine gleichmäßig konvergierende Fourier-Reihe besitzt und auch im Frequenz
  und Ortsbereich gut lokalisiert ist.
  Also kann 
-\begin_inset Formula $\tilde{\psi}$
+\begin_inset Formula $\mathrm{\tilde{\psi}}$
 \end_inset
 
  durch ihre Fourier-Reihe
