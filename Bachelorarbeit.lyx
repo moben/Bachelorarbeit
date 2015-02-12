@@ -1315,7 +1315,7 @@ f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}
 \begin_layout Standard
 \begin_inset Formula 
 \[
-g_{\mathbf{k}}:=\sum_{\v j\in\I{\v M}}\frac{\hat{f_{\v j}}}{\left|\I{\v m}\right|\hat{\varphi}_{\v j}}\mathrm{e}^{-\tpii\v j\odot\v k/\mathbf{m}},\qquad\v k\in\I{\v m}
+g_{\mathbf{k}}:=\sum_{\v j\in\I{\v M}}\frac{\hat{f_{\v j}}}{\left|\I{\v m}\right|\hat{\varphi}_{\v j}}\mathrm{e}^{-\tpii\v j\left(\v k\odot\mathbf{m}^{-1}\right)},\qquad\v k\in\I{\v m}
 \]
 
 \end_inset
@@ -1346,7 +1346,7 @@ mit
 \begin_inset Formula 
 \begin{align*}
 \mathbf{D} & =\mathrm{diag}\left(\frac{1}{\left|\I{\v m}\right|\hat{\varphi}_{\mathbf{j}}}\right)_{\mathbf{j}\in\I{\v M}},\\
-\mathbf{F} & =\left(\mathrm{e}^{-\tpii\v j\frac{\v k}{\v m}}\right)_{\v j\in\I{\v M};\v k\in\I{\v m}},\\
+\mathbf{F} & =\left(\mathrm{e}^{-\tpii\v j\left(\v k\odot\mathbf{m}^{-1}\right)}\right)_{\v j\in\I{\v M};\v k\in\I{\v m}},\\
 \mathbf{B} & =\left(b_{l\v k}\right)_{l=\range 1N;\v k\in\I{\v m}},\qquad b_{l\v k}=\begin{cases}
 \mathrm{\tilde{\varphi}}\left(\v x_{l}-\frac{\v k}{\v m}\right) & :\v k\in\I{\v m,b}\left(\v x_{l}\right)\\
 0 & :\v k\in\I{\v m,b}\left(\v x_{l}\right)
@@ -1780,7 +1780,7 @@ status open
  Der langreichweitige Teil 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{1}{\pi L}\sum_{\v l\in\set Z^{3}\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{k}/L}\right)\e^{-\tpii\v l\cdot\v x_{j}/L}
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{1}{\pi L}\sum_{\v l\in\set Z^{3}\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L}\right)\e^{-\tpii\v l\v x_{j}/L}
 \]
 
 \end_inset
@@ -1880,7 +1880,7 @@ Wie groß ist der Fehler?
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\frac{1}{\pi L}\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{k}/L}\right)\e^{-\tpii\v l\cdot\v x_{j}/L},\qquad j=\range 1N.
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\frac{1}{\pi L}\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L}\right)\e^{-\tpii\v l\v x_{j}/L},\qquad j=\range 1N.
 \]
 
 \end_inset
@@ -1892,7 +1892,7 @@ Wie groß ist der Fehler?
 Dies kann effizient berechnet werden durch eine adjungierte NFFT 
 \begin_inset Formula 
 \[
-\hat{b}_{\v l}\coloneqq\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{k}/L},\qquad\v l\in\I M,
+\hat{b}_{\v l}\coloneqq\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L},\qquad\v l\in\I M,
 \]
 
 \end_inset
@@ -1900,7 +1900,7 @@ Dies kann effizient berechnet werden durch eine adjungierte NFFT
  gefolgt von einer NFFT 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\hat{a}_{\v l}\hat{b}_{\v l}\e^{-\tpii\v l\cdot\v x_{j}/L},\qquad j=\range 1N,
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\hat{a}_{\v l}\hat{b}_{\v l}\e^{-\tpii\v l\v x_{j}/L},\qquad j=\range 1N,
 \]
 
 \end_inset
