@@ -1585,10 +1585,14 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 
 \begin_layout Standard
 Dabei bezeichnet 
-\begin_inset Formula $\v x_{jk}=\v x_{j}-\v x_{k}$
+\begin_inset Formula $\v x_{jk}\in2L\set T^{3}$
 \end_inset
 
- die Distanz zwischen 
+ den Vektor 
+\begin_inset Formula $\v x_{j}-\v x_{k}$
+\end_inset
+
+ zwischen 
 \begin_inset Formula $\v x_{j}$
 \end_inset
 
@@ -1596,7 +1600,7 @@ Dabei bezeichnet
 \begin_inset Formula $\v x_{k}$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Section
