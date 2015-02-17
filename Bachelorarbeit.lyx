@@ -1304,7 +1304,7 @@ f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}
 \begin_inset Formula $\tilde{\varphi}$
 \end_inset
 
- gut lokalisert ist.
+ gut lokalisiert ist.
  Die Koeffizienten 
 \begin_inset Formula $g_{\v k}$
 \end_inset
@@ -1542,6 +1542,10 @@ Für
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Hierbei ignorieren wir der Einfachheit halber einen konstanten Faktor 
 \begin_inset Formula $\frac{1}{4\pi\varepsilon_{0}}$
 \end_inset
@@ -1581,10 +1585,7 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 \end_inset
 
  wirkt.
-\end_layout
-
-\begin_layout Standard
-Dabei bezeichnet 
+ Dabei bezeichnet 
 \begin_inset Formula $\v x_{jk}\in2L\set T^{3}$
 \end_inset
 
