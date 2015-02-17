@@ -5,7 +5,7 @@
 \textclass scrartcl
 \begin_preamble
 \usepackage[style=numeric,backend=biber]{biblatex}
-\addbibresource{Bachelorarbeit.bib}
+\addbibresource{references.bib}
 
 \usepackage{parskip}
 \usepackage{babel}
@@ -489,17 +489,14 @@ j\neq k
 
  ignoriert werden.
  Ein weit verbreiteter Ansatz um die Interaktionen in einem solchen periodischen
- System zu berechnen ist die Ewald-Summation[
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ewald
-\end_layout
+ System zu berechnen ist die Ewald-Summation 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ew21"
 
 \end_inset
 
-], die diese Summe in zwei Summen aufteilt von denen Eine im Ortsraum und
+, die diese Summe in zwei Summen aufteilt von denen Eine im Ortsraum und
  die Andere im Frequenzraum schnell konvergiert.
  Diese können dann mit unterschiedlichen Methoden einzeln approximiert werden.
  So lässt sich beispielsweise durch Approximation der Summe im Frequenzraum
@@ -1668,7 +1665,7 @@ Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
 
 \end_inset
 
-so kann unter Verwendung von 
+so kann unter der Voraussetzung der Ladungsneutralität des Systems 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:general:charge-neutrality"
@@ -1686,12 +1683,15 @@ status open
 \end_inset
 
 , dass diese Summe konvergiert.
- Im weiteren Verlauf dieses Abschnittes ist mit 
+ Im weiteren Verlauf dieses Kapitels ist mit 
 \begin_inset Formula $\sum_{\v n\in\set Z^{3}}$
 \end_inset
 
  stets diese Summationsreihenfolge gemeint.
- Dies geschieht mittels der Ewald Summation 
+\end_layout
+
+\begin_layout Standard
+Dies geschieht mittels der Ewald Summation 
 \begin_inset Note Note
 status open
 
@@ -4316,6 +4316,42 @@ mind.
 
 \begin_layout Plain Layout
 Fehler bekannt?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "references"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+printbibliography
 \end_layout
 
 \end_inset
