@@ -542,17 +542,14 @@ fft -> O(N log N), fmm -> O(N)
 \end_layout
 
 \begin_layout Standard
-In [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NePiPo
-\end_layout
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
 
 \end_inset
 
-] wurde dieser Ansatz auf Systeme verallgemeinert, die nur in einer oder
+ wurde dieser Ansatz auf Systeme verallgemeinert, die nur in einer oder
  zwei der Dimensionen periodisch sind.
  Dazu der Summand in den nicht-periodischen Dimensionen zunächst durch eine
  periodische Funktion, bzw deren Fourier-Reihe approximiert.
@@ -562,17 +559,15 @@ NePiPo
 
  arithmetischen Operationen berechnet werden.
  Diese NFFT basierten Algorithmen sind als P2NFFT, neben anderen Methoden
- zur Simulation der Coulomb-Wechselwirkungen in der ScaFaCoS[
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ScaFaCoS
-\end_layout
+ zur Simulation der Coulomb-Wechselwirkungen in der ScaFaCoS (Scalable Fast
+ Coulomb Solvers) Softwarebibliothek 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "scafacos"
 
 \end_inset
 
-] (Scalable Fast Coulomb Solvers) Softwarebibliothek implementiert.
+ implementiert.
 \end_layout
 
 \begin_layout Standard
@@ -4324,6 +4319,10 @@ Fehler bekannt?
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
 \begin_inset Note Note
 status open
 
@@ -4331,7 +4330,7 @@ status open
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "references"
-options "plain"
+options "bibtotoc,plain"
 
 \end_inset
 
@@ -4350,6 +4349,12 @@ status open
 \begin_layout Plain Layout
 
 
+\backslash
+phantomsection
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+refname}
 \backslash
 printbibliography
 \end_layout
