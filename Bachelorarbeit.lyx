@@ -1616,7 +1616,16 @@ name "chapter:3d-Ewald"
 \end_layout
 
 \begin_layout Standard
-Im Folgenden sei 
+Wir beschreiben nun die schnelle Approximation der Lösung des 3d-periodischen
+ Coulomb-Problems.
+ Im Folgenden setzen wir dazu in den Definitionen aus Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Problemstellung"
+
+\end_inset
+
+ 
 \begin_inset Formula $d=3$
 \end_inset
 
@@ -1644,7 +1653,9 @@ Im Folgenden sei
 \end_layout
 
 \begin_layout Standard
-Diese Summe ist nur bedingt konvergent.
+Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
+ abhängig von der gewählten Summationsreihenfolge gegen unterschiedliche
+ Grenzwerte konvergieren oder auch divergieren kann.
  Wählt man jedoch eine sphärische Summationsreihenfolge, d.h.
  
 \begin_inset Formula 
