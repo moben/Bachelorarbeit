@@ -678,17 +678,14 @@ reference "chapter:0d-Ewald"
 
 \end_inset
 
- wenden wir die Verfahren mit denen in [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NePiPo
-\end_layout
+ wenden wir die Verfahren mit denen in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
 
 \end_inset
 
-] Algorithmen für die Berechnung der Energie in 1d- und 2-periodischen Systemen
+ Algorithmen für die Berechnung der Energie in 1d- und 2-periodischen Systemen
  entwickelt wurden auf den 0d-periodischen Fall an.
  Dabei entwickeln wir zunächst in Abschnitt 
 \begin_inset CommandInset ref
@@ -1686,13 +1683,10 @@ status open
 \end_layout
 
 \begin_layout Standard
-Dies geschieht mittels der Ewald Summation 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-nach [ewald]
-\end_layout
+Dies geschieht mittels der Ewald Summation nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ew21"
 
 \end_inset
 
