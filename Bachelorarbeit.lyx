@@ -1605,7 +1605,7 @@ name "chapter:3d-Ewald"
 \end_layout
 
 \begin_layout Standard
-Wir beschreiben nun die schnelle Approximation der Lösung des Coulomb-Problems
+Wir beschreiben nun die schnelle Berechnung der Lösung des Coulomb-Problems
  mit 3d-periodischen Randbedingungen.
  Im Folgenden setzen wir dazu in den Definitionen aus Kapitel 
 \begin_inset CommandInset ref
