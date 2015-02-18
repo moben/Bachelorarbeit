@@ -1644,7 +1644,7 @@ reference "sec:Problemstellung"
 \begin_layout Standard
 Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
  abhängig von der gewählten Summationsreihenfolge gegen unterschiedliche
- Grenzwerte konvergieren oder auch divergieren kann.
+ Grenzwerte konvergiert.
  Wählt man jedoch eine sphärische Summationsreihenfolge, d.h.
  
 \begin_inset Formula 
