@@ -1645,7 +1645,7 @@ reference "sec:Problemstellung"
 Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
  abhängig von der gewählten Summationsreihenfolge gegen unterschiedliche
  Grenzwerte konvergiert.
- Wählt man jedoch eine sphärische Summationsreihenfolge, d.h.
+ Wir wählen jedoch eine sphärische Summationsreihenfolge, d.h.
  
 \begin_inset Formula 
 \[
@@ -1657,21 +1657,7 @@ Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
 
 \end_inset
 
-so kann unter der Voraussetzung der Ladungsneutralität des Systems 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:general:charge-neutrality"
-
-\end_inset
-
- wie in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ne12"
-
-\end_inset
-
- gezeigt werden, dass diese Summe konvergiert.
+ womit der Wert der Summe eindeutig definiert ist.
  Im weiteren Verlauf dieses Kapitels ist mit 
 \begin_inset Formula $\sum_{\v n\in\set Z^{3}}$
 \end_inset
@@ -1680,23 +1666,15 @@ key "Ne12"
 \end_layout
 
 \begin_layout Standard
-Dies geschieht mittels der Ewald Summation nach 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ew21"
-
-\end_inset
-
-.
- Dazu sei
+Um diesen Wert zu berechnen führen wir zunächst die Fehlerfunktion 
 \begin_inset Formula 
 \[
-\erf x\coloneqq\frac{2}{\sqrt{\pi}}\int_{0}^{x}\e^{-t^{2}}\d t
+\erf x\coloneqq\frac{2}{\sqrt{\pi}}\int_{0}^{x}\e^{-t^{2}}\d t,
 \]
 
 \end_inset
 
- die Fehlerfunktion, sowie
+ sowie die komplementäre Fehlerfunktion 
 \begin_inset Formula 
 \[
 \erfc x\coloneqq1-\erf x
@@ -1704,16 +1682,28 @@ key "Ew21"
 
 \end_inset
 
- die komplementäre Fehlerfunktion.
- Die Ewald Summation wendet die Identität 
+ein.
+ Für 
+\begin_inset Formula $r\neq0$
+\end_inset
+
+ und 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ gilt damit offensichtlich die Identität 
 \begin_inset Formula 
 \[
-\frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r}
+\frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r}.
 \]
 
 \end_inset
 
- für 
+
+\end_layout
+
+\begin_layout Standard
+Die Ewald Summation wendet die Identität für 
 \begin_inset Formula $\alpha>0$
 \end_inset
 
@@ -1887,6 +1877,29 @@ Wie groß ist der Fehler?
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+so kann unter der Voraussetzung der Ladungsneutralität des Systems 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:general:charge-neutrality"
+
+\end_inset
+
+ wie in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ne12"
+
+\end_inset
+
+ gezeigt werden, dass diese Summe konvergiert.
+\end_layout
+
+\end_inset
+
 Dies kann effizient berechnet werden durch eine adjungierte NFFT 
 \begin_inset Formula 
 \[
