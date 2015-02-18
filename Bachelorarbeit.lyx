@@ -1664,17 +1664,14 @@ reference "eq:general:charge-neutrality"
 
 \end_inset
 
- gezeigt werden
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-[~nesfr]
-\end_layout
+ wie in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ne12"
 
 \end_inset
 
-, dass diese Summe konvergiert.
+ gezeigt werden, dass diese Summe konvergiert.
  Im weiteren Verlauf dieses Kapitels ist mit 
 \begin_inset Formula $\sum_{\v n\in\set Z^{3}}$
 \end_inset
