@@ -1703,11 +1703,7 @@ ein.
 \end_layout
 
 \begin_layout Standard
-Die Ewald Summation wendet die Identität für 
-\begin_inset Formula $\alpha>0$
-\end_inset
-
- auf 
+Die sogenannte Ewald Summation wendet diese Identität auf 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:3d:potential"
