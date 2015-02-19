@@ -1703,7 +1703,14 @@ ein.
 \end_layout
 
 \begin_layout Standard
-Die sogenannte Ewald Summation wendet diese Identität auf 
+Die sogenannte Ewald Summation nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ew21"
+
+\end_inset
+
+ wendet diese Identität auf 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:3d:potential"
@@ -1722,7 +1729,32 @@ reference "eq:3d:potential"
 \end_layout
 
 \begin_layout Standard
-Als Resultat wird 
+Die bedingt konvergente Summe 
+\begin_inset Formula $\phi_{3}\left(\v x_{j}\right)$
+\end_inset
+
+ wird also in zwei Summen zerlegt.
+ Da 
+\begin_inset Formula $\erfc r$
+\end_inset
+
+ für 
+\begin_inset Formula $r\rightarrow\infty$
+\end_inset
+
+ exponentiell schnell gegen Null fällt ist die erste Summe absolut konvergent.
+ Die zweite Summe hingegen ist wieder bedingt konvergent, da die Gesamtsumme
+ bedingt konvergent ist.
+ Unter der Annahme der sphärischen Summationsreihenfolge und der Voraussetzung
+ der Ladungsneutralität des Systems kann jedoch wie in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ne12"
+
+\end_inset
+
+ gezeigt werden, dass auch diese Summe konvergiert.
+ Als Resultat wird 
 \begin_inset Formula $\phi_{3}\left(\v x_{j}\right)$
 \end_inset
 
@@ -1873,29 +1905,6 @@ Wie groß ist der Fehler?
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-so kann unter der Voraussetzung der Ladungsneutralität des Systems 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:general:charge-neutrality"
-
-\end_inset
-
- wie in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ne12"
-
-\end_inset
-
- gezeigt werden, dass diese Summe konvergiert.
-\end_layout
-
-\end_inset
-
 Dies kann effizient berechnet werden durch eine adjungierte NFFT 
 \begin_inset Formula 
 \[
