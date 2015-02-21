@@ -1758,8 +1758,19 @@ key "Ne12"
 \begin_inset Formula $\phi_{3}\left(\v x_{j}\right)$
 \end_inset
 
- in drei Teile geteilt.
- Der kurzreichweitige Teil 
+ in drei Teile geteilt und es gilt 
+\begin_inset Formula 
+\[
+\phi\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der der sogenannte kurzreichweitige Teil 
 \begin_inset Formula 
 \[
 \phi_{3,\mathrm{N}}\left(\v x_{j}\right)=\sum_{\v n\in\set Z^{3}}\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}
@@ -1822,14 +1833,6 @@ key "Ne12"
 
 \begin_layout Standard
 Damit gilt
-\begin_inset Formula 
-\[
-\phi\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right).
-\]
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
