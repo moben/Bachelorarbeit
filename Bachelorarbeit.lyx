@@ -1645,7 +1645,12 @@ reference "sec:Problemstellung"
 Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
  abhängig von der gewählten Summationsreihenfolge gegen unterschiedliche
  Grenzwerte konvergiert.
- Wir wählen jedoch eine sphärische Summationsreihenfolge, d.h.
+ Wir wählen jedoch eine sphärische Summationsreihenfolge, bei der beginnend
+ mit 
+\begin_inset Formula $\v n=\v 0$
+\end_inset
+
+ die d.h.
  
 \begin_inset Formula 
 \[
@@ -1759,10 +1764,10 @@ key "Ne12"
 \begin_inset Formula $\phi_{3}\left(\v x_{j}\right)$
 \end_inset
 
- in drei Teile geteilt und es gilt 
+ in drei Teile geteilt und für diese gilt 
 \begin_inset Formula 
 \[
-\phi\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right).
+\phi_{3}\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right).
 \]
 
 \end_inset
@@ -1784,7 +1789,7 @@ Der der sogenannte kurzreichweitige Teil
 \end_inset
 
  dominiert deren Position 
-\begin_inset Formula $\v x_{k}$
+\begin_inset Formula $\left(\v x_{k}+L\v n\right)$
 \end_inset
 
  sich nahe an 
@@ -1813,7 +1818,7 @@ Der der sogenannte kurzreichweitige Teil
 \end_inset
 
  dominiert deren Position 
-\begin_inset Formula $\v x_{k}$
+\begin_inset Formula $\left(\v x_{k}+L\v n\right)$
 \end_inset
 
  weiter von 
@@ -1824,12 +1829,24 @@ Der der sogenannte kurzreichweitige Teil
  Das Eigenpotential 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{E}}\left(\v x_{j}\right)=-\frac{2\alpha}{\sqrt{\pi}}q_{j}.
+\phi_{3,\mathrm{E}}\left(\v x_{j}\right)=-\frac{2\alpha}{\sqrt{\pi}}q_{j}
 \]
 
 \end_inset
 
+ ist ein Korrektursummand, da 
+\begin_inset Formula $\phi_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
 
+ den Summand für 
+\begin_inset Formula $\v n=\v 0$
+\end_inset
+
+, 
+\begin_inset Formula $j=k$
+\end_inset
+
+ enthält.
 \end_layout
 
 \begin_layout Standard
