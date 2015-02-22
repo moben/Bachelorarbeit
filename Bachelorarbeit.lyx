@@ -1650,7 +1650,8 @@ Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
 \begin_inset Formula $\v n=\v 0$
 \end_inset
 
- die d.h.
+ die periodisch fortgesetzten Systeme in der Reihenfolge ihrer Entfernung
+ vom Ursprung aufsummiert werden,  d.h.
  
 \begin_inset Formula 
 \[
