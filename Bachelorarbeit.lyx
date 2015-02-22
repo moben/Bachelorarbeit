@@ -1691,7 +1691,7 @@ ein.
 \begin_inset Formula $\alpha>0$
 \end_inset
 
- gilt damit offensichtlich die Identität 
+ gilt für diese offensichtlich die Identität 
 \begin_inset Formula 
 \[
 \frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r}.
@@ -1703,7 +1703,7 @@ ein.
 \end_layout
 
 \begin_layout Standard
-Die sogenannte Ewald Summation nach 
+Die so genannte Ewald Summation nach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ew21"
@@ -1742,8 +1742,9 @@ Die bedingt konvergente Summe
 \begin_inset Formula $r\rightarrow\infty$
 \end_inset
 
- exponentiell schnell gegen Null fällt ist die erste Summe absolut konvergent.
- Die zweite Summe hingegen ist wieder bedingt konvergent, da die Gesamtsumme
+ exponentiell schnell gegen Null konvergiert ist die erste Summe absolut
+ konvergent.
+ Die zweite Summe hingegen ist erneut bedingt konvergent, da die Gesamtsumme
  bedingt konvergent ist.
  Unter der Annahme der sphärischen Summationsreihenfolge und der Voraussetzung
  der Ladungsneutralität des Systems kann jedoch wie in 
