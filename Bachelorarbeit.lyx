@@ -1848,6 +1848,16 @@ Der der sogenannte kurzreichweitige Teil
 \end_inset
 
  enthält.
+ Dieser existiert, da der Grenzwert 
+\begin_inset Formula 
+\[
+\lim_{r\rightarrow0}\frac{\erf{\alpha r}}{r}=\frac{2\alpha}{\sqrt{\pi}}
+\]
+
+\end_inset
+
+ existiert.
+ 
 \end_layout
 
 \begin_layout Standard
