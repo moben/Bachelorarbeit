@@ -1651,7 +1651,7 @@ Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
 \end_inset
 
  die periodisch fortgesetzten Systeme in der Reihenfolge ihrer Entfernung
- vom Ursprung aufsummiert werden,  d.h.
+ vom Ursprung aufsummiert werden, d.h.
  
 \begin_inset Formula 
 \[
@@ -1851,10 +1851,6 @@ Der der sogenannte kurzreichweitige Teil
 \end_layout
 
 \begin_layout Standard
-Damit gilt
-\end_layout
-
-\begin_layout Standard
 Da die Summanden des kurzreichweitigen Terms 
 \begin_inset Formula $\phi_{3,\mathrm{N}}$
 \end_inset
@@ -1863,20 +1859,37 @@ Da die Summanden des kurzreichweitigen Terms
 \begin_inset Formula $0$
 \end_inset
 
- konvergieren kann die Summe z.B.
- durch 
+ konvergieren kann die Summe direkt berechnet und leicht approximiert werden.
+ Sei dazu 
+\begin_inset Formula $r_{\mathrm{cut}}>0$
+\end_inset
+
+ ein Abschneideparameter.
+ Dann kann 
+\begin_inset Formula $\phi_{3,\mathrm{N}}\left(\v x_{j}\right)$
+\end_inset
+
+ approximiert werden in dem alle Summanden mit 
+\begin_inset Formula $\norm{\v x_{jk}+L\v n}{}>r_{\mathrm{cut}}$
+\end_inset
+
+ ignoriert werden.
+ Man berechnet also 
 \begin_inset Formula 
 \[
 \phi_{3,\mathrm{N}}\left(\v x_{j}\right)\approx\sum_{\v n\in\set Z^{3}}\nsum{\substack{k=1\\
 \norm{\v x_{jk}+L\v n}{}<r_{\mathrm{cut}}
 }
-}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}
+}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}.
 \]
 
 \end_inset
 
- abgeschnitten werden.
- Auch die unendliche Summe im langreichweitigen Term 
+
+\end_layout
+
+\begin_layout Standard
+Auch die unendliche Summe im langreichweitigen Term 
 \begin_inset Formula $\phi_{3,\mathrm{F}}$
 \end_inset
 
