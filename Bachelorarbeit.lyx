@@ -1402,7 +1402,7 @@ wird durch die Wahl der Fensterfunktion, des Abschneideparameters, bzw der
 \begin_inset Formula $b$
 \end_inset
 
-, sowie den Oversampling-Faktor 
+, sowie durch den Oversampling-Faktor 
 \begin_inset Formula $\v m/\v M$
 \end_inset
 
@@ -1566,7 +1566,11 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 \end_inset
 
  sowie die Kraft 
-\begin_inset Formula $\v F_{d}\left(\v x_{j}\right)=q_{j}\v E_{d}\left(\v x_{j}\right)$
+\begin_inset Formula 
+\begin{equation}
+\v F_{d}\left(\v x_{j}\right)=q_{j}\v E_{d}\left(\v x_{j}\right)\label{eq:general-force}
+\end{equation}
+
 \end_inset
 
  die auf den Partikel 
@@ -1767,9 +1771,9 @@ key "Ne12"
 
  in drei Teile geteilt und für diese gilt 
 \begin_inset Formula 
-\[
-\phi_{3}\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right).
-\]
+\begin{equation}
+\phi_{3}\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right).\label{eq:3dp-ewald-split}
+\end{equation}
 
 \end_inset
 
@@ -1827,6 +1831,28 @@ Der der sogenannte kurzreichweitige Teil
 \end_inset
 
  entfernt ist.
+ Der Parameter 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ beeinflusst dabei das Verhältnis von 
+\begin_inset Formula $\phi_{3,\mathrm{F}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\phi_{3,\mathrm{N}}$
+\end_inset
+
+.
+ Je größer 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ gewählt wird, desto größer ist der Anteil von 
+\begin_inset Formula $\phi_{3,\mathrm{F}}$
+\end_inset
+
+ an der Gesamtsumme.
  Das Eigenpotential 
 \begin_inset Formula 
 \[
@@ -1922,7 +1948,12 @@ Auch der langreichweitiger Term
 \end_inset
 
  eine Indexmenge.
- Damit erhalten wir die Approximation
+ Damit können wir 
+\begin_inset Formula $\phi_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
+
+ durch eine NDFT approximieren.
+ Es gilt also 
 \end_layout
 
 \begin_layout Standard
@@ -1937,15 +1968,20 @@ Auch der langreichweitiger Term
 \end_layout
 
 \begin_layout Standard
-Dies kann effizient berechnet werden durch eine adjungierte NFFT 
+Die innere Summe kann dabei effizient durch eine adjungierte NFFT berechnet
+ werden, 
 \begin_inset Formula 
 \[
-\hat{b}_{\v l}\coloneqq\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L},\qquad\v l\in\I M,
+\hat{b}_{\v l}\coloneqq\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L},\qquad\v l\in\I M.
 \]
 
 \end_inset
 
- gefolgt von einer NFFT 
+Anschließend berechnen wir mit 
+\begin_inset Formula $\hat{a}_{\v l}=\frac{1}{\pi L}\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}$
+\end_inset
+
+ die äußere Summe 
 \begin_inset Formula 
 \[
 \phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\hat{a}_{\v l}\hat{b}_{\v l}\e^{-\tpii\v l\v x_{j}/L},\qquad j=\range 1N,
@@ -1953,8 +1989,90 @@ Dies kann effizient berechnet werden durch eine adjungierte NFFT
 
 \end_inset
 
- mit 
-\begin_inset Formula $\hat{a}_{\v l}=\frac{1}{\pi L}\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}.$
+ durch eine NFFT der Größe 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die Kräfte 
+\begin_inset Formula $\v F_{3}\left(\v x_{j}\right)=-q_{j}\nabla\phi_{3}\left(\v x_{j}\right)$
+\end_inset
+
+, die auf die Ladungen 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ wirken, sind nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:general-force"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3dp-ewald-split"
+
+\end_inset
+
+ durch 
+\begin_inset Formula 
+\begin{align*}
+\v F_{3}\left(\v x_{j}\right) & =\v F_{3,\mathrm{N}}\left(\v x_{j}\right)+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\\
+ & =-q_{j}\nabla\phi_{3,\mathrm{N}}\left(\v x_{j}\right)-q_{j}\nabla\phi_{3,\mathrm{F}}\left(\v x_{j}\right)
+\end{align*}
+
+\end_inset
+
+ gegeben.
+ Während der kurzreichweitige Anteil der Kraft 
+\begin_inset Formula $\v F_{3,\mathrm{N}}\left(\v x_{j}\right)$
+\end_inset
+
+ wieder direkt berechnet werden kann sind für die Berechnung des langreichweitig
+en Anteils 
+\begin_inset Formula $\v F_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
+
+ zwei Varianten verbreitet.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+P2NFFT mit 3d-periodischen Randbedingungen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
