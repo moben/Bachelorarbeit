@@ -1899,21 +1899,17 @@ Da die Summanden des kurzreichweitigen Terms
 \end_layout
 
 \begin_layout Standard
-Auch die unendliche Summe im langreichweitigen Term 
+Auch der langreichweitiger Term 
 \begin_inset Formula $\phi_{3,\mathrm{F}}$
 \end_inset
 
- kann abgeschnitten werden, wobei ein Fehler entsteht.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Wie groß ist der Fehler?
-\end_layout
-
+ kann durch Abschneiden der unendlichen Summe approximiert werden, da die
+ Summanden im Frequenzbereich für 
+\begin_inset Formula $\v l\rightarrow\v{\infty}$
 \end_inset
 
- Sei 
+ exponentiell schnell fallen.
+ Sei dazu 
 \begin_inset Formula $\v M=\left(M_{1},M_{2},M_{3}\right)\in2\set N^{3}$
 \end_inset
 
@@ -1925,7 +1921,7 @@ Wie groß ist der Fehler?
 \begin_inset Formula $\thrange{M_{1}}{M_{2}}{M_{3}}$
 \end_inset
 
-.
+ eine Indexmenge.
  Damit erhalten wir die Approximation
 \end_layout
 
