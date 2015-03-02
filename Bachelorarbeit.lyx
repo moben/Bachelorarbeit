@@ -424,7 +424,7 @@ name "sec:Einleitung"
 \begin_layout Standard
 Viele Anwendungen erfordern die Simulation von Partikelsystemen.
  Dabei wird in der Regel der Zeitverlauf diskretisiert und zu jedem Zeitschritt
- werden die Kräfte die auf die einzelnen Partikel wirken berechnet.
+ werden die Kräfte berechnet, die auf die einzelnen Partikel wirken.
  Beispiele hierfür sind die Gravitationskräfte zwischen Massenteilchen oder
  die Coulomb-Wechselwirkungen in Systemen geladener Partikel.
  Beispielsweise ist für 
@@ -575,8 +575,8 @@ Ziel dieser Arbeit ist es diese Erkenntnisse auf das Problem mit nicht-periodisc
 hen Randbedingungen anzuwenden und eine Ewald-Summation für nicht-periodische
  Systeme innerhalb der P2NFFT zu implementieren.
  Gegenüber des bereits in der P2NFFT vorhandenen nicht Ewald-basierten Algorithm
-us hat dieser den Vorteil, dass für Ewald-Methoden der bei der Approximation
- entstehende Fehler leicht vorhersagbar ist.
+us hat dieser den Vorteil, dass für Ewald-Methoden Abschätzungen für den
+ bei der Approximation entstehenden Fehler existieren.
  Da sich diese Fehlerbetrachtung schon auf den 2d- und 3d-periodischen Algorithm
 us übertragen ließ, gehen wir davon aus, dass dies auch im nicht-periodischen
  Fall gelingt.
