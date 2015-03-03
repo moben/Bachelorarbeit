@@ -894,7 +894,7 @@ Außerdem bezeichnen wir wie zu Beginn bereits erwähnt in der Summe
 \begin_inset Formula $k=j$
 \end_inset
 
- ignoriert werden..
+ ignoriert werden.
  
 \end_layout
 
@@ -1037,7 +1037,7 @@ f_{j}=f\left(\mathbf{x}_{j}\right)=\sum\limits _{\mathbf{k}\in\I{\v M}}\hat{f}_{
 \begin_inset Formula $L=1$
 \end_inset
 
- zurückführen lässt werden wir in Abschnitt nur 
+ zurückführen lässt werden wir in diesem Abschnitt nur 
 \begin_inset Formula $f:\mathbb{T}^{3}\rightarrow\mathbb{C}$
 \end_inset
 
