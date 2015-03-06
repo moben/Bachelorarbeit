@@ -1676,10 +1676,15 @@ Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
 
 \begin_layout Standard
 Um diesen Wert zu berechnen führen wir zunächst die Fehlerfunktion 
-\begin_inset Formula $\operatorname erf$
+\begin_inset Formula $\operatorname{erf}:\set R\rightarrow\left(-1,1\right)$
 \end_inset
 
- 
+ sowie die komplementäre Fehlerfunktion 
+\begin_inset Formula $\operatorname{erfc}:\set R\rightarrow\left(0,2\right)$
+\end_inset
+
+ ein.
+ Diese sind durch 
 \begin_inset Formula 
 \[
 \erf x\coloneqq\frac{2}{\sqrt{\pi}}\int_{0}^{x}\e^{-t^{2}}\d t,
@@ -1687,7 +1692,7 @@ Um diesen Wert zu berechnen führen wir zunächst die Fehlerfunktion
 
 \end_inset
 
- sowie die komplementäre Fehlerfunktion 
+ beziehungsweise 
 \begin_inset Formula 
 \[
 \erfc x\coloneqq1-\erf x
@@ -1695,7 +1700,7 @@ Um diesen Wert zu berechnen führen wir zunächst die Fehlerfunktion
 
 \end_inset
 
-ein.
+gegeben.
  Für 
 \begin_inset Formula $r\neq0$
 \end_inset
@@ -1704,7 +1709,7 @@ ein.
 \begin_inset Formula $\alpha>0$
 \end_inset
 
- gilt für diese offensichtlich die Identität 
+ gilt offensichtlich die Identität 
 \begin_inset Formula 
 \[
 \frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r}.
