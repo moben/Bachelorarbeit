@@ -1676,6 +1676,10 @@ Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
 
 \begin_layout Standard
 Um diesen Wert zu berechnen führen wir zunächst die Fehlerfunktion 
+\begin_inset Formula $\operatorname erf$
+\end_inset
+
+ 
 \begin_inset Formula 
 \[
 \erf x\coloneqq\frac{2}{\sqrt{\pi}}\int_{0}^{x}\e^{-t^{2}}\d t,
