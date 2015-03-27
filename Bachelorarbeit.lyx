@@ -1882,7 +1882,14 @@ Der der sogenannte kurzreichweitige Teil
 \begin_inset Formula $j=k$
 \end_inset
 
- enthält.
+ enthält, der in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3d:potential"
+
+\end_inset
+
+ ausgelassen wird.
  Dieser existiert, da der Grenzwert 
 \begin_inset Formula 
 \[
@@ -2003,6 +2010,8 @@ Anschließend berechnen wir mit
 \end_inset
 
 .
+ Dabei entsteht also einerseits ein Fehler durch das Abschneiden der unendlichen
+ Summe und andererseits durch die Approximation mittels der NFFT.
 \end_layout
 
 \begin_layout Standard
