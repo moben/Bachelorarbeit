@@ -1607,6 +1607,10 @@ name "chapter:3d-Ewald"
 
 \end_layout
 
+\begin_layout Subsection
+Theorie
+\end_layout
+
 \begin_layout Standard
 Wir beschreiben nun die schnelle Berechnung der Lösung des Coulomb-Problems
  mit 3d-periodischen Randbedingungen.
@@ -1630,22 +1634,19 @@ reference "sec:Problemstellung"
 \begin_inset Formula $\phi_{3}\left(\v x_{j}\right)$
 \end_inset
 
- gegeben durch
+ durch
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}.\label{eq:3d:potential}
+\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}\label{eq:3d:potential}
 \end{align}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
+ gegeben.
+ Dabei ist zu beachten, dass diese Summe nur bedingt konvergent ist, also
  abhängig von der gewählten Summationsreihenfolge gegen unterschiedliche
  Grenzwerte konvergiert.
  Wir wählen jedoch eine sphärische Summationsreihenfolge, bei der beginnend
@@ -1709,7 +1710,7 @@ gegeben.
 \begin_inset Formula $\alpha>0$
 \end_inset
 
- gilt offensichtlich die Identität 
+ gilt damit offensichtlich die Identität 
 \begin_inset Formula 
 \[
 \frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r}.
