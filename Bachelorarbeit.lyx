@@ -2060,7 +2060,15 @@ en Anteils
 \begin_inset Formula $\v F_{3,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
- zwei Varianten verbreitet.
+ zwei Varianten verbreitet, die den Ableitungsoperator 
+\begin_inset Formula $\nabla$
+\end_inset
+
+ unterschiedlich auf 
+\begin_inset Formula $\phi_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
+
+ anwenden.
  
 \end_layout
 
