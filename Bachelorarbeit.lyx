@@ -1283,7 +1283,7 @@ Als nicht-äquidistante schnelle Fourier-Transformation (NFFT) bezeichnen
  wir die Approximation der NDFT nach [], 
 \begin_inset Formula 
 \[
-f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}-\frac{\v k}{\v m}\right),\qquad l=\range 1N.
+f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}-\v k\odot\mathbf{m}^{-1}\right),\qquad l=\range 1N.
 \]
 
 \end_inset
@@ -2069,7 +2069,54 @@ en Anteils
 \end_inset
 
  anwenden.
- 
+ Bei der sogenannten 
+\begin_inset Formula $i\v k$
+\end_inset
+
+-Differentiation wird 
+\begin_inset Formula $\hat{b}_{\v l}$
+\end_inset
+
+ im Fourierraum abgelitten und es ergibt sich für den langreichweitigen
+ Anteil der Kraft 
+\begin_inset Formula 
+\[
+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{\tpii q_{j}}{L}\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\hat{a}_{\v l}\v l\hat{b}_{\v l}\e^{-\tpii\v l\v x_{j}/L}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wir verwenden den Begriff 
+\begin_inset Formula $i\v k$
+\end_inset
+
+-Differation obwohl der entsprechende Index hier mit 
+\begin_inset Formula $\v l$
+\end_inset
+
+ bezeichnet ist, da dieser in der Literatur gebräuchlich ist.
+ Bei der analytischen Differentiation wird hingegen 
+\begin_inset Formula $\nabla$
+\end_inset
+
+ auf die Fensterfunktion 
+\begin_inset Formula $\tilde{\varphi}$
+\end_inset
+
+ der NFFT angewandt.
+ Man berechnet also 
+\begin_inset Formula 
+\[
+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\approx-q_{j}\sum_{\v l\in\I{\v m}}g_{\v l}\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2452,7 +2499,7 @@ Sei
  durch die Partialsumme ihrer Fourierreihe,
 \begin_inset Formula 
 \[
-\Tf{\norm{\v x}{}}\approx\sum_{\v l\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v l\cdot\v x/h}
+\Tf{\norm{\v x}{}}\approx\sum_{\v l\in\I{\v M}}\hat{b}_{\v l}\e^{\tpii\v l\cdot\v x/h}
 \]
 
 \end_inset
