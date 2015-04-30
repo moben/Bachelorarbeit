@@ -443,10 +443,10 @@ Viele Anwendungen erfordern die Simulation von Partikelsystemen.
  
 \begin_inset Formula 
 \[
-\sum_{k=1}^{N}\sum_{\substack{j=1\\
-j\neq k
+\sum_{j=1}^{N}\sum_{\substack{i=1\\
+i\neq j
 }
-}^{N}\frac{q_{j}q_{k}}{\norm{\v x_{j}-\v x_{k}}{}}
+}^{N}\frac{q_{j}q_{i}}{\norm{\v x_{i}-\v x_{j}}{}}
 \]
 
 \end_inset
@@ -470,7 +470,7 @@ j\neq k
  in jeder Dimension ist dann die Energie des Systems gegeben durch 
 \begin_inset Formula 
 \[
-\sum_{\v n\in\set Z^{3}}\sum_{k=1}^{N}\nsum{j=1}N\frac{q_{j}q_{k}}{\norm{\v x_{j}-\v x_{k}+\v nL}{}}.
+\sum_{\v n\in\set Z^{3}}\sum_{j=1}^{N}\nsum{i=1}N\frac{q_{j}q_{i}}{\norm{\v x_{i}-\v x_{j}+\v nL}{}}.
 \]
 
 \end_inset
@@ -484,7 +484,7 @@ j\neq k
 \end_inset
 
  die Terme 
-\begin_inset Formula $k=j$
+\begin_inset Formula $i=j$
 \end_inset
 
  ignoriert werden.
@@ -1525,7 +1525,7 @@ Für
  die Berechnung der Potentiale 
 \begin_inset Formula 
 \begin{equation}
-\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}.\label{eq:general:potential}
+\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}N\frac{q_{i}}{\norm{\v x_{ij}+L\v n}{}}.\label{eq:general:potential}
 \end{equation}
 
 \end_inset
@@ -1559,7 +1559,7 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 , gegeben durch 
 \begin_inset Formula 
 \begin{equation}
-\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{k=1}Nq_{k}\frac{\v x_{jk}}{\norm{\v x_{jk}+L\v n}{}^{3}},
+\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}Nq_{k}\frac{\v x_{ij}}{\norm{\v x_{ij}+L\v n}{}^{3}},
 \end{equation}
 
 \end_inset
@@ -1578,19 +1578,19 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 
  wirkt.
  Dabei bezeichnet 
-\begin_inset Formula $\v x_{jk}\in2L\set T^{3}$
+\begin_inset Formula $\v x_{ij}\in2L\set T^{3}$
 \end_inset
 
  den Vektor 
-\begin_inset Formula $\v x_{j}-\v x_{k}$
+\begin_inset Formula $\v x_{i}-\v x_{j}$
 \end_inset
 
  zwischen 
-\begin_inset Formula $\v x_{j}$
+\begin_inset Formula $\v x_{i}$
 \end_inset
 
  und 
-\begin_inset Formula $\v x_{k}$
+\begin_inset Formula $\v x_{j}$
 \end_inset
 
 .
