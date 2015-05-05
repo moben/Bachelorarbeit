@@ -2088,7 +2088,7 @@ en Anteils
 
  anwenden.
  Bei der sogenannten 
-\begin_inset Formula $i\v k$
+\begin_inset Formula $\mathrm{i}\v k$
 \end_inset
 
 -Differentiation wird 
@@ -2131,12 +2131,17 @@ Bei der analytischen Differentiation wird hingegen
  und berechnet damit 
 \begin_inset Formula 
 \[
-\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\approx-q_{j}\sum_{\v l\in\I{\v m}}g_{\v l}\nabla\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N
+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\approx-q_{j}\sum_{\v l\in\I{\v m}}g_{\v l}\nabla\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N.
 \]
 
 \end_inset
 
+ Die analytische Differentiation ist ungenauer als die 
+\begin_inset Formula $\mathrm{i}\v k$
+\end_inset
 
+-Differentiation, hat jedoch den Vorteil, dass die Ableitung nur in einer
+ Dimension berechnet werden muss und nicht in drei.[]
 \end_layout
 
 \begin_layout Standard
@@ -2169,6 +2174,10 @@ P2NFFT mit 3d-periodischen Randbedingungen
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Fehlerabschätzung
 \end_layout
 
 \begin_layout Section
