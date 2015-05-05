@@ -127,6 +127,11 @@ eqs-within-sections
 \filename_suffix 0
 \color #faf0e6
 \end_branch
+\branch defines
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
 \index Index
 \shortcut idx
 \color #008000
@@ -150,7 +155,7 @@ eqs-within-sections
 
 \begin_layout Standard
 \begin_inset Branch Fold
-status collapsed
+status open
 
 \begin_layout Standard
 \begin_inset Note Note
@@ -176,25 +181,12 @@ Macro definitions
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\tpii}{2\pi\mathrm{i}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
 \newcommand{\v}[1]{\mathbf{#1}}
 \end_inset
 
 
 \begin_inset FormulaMacro
 \newcommand{\set}[1]{\mathbb{#1}}
-\end_inset
-
-
-\begin_inset FormulaMacro
-\newcommand{\e}{\mathrm{e}}
 \end_inset
 
 
@@ -337,6 +329,36 @@ Macro definitions
 \begin_inset FormulaMacro
 \newcommand{\KBf}[1]{\KB\left(#1\right)}
 {\KB\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch defines
+status open
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tpii}{2\pi\mathrm{i}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\e}{\mathrm{e}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\xij}{\v x_{ij}}
 \end_inset
 
 
@@ -1525,7 +1547,7 @@ Für
  die Berechnung der Potentiale 
 \begin_inset Formula 
 \begin{equation}
-\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}N\frac{q_{i}}{\norm{\v x_{ij}+L\v n}{}}.\label{eq:general:potential}
+\phi_{d}\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}N\frac{q_{i}}{\norm{\xij+L\v n}{}}.\label{eq:general:potential}
 \end{equation}
 
 \end_inset
@@ -1559,7 +1581,7 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 , gegeben durch 
 \begin_inset Formula 
 \begin{equation}
-\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}Nq_{k}\frac{\v x_{ij}}{\norm{\v x_{ij}+L\v n}{}^{3}},
+\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}Nq_{k}\frac{\xij}{\norm{\xij+L\v n}{}^{3}},
 \end{equation}
 
 \end_inset
@@ -1578,7 +1600,7 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 
  wirkt.
  Dabei bezeichnet 
-\begin_inset Formula $\v x_{ij}\in2L\set T^{3}$
+\begin_inset Formula $\xij\in2L\set T^{3}$
 \end_inset
 
  den Vektor 
@@ -1640,7 +1662,7 @@ reference "sec:Problemstellung"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}}\label{eq:3d:potential}
+\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{i=1}N\frac{q_{i}}{\norm{\xij+L\v n}{}}\label{eq:3d:potential}
 \end{align}
 
 \end_inset
@@ -1662,7 +1684,7 @@ reference "sec:Problemstellung"
 \phi_{3}\left(\v x_{j}\right)=\sum_{s=0}^{\infty}\sum_{\substack{\v n\in\set Z^{3}\\
 \norm{\v n}{}^{2}=s
 }
-}\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}+L\v n}{}},
+}\nsum{i=1}N\frac{q_{i}}{\norm{\xij+L\v n}{}},
 \]
 
 \end_inset
@@ -1739,7 +1761,7 @@ reference "eq:3d:potential"
  an und erhält somit 
 \begin_inset Formula 
 \begin{align*}
-\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{k=1}Nq_{k}\left(\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}+\frac{\erf{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}\right),\qquad j=\range 1N.
+\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{i=1}Nq_{i}\left(\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}+\frac{\erf{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}\right),\qquad j=\range 1N.
 \end{align*}
 
 \end_inset
@@ -1793,17 +1815,17 @@ key "Ne12"
 Der der sogenannte kurzreichweitige Teil 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{N}}\left(\v x_{j}\right)=\sum_{\v n\in\set Z^{3}}\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}
+\phi_{3,\mathrm{N}}\left(\v x_{j}\right)=\sum_{\v n\in\set Z^{3}}\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}
 \]
 
 \end_inset
 
  wird durch diejenigen Ladungen 
-\begin_inset Formula $q_{k}$
+\begin_inset Formula $q_{i}$
 \end_inset
 
  dominiert deren Position 
-\begin_inset Formula $\left(\v x_{k}+L\v n\right)$
+\begin_inset Formula $\left(\v x_{i}+L\v n\right)$
 \end_inset
 
  sich nahe an 
@@ -1818,7 +1840,7 @@ Der der sogenannte kurzreichweitige Teil
  Der langreichweitige Teil 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{1}{\pi L}\sum_{\v l\in\set Z^{3}\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L}\right)\e^{-\tpii\v l\v x_{j}/L}
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{1}{\pi L}\sum_{\v l\in\set Z^{3}\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v l\v x_{i}/L}\right)\e^{-\tpii\v l\v x_{j}/L}
 \]
 
 \end_inset
@@ -1922,17 +1944,17 @@ Da die Summanden des kurzreichweitigen Terms
 \end_inset
 
  approximiert werden in dem alle Summanden mit 
-\begin_inset Formula $\norm{\v x_{jk}+L\v n}{}>r_{\mathrm{cut}}$
+\begin_inset Formula $\norm{\xij+L\v n}{}>r_{\mathrm{cut}}$
 \end_inset
 
  ignoriert werden.
  Man berechnet also 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{N}}\left(\v x_{j}\right)\approx\sum_{\v n\in\set Z^{3}}\nsum{\substack{k=1\\
-\norm{\v x_{jk}+L\v n}{}<r_{\mathrm{cut}}
+\phi_{3,\mathrm{N}}\left(\v x_{j}\right)\approx\sum_{\v n\in\set Z^{3}}\nsum{\substack{i=1\\
+\norm{\xij+L\v n}{}<r_{\mathrm{cut}}
 }
-}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}+L\v n}{}}}{\norm{\v x_{jk}+L\v n}{}}.
+}Nq_{k}\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}.
 \]
 
 \end_inset
@@ -1975,7 +1997,7 @@ Auch der langreichweitiger Term
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\frac{1}{\pi L}\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L}\right)\e^{-\tpii\v l\v x_{j}/L},\qquad j=\range 1N.
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\frac{1}{\pi L}\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v l\v x_{i}/L}\right)\e^{-\tpii\v l\v x_{j}/L},\qquad j=\range 1N.
 \]
 
 \end_inset
@@ -1988,7 +2010,7 @@ Die innere Summe kann dabei effizient durch eine adjungierte NFFT berechnet
  werden, 
 \begin_inset Formula 
 \[
-\hat{b}_{\v l}\coloneqq\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\v x_{k}/L},\qquad\v l\in\I M.
+\hat{b}_{\v l}\coloneqq\sum_{i=1}^{N}q_{i}\e^{\tpii\v l\v x_{i}/L},\qquad\v l\in\I M.
 \]
 
 \end_inset
@@ -2090,16 +2112,7 @@ en Anteils
 \end_layout
 
 \begin_layout Standard
-Wir verwenden den Begriff 
-\begin_inset Formula $i\v k$
-\end_inset
-
--Differation obwohl der entsprechende Index hier mit 
-\begin_inset Formula $\v l$
-\end_inset
-
- bezeichnet ist, da dieser in der Literatur gebräuchlich ist.
- Bei der analytischen Differentiation wird hingegen 
+Bei der analytischen Differentiation wird hingegen 
 \begin_inset Formula $\nabla$
 \end_inset
 
