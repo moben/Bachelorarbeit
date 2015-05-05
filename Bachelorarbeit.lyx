@@ -1305,7 +1305,7 @@ Als nicht-äquidistante schnelle Fourier-Transformation (NFFT) bezeichnen
  wir die Approximation der NDFT nach [], 
 \begin_inset Formula 
 \[
-f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}-\v k\odot\mathbf{m}^{-1}\right),\qquad l=\range 1N.
+f_{j}\approx\sum_{\v l\in\I{\v m}}g_{\v l}\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N.
 \]
 
 \end_inset
@@ -1316,7 +1316,7 @@ f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}
 
  gut lokalisiert ist.
  Die Koeffizienten 
-\begin_inset Formula $g_{\v k}$
+\begin_inset Formula $g_{\v l}$
 \end_inset
 
  sind dabei gegeben durch
@@ -1325,7 +1325,7 @@ f_{l}\approx\sum_{\v k\in\I{\v m}}g_{\v k}\mathrm{\tilde{\varphi}}\left(\v x_{l}
 \begin_layout Standard
 \begin_inset Formula 
 \[
-g_{\mathbf{k}}:=\sum_{\v j\in\I{\v M}}\frac{\hat{f_{\v j}}}{\left|\I{\v m}\right|\hat{\varphi}_{\v j}}\mathrm{e}^{-\tpii\v j\left(\v k\odot\mathbf{m}^{-1}\right)},\qquad\v k\in\I{\v m}
+g_{\mathbf{l}}:=\sum_{\v k\in\I{\v M}}\frac{\hat{f_{\v k}}}{\left|\I{\v m}\right|\hat{\varphi}_{\v k}}\mathrm{e}^{-\tpii\v k\left(\v l\odot\mathbf{m}^{-1}\right)},\qquad\v l\in\I{\v m}
 \]
 
 \end_inset
@@ -1355,11 +1355,11 @@ In der Matrix-Notation die NFFT auch geschrieben werden als
 mit
 \begin_inset Formula 
 \begin{align*}
-\mathbf{D} & =\mathrm{diag}\left(\frac{1}{\left|\I{\v m}\right|\hat{\varphi}_{\mathbf{j}}}\right)_{\mathbf{j}\in\I{\v M}},\\
-\mathbf{F} & =\left(\mathrm{e}^{-\tpii\v j\left(\v k\odot\mathbf{m}^{-1}\right)}\right)_{\v j\in\I{\v M};\v k\in\I{\v m}},\\
-\mathbf{B} & =\left(b_{l\v k}\right)_{l=\range 1N;\v k\in\I{\v m}},\qquad b_{l\v k}=\begin{cases}
-\mathrm{\tilde{\varphi}}\left(\v x_{l}-\frac{\v k}{\v m}\right) & :\v k\in\I{\v m,b}\left(\v x_{l}\right)\\
-0 & :\v k\in\I{\v m,b}\left(\v x_{l}\right)
+\mathbf{D} & =\mathrm{diag}\left(\frac{1}{\left|\I{\v m}\right|\hat{\varphi}_{\v k}}\right)_{\v k\in\I{\v M}},\\
+\mathbf{F} & =\left(\mathrm{e}^{-\tpii\v k\left(\v l\odot\mathbf{m}^{-1}\right)}\right)_{\v k\in\I{\v M};\v l\in\I{\v m}},\\
+\mathbf{B} & =\left(b_{j\v l}\right)_{j=\range 1N;\v l\in\I{\v m}},\qquad b_{j\v l}=\begin{cases}
+\mathrm{\tilde{\varphi}}\left(\v x_{j}-\left(\v l\odot\v m^{-1}\right)\right) & :\v l\in\I{\v m,b}\left(\v x_{j}\right)\\
+0 & :\v l\in\I{\v m,b}\left(\v x_{j}\right)
 \end{cases},
 \end{align*}
 
@@ -1370,7 +1370,7 @@ mit
 
 \begin_layout Standard
 wobei 
-\begin_inset Formula $\I{\v m,b}\left(\v x_{l}\right)$
+\begin_inset Formula $\I{\v m,b}\left(\v x_{j}\right)$
 \end_inset
 
  die Indizes aus 
@@ -1581,7 +1581,7 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 , gegeben durch 
 \begin_inset Formula 
 \begin{equation}
-\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}Nq_{k}\frac{\xij}{\norm{\xij+L\v n}{}^{3}},
+\v E_{d}\left(\v x_{j}\right)=-\nabla\phi\left(\v x_{j}\right)=\sum_{\v n\in\mathcal{S}_{d}}\nsum{i=1}Nq_{i}\frac{\xij}{\norm{\xij+L\v n}{}^{3}},
 \end{equation}
 
 \end_inset
@@ -1678,7 +1678,7 @@ reference "sec:Problemstellung"
 
  die periodisch fortgesetzten Systeme in der Reihenfolge ihrer Entfernung
  vom Ursprung aufsummiert werden, d.h.
- 
+ 9
 \begin_inset Formula 
 \[
 \phi_{3}\left(\v x_{j}\right)=\sum_{s=0}^{\infty}\sum_{\substack{\v n\in\set Z^{3}\\
@@ -1840,7 +1840,7 @@ Der der sogenannte kurzreichweitige Teil
  Der langreichweitige Teil 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{1}{\pi L}\sum_{\v l\in\set Z^{3}\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v l\v x_{i}/L}\right)\e^{-\tpii\v l\v x_{j}/L}
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{1}{\pi L}\sum_{\v k\in\set Z^{3}\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v k}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v k}{}^{2}}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\v x_{i}/L}\right)\e^{-\tpii\v k\v x_{j}/L}
 \]
 
 \end_inset
@@ -1850,11 +1850,11 @@ Der der sogenannte kurzreichweitige Teil
 \end_inset
 
  und wird durch die Ladungen 
-\begin_inset Formula $q_{k}$
+\begin_inset Formula $q_{i}$
 \end_inset
 
  dominiert deren Position 
-\begin_inset Formula $\left(\v x_{k}+L\v n\right)$
+\begin_inset Formula $\left(\v x_{i}+L\v n\right)$
 \end_inset
 
  weiter von 
@@ -1901,7 +1901,7 @@ Der der sogenannte kurzreichweitige Teil
 \end_inset
 
 , 
-\begin_inset Formula $j=k$
+\begin_inset Formula $j=i$
 \end_inset
 
  enthält, der in 
@@ -1954,7 +1954,7 @@ Da die Summanden des kurzreichweitigen Terms
 \phi_{3,\mathrm{N}}\left(\v x_{j}\right)\approx\sum_{\v n\in\set Z^{3}}\nsum{\substack{i=1\\
 \norm{\xij+L\v n}{}<r_{\mathrm{cut}}
 }
-}Nq_{k}\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}.
+}Nq_{i}\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}.
 \]
 
 \end_inset
@@ -1969,7 +1969,7 @@ Auch der langreichweitiger Term
 
  kann durch Abschneiden der unendlichen Summe approximiert werden, da die
  Summanden im Frequenzbereich für 
-\begin_inset Formula $\v l\rightarrow\v{\infty}$
+\begin_inset Formula $\v k\rightarrow\v{\infty}$
 \end_inset
 
  exponentiell schnell fallen.
@@ -1997,7 +1997,7 @@ Auch der langreichweitiger Term
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\frac{1}{\pi L}\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v l\v x_{i}/L}\right)\e^{-\tpii\v l\v x_{j}/L},\qquad j=\range 1N.
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\frac{1}{\pi L}\sum_{\v k\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v k}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v k}{}^{2}}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\v x_{i}/L}\right)\e^{-\tpii\v k\v x_{j}/L},\qquad j=\range 1N.
 \]
 
 \end_inset
@@ -2010,19 +2010,19 @@ Die innere Summe kann dabei effizient durch eine adjungierte NFFT berechnet
  werden, 
 \begin_inset Formula 
 \[
-\hat{b}_{\v l}\coloneqq\sum_{i=1}^{N}q_{i}\e^{\tpii\v l\v x_{i}/L},\qquad\v l\in\I M.
+\hat{b}_{\v k}\coloneqq\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\v x_{i}/L},\qquad\v k\in\I M.
 \]
 
 \end_inset
 
 Anschließend berechnen wir mit 
-\begin_inset Formula $\hat{a}_{\v l}=\frac{1}{\pi L}\frac{\e^{-\pi^{2}\norm{\v l}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v l}{}^{2}}$
+\begin_inset Formula $\hat{a}_{\v k}=\frac{1}{\pi L}\frac{\e^{-\pi^{2}\norm{\v k}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v k}{}^{2}}$
 \end_inset
 
  die äußere Summe 
 \begin_inset Formula 
 \[
-\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\sum_{\v l\in\I M\backslash\left\{ \v 0\right\} }\hat{a}_{\v l}\hat{b}_{\v l}\e^{-\tpii\v l\v x_{j}/L},\qquad j=\range 1N,
+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)\approx\sum_{\v k\in\I M\backslash\left\{ \v 0\right\} }\hat{a}_{\v k}\hat{b}_{\v k}\e^{-\tpii\v k\v x_{j}/L},\qquad j=\range 1N,
 \]
 
 \end_inset
@@ -2096,14 +2096,14 @@ en Anteils
 \end_inset
 
 -Differentiation wird 
-\begin_inset Formula $\hat{b}_{\v l}$
+\begin_inset Formula $\hat{b}_{\v k}$
 \end_inset
 
  im Fourierraum abgelitten und es ergibt sich für den langreichweitigen
  Anteil der Kraft 
 \begin_inset Formula 
 \[
-\v F_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{\tpii q_{j}}{L}\sum_{\v l\in\set Z^{3}\backslash\left\{ \v 0\right\} }\hat{a}_{\v l}\v l\hat{b}_{\v l}\e^{-\tpii\v l\v x_{j}/L}.
+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{\tpii q_{j}}{L}\sum_{\v k\in\set Z^{3}\backslash\left\{ \v 0\right\} }\hat{a}_{\v k}\v k\hat{b}_{\v k}\e^{-\tpii\v k\v x_{j}/L}.
 \]
 
 \end_inset
@@ -2124,9 +2124,9 @@ Bei der analytischen Differentiation wird hingegen
  Man setzt also die Eingabe der NFFT 
 \begin_inset Formula 
 \[
-\hat{f}_{\v l}=\begin{cases}
-\hat{a}_{\v l}\hat{b}_{\v l} & \v l\neq\v 0\\
-0 & \v l=\v 0
+\hat{f}_{\v k}=\begin{cases}
+\hat{a}_{\v k}\hat{b}_{\v k} & \v k\neq\v 0\\
+0 & \v k=\v 0
 \end{cases}
 \]
 
