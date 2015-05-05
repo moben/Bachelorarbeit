@@ -13,7 +13,7 @@
 %\usepackage{setspace}
 %\onehalfspacing
 
-\usepackage[usenames,dvipsnames,pdftex]{xcolor}
+\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.10}
@@ -35,9 +35,6 @@
 \recalctypearea
 \renewcommand*{\titlepagestyle}{empty}
 \pagestyle{scrheadings}
-
-\def\foo {\emph{foo}}
-\def\bar\ {\emph{bar}}
 
 % I think \PFFT/ is slightly less ugly than \PFFT{}
 \def\FFTW/{\emph{FFTW}}
@@ -61,7 +58,6 @@
 
 \def\PtNFFT/{\emph{P2NFFT}}
 \end_preamble
-\options final
 \use_default_options true
 \begin_modules
 eqs-within-sections
