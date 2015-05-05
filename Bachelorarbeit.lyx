@@ -2555,7 +2555,7 @@ Daraus ergibt sich für die Potentiale
  
 \begin_inset Formula 
 \begin{align*}
-\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{i=1}^{N}q_{i}\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x_{lj}/h}\\
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{i=1}^{N}q_{i}\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\xij/h}\\
  & =\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\cdot\v x_{i}/h}\right)\e^{-\tpii\v k\cdot\v x_{j}/h}.
 \end{align*}
 
