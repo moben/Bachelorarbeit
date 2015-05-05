@@ -2131,7 +2131,7 @@ Bei der analytischen Differentiation wird hingegen
  und berechnet damit 
 \begin_inset Formula 
 \[
-\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\approx-q_{j}\sum_{\v h\in\I{\v m}}g_{\v h}\nabla\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v h\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N
+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\approx-q_{j}\sum_{\v l\in\I{\v m}}g_{\v l}\nabla\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N
 \]
 
 \end_inset
@@ -2208,7 +2208,7 @@ reference "eq:general:potential"
  die Potentiale 
 \begin_inset Formula 
 \[
-\phi_{0}\left(\v x_{j}\right)=\nsum{k=1}N\frac{q_{k}}{\norm{\v x_{jk}}{}}.
+\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}N\frac{q_{i}}{\norm{\xij}{}}.
 \]
 
 \end_inset
@@ -2227,7 +2227,7 @@ Unter Verwendung der Fehlerfunktion erhalten wir für
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\phi_{0}\left(\v x_{j}\right) & =\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}+\nsum{k=1}Nq_{k}\frac{\erf{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}
+\phi_{0}\left(\v x_{j}\right) & =\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}+\nsum{k=1}Nq_{i}\frac{\erf{\alpha\norm{\xij}{}}}{\norm{\xij}{}}
 \end{align*}
 
 \end_inset
@@ -2258,8 +2258,8 @@ Damit definieren wir für
  
 \begin_inset Formula 
 \begin{align*}
-\phi_{0,\mathrm{N}}\left(\v x_{j}\right) & =\nsum{k=1}Nq_{k}\frac{\erfc{\alpha\norm{\v x_{jk}}{}}}{\norm{\v x_{jk}}{}}\\
-\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{k=1}^{N}q_{k}\Tf{\alpha\norm{\v x_{jk}}{}}\\
+\phi_{0,\mathrm{N}}\left(\v x_{j}\right) & =\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}\\
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{i=1}^{N}q_{i}\Tf{\alpha\norm{\xij}{}}\\
 \phi_{0,\mathrm{E}}\left(\v x_{j}\right) & =-\frac{2\alpha}{\sqrt{\pi}}q_{j}
 \end{align*}
 
@@ -2291,7 +2291,7 @@ Dabei bezeichnet
 \end_inset
 
  wird dominiert durch die Punkte 
-\begin_inset Formula $\v x_{k}$
+\begin_inset Formula $\v x_{i}$
 \end_inset
 
  die 
@@ -2396,7 +2396,7 @@ Dazu schränken wir
 \end_layout
 
 \begin_layout Standard
-Wobei 
+Dabei wird 
 \begin_inset Formula $\KB$
 \end_inset
 
@@ -2412,7 +2412,7 @@ Wobei
 \begin_inset Formula $\left[L,h-L\right]$
 \end_inset
 
- definiert wird.
+ definiert.
  Das heißt 
 \begin_inset Formula $\KB$
 \end_inset
@@ -2498,7 +2498,7 @@ Sei
 -mal differenzierbar ist konvergieren die Fourierkoeffizienten 
 \begin_inset Formula 
 \[
-\hat{b}_{\v l}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v k\in\I{\v M}}\KRf{h\cdot\norm{\frac{\v k}{\v M}}{}}\e^{-\tpii\frac{\v k\v l}{\v M}},\qquad\v l\in\I{\v M}
+\hat{b}_{\v k}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v l\in\I{\v M}}\KRf{h\norm{\v l\odot\v M^{-1}}{}}\e^{-\tpii\v k\left(\v l\odot\v M^{-1}\right)},\qquad\v k\in\I{\v M}
 \]
 
 \end_inset
@@ -2519,7 +2519,7 @@ Sei
  durch die Partialsumme ihrer Fourierreihe,
 \begin_inset Formula 
 \[
-\Tf{\norm{\v x}{}}\approx\sum_{\v l\in\I{\v M}}\hat{b}_{\v l}\e^{\tpii\v l\cdot\v x/h}
+\Tf{\norm{\v x}{}}\approx\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x/h}
 \]
 
 \end_inset
@@ -2555,8 +2555,8 @@ Daraus ergibt sich für die Potentiale
  
 \begin_inset Formula 
 \begin{align*}
-\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{k=1}^{N}q_{k}\sum_{\v l\in\I{\v M}}\hat{b}_{\v l}\e^{\tpii\v l\cdot\v x_{lj}/h}\\
- & =\sum_{\v l\in\I{\v M}}\hat{b}_{\v l}\left(\sum_{k=1}^{N}q_{k}\e^{\tpii\v l\cdot\v x_{l}/h}\right)\e^{-\tpii\v l\cdot\v x_{j}/h}.
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{i=1}^{N}q_{i}\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x_{lj}/h}\\
+ & =\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\cdot\v x_{i}/h}\right)\e^{-\tpii\v k\cdot\v x_{j}/h}.
 \end{align*}
 
 \end_inset
