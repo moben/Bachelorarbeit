@@ -2184,6 +2184,78 @@ Parameterwahl bei 3d-periodischen Randbedingungen
 In diesem Abschnitt werden wir zeigen, wie die Parameter die in die Ewald-Summat
 ion mit 3d-periodischen Randbedingungen eingehen gewählt werden können,
  so dass ein zuvor festgelegter Fehler eingehalten wird.
+ Sei dazu 
+\begin_inset Formula $\tilde{U}_{d}\left(\v x_{j}\right)$
+\end_inset
+
+ für 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ die durch Approximation der Energie im Punkt 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+, beispielsweise durch [alg1].
+ Sei weiterhin 
+\begin_inset Formula $U_{d}\left(\v x_{j}\right)$
+\end_inset
+
+ die Energie im Punkt 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+, wie sie in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:general-energy"
+
+\end_inset
+
+ definiert ist.
+ Dann definieren wir als Fehlermaß die Abweichung im Quadratischen Mittel
+ 
+\begin_inset Formula 
+\[
+\Delta U_{d}=\left(\frac{1}{N}\sum_{j=1}^{N}\abs{U_{d}\left(\v x_{j}\right)-\tilde{U}_{d}\left(\v x_{j}\right)}^{2}\right)^{1/2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analog dazu ist 
+\begin_inset Formula 
+\[
+\Delta F_{d}=\left(\frac{1}{N}\sum_{j=1}^{N}\norm{F_{d}\left(\v x_{j}\right)-\tilde{F}_{d}\left(\v x_{j}\right)}{}^{2}\right)^{1/2}
+\]
+
+\end_inset
+
+ die Abweichung im Quadratischen Mittel der Kraft auf den Partikel, wobei
+ 
+\begin_inset Formula $\tilde{F}_{d}\left(\v x_{j}\right)$
+\end_inset
+
+ und eine Approximation der Kraft im Punkt 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ bezeichnet und 
+\begin_inset Formula $F_{d}\left(\v x_{j}\right)$
+\end_inset
+
+ die exakte Kraft nach 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:general-force"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
