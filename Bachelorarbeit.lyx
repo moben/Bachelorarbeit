@@ -2259,8 +2259,8 @@ reference "eq:general-force"
 \end_layout
 
 \begin_layout Standard
-Die folgenden Parameter sind so zu setzen, dass für die Energie eine gegebene
- Abweichung im Quadratischen Mittel, 
+Die folgenden Parameter, die in [alg1] eingehen, sind so zu setzen, dass
+ für die Energie eine gegebene Abweichung im Quadratischen Mittel, 
 \begin_inset Formula $\Delta U_{d}$
 \end_inset
 
@@ -2370,51 +2370,23 @@ NFFT/
 
 \end_layout
 
-\begin_layout Itemize
-die Länge 
-\begin_inset Formula $h$
-\end_inset
-
- des Definitionsbereichs des periodisch fortgesetzten Kerns 
-\begin_inset Formula $\KR$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-den Grad der Glattheit von 
-\begin_inset Formula $\KR$
-\end_inset
-
-, 
-\begin_inset Formula $p$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: Wie relevant ist die Wahl des Fensters und der Interpolationsordnung?
-\end_layout
+Im Folgenden werden wir erläutern, wie diese Parameter nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KoPe92a"
 
 \end_inset
 
+ und 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-Diese Parameter lassen sich wie folgt gewinnen:
-\end_layout
-
-\begin_layout Enumerate
-Zunächst werden die Parameter so gewählt, dass die 3d-periodische Ewald-Summatio
-n die gewünschte Genauigkeit erreicht.
- Dazu wählt man 
+ bestimmt werden können, so dass die gewünschte Genauigkeit erreicht wird.
+ Dazu wählt man zunächst 
 \begin_inset Formula $r_{\mathrm{cut}}$
 \end_inset
 
@@ -2449,17 +2421,18 @@ TODO: ursprüngliche Formel,
 \begin_inset Newline newline
 \end_inset
 
-Durch Auflösen der Fehlerabschätzung von Kolafa und Perram[
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-kolper
-\end_layout
+Durch Auflösen der Fehlerabschätzung von Kolafa und Perram aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KoPe92a"
 
 \end_inset
 
-] erhält man daraus 
+ nach 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ erhält man daraus 
 \begin_inset Formula 
 \[
 \alpha=\frac{1}{r_{\mathrm{cut}}}\sqrt{\LambertW{\frac{2}{\Delta U_{d}}Q\sqrt{\frac{r_{\mathrm{cut}}}{NL^{3}}}}}
