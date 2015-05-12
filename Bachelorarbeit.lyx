@@ -2386,7 +2386,7 @@ key "NePiPo13"
 \end_inset
 
  bestimmt werden können, so dass die gewünschte Genauigkeit erreicht wird.
- Dazu wählt man zunächst 
+ Dazu wählt man zunächst den Abschneideparameter 
 \begin_inset Formula $r_{\mathrm{cut}}$
 \end_inset
 
@@ -2394,7 +2394,23 @@ key "NePiPo13"
 \begin_inset Formula $\phi_{d,\mathrm{N}}$
 \end_inset
 
- schnell approximiert werden kann.
+ hinreichend schnell approximiert werden kann indem 
+\begin_inset Formula $\phi_{3,\mathrm{N}}\left(\v x_{j}\right)$
+\end_inset
+
+ auf diejenigen 
+\begin_inset Formula $\v x_{i}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\norm{\xij+L\v n}{}<r_{\mathrm{cut}}$
+\end_inset
+
+ eingeschränkt wird.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -2403,12 +2419,7 @@ Raten.
  Laufzeitverhältnis nah fern betrachten.
 \end_layout
 
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
+\begin_layout Plain Layout
 TODO: ursprüngliche Formel, 
 \begin_inset Formula $\LambertW{\cdot}$
 \end_inset
@@ -2418,7 +2429,8 @@ TODO: ursprüngliche Formel,
 \end_inset
 
  erläutern.
-\begin_inset Newline newline
+\end_layout
+
 \end_inset
 
 Durch Auflösen der Fehlerabschätzung von Kolafa und Perram aus 
