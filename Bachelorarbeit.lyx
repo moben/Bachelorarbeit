@@ -2288,28 +2288,7 @@ der Ewald-Splitting Parameter
 \end_layout
 
 \begin_layout Itemize
-die 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- Größe 
+die NFFT Größe 
 \begin_inset Formula $\v M=\left(M,M,M\right)$
 \end_inset
 
@@ -2317,28 +2296,7 @@ NFFT/
 \end_layout
 
 \begin_layout Itemize
-die Oversampling-Größe der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- 
+die Oversampling-Größe der NFFT 
 \begin_inset Formula $\v m=\left(m,m,m\right)$
 \end_inset
 
@@ -2346,28 +2304,7 @@ NFFT/
 \end_layout
 
 \begin_layout Itemize
-die Ordnung der B-Spline Fensterfunktion der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+die Ordnung der B-Spline Fensterfunktion der NFFT
 \end_layout
 
 \begin_layout Standard
@@ -2385,13 +2322,13 @@ key "NePiPo13"
 
 \end_inset
 
- bestimmt werden können, so dass die gewünschte Genauigkeit erreicht wird.
+ so bestimmt werden können, dass die gewünschte Genauigkeit erreicht wird.
  Dazu wählt man zunächst den Abschneideparameter 
 \begin_inset Formula $r_{\mathrm{cut}}$
 \end_inset
 
  so, dass 
-\begin_inset Formula $\phi_{d,\mathrm{N}}$
+\begin_inset Formula $\phi_{3,\mathrm{N}}$
 \end_inset
 
  hinreichend schnell approximiert werden kann indem 
@@ -2407,7 +2344,145 @@ key "NePiPo13"
 \end_inset
 
  eingeschränkt wird.
+ Es sei nun 
+\begin_inset Formula 
+\[
+Q=\sum_{j=1}^{N}q_{j}^{2}
+\]
+
+\end_inset
+
+ die Quadratsumme der Ladungen 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ und 
+\begin_inset Formula $\LambertW x$
+\end_inset
+
+ die Lambert'sche W-Funktion, die als Umkehrfunktion von 
+\begin_inset Formula $f\left(w\right)=w\e^{w}$
+\end_inset
+
+ definiert ist.
+ Wir wenden die Fehlerabschätzungen von Kolafa und Perram aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KoPe92a"
+
+\end_inset
+
+ auf 
+\begin_inset Formula $\nicefrac{\Delta U_{3}}{2}$
+\end_inset
+
+ an, um sicherzustellen, dass die Summe der Fehler in Nah- und Fernfeld
+ kleiner als 
+\begin_inset Formula $\Delta U_{3}$
+\end_inset
+
+ ist.
+ Durch Auflösen nach 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ bzw 
+\begin_inset Formula $k_{\mathrm{cut}}$
+\end_inset
+
+ erhalten wir dann 
+\begin_inset Formula 
+\[
+\alpha=\frac{1}{r_{\mathrm{cut}}}\sqrt{\LambertW{\frac{2}{\Delta U_{3}}Q\sqrt{\frac{r_{\mathrm{cut}}}{NL^{3}}}}}
+\]
+
+\end_inset
+
+ und 
+\begin_inset Formula 
+\[
+k_{\mathrm{cut}}=\frac{\sqrt{3}L\alpha}{2\pi}\sqrt{\LambertW{\frac{4}{3L^{2}}\left(\frac{2}{N\alpha\pi}\right)^{2/3}\left(Q\frac{2}{\Delta U_{3}}\right)^{4/3}}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dabei ist 
+\begin_inset Formula $k_{\mathrm{cut}}$
+\end_inset
+
+ der Radius mit dem die unendliche Summe in 
+\begin_inset Formula $\phi_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
+
+ im Fourier-Raum abgeschnitten wird.
+ Mit diesen beiden Parametern hält eine 
+\emph on
+naive 
+\emph default
+Berechnung der Energie durch Begrenzen der Summe auf die Summanden mit 
+\begin_inset Formula $\abs{\v k}\leq k_{\mathrm{cut}}$
+\end_inset
+
+ den gewünschten Fehler ein.
+ Da die NFFT jedoch auf einer kubischen Eingabe operiert muss die FFT Größe
  
+\begin_inset Formula $\v M=\left(M,M,M\right)$
+\end_inset
+
+ groß genug sein um alle Summanden mit 
+\begin_inset Formula $\abs{\v k}\leq k_{\mathrm{cut}}$
+\end_inset
+
+ aufzunehmen.
+ Das kleinste 
+\begin_inset Formula $M\in2\set N$
+\end_inset
+
+, welches diese Bedingung erfüllt ist 
+\begin_inset Formula 
+\[
+M=2\left\lceil k_{\mathrm{cut}}\right\rceil +2.
+\]
+
+\end_inset
+
+ Da durch das Aufrunden sowie das kubische Abschneiden der Summe mit 
+\begin_inset Formula $\v M$
+\end_inset
+
+ anstatt dem radialen Abschneiden mit 
+\begin_inset Formula $k_{\mathrm{cut}}$
+\end_inset
+
+ mehr Summanden beachtet werden als von der ursprünglichen Fehlerabschätzung
+ verlangt wird der Fehler 
+\begin_inset Formula $\Delta U_{3}$
+\end_inset
+
+ sogar etwas geringer als gefordert.
+ Wie in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
+
+\end_inset
+
+ numerisch demonstriert wurde kann die Oversampling-Größe 
+\begin_inset Formula $\v m$
+\end_inset
+
+ sowie die B-Spline Ordnung der NFFT für einen kleinen Testfall bestimmt
+ werden und anschließend der Oversampling-Faktor 
+\begin_inset Formula $m/M$
+\end_inset
+
+ sowie die B-Spline Ordnung für größere Systeme übernommen werden.
+ Beide Parameter müssen so gewählt werden, dass der beider Approximation
+ durch dir NFFT entstehende Fehler verschwindet.
 \end_layout
 
 \begin_layout Standard
@@ -2420,156 +2495,12 @@ Raten.
 \end_layout
 
 \begin_layout Plain Layout
-TODO: ursprüngliche Formel, 
-\begin_inset Formula $\LambertW{\cdot}$
-\end_inset
-
-, 
-\begin_inset Formula $Q$
-\end_inset
-
- erläutern.
-\end_layout
-
-\end_inset
-
-Durch Auflösen der Fehlerabschätzung von Kolafa und Perram aus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "KoPe92a"
-
-\end_inset
-
- nach 
-\begin_inset Formula $\alpha$
-\end_inset
-
- erhält man daraus 
-\begin_inset Formula 
-\[
-\alpha=\frac{1}{r_{\mathrm{cut}}}\sqrt{\LambertW{\frac{2}{\Delta U_{d}}Q\sqrt{\frac{r_{\mathrm{cut}}}{NL^{3}}}}}
-\]
-
-\end_inset
-
- bzw 
-\begin_inset Formula 
-\[
-k_{\mathrm{cut}}=\frac{\sqrt{3}L\alpha}{2\pi}\sqrt{\LambertW{\frac{4}{3L^{2}}\left(\frac{2}{N\alpha\pi}\right)^{2/3}\left(Q\frac{2}{\Delta U_{d}}\right)^{4/3}}}.
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Da die 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
+TODO: ursprüngliche Formel erläutern.?
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\end_inset
-
- über die Fourierkoeffizienten bis zum Index 
-\begin_inset Formula $k_{\mathrm{cut}}$
-\end_inset
-
- berechnet wird, muss die FFT Größe 
-\begin_inset Formula $\v M'=\left(M',M',M'\right)$
-\end_inset
-
- groß genug sein um diese aufzunehmen.
- Daher ist 
-\begin_inset Formula 
-\[
-M'=2\left\lceil k_{\mathrm{cut}}\right\rceil +2.
-\]
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Wie in [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NePiPo
-\end_layout
-
-\end_inset
-
-] werden wir numerisch demonstrieren, dass die Oversampling-Größe 
-\begin_inset Formula $\v m'$
-\end_inset
-
- für einen kleinen Testfall bestimmt werden kann und anschließend der Oversampli
-ng-Faktor 
-\begin_inset Formula $\v{m'}/\v M'$
-\end_inset
-
- sowie die B-Spline Ordnung der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- für größere Systeme übernommen werden können.
- Beide Parameter müssen so gewählt werden, dass der beider Approximation
- durch dir 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- entstehende Fehler verschwindet.
 \end_layout
 
 \begin_layout Section
