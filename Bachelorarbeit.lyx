@@ -2192,7 +2192,7 @@ ion mit 3d-periodischen Randbedingungen eingehen gewählt werden können,
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
- die durch Approximation der Energie im Punkt 
+ eine Approximation der Energie im Punkt 
 \begin_inset Formula $\v x_{j}$
 \end_inset
 
@@ -2234,16 +2234,15 @@ Analog dazu ist
 
 \end_inset
 
- die Abweichung im Quadratischen Mittel der Kraft auf den Partikel, wobei
- 
+ die Abweichung im Quadratischen Mittel der Kraft, wobei wir mit 
 \begin_inset Formula $\tilde{F}_{d}\left(\v x_{j}\right)$
 \end_inset
 
- und eine Approximation der Kraft im Punkt 
+ eine Approximation der Kraft im Punkt 
 \begin_inset Formula $\v x_{j}$
 \end_inset
 
- bezeichnet und 
+ und 
 \begin_inset Formula $F_{d}\left(\v x_{j}\right)$
 \end_inset
 
@@ -2254,8 +2253,7 @@ reference "eq:general-force"
 
 \end_inset
 
-.
- 
+ bezeichnen.
 \end_layout
 
 \begin_layout Standard
@@ -2419,17 +2417,31 @@ Dabei ist
 \end_inset
 
  im Fourier-Raum abgeschnitten wird.
- Mit diesen beiden Parametern hält eine 
+ Mit diesen beiden Parametern hält eine
 \emph on
-naive 
+ 
 \emph default
-Berechnung der Energie durch Begrenzen der Summe auf die Summanden mit 
+direkte
+\emph on
+ 
+\emph default
+Berechnung des langreichweitigen Anteils der Energie durch Begrenzen der
+ Summe auf die Summanden mit 
 \begin_inset Formula $\abs{\v k}\leq k_{\mathrm{cut}}$
 \end_inset
 
  den gewünschten Fehler ein.
- Da die NFFT jedoch auf einer kubischen Eingabe operiert muss die FFT Größe
- 
+ Da bei der Berechnung von 
+\begin_inset Formula $\phi_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
+
+ durch die NFFT jedoch ein weiterer Fehler entsteht müssen die Parameter
+ der NFFT so gewählt werden, dass auch dieser hinreichend klein wird, bzw.
+ verschwindet.
+\end_layout
+
+\begin_layout Standard
+Da die NFFT auf einer kubischen Eingabe operiert muss die FFT Größe 
 \begin_inset Formula $\v M=\left(M,M,M\right)$
 \end_inset
 
@@ -2464,6 +2476,16 @@ M=2\left\lceil k_{\mathrm{cut}}\right\rceil +2.
 \end_inset
 
  sogar etwas geringer als gefordert.
+ Außerdem müssen für die Berechnung der NFFT noch die Oversampling-Größe
+ 
+\begin_inset Formula $\v m=\left(m,m,m\right)$
+\end_inset
+
+, 
+\begin_inset Formula $m\in2\set N$
+\end_inset
+
+ sowie die Ordnung der B-Spline-basierten Fensterfunktion bestimmt werden.
  Wie in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2471,18 +2493,19 @@ key "NePiPo13"
 
 \end_inset
 
- numerisch demonstriert wurde kann die Oversampling-Größe 
-\begin_inset Formula $\v m$
-\end_inset
-
- sowie die B-Spline Ordnung der NFFT für einen kleinen Testfall bestimmt
- werden und anschließend der Oversampling-Faktor 
+ numerisch demonstriert wurde können diese für einen kleinen Testfall so
+ bestimmt werden, dass der durch die NFFT entstehende Approximationsfehler
+ verschwindet.
+ Anschließend können der Oversampling-Faktor 
 \begin_inset Formula $m/M$
 \end_inset
 
- sowie die B-Spline Ordnung für größere Systeme übernommen werden.
- Beide Parameter müssen so gewählt werden, dass der beider Approximation
- durch dir NFFT entstehende Fehler verschwindet.
+ sowie die B-Spline Ordnung für größere Systeme übernommen werden, ohne
+ dass der Gesamtfehler 
+\begin_inset Formula $\Delta U_{3}$
+\end_inset
+
+ überschreitet.
 \end_layout
 
 \begin_layout Standard
