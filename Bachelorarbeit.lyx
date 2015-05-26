@@ -1760,9 +1760,9 @@ reference "eq:3d:potential"
 
  an und erhält somit 
 \begin_inset Formula 
-\begin{align*}
-\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{i=1}Nq_{i}\left(\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}+\frac{\erf{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}\right),\qquad j=\range 1N.
-\end{align*}
+\begin{align}
+\phi_{3}\left(\v x_{j}\right) & =\sum_{\v n\in\set Z^{3}}\nsum{i=1}Nq_{i}\left(\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}+\frac{\erf{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}\right),\qquad j=\range 1N.\label{eq:3d:potential:ewald-simple}
+\end{align}
 
 \end_inset
 
@@ -2627,7 +2627,14 @@ Im Gegensatz zum dreidimensional-periodischen Fall entfällt hier die unendliche
 \end_layout
 
 \begin_layout Standard
-Unter Verwendung der Fehlerfunktion erhalten wir für 
+Unter Verwendung des Ewald-Splittings wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3d:potential:ewald-simple"
+
+\end_inset
+
+ erhalten wir für 
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
