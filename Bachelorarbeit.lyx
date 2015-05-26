@@ -1517,13 +1517,17 @@ Mit
 \end_inset
 
  periodisch in jede der drei Dimensionen dupliziert werden.
- und für 
+ Entsprechend bedeutet 
 \begin_inset Formula $d=0$
 \end_inset
 
- wenn dies nicht der Fall ist.
- Man spricht hierbei von 3-periodischen, bzw von nicht-periodischen oder
- auch offenen Randbedingungen.
+, dass außerhalb des Würfels 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ keine Ladungen existieren.
+ Man spricht hierbei von dreidimensional- oder 3d-periodischen, bzw von
+ nicht-periodischen oder auch offenen Randbedingungen.
 \end_layout
 
 \begin_layout Standard
@@ -2552,7 +2556,7 @@ name "sec:0d-Ewald-Theore"
 In diesem Abschnitt werden wir erläutern wie die NFFT-basierte Lösung des
  Coulomb-Problems mit [alg1] auf nichtperiodische Eingabedaten übertragen
  werden kann.
- Im wesentlichen folgen wir dabei 
+ Im Wesentlichen folgen wir dabei 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NePiPo13"
@@ -2585,15 +2589,11 @@ Seien dazu erneut
 \end_inset
 
  gegeben.
- 
-\end_layout
-
-\begin_layout Standard
-Für 
+ Unter nichtperiodischen Randbedingungen ergeben sich mit 
 \begin_inset Formula $d=0$
 \end_inset
 
- ergeben sich für nichtperiodische Randbedingungen aus 
+ aus 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:general:potential"
@@ -2609,6 +2609,21 @@ reference "eq:general:potential"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Im Gegensatz zum dreidimensional-periodischen Fall entfällt hier die unendliche
+ Summe über die periodisch fortgesetzten Würfel.
+ Dennoch wäre ein naiver Algorithmus zur Berechnung aller 
+\begin_inset Formula $N$
+\end_inset
+
+ Potentiale Teil der Komplexitätsklasse 
+\begin_inset Formula $\O{N^{2}}$
+\end_inset
+
+ und damit für praktische Anwendungen mit einer hinreichend großen Anzahl
+ an Partikeln nicht geeignet.
 \end_layout
 
 \begin_layout Standard
