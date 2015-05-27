@@ -360,6 +360,14 @@ status open
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\rcut}{r_{\mathrm{cut}}}
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -1935,7 +1943,7 @@ Da die Summanden des kurzreichweitigen Terms
 
  konvergieren kann die Summe direkt berechnet und leicht approximiert werden.
  Sei dazu 
-\begin_inset Formula $r_{\mathrm{cut}}>0$
+\begin_inset Formula $\rcut>0$
 \end_inset
 
  ein Abschneideparameter.
@@ -1944,7 +1952,7 @@ Da die Summanden des kurzreichweitigen Terms
 \end_inset
 
  approximiert werden in dem alle Summanden mit 
-\begin_inset Formula $\norm{\xij+L\v n}{}>r_{\mathrm{cut}}$
+\begin_inset Formula $\norm{\xij+L\v n}{}>\rcut$
 \end_inset
 
  ignoriert werden.
@@ -1952,7 +1960,7 @@ Da die Summanden des kurzreichweitigen Terms
 \begin_inset Formula 
 \[
 \phi_{3,\mathrm{N}}\left(\v x_{j}\right)\approx\sum_{\v n\in\set Z^{3}}\nsum{\substack{i=1\\
-\norm{\xij+L\v n}{}<r_{\mathrm{cut}}
+\norm{\xij+L\v n}{}<\rcut
 }
 }Nq_{i}\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}.
 \]
@@ -2271,7 +2279,7 @@ Die folgenden Parameter, die in [alg1] eingehen, sind so zu setzen, dass
 
 \begin_layout Itemize
 Der Abschneideparameter 
-\begin_inset Formula $r_{\mathrm{cut}}$
+\begin_inset Formula $\rcut$
 \end_inset
 
  für 
@@ -2326,7 +2334,7 @@ key "NePiPo13"
 
  so bestimmt werden können, dass die gewünschte Genauigkeit erreicht wird.
  Dazu wählt man zunächst den Abschneideparameter 
-\begin_inset Formula $r_{\mathrm{cut}}$
+\begin_inset Formula $\rcut$
 \end_inset
 
  so, dass 
@@ -2342,7 +2350,7 @@ key "NePiPo13"
 \end_inset
 
  mit 
-\begin_inset Formula $\norm{\xij+L\v n}{}<r_{\mathrm{cut}}$
+\begin_inset Formula $\norm{\xij+L\v n}{}<\rcut$
 \end_inset
 
  eingeschränkt wird.
@@ -2395,7 +2403,7 @@ key "KoPe92a"
  erhalten wir dann 
 \begin_inset Formula 
 \[
-\alpha=\frac{1}{r_{\mathrm{cut}}}\sqrt{\LambertW{\frac{2}{\Delta U_{3}}Q\sqrt{\frac{r_{\mathrm{cut}}}{NL^{3}}}}}
+\alpha=\frac{1}{\rcut}\sqrt{\LambertW{\frac{2}{\Delta U_{3}}Q\sqrt{\frac{\rcut}{NL^{3}}}}}
 \]
 
 \end_inset
@@ -2600,7 +2608,7 @@ reference "eq:general:potential"
 
 \end_inset
 
- die Potentiale 
+ die Potentialeb 
 \begin_inset Formula 
 \[
 \phi_{0}\left(\v x_{j}\right)=\nsum{i=1}N\frac{q_{i}}{\norm{\xij}{}}.
@@ -2646,6 +2654,50 @@ reference "eq:3d:potential:ewald-simple"
 \end_inset
 
  eine andere Darstellung der Potentiale.
+ Die erste Summe wird hierbei wie im 3d-periodischen Fall durch diejenigen
+ Ladungen dominiert deren Position 
+\begin_inset Formula $\v x_{i}$
+\end_inset
+
+ nahe an 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ liegt.
+ Wir bezeichnen diese Summe mit 
+\begin_inset Formula 
+\[
+\phi_{0,\mathrm{N}}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}.
+\]
+
+\end_inset
+
+ Da 
+\begin_inset Formula $\frac{\erfc r}{r}$
+\end_inset
+
+ für 
+\begin_inset Formula $r\rightarrow\infty$
+\end_inset
+
+ exponentiell schnell gegen 
+\begin_inset Formula $0$
+\end_inset
+
+ konvergiert kann 
+\begin_inset Formula $\phi_{0,\mathrm{N}}$
+\end_inset
+
+ erneut durch eine simple Einschränkung der Summe auf die Summanden mit
+ 
+\begin_inset Formula $\xij<\rcut$
+\end_inset
+
+ für ein 
+\begin_inset Formula $\rcut>0$
+\end_inset
+
+ approximiert werden.
 \end_layout
 
 \begin_layout Standard
@@ -2660,7 +2712,7 @@ Im Weiteren sei
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2671,7 +2723,6 @@ Damit definieren wir für
  
 \begin_inset Formula 
 \begin{align*}
-\phi_{0,\mathrm{N}}\left(\v x_{j}\right) & =\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}\\
 \phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{i=1}^{N}q_{i}\Tf{\alpha\norm{\xij}{}}\\
 \phi_{0,\mathrm{E}}\left(\v x_{j}\right) & =-\frac{2\alpha}{\sqrt{\pi}}q_{j}
 \end{align*}
@@ -3011,7 +3062,7 @@ Die folgenden Parameter sind so zu setzen, dass für die Energie eine gegebene
 
 \begin_layout Itemize
 Der Abschneideparameter 
-\begin_inset Formula $r_{\mathrm{cut}}$
+\begin_inset Formula $\rcut$
 \end_inset
 
  für 
@@ -3157,7 +3208,7 @@ Diese Parameter lassen sich wie folgt gewinnen:
 Zunächst werden die Parameter so gewählt, dass die 3d-periodische Ewald-Summatio
 n die gewünschte Genauigkeit erreicht.
  Dazu wählt man 
-\begin_inset Formula $r_{\mathrm{cut}}$
+\begin_inset Formula $\rcut$
 \end_inset
 
  so, dass 
@@ -3204,7 +3255,7 @@ kolper
 ] erhält man daraus 
 \begin_inset Formula 
 \[
-\alpha=\frac{1}{r_{\mathrm{cut}}}\sqrt{\LambertW{\frac{2}{\Delta U_{d}}Q\sqrt{\frac{r_{\mathrm{cut}}}{NL^{3}}}}}
+\alpha=\frac{1}{\rcut}\sqrt{\LambertW{\frac{2}{\Delta U_{d}}Q\sqrt{\frac{\rcut}{NL^{3}}}}}
 \]
 
 \end_inset
@@ -3586,7 +3637,7 @@ reference "sec:Fehlerformel"
 Dazu wählen wir zunächst die Parameter für die 3d-periodische Ewald-Summation
  auf dem gleichen System.
  Wir setzen 
-\begin_inset Formula $r_{\mathrm{cut}}=0,62$
+\begin_inset Formula $\rcut=0,62$
 \end_inset
 
 , so dass der Anteil an Rechenzeit im Nah- und Fernfeld gleich groß wird.
@@ -3926,7 +3977,7 @@ NePiPo
 \end_inset
 
 ] mit 
-\begin_inset Formula $r_{\mathrm{cut}}=0.62$
+\begin_inset Formula $\rcut=0.62$
 \end_inset
 
  durchgeführt.
@@ -3934,7 +3985,7 @@ NePiPo
  als auch der Fehler sehr ungleichmäßig zwischen der Nahfeld- und Fernfeld-Appro
 ximation aufgeteilt sind.
  Durch eine bessere Wahl von 
-\begin_inset Formula $r_{\mathrm{cut}}$
+\begin_inset Formula $\rcut$
 \end_inset
 
  ließen sich sowohl Laufzeit als auch Genauigkeit noch weiter verbessern.
@@ -4495,7 +4546,7 @@ end{tikzpicture}
 \begin_layout Plain Layout
 Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT,
  jeweils mit 
-\begin_inset Formula $r_{\mathrm{cut}}=0,62$
+\begin_inset Formula $\rcut=0,62$
 \end_inset
 
 .
