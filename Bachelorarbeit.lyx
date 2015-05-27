@@ -2634,11 +2634,7 @@ reference "eq:3d:potential:ewald-simple"
 
 \end_inset
 
- erhalten wir für 
-\begin_inset Formula $j=\range 1N$
-\end_inset
-
-:
+ erhalten wir mit
 \end_layout
 
 \begin_layout Standard
@@ -2649,7 +2645,7 @@ reference "eq:3d:potential:ewald-simple"
 
 \end_inset
 
-
+ eine andere Darstellung der Potentiale.
 \end_layout
 
 \begin_layout Standard
