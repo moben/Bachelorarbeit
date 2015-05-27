@@ -2724,18 +2724,40 @@ reference "chapter:Test"
 \end_layout
 
 \begin_layout Standard
-Im Weiteren sei 
+Um die zweite Summe schnell approximieren zu können führen wir zunächst
+ eine Funktion 
+\begin_inset Formula $\Theta:\set R\rightarrow\set R$
+\end_inset
+
+ ein, die wir durch 
 \begin_inset Formula 
 \[
 \Tf r\coloneqq\begin{cases}
 \frac{2\alpha}{\sqrt{\pi}} & :r=0\\
-\frac{\erf{\alpha r}}{r} & :\text{sonst}.
+\frac{\erf{\alpha r}}{r} & :\text{sonst}
 \end{cases}
 \]
 
 \end_inset
 
- 
+ definieren.
+ Durch diese Definition ist 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ stetig, da nach der Regel von L’Hôpital der Grenzwert 
+\begin_inset Formula 
+\[
+\lim_{r\rightarrow0}\frac{\erf{\alpha r}}{r}\overset{\mathrm{H}}{=}\lim_{r\rightarrow0}\frac{2\alpha}{\sqrt{\pi}}\frac{\e^{-\left(\alpha r\right)^{2}}}{1}=\frac{2\alpha}{\sqrt{\pi}}
+\]
+
+\end_inset
+
+ dem Funktionswert im Punkt 
+\begin_inset Formula $r=0$
+\end_inset
+
+ entspricht.
 \end_layout
 
 \begin_layout Standard
