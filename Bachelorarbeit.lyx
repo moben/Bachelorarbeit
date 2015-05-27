@@ -743,7 +743,7 @@ reference "chapter:3d-Ewald"
  Zuletzt überprüfen wir in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Test"
+reference "chapter:Test"
 
 \end_inset
 
@@ -2698,6 +2698,29 @@ reference "eq:3d:potential:ewald-simple"
 \end_inset
 
  approximiert werden.
+ Dabei ist zu beachten, dass im Gegensatz zum dreidimensionalen Fall die
+ Berechnung exakt werden kann, wenn 
+\begin_inset Formula $\rcut$
+\end_inset
+
+ so groß gewählt wird, dass 
+\begin_inset Formula $\xij<\rcut$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i,j\in\left\{ \range 1N\right\} $
+\end_inset
+
+ gilt.
+ In der Regel lassen sich jedoch bessere Laufzeiten realisieren wenn dies
+ nicht der Fall ist, worauf wir in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chapter:Test"
+
+\end_inset
+
+ näher eingehen werden.
 \end_layout
 
 \begin_layout Standard
@@ -3494,18 +3517,18 @@ NFFT muss hinreichend genau sein.
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Laufzeit- und Ergebnisvergleich
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Test"
+name "chapter:Test"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Überprüfung der Fehlerformel, optimales 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -3540,7 +3563,7 @@ e Randbedingungen anwenden lässt.
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Genauigkeitstest
 \end_layout
 
@@ -3928,7 +3951,7 @@ Bestimme
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Laufzeitvergleich 3dp
 \end_layout
 
@@ -4588,7 +4611,7 @@ name "graph:0dp-3dp-runtime"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Laufzeitvergleich 0dp
 \end_layout
 
