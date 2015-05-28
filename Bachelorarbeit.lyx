@@ -1853,7 +1853,7 @@ Der der sogenannte kurzreichweitige Teil
 
 \end_inset
 
- ergibt sich aus einer Fourier-Transformation 
+ ergibt sich aus einer Fourier-Transformation von 
 \begin_inset Formula $\frac{\erf r}{r}$
 \end_inset
 
@@ -2654,8 +2654,12 @@ reference "eq:3d:potential:ewald-simple"
 \end_inset
 
  eine andere Darstellung der Potentiale.
- Die erste Summe wird hierbei wie im 3d-periodischen Fall durch diejenigen
- Ladungen dominiert deren Position 
+ Die erste Summe wird hierbei wie im 3d-periodischen Fall durch die Ladungen
+ 
+\begin_inset Formula $q_{i}$
+\end_inset
+
+ dominiert deren Position 
 \begin_inset Formula $\v x_{i}$
 \end_inset
 
@@ -2663,7 +2667,24 @@ reference "eq:3d:potential:ewald-simple"
 \begin_inset Formula $\v x_{j}$
 \end_inset
 
- liegt.
+ liegt, die Zweite durch diejenigen Ladungen 
+\begin_inset Formula $q_{i}$
+\end_inset
+
+ deren Position 
+\begin_inset Formula $\v x_{i}$
+\end_inset
+
+ weiter von 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ entfernt ist.
+ Genau wie im dreidimensional periodischen Fall bestimmt der Parameter 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ dabei die Gewichtung der beiden Terme.
  Wir bezeichnen diese Summe mit 
 \begin_inset Formula 
 \[
@@ -2688,8 +2709,8 @@ reference "eq:3d:potential:ewald-simple"
 \begin_inset Formula $\phi_{0,\mathrm{N}}$
 \end_inset
 
- erneut durch eine simple Einschränkung der Summe auf die Summanden mit
- 
+ wie bei der 3d-periodischen Ewald-Summation durch eine simple Einschränkung
+ der Summe auf die Summanden mit 
 \begin_inset Formula $\xij<\rcut$
 \end_inset
 
@@ -2826,7 +2847,7 @@ reference "eq:0d:potential:ewald-simple"
 \begin_inset Formula $i=j$
 \end_inset
 
- in, der in 
+, der in 
 \begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
@@ -2854,45 +2875,6 @@ Mit Hilfe dieser Definitionen lässt sich
 \end_inset
 
  darstellen.
-\end_layout
-
-\begin_layout Standard
-Der kurzreichweitige Anteil 
-\begin_inset Formula $\phi_{0,\mathrm{N}}$
-\end_inset
-
- kann wie bei der 3d-periodischen Seine Summationsterme konvergieren exponentiel
-l schnell gegen Null und die Summe kann somit so abgeschnitten werden, dass
- ein gewählter Fehler nicht überschritten wird.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Wie groß ist der Fehler?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Mit 
-\begin_inset Formula $\phi_{0,\mathrm{F}}$
-\end_inset
-
- bezeichnen wir den langreichweitigen Teil der Summe, der von den weiter
- von 
-\begin_inset Formula $\v x_{j}$
-\end_inset
-
- entfernten Punkten dominiert wird.
- Der Parameter 
-\begin_inset Formula $\alpha$
-\end_inset
-
- bestimmt die Aufteilung der Summanden auf die zwei Terme.
 \end_layout
 
 \begin_layout Standard
