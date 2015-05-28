@@ -2857,27 +2857,13 @@ Mit Hilfe dieser Definitionen lässt sich
 \end_layout
 
 \begin_layout Standard
-Dabei bezeichnet 
+Der kurzreichweitige Anteil 
 \begin_inset Formula $\phi_{0,\mathrm{N}}$
 \end_inset
 
- den kurzreichweitigen Teil der Summe, d.h.
- 
-\begin_inset Formula $\phi_{0,\mathrm{N}}$
-\end_inset
-
- wird dominiert durch die Punkte 
-\begin_inset Formula $\v x_{i}$
-\end_inset
-
- die 
-\begin_inset Formula $\v x_{j}$
-\end_inset
-
- am nächsten sind.
- Seine Summationsterme konvergieren exponentiell schnell gegen Null und
- die Summe kann somit so abgeschnitten werden, dass ein gewählter Fehler
- nicht überschritten wird.
+ kann wie bei der 3d-periodischen Seine Summationsterme konvergieren exponentiel
+l schnell gegen Null und die Summe kann somit so abgeschnitten werden, dass
+ ein gewählter Fehler nicht überschritten wird.
  
 \begin_inset Note Note
 status open
