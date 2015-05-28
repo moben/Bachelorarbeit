@@ -2647,9 +2647,9 @@ reference "eq:3d:potential:ewald-simple"
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\phi_{0}\left(\v x_{j}\right) & =\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}+\nsum{k=1}Nq_{i}\frac{\erf{\alpha\norm{\xij}{}}}{\norm{\xij}{}}
-\end{align*}
+\begin{align}
+\phi_{0}\left(\v x_{j}\right) & =\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}+\nsum{k=1}Nq_{i}\frac{\erf{\alpha\norm{\xij}{}}}{\norm{\xij}{}}\label{eq:0d:potential:ewald-simple}
+\end{align}
 
 \end_inset
 
@@ -2761,24 +2761,91 @@ Um die zweite Summe schnell approximieren zu können führen wir zunächst
 \end_layout
 
 \begin_layout Standard
-Damit definieren wir für 
+Mit Hilfe von 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ können wir nun die zweite Summe in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:0d:potential:ewald-simple"
+
+\end_inset
+
+, also den langreichweitigen Anteil von 
+\begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
+\end_inset
+
+ für 
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
- 
+ durch 
 \begin_inset Formula 
 \begin{align*}
-\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{i=1}^{N}q_{i}\Tf{\alpha\norm{\xij}{}}\\
-\phi_{0,\mathrm{E}}\left(\v x_{j}\right) & =-\frac{2\alpha}{\sqrt{\pi}}q_{j}
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{i=1}^{N}q_{i}\Tf{\alpha\norm{\xij}{}}
 \end{align*}
 
 \end_inset
 
+ und 
+\begin_inset Formula 
+\[
+\phi_{0,\mathrm{E}}\left(\v x_{j}\right)=-\frac{2\alpha}{\sqrt{\pi}}q_{j}
+\]
 
+\end_inset
+
+ darstellen.
+ Dabei bezeichnet das Fernfeld-Potential 
+\begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
+
+ den Anteil von 
+\begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
+\end_inset
+
+ der durch die weiter von 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+, beziehungsweise 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ entfernten Ladungen dominiert wird.
+ Das Eigenpotential 
+\begin_inset Formula $\phi_{0,\mathrm{E}}\left(\v x_{j}\right)$
+\end_inset
+
+ von 
+\begin_inset Formula $q_{j}$
+\end_inset
+
+ ist ein Korrekturterm für den Summand mit 
+\begin_inset Formula $i=j$
+\end_inset
+
+ in, der in 
+\begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
+\end_inset
+
+ enthalten ist, in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:0d:potential:ewald-simple"
+
+\end_inset
+
+ jedoch nicht.
 \end_layout
 
 \begin_layout Standard
-Woraus sich
+Mit Hilfe dieser Definitionen lässt sich 
+\begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
+\end_inset
+
+ durch
 \begin_inset Formula 
 \[
 \phi_{0}\left(\v x_{j}\right)=\phi_{0,\mathrm{N}}\left(\v x_{j}\right)+\phi_{0,\mathrm{F}}\left(\v x_{j}\right)+\phi_{0,\mathrm{E}}\left(\v x_{j}\right)
@@ -2786,7 +2853,7 @@ Woraus sich
 
 \end_inset
 
- ergibt.
+ darstellen.
 \end_layout
 
 \begin_layout Standard
