@@ -32,7 +32,7 @@
 \cfoot{}
 
 \sloppy
-\recalctypearea
+%\recalctypearea
 \renewcommand*{\titlepagestyle}{empty}
 \pagestyle{scrheadings}
 
@@ -84,7 +84,7 @@ eqs-within-sections
 \index_command default
 \float_placement h
 \paperfontsize default
-\spacing single
+\spacing onehalf
 \use_hyperref true
 \pdf_title "Erweiterung der Ewald-Summation aufnichtperiodische Randbedingungen"
 \pdf_author "Benedikt Morbach"
@@ -98,7 +98,7 @@ eqs-within-sections
 \pdf_backref false
 \pdf_pdfusetitle true
 \papersize a4paper
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -132,6 +132,7 @@ eqs-within-sections
 \shortcut idx
 \color #008000
 \end_index
+\rightmargin 4cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation skip
@@ -2608,7 +2609,7 @@ reference "eq:general:potential"
 
 \end_inset
 
- die Potentialeb 
+ die Potentiale 
 \begin_inset Formula 
 \[
 \phi_{0}\left(\v x_{j}\right)=\nsum{i=1}N\frac{q_{i}}{\norm{\xij}{}}.
