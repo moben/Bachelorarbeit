@@ -2937,7 +2937,19 @@ TODO: Plot
 \end_layout
 
 \begin_layout Standard
-Dazu schränken wir zunächst 
+Da der Abstand 
+\begin_inset Formula $\norm{\xij}{}$
+\end_inset
+
+ zwischen zwei Positionen 
+\begin_inset Formula $\v x_{i},\v x_{j}\in L\set T^{3}$
+\end_inset
+
+ höchstens 
+\begin_inset Formula $\sqrt{3}L$
+\end_inset
+
+ ist schränken wir zunächst 
 \begin_inset Formula $\Tf r$
 \end_inset
 
