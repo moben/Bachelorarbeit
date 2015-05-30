@@ -2881,15 +2881,15 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
 \end_inset
 
  mittels einer NDFT berechnen.
- Allerdings ist 
-\begin_inset Formula $\phi_{0,\mathrm{F}}$
-\end_inset
-
- im Gegensatz zu 
+ Im Gegensatz zum langreichweitigen Term des 3d-periodischen Falls 
 \begin_inset Formula $\phi_{3,\mathrm{F}}$
 \end_inset
 
- nicht periodisch, weshalb für 
+ ist 
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\end_inset
+
+ jedoch nicht periodisch, weshalb für 
 \begin_inset Formula $\phi_{0,\mathrm{F}}$
 \end_inset
 
@@ -2903,7 +2903,16 @@ clarify
 
 \end_inset
 
- 
+ Um dennoch einen auf NDFTs basierenden Algorithmus anwenden zu können werden
+ wir im Folgenden darlegen wie die Funktion 
+\begin_inset Formula $\Theta$
+\end_inset
+
+ und damit auch 
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\end_inset
+
+ durch eine endliche Fourier-Reihe approximiert werden kann.
 \end_layout
 
 \begin_layout Standard
