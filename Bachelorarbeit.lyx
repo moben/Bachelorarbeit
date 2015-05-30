@@ -2827,11 +2827,7 @@ reference "eq:0d:potential:ewald-simple"
 \begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
 \end_inset
 
- der durch die weiter von 
-\begin_inset Formula $q_{j}$
-\end_inset
-
-, beziehungsweise 
+, der durch die weiter von 
 \begin_inset Formula $\v x_{j}$
 \end_inset
 
@@ -2884,7 +2880,30 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
 \begin_inset Formula $\phi_{0,\mathrm{F}}$
 \end_inset
 
- mittels einer NDFT berechnen, allerdings ist er nicht periodisch.
+ mittels einer NDFT berechnen.
+ Allerdings ist 
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\end_inset
+
+ im Gegensatz zu 
+\begin_inset Formula $\phi_{3,\mathrm{F}}$
+\end_inset
+
+ nicht periodisch, weshalb für 
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\end_inset
+
+ keine Darstellung als Fourier-Reihe existiert.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+clarify
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2982,7 +3001,7 @@ Damit die Periodisierung von
 \begin_inset Formula $\KR$
 \end_inset
 
- hinreichend glatt ist muss desweiteren gefordert werden, dass für alle
+ hinreichend glatt ist muss des Weiteren gefordert werden, dass für alle
  
 \begin_inset Formula $j\in\left\{ \range 1{p-1}\right\} $
 \end_inset
