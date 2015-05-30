@@ -2916,15 +2916,40 @@ clarify
 \end_layout
 
 \begin_layout Standard
-Dazu schränken wir 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Plot 
+\begin_inset Formula $\Theta$
+\end_inset
+
+/
+\begin_inset Formula $\KR$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dazu schränken wir zunächst 
 \begin_inset Formula $\Tf r$
 \end_inset
 
- auf 
+ auf das Intervall 
 \begin_inset Formula $\left[-\sqrt{3}L,\sqrt{3}L\right]$
 \end_inset
 
- ein und wählen 
+ ein, so dass  die eingeschränkte Funktion 
+\begin_inset Formula $\Theta_{\left[-\sqrt{3}L,\sqrt{3}L\right]}$
+\end_inset
+
+ für alle und wählen ein 
 \begin_inset Formula $h\in\set R$
 \end_inset
 
