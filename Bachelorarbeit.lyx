@@ -2877,19 +2877,23 @@ Mit Hilfe dieser Definitionen erhalten wir für das Potential
 \begin_layout Standard
 Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
  Term 
-\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
  mittels einer NDFT berechnen.
  Im Gegensatz zum langreichweitigen Term des 3d-periodischen Falls 
-\begin_inset Formula $\phi_{3,\mathrm{F}}$
+\begin_inset Formula $\phi_{3,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
  ist 
-\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
- jedoch nicht periodisch.
+ jedoch nicht periodisch, da 
+\begin_inset Formula $\Theta\left(r\right)$
+\end_inset
+
+ nicht periodisch ist.
  Da der Abstand 
 \begin_inset Formula $\norm{\xij}{}$
 \end_inset
@@ -2903,7 +2907,7 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
 \end_inset
 
  beträgt, wäre es möglich 
-\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\begin_inset Formula $\Theta\left(r\right)$
 \end_inset
 
  auf das Intervall 
@@ -2913,7 +2917,7 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
  einzuschränken durch 
 \begin_inset Formula 
 \[
-\tilde{\phi}_{0,\mathrm{F}}\left(r+k2\sqrt{3}L\right)=\phi_{0,\mathrm{F}}\left(r\right)\qquad\forall r\in\left[-\sqrt{3}L,\sqrt{3}L\right),k\in\set Z
+\tilde{\Theta}\left(r+k2\sqrt{3}L\right)=\Theta\left(r\right)\qquad\forall r\in\left[-\sqrt{3}L,\sqrt{3}L\right),k\in\set Z
 \]
 
 \end_inset
@@ -2927,25 +2931,18 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
 \end_inset
 
  fortzusetzen.
-\end_layout
-
-\begin_layout Standard
-weshalb für 
-\begin_inset Formula $\phi_{0,\mathrm{F}}$
+ Diese Fortsetzung ist zwar stetig, allerdings konvergiert die Fourier-Reihe
+ nur langsam, da 
+\begin_inset Formula $\tilde{\Theta}\left(r\right)$
 \end_inset
 
- keine Darstellung als Fourier-Reihe existiert.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-clarify
-\end_layout
-
+ für 
+\begin_inset Formula $r=\pm\sqrt{3}L$
 \end_inset
 
- Um dennoch einen auf NDFTs basierenden Algorithmus anwenden zu können werden
- wir im Folgenden darlegen wie die Funktion 
+ nicht differenzierbar ist.
+ Um dennoch einen NFFT-basierten Algorithmus anwenden zu können werden wir
+ im Folgenden darlegen wie die Funktion 
 \begin_inset Formula $\Theta$
 \end_inset
 
@@ -2953,7 +2950,8 @@ clarify
 \begin_inset Formula $\phi_{0,\mathrm{F}}$
 \end_inset
 
- durch eine endliche Fourier-Reihe approximiert werden kann.
+ periodisch durch eine endliche Fourier-Reihe mit einem beliebigen, endlichen
+ Glattheitsgrad approximiert werden kann.
 \end_layout
 
 \begin_layout Standard
@@ -2978,19 +2976,16 @@ TODO: Plot
 \end_layout
 
 \begin_layout Standard
-Da der Abstand 
-\begin_inset Formula $\norm{\xij}{}$
+Im Folgenden werden wir eine solche Approximation erläutern, wobei wir im
+ Wesentlichen dem Ansatz für den 1d- und 2d-periodischen Fall in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
+
 \end_inset
 
- zwischen zwei Positionen 
-\begin_inset Formula $\v x_{i},\v x_{j}\in L\set T^{3}$
-\end_inset
-
- höchstens 
-\begin_inset Formula $\sqrt{3}L$
-\end_inset
-
- beträgt, schränken wir zunächst 
+ folgen.
+ Dazu schränken wir zunächst 
 \begin_inset Formula $\Tf r$
 \end_inset
 
@@ -2998,16 +2993,12 @@ Da der Abstand
 \begin_inset Formula $\left[-\sqrt{3}L,\sqrt{3}L\right]$
 \end_inset
 
- ein, so dass  die eingeschränkte Funktion 
-\begin_inset Formula $\Theta_{\left[-\sqrt{3}L,\sqrt{3}L\right]}$
-\end_inset
-
- für alle und wählen ein 
+ ein und wählen ein 
 \begin_inset Formula $h\in\set R$
 \end_inset
 
  mit 
-\begin_inset Formula $h>2L$
+\begin_inset Formula $h>2\sqrt{3}L$
 \end_inset
 
 .
@@ -3015,19 +3006,27 @@ Da der Abstand
 \begin_inset Formula $\Tf r$
 \end_inset
 
- durch 
-\begin_inset Formula $\KR:\left[-\frac{h}{2},\frac{h}{2}\right]\rightarrow\set R$
-\end_inset
-
-, wobei 
-\begin_inset Formula $\KR$
-\end_inset
-
- 
+ durch eine 
 \begin_inset Formula $h$
 \end_inset
 
--periodisch konstruiert werden soll.
+-periodische Funktion 
+\begin_inset Formula $\KR:\left[-\frac{h}{2},\frac{h}{2}\right]\rightarrow\set R$
+\end_inset
+
+, wobei wir das Intervall 
+\begin_inset Formula $\left[-\frac{h}{2},-\sqrt{3}L\right)$
+\end_inset
+
+ bzw 
+\begin_inset Formula $\left(\sqrt{3}L,\frac{h}{2}\right]$
+\end_inset
+
+ nutzen um einen hinreichend glatten Übergang zwischen 
+\begin_inset Formula $\Theta$
+\end_inset
+
+.
  Dazu setzen wir
 \end_layout
 

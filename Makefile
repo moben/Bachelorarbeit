@@ -18,14 +18,14 @@ all: Bachelorarbeit.pdf
 	lyx -e pdflatex $< 
 
 %.bcf: %.tex $(bib)
-	pdflatex $<
+	pdflatex -interaction=nonstopmode $<
 
 %.bbl: %.bcf
 	biber $<
 
 %.pdf: %.tex %.bbl $(data)
-	pdflatex $<
-	pdflatex $<
+	pdflatex -interaction=nonstopmode $<
+	pdflatex -interaction=nonstopmode $<
 
 clean:
 	-rm $(cleanfiles)
