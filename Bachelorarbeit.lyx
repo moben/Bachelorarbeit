@@ -2710,7 +2710,7 @@ reference "eq:3d:potential:ewald-simple"
 \begin_inset Formula $\phi_{0,\mathrm{N}}$
 \end_inset
 
- wie bei der 3d-periodischen Ewald-Summation durch eine simple Einschränkung
+, wie bei der 3d-periodischen Ewald-Summation, durch eine simple Einschränkung
  der Summe auf die Summanden mit 
 \begin_inset Formula $\xij<\rcut$
 \end_inset
@@ -2863,19 +2863,19 @@ reference "eq:0d:potential:ewald-simple"
 \end_layout
 
 \begin_layout Standard
-Mit Hilfe dieser Definitionen lässt sich 
+Mit Hilfe dieser Definitionen erhalten wir für das Potential 
 \begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
 \end_inset
 
- durch
+ eine neue Darstellung als
 \begin_inset Formula 
 \[
-\phi_{0}\left(\v x_{j}\right)=\phi_{0,\mathrm{N}}\left(\v x_{j}\right)+\phi_{0,\mathrm{F}}\left(\v x_{j}\right)+\phi_{0,\mathrm{E}}\left(\v x_{j}\right)
+\phi_{0}\left(\v x_{j}\right)=\phi_{0,\mathrm{N}}\left(\v x_{j}\right)+\phi_{0,\mathrm{F}}\left(\v x_{j}\right)+\phi_{0,\mathrm{E}}\left(\v x_{j}\right).
 \]
 
 \end_inset
 
- darstellen.
+
 \end_layout
 
 \begin_layout Standard
