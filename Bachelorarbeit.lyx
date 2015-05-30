@@ -2889,7 +2889,48 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
 \begin_inset Formula $\phi_{0,\mathrm{F}}$
 \end_inset
 
- jedoch nicht periodisch, weshalb für 
+ jedoch nicht periodisch.
+ Da der Abstand 
+\begin_inset Formula $\norm{\xij}{}$
+\end_inset
+
+ zwischen zwei Positionen 
+\begin_inset Formula $\v x_{i},\v x_{j}\in L\set T^{3}$
+\end_inset
+
+ höchstens 
+\begin_inset Formula $\sqrt{3}L$
+\end_inset
+
+ beträgt, wäre es möglich 
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\end_inset
+
+ auf das Intervall 
+\begin_inset Formula $\left[-\sqrt{3}L,\sqrt{3}L\right)$
+\end_inset
+
+ einzuschränken durch 
+\begin_inset Formula 
+\[
+\tilde{\phi}_{0,\mathrm{F}}\left(r+k2\sqrt{3}L\right)=\phi_{0,\mathrm{F}}\left(r\right)\qquad\forall r\in\left[-\sqrt{3}L,\sqrt{3}L\right),k\in\set Z
+\]
+
+\end_inset
+
+
+\begin_inset Formula $2\sqrt{3}L$
+\end_inset
+
+-periodisch auf 
+\begin_inset Formula $\set R$
+\end_inset
+
+ fortzusetzen.
+\end_layout
+
+\begin_layout Standard
+weshalb für 
 \begin_inset Formula $\phi_{0,\mathrm{F}}$
 \end_inset
 
@@ -2949,7 +2990,7 @@ Da der Abstand
 \begin_inset Formula $\sqrt{3}L$
 \end_inset
 
- ist schränken wir zunächst 
+ beträgt, schränken wir zunächst 
 \begin_inset Formula $\Tf r$
 \end_inset
 
