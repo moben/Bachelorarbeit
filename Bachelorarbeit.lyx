@@ -3006,15 +3006,16 @@ key "NePiPo13"
 \begin_inset Formula $\Tf r$
 \end_inset
 
- durch eine 
-\begin_inset Formula $h$
-\end_inset
-
--periodische Funktion 
+ durch eine Funktion 
 \begin_inset Formula $\KR:\left[-\frac{h}{2},\frac{h}{2}\right]\rightarrow\set R$
 \end_inset
 
-, wobei wir das Intervall 
+, die sich 
+\begin_inset Formula $h$
+\end_inset
+
+-periodisch fortsetzen lässt.
+ Dabei nutzen wir das Intervall 
 \begin_inset Formula $\left[-\frac{h}{2},-\sqrt{3}L\right)$
 \end_inset
 
@@ -3022,12 +3023,20 @@ key "NePiPo13"
 \begin_inset Formula $\left(\sqrt{3}L,\frac{h}{2}\right]$
 \end_inset
 
- nutzen um einen hinreichend glatten Übergang zwischen 
-\begin_inset Formula $\Theta$
+ um einen hinreichend glatten Übergang zwischen 
+\begin_inset Formula $\Theta\left(\sqrt{3}L\right)$
 \end_inset
 
-.
- Dazu setzen wir
+ und 
+\begin_inset Formula $\Theta\left(-\sqrt{3}L\right)$
+\end_inset
+
+ zu konstruieren.
+ Wir definieren 
+\begin_inset Formula $\KR$
+\end_inset
+
+ als 
 \end_layout
 
 \begin_layout Standard
@@ -3050,7 +3059,16 @@ Dabei wird
 \begin_inset Formula $\KB$
 \end_inset
 
- durch eine Taylor-Interpolation vom Grad 
+ grade so gewählt, dass 
+\begin_inset Formula $\KR\in C^{p-1}\left(\left[-\frac{h}{2},\frac{h}{2}\right]\right)$
+\end_inset
+
+ für einen beliebigen Glattheitsgrad 
+\begin_inset Formula $p\in\set N$
+\end_inset
+
+.
+ Durch eine Taylor-Interpolation vom Grad 
 \begin_inset Formula $p-1$
 \end_inset
 
@@ -3059,7 +3077,7 @@ Dabei wird
 \end_inset
 
  auf dem Intervall 
-\begin_inset Formula $\left[L,h-L\right]$
+\begin_inset Formula $\left[\sqrt{3}L,h-\sqrt{3}L\right]$
 \end_inset
 
  definiert.
