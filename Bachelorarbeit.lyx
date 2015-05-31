@@ -3225,11 +3225,11 @@ reference "eq:0d:regularization-condition:zero"
 \end_layout
 
 \begin_layout Standard
-Durch diese Konstruktion die entstehende Regularisierung 
+Die durch diese Konstruktion entstehende Regularisierung 
 \begin_inset Formula $\KR\left(\norm{\cdot}{}\right)$
 \end_inset
 
- in jeder Raumdimension 
+ ist in jeder Raumdimension 
 \begin_inset Formula $h$
 \end_inset
 
@@ -3238,6 +3238,52 @@ Durch diese Konstruktion die entstehende Regularisierung
 \end_inset
 
 -mal differenzierbar.
+\end_layout
+
+\begin_layout Standard
+Eine so konstruierte Regularisierung 
+\begin_inset Formula $\KR$
+\end_inset
+
+ kann durch 
+\begin_inset Formula 
+\[
+\KRf{\v x}\coloneqq\KRf{\v x_{0}}
+\]
+
+\end_inset
+
+ für 
+\begin_inset Formula 
+\[
+\v x=\v x_{0}+h\v k\qquad\v x_{0}\in h\set T^{3},\v k\in\set Z^{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+auf 
+\begin_inset Formula $\set R^{3}$
+\end_inset
+
+ fortgesetzt werden.
+ Diese Fortsetzung ist in allen drei Raumdimensionen 
+\begin_inset Formula $h$
+\end_inset
+
+-periodisch und in jedem Punkt 
+\begin_inset Formula $\v x\in\set R^{3}$
+\end_inset
+
+ 
+\begin_inset Formula $p-1$
+\end_inset
+
+-mal stetig differenzierbar.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3254,39 +3300,10 @@ Sei
 \end_inset
 
 .
- Da 
-\begin_inset Formula $\KR$
-\end_inset
+\end_layout
 
- 
-\begin_inset Formula $h$
-\end_inset
-
--periodisch und ihre periodisierte Fortsetzung auf 
-\begin_inset Formula $\set R^{3}$
-\end_inset
-
- durch 
-\begin_inset Formula 
-\[
-\KRf{\v x}\coloneqq\KRf{\v x_{0}}
-\]
-
-\end_inset
-
- für 
-\begin_inset Formula 
-\[
-\v x=\v x_{0}+h\v k\qquad\v x_{0}\in h\set T^{3},\v k\in\set Z^{3}
-\]
-
-\end_inset
-
-durch 
-\begin_inset Formula $p-1$
-\end_inset
-
--mal differenzierbar ist konvergieren die Fourierkoeffizienten 
+\begin_layout Standard
+ist konvergieren die Fourierkoeffizienten 
 \begin_inset Formula 
 \[
 \hat{b}_{\v k}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v l\in\I{\v M}}\KRf{h\norm{\v l\odot\v M^{-1}}{}}\e^{-\tpii\v k\left(\v l\odot\v M^{-1}\right)},\qquad\v k\in\I{\v M}
