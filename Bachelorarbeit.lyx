@@ -2976,8 +2976,8 @@ TODO: Plot
 \end_layout
 
 \begin_layout Standard
-Im Folgenden werden wir eine solche Approximation erläutern, wobei wir im
- Wesentlichen dem Ansatz für den 1d- und 2d-periodischen Fall in 
+Im Folgenden werden wir eine solche Approximation definieren, wobei wir
+ im Wesentlichen dem Ansatz für den 1d- und 2d-periodischen Fall in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NePiPo13"
@@ -3165,25 +3165,75 @@ reference "eq:0d:regularization-condition:equal"
 \end_layout
 
 \begin_layout Standard
-Dies kann beispielsweise durch eine 2-Punkt Taylor-Interpolation auf dem
- Intervall 
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "Anhang C"
+key "NePiPo13"
+
+\end_inset
+
+ wird gezeigt wie ein entsprechendes 
+\begin_inset Formula $\KB$
+\end_inset
+
+ für das Coulomb-Problem mit 1d-periodischen Eingabedaten durch eine spezialisie
+rte 2-Punkt Taylor-Interpolation als Polynom auf dem Intervall 
 \begin_inset Formula $\left[\sqrt{3}L,\frac{h}{2}\right]$
 \end_inset
 
- geschehen.
- 
+ definiert werden kann.
+ Der Grad eines solchen Polynoms ist im Allgemeinen 
+\begin_inset Formula $2p-2$
+\end_inset
+
+, um die 
+\begin_inset Formula $2p-1$
+\end_inset
+
+ Bedingungen in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0d:regularization-condition:equal"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0d:regularization-condition:zero"
+
+\end_inset
+
+ zu erfüllen.
+ Das so konstruierte Polynom lässt sich ohne Modifikationen auf den nichtperiodi
+schen Fall übertragen, da die Bedingungen 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0d:regularization-condition:equal"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0d:regularization-condition:zero"
+
+\end_inset
+
+ in beiden Fällen identisch sind.
 \end_layout
 
 \begin_layout Standard
-Dadurch ist 
-\begin_inset Formula $\KR$
+Durch diese Konstruktion die entstehende Regularisierung 
+\begin_inset Formula $\KR\left(\norm{\cdot}{}\right)$
 \end_inset
 
- in jede Richtung 
+ in jeder Raumdimension 
 \begin_inset Formula $h$
 \end_inset
 
--periodisch und 
+-periodisch und in jedem Punkt 
 \begin_inset Formula $p-1$
 \end_inset
 
