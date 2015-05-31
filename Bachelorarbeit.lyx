@@ -99,7 +99,7 @@ eqs-within-sections
 \pdf_pdfusetitle true
 \papersize a4paper
 \use_geometry true
-\use_package amsmath 1
+\use_package amsmath 2
 \use_package amssymb 1
 \use_package cancel 1
 \use_package esint 1
@@ -289,6 +289,15 @@ Macro definitions
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch defines
+status open
+
 \begin_layout Standard
 \begin_inset FormulaMacro
 \newcommand{\T}{\operatorname{\Theta}}
@@ -330,15 +339,6 @@ Macro definitions
 
 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Branch defines
-status open
 
 \begin_layout Standard
 \begin_inset FormulaMacro
@@ -3262,7 +3262,27 @@ Sei
 \begin_inset Formula $h$
 \end_inset
 
--periodisch und 
+-periodisch und ihre periodisierte Fortsetzung auf 
+\begin_inset Formula $\set R^{3}$
+\end_inset
+
+ durch 
+\begin_inset Formula 
+\[
+\KRf{\v x}\coloneqq\KRf{\v x_{0}}
+\]
+
+\end_inset
+
+ für 
+\begin_inset Formula 
+\[
+\v x=\v x_{0}+h\v k\qquad\v x_{0}\in h\set T^{3},\v k\in\set Z^{3}
+\]
+
+\end_inset
+
+durch 
 \begin_inset Formula $p-1$
 \end_inset
 
