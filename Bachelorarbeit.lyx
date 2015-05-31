@@ -3007,7 +3007,7 @@ key "NePiPo13"
 \end_inset
 
  durch eine Funktion 
-\begin_inset Formula $\KR:\left[-\frac{h}{2},\frac{h}{2}\right]\rightarrow\set R$
+\begin_inset Formula $\KR:\sqrt{3}h\set T\rightarrow\set R$
 \end_inset
 
 , die sich 
@@ -3036,7 +3036,7 @@ key "NePiPo13"
 \begin_inset Formula $\KR$
 \end_inset
 
- durch  
+ durch 
 \end_layout
 
 \begin_layout Standard
@@ -3055,12 +3055,12 @@ key "NePiPo13"
 \end_layout
 
 \begin_layout Standard
-Dabei wird 
+Dabei soll 
 \begin_inset Formula $\KB$
 \end_inset
 
- so gewählt, dass 
-\begin_inset Formula $\KR\in C^{p-1}\left(\left[-\frac{h}{2},\frac{h}{2}\right]\right)$
+ gerade so gewählt werden, dass 
+\begin_inset Formula $\KR\left(\norm{\cdot}{}\right)\in C^{p-1}\left(h\set T^{3}\right)$
 \end_inset
 
  für einen beliebigen Glattheitsgrad 
@@ -3068,19 +3068,6 @@ Dabei wird
 \end_inset
 
 .
- Durch eine Taylor-Interpolation vom Grad 
-\begin_inset Formula $p-1$
-\end_inset
-
- von 
-\begin_inset Formula $\Tf r$
-\end_inset
-
- auf dem Intervall 
-\begin_inset Formula $\left[\sqrt{3}L,\frac{h}{2}\right]$
-\end_inset
-
- definiert.
  Das heißt 
 \begin_inset Formula $\KB$
 \end_inset
@@ -3088,37 +3075,80 @@ Dabei wird
  muss die hermiteschen Interpolationsbedingung
 \begin_inset Formula 
 \begin{align*}
-\KB^{\left(j\right)}\left(\sqrt{3}L\right) & =\T^{\left(j\right)}\left(\sqrt{3}L\right)
+\KB^{\left(j\right)}\left(\sqrt{3}L\right) & =\T^{\left(j\right)}\left(\sqrt{3}L\right)\qquad\text{für }j\in\left\{ \range 0{p-1}\right\} 
 \end{align*}
 
 \end_inset
 
-für alle 
-\begin_inset Formula $j\in\left\{ \range 0{p-1}\right\} $
+ erfüllen, um die Glattheit im Punkt 
+\begin_inset Formula $r=\sqrt{3}L$
 \end_inset
 
- erfüllen.
-\end_layout
-
-\begin_layout Standard
-Damit die Periodisierung von 
-\begin_inset Formula $\KR$
-\end_inset
-
- hinreichend glatt ist muss des Weiteren gefordert werden, dass für alle
- 
-\begin_inset Formula $j\in\left\{ \range 1{p-1}\right\} $
-\end_inset
-
-
+ zu gewährleisten.
+ Des Weiteren muss gefordert werden, dass 
 \begin_inset Formula 
 \[
-\KR^{\left(j\right)}\left(\frac{h}{2}\right)=0
+\KR^{\left(j\right)}\left(\frac{h}{2}\right)=0\qquad\text{für }j\in\left\{ \range 1{p-1}\right\} 
 \]
 
 \end_inset
 
-gilt.
+gilt, damit die Periodisierung von 
+\begin_inset Formula $\KR$
+\end_inset
+
+ im Punkt 
+\begin_inset Formula $\frac{h}{2}$
+\end_inset
+
+ 
+\begin_inset Formula $p-1$
+\end_inset
+
+ Mal differenzierbar ist.
+ Dabei ist zu beachten, dass zwar der tatsächliche Funktionswert im Punkt
+ 
+\begin_inset Formula $\frac{h}{2}$
+\end_inset
+
+ irrelevant ist um die gewünschte Glattheit zu erhalten, aber Konstanz von
+ 
+\begin_inset Formula $\KR\left(r\right)$
+\end_inset
+
+ für 
+\begin_inset Formula $\abs r>\frac{h}{2}$
+\end_inset
+
+ durchaus relevant ist.
+ Der Grund dafür ist, dass 
+\begin_inset Formula $\KR$
+\end_inset
+
+ zwar auf 
+\begin_inset Formula $\left[-\frac{h}{2},\frac{h}{2}\right]$
+\end_inset
+
+ definiert ist, 
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\end_inset
+
+ jedoch in allen drei Raumrichtungen 
+\begin_inset Formula $h$
+\end_inset
+
+-periodisch fortgesetzt werden soll.
+ 
+\end_layout
+
+\begin_layout Standard
+Dies kann beispielsweise durch eine 2-Punkt Taylor-Interpolation auf dem
+ Intervall 
+\begin_inset Formula $\left[\sqrt{3}L,\frac{h}{2}\right]$
+\end_inset
+
+ geschehen.
+ 
 \end_layout
 
 \begin_layout Standard
