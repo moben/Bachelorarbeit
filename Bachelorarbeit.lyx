@@ -2748,7 +2748,7 @@ reference "chapter:Test"
 \begin_layout Standard
 Um die zweite Summe schnell approximieren zu können führen wir zunächst
  eine Funktion 
-\begin_inset Formula $\Theta:\set R\rightarrow\set R$
+\begin_inset Formula $\T:\set R\rightarrow\set R$
 \end_inset
 
  ein, die wir durch 
@@ -2764,7 +2764,7 @@ Um die zweite Summe schnell approximieren zu können führen wir zunächst
 
  definieren.
  Durch diese Definition ist 
-\begin_inset Formula $\Theta$
+\begin_inset Formula $\T$
 \end_inset
 
  stetig, da nach der Regel von L’Hôpital der Grenzwert 
@@ -2784,7 +2784,7 @@ Um die zweite Summe schnell approximieren zu können führen wir zunächst
 
 \begin_layout Standard
 Mit Hilfe von 
-\begin_inset Formula $\Theta$
+\begin_inset Formula $\T$
 \end_inset
 
  können wir nun die zweite Summe in 
@@ -2890,7 +2890,7 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
 \end_inset
 
  jedoch nicht periodisch, da 
-\begin_inset Formula $\Theta\left(r\right)$
+\begin_inset Formula $\Tf r$
 \end_inset
 
  nicht periodisch ist.
@@ -2907,7 +2907,7 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
 \end_inset
 
  beträgt, wäre es möglich 
-\begin_inset Formula $\Theta\left(r\right)$
+\begin_inset Formula $\Tf r$
 \end_inset
 
  auf das Intervall 
@@ -2917,7 +2917,7 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
  einzuschränken durch 
 \begin_inset Formula 
 \[
-\tilde{\Theta}\left(r+k2\sqrt{3}L\right)=\Theta\left(r\right)\qquad\forall r\in\left[-\sqrt{3}L,\sqrt{3}L\right),k\in\set Z
+\tilde{\T}\left(r+k2\sqrt{3}L\right)=\Tf r\qquad\forall r\in\left[-\sqrt{3}L,\sqrt{3}L\right),k\in\set Z
 \]
 
 \end_inset
@@ -2933,7 +2933,7 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
  fortzusetzen.
  Diese Fortsetzung ist zwar stetig, allerdings konvergiert die Fourier-Reihe
  nur langsam, da 
-\begin_inset Formula $\tilde{\Theta}\left(r\right)$
+\begin_inset Formula $\tilde{\T}\left(r\right)$
 \end_inset
 
  für 
@@ -2943,7 +2943,7 @@ Wie bei der 3d-periodischen Ewald-Summation wollen wir den langreichweitigen
  nicht differenzierbar ist.
  Um dennoch einen NFFT-basierten Algorithmus anwenden zu können werden wir
  im Folgenden darlegen wie die Funktion 
-\begin_inset Formula $\Theta$
+\begin_inset Formula $\T$
 \end_inset
 
  und damit auch 
@@ -2960,7 +2960,7 @@ status open
 
 \begin_layout Plain Layout
 TODO: Plot 
-\begin_inset Formula $\Theta$
+\begin_inset Formula $\T$
 \end_inset
 
 /
@@ -3024,11 +3024,11 @@ key "NePiPo13"
 \end_inset
 
  um einen hinreichend glatten Übergang zwischen 
-\begin_inset Formula $\Theta\left(\sqrt{3}L\right)$
+\begin_inset Formula $\Tf{\sqrt{3}L}$
 \end_inset
 
  und 
-\begin_inset Formula $\Theta\left(-\sqrt{3}L\right)$
+\begin_inset Formula $\Tf{-\sqrt{3}L}$
 \end_inset
 
  zu konstruieren.
@@ -3225,27 +3225,19 @@ reference "eq:0d:regularization-condition:zero"
 \end_layout
 
 \begin_layout Standard
-Die durch diese Konstruktion entstehende Regularisierung 
-\begin_inset Formula $\KR\left(\norm{\cdot}{}\right)$
-\end_inset
-
- ist in jeder Raumdimension 
-\begin_inset Formula $h$
-\end_inset
-
--periodisch und in jedem Punkt 
-\begin_inset Formula $p-1$
-\end_inset
-
--mal differenzierbar.
-\end_layout
-
-\begin_layout Standard
 Eine so konstruierte Regularisierung 
-\begin_inset Formula $\KR$
+\begin_inset Formula $\KRf{\norm{\cdot}{}}$
 \end_inset
 
- kann durch 
+ ist auf 
+\begin_inset Formula $\sqrt{3}L\set T^{3}$
+\end_inset
+
+ identisch zu 
+\begin_inset Formula $\Tf{\norm{\cdot}{}}$
+\end_inset
+
+ und kann durch 
 \begin_inset Formula 
 \[
 \KRf{\v x}\coloneqq\KRf{\v x_{0}}
@@ -3283,7 +3275,23 @@ auf
 \end_inset
 
 -mal stetig differenzierbar.
- 
+ Wenn 
+\begin_inset Formula $p$
+\end_inset
+
+ also groß genug ist konvergieren die Fourier-Koeffizienten von 
+\begin_inset Formula $\KR$
+\end_inset
+
+ schnell gegen 
+\begin_inset Formula $0$
+\end_inset
+
+ und 
+\begin_inset Formula $\KR$
+\end_inset
+
+ kann durch eine Partialsumme seiner Fourier-Reihe angenähert werden.
 \end_layout
 
 \begin_layout Standard
@@ -3324,7 +3332,7 @@ ist konvergieren die Fourierkoeffizienten
 \begin_inset Formula $\left[-L,L\right]$
 \end_inset
 
- durch die Partialsumme ihrer Fourierreihe,
+ durch die Partialsumme ihrer Fourier-Reihe,
 \begin_inset Formula 
 \[
 \Tf{\norm{\v x}{}}\approx\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x/h}
@@ -3385,7 +3393,7 @@ NFFT
 \end_layout
 
 \begin_layout Subsection
-Fehlerformel
+Parameterwahl
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Fehlerformel"
