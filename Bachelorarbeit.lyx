@@ -3036,7 +3036,7 @@ key "NePiPo13"
 \begin_inset Formula $\KR$
 \end_inset
 
- als 
+ durch  
 \end_layout
 
 \begin_layout Standard
@@ -3059,7 +3059,7 @@ Dabei wird
 \begin_inset Formula $\KB$
 \end_inset
 
- grade so gewählt, dass 
+ so gewählt, dass 
 \begin_inset Formula $\KR\in C^{p-1}\left(\left[-\frac{h}{2},\frac{h}{2}\right]\right)$
 \end_inset
 
@@ -3077,7 +3077,7 @@ Dabei wird
 \end_inset
 
  auf dem Intervall 
-\begin_inset Formula $\left[\sqrt{3}L,h-\sqrt{3}L\right]$
+\begin_inset Formula $\left[\sqrt{3}L,\frac{h}{2}\right]$
 \end_inset
 
  definiert.
