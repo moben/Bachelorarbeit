@@ -557,7 +557,7 @@ key "NePiPo13"
 
  wurde dieser Ansatz auf Systeme verallgemeinert, die nur in einer oder
  zwei der Dimensionen periodisch sind.
- Dazu der Summand in den nicht-periodischen Dimensionen zunächst durch eine
+ Dazu der Summand in den nichtperiodischen Dimensionen zunächst durch eine
  periodische Funktion, bzw deren Fourier-Reihe approximiert.
  Anschließend kann die Summe erneut mittels der NFFT in 
 \begin_inset Formula $\O{N\log N}$
@@ -577,14 +577,14 @@ key "scafacos"
 \end_layout
 
 \begin_layout Standard
-Ziel dieser Arbeit ist es diese Erkenntnisse auf das Problem mit nicht-periodisc
-hen Randbedingungen anzuwenden und eine Ewald-Summation für nicht-periodische
+Ziel dieser Arbeit ist es diese Erkenntnisse auf das Problem mit nichtperiodisch
+en Randbedingungen anzuwenden und eine Ewald-Summation für nichtperiodische
  Systeme innerhalb der P2NFFT zu implementieren.
  Gegenüber des bereits in der P2NFFT vorhandenen nicht Ewald-basierten Algorithm
 us hat dieser den Vorteil, dass für Ewald-Methoden Abschätzungen für den
  bei der Approximation entstehenden Fehler existieren.
  Da sich diese Fehlerbetrachtung schon auf den 2d- und 3d-periodischen Algorithm
-us übertragen ließ, gehen wir davon aus, dass dies auch im nicht-periodischen
+us übertragen ließ, gehen wir davon aus, dass dies auch im nichtperiodischen
  Fall gelingt.
  Im Folgenden wird der Aufbau der Arbeit kurz erläutert.
 \end_layout
@@ -1427,7 +1427,7 @@ name "sec:Problemstellung"
 
 \begin_layout Standard
 Im Folgenden werden wir das Coulomb-Problem in eine allgemeinere Definition
- fassen die sowohl für den 3d-periodischen als auch den nicht-periodischen
+ fassen die sowohl für den 3d-periodischen als auch den nichtperiodischen
  Fall geeignet ist.
  Seien dazu
 \begin_inset Formula $N\in\mathbb{N}$
@@ -1515,7 +1515,7 @@ Mit
 
  keine Ladungen existieren.
  Man spricht hierbei von dreidimensional- oder 3d-periodischen, bzw von
- nicht-periodischen oder auch offenen Randbedingungen.
+ nichtperiodischen oder auch offenen Randbedingungen.
 \end_layout
 
 \begin_layout Standard
@@ -3448,7 +3448,7 @@ name "sec:0d-Fehlerformel"
 \end_layout
 
 \begin_layout Standard
-Im Folgenden Abschnitt werden wir analog zu Abschnitt 
+In diesem Abschnitt werden wir analog zu Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:3d-Fehlerformel"
@@ -3458,7 +3458,7 @@ reference "sec:3d-Fehlerformel"
  des 3d-periodischen Falls darlegen, wie die Parameter für [alg2] so gewählt
  werden können, dass die Approximation eine gegebene Abweichung im Quadratischen
  Mittel, 
-\begin_inset Formula $\Delta U_{d}$
+\begin_inset Formula $\Delta U_{0}$
 \end_inset
 
  nicht überschreitet.
@@ -3504,7 +3504,37 @@ reference "sec:3d-Fehlerformel"
 \end_layout
 
 \begin_layout Standard
-Diese Parameter lassen sich wie folgt gewinnen:
+In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
+
+\end_inset
+
+ wurde eine Adaption der Parameterwahl nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KoPe92a"
+
+\end_inset
+
+ auf die Ewald-Summation mit 1d- und 2d-periodischen Eingabedaten vorgeschlagen
+ und durch numerische Tests verifiziert.
+ Im Folgenden werden wir diese erläutern, da sie sich mit minimalen Anpassungen
+ auch auf den nichtperiodischen Fall übertragen lässt.
+ In Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chapter:Test"
+
+\end_inset
+
+ werden wir anschließend verifizieren, dass sich mit dieser Parameterwahl
+ der gewünschte Fehler 
+\begin_inset Formula $\Delta U_{0}$
+\end_inset
+
+ einhalten lässt.
 \end_layout
 
 \begin_layout Standard
@@ -3747,8 +3777,8 @@ name "chapter:Test"
 \end_layout
 
 \begin_layout Standard
-Überprüfen, dass Kolafa und Perram Formel für 3dp sich auch auf nicht-periodisch
-e Randbedingungen anwenden lässt.
+Überprüfen, dass Kolafa und Perram Formel für 3dp sich auch auf nichtperiodische
+ Randbedingungen anwenden lässt.
  
 \begin_inset Formula $p$
 \end_inset
@@ -4173,15 +4203,15 @@ reference "graph:0dp-3dp-runtime"
 
 \end_inset
 
- werden die Laufzeiten einer nicht-periodischen P2NFFT mit denen der 3d-periodis
-chen P2NFFT bei gleicher Problemgröße verglichen.
+ werden die Laufzeiten einer nichtperiodischen P2NFFT mit denen der 3d-periodisc
+hen P2NFFT bei gleicher Problemgröße verglichen.
  Beide wurden mittels der zuvor eingeführten Algorithmen so aufgerufen,
  dass ein 
 \begin_inset Formula $\Delta U<10^{-9}$
 \end_inset
 
  gilt.
- Offensichtlich ist die Berechnung des nicht-periodischen Falls um einen
+ Offensichtlich ist die Berechnung des nichtperiodischen Falls um einen
  Faktor von ca.
 \begin_inset space \thinspace{}
 \end_inset
@@ -4214,7 +4244,7 @@ NePiPo
 \end_inset
 
  durchgeführt.
- Dies hat jedoch im nicht-periodischen Fall zur Folge, dass sowohl die Laufzeit
+ Dies hat jedoch im nichtperiodischen Fall zur Folge, dass sowohl die Laufzeit
  als auch der Fehler sehr ungleichmäßig zwischen der Nahfeld- und Fernfeld-Appro
 ximation aufgeteilt sind.
  Durch eine bessere Wahl von 
@@ -4288,8 +4318,7 @@ begin{loglogaxis}[
 
 \begin_layout Plain Layout
 
-			nicht-periodisch Gesamtzeit,nicht-periodisch Fernfeld,nicht-periodisch
- Nahfeld,
+			nichtperiodisch Gesamtzeit,nichtperiodisch Fernfeld,nichtperiodisch Nahfeld,
 \end_layout
 
 \begin_layout Plain Layout
@@ -4388,7 +4417,7 @@ name "graph:0dp-time"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT
+Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P2NFFT
 \end_layout
 
 \end_inset
@@ -4619,7 +4648,7 @@ addplot+[mark=o,       color=orange]   table [y=rt-run]   {
 \backslash
 ndptest};  
 \backslash
-addlegendentry{nicht-periodisch Gesamtzeit}
+addlegendentry{nichtperiodisch Gesamtzeit}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4641,7 +4670,7 @@ addplot+[mark=o,       color=magenta]  table [y=rt-near]  {
 \backslash
 ndptest};  
 \backslash
-addlegendentry{nicht-periodisch Nahfeld}
+addlegendentry{nichtperiodisch Nahfeld}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4663,7 +4692,7 @@ addplot+[mark=o,       color=darkgray] table [y=rt-far]   {
 \backslash
 ndptest};  
 \backslash
-addlegendentry{nicht-periodisch Fernfeld}
+addlegendentry{nichtperiodisch Fernfeld}
 \end_layout
 
 \begin_layout Plain Layout
@@ -4777,7 +4806,7 @@ end{tikzpicture}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT,
+Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P2NFFT,
  jeweils mit 
 \begin_inset Formula $\rcut=0,62$
 \end_inset
@@ -4788,7 +4817,7 @@ Vergleich der Laufzeiten von nicht-periodischer und 3d-periodischer P2NFFT,
 \end_inset
 
  und als B-Spline Ordnung 7 gewählt.
- Im nicht-periodischen Fall wurde 
+ Im nichtperiodischen Fall wurde 
 \begin_inset Formula $p=10$
 \end_inset
 
