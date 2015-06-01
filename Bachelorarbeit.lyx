@@ -3693,33 +3693,59 @@ reference "sec:3d-Fehlerformel"
 \end_inset
 
  erläuterten Verfahrens geschehen.
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
+Anschließend müssen geeignete Werte für den Glattheitsgrad 
+\begin_inset Formula $p\in\set N$
+\end_inset
 
-\begin_layout Plain Layout
-TODO: Wie relevant ist die Wahl des Fensters und der Interpolationsordnung?
-\end_layout
+ sowie die Periodenlänge 
+\begin_inset Formula $h>0$
+\end_inset
+
+ der Regularisierung 
+\begin_inset Formula $\KR$
+\end_inset
+
+ gefunden werden, so dass der in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0d:Theta-Fourier-Approx"
 
 \end_inset
 
+ entstehende Fehler verschwindet.
+ Sei dazu 
+\begin_inset Formula $P\in2\set N$
+\end_inset
 
+ die Anzahl der Punkte um die die NFFT Größe 
+\begin_inset Formula $\v M'$
+\end_inset
+
+ in jeder Dimension erweitert werden muss um die Fourier-Koeffizienten von
+ 
+\begin_inset Formula $\KR$
+\end_inset
+
+ aufzunehmen, da 
+\begin_inset Formula $h>2L$
+\end_inset
+
+ gewählt wurde.
 \end_layout
 
-\begin_layout Enumerate
-Wie in [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NePiPo
-\end_layout
+\begin_layout Standard
+Wie in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
 
 \end_inset
 
-] werden wir numerisch demonstrieren, dass die Oversampling-Größe 
+ werden wir numerisch demonstrieren, dass die Oversampling-Größe 
 \begin_inset Formula $\v m'$
 \end_inset
 
@@ -3730,7 +3756,10 @@ ng-Faktor
 
  sowie die B-Spline Ordnung der NFFT für größere Systeme übernommen werden
  können.
- Beide Parameter müssen so gewählt werden, dass der bei der Approximation
+\end_layout
+
+\begin_layout Enumerate
+Beide Parameter müssen so gewählt werden, dass der bei der Approximation
  durch dir NFFT entstehende Fehler verschwindet.
 \end_layout
 
@@ -3780,6 +3809,19 @@ Zuletzt wird die FFT Größe
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Wie relevant ist die Wahl des Fensters und der Interpolationsordnung?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
