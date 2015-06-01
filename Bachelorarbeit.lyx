@@ -3649,6 +3649,55 @@ reference "chapter:Test"
 \end_layout
 
 \begin_layout Standard
+Dazu werden zunächst 3d-periodische Randbedingungen mit den gleichen 
+\begin_inset Formula $N\in\set N$
+\end_inset
+
+ Ladungen 
+\begin_inset Formula $q_{j}\in\set R$
+\end_inset
+
+ und deren Positionen 
+\begin_inset Formula $\v x_{j}\in L\set T^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $j=\range 1N$
+\end_inset
+
+ angenommen.
+ Für diese werden der Nahfeld Abschneideparameter 
+\begin_inset Formula $\rcut$
+\end_inset
+
+, der Ewald-Splitting Parameter 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, die NFFT Größe 
+\begin_inset Formula $\v M'=\left(M',M',M'\right)$
+\end_inset
+
+, die Oversampling Größe 
+\begin_inset Formula $\v m'=\left(m',m',m'\right)$
+\end_inset
+
+ der NFFT und die Ordnung der B-Spline Fensterfunktion der NFFT so bestimmt,
+ dass 
+\end_layout
+
+\begin_layout Standard
+mittels des in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:3d-Fehlerformel"
+
+\end_inset
+
+ erläuterten Verfahrens 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
