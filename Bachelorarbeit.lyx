@@ -401,6 +401,9 @@ Fakultät für Mathematik
 \end_layout
 
 \begin_layout Subject
+\begin_inset VSpace vfill
+\end_inset
+
 Bachelorarbeit
 \end_layout
 
@@ -413,6 +416,10 @@ Benedikt Morbach
 \end_layout
 
 \begin_layout Publishers
+\begin_inset VSpace vfill
+\end_inset
+
+
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="2">
 <features rotate="0" tabularvalignment="middle">
