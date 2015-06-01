@@ -3629,7 +3629,7 @@ ng-Faktor
 
  sowie die B-Spline Ordnung der NFFT für größere Systeme übernommen werden
  können.
- Beide Parameter müssen so gewählt werden, dass der beider Approximation
+ Beide Parameter müssen so gewählt werden, dass der bei der Approximation
  durch dir NFFT entstehende Fehler verschwindet.
 \end_layout
 
