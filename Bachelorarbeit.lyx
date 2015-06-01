@@ -367,6 +367,48 @@ pagestyle{empty}
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkomafont{titlehead}{
+\backslash
+Large 
+\backslash
+centering}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Titlehead
+
+\family sans
+\series bold
+Technische Universität Chemnitz
+\family default
+\series default
+
+\begin_inset Newline newline
+\end_inset
+
+Fakultät für Mathematik
+\end_layout
+
+\begin_layout Subject
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Bachelorarbeit
 \end_layout
 
 \begin_layout Title
@@ -375,6 +417,75 @@ Erweiterung der Ewald-Summation auf nichtperiodische Randbedingungen
 
 \begin_layout Author
 Benedikt Morbach
+\end_layout
+
+\begin_layout Publishers
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prüfer/Betreuer:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Prof.
+\begin_inset space \thinspace{}
+\end_inset
+
+Dr.
+\begin_inset space \thinspace{}
+\end_inset
+
+Daniel Potts
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Michael Pippig
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
