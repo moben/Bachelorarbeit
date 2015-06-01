@@ -35,28 +35,6 @@
 %\recalctypearea
 \renewcommand*{\titlepagestyle}{empty}
 \pagestyle{scrheadings}
-
-% I think \PFFT/ is slightly less ugly than \PFFT{}
-\def\FFTW/{\emph{FFTW}}
-\def\PFFT/{\emph{PFFT}}
-\def\PNFFT/{\emph{PNFFT}}
-
-\def\FFT/{\emph{FFT}}
-\def\FFToD/{\emph{FFT-1D}}
-\def\FFTtD/{\emph{FFT-3D}}
-
-\def\NFFT/{\emph{NFFT}}
-\def\aNFFT/{\emph{NFFT\textsuperscript{H}}}
-
-\def\DFT/{\emph{DFT}}
-\def\DFToD/{\emph{DFT-1D}}
-\def\DFTtD/{\emph{DFT-3D}}
-\def\ODFT/{\emph{Oversampled DFT}}
-\def\PDFT/{\emph{Pruned DFT}}
-\def\NDFT/{\emph{NDFT}}
-\def\aNDFT/{\emph{NDFT\textsuperscript{H}}}
-
-\def\PtNFFT/{\emph{P2NFFT}}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -3477,124 +3455,35 @@ reference "sec:3d-Fehlerformel"
 \end_inset
 
  des 3d-periodischen Falls darlegen, wie die Parameter für [alg2] so gewählt
- werden können, dass die Approximation einen gewünschten Fehler nicht überschrei
-tet.
-\end_layout
-
-\begin_layout Standard
-Die folgenden Parameter sind so zu setzen, dass für die Energie eine gegebene
- Abweichung im Quadratischen Mittel, 
+ werden können, dass die Approximation eine gegebene Abweichung im Quadratischen
+ Mittel, 
 \begin_inset Formula $\Delta U_{d}$
 \end_inset
 
- eingehalten wird:
-\end_layout
-
-\begin_layout Itemize
-Der Abschneideparameter 
+ nicht überschreitet.
+ Wie im 3d-periodischen Fall müssen dabei der Abschneideparameter 
 \begin_inset Formula $\rcut$
 \end_inset
 
  für 
-\begin_inset Formula $\phi_{d,\mathrm{N}}$
+\begin_inset Formula $\phi_{0,\mathrm{N}}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-der Ewald-Splitting Parameter 
+ und der Ewald-Splitting Parameter 
 \begin_inset Formula $\alpha$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-die 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- Größe 
+, sowie die NFFT Größe 
 \begin_inset Formula $\v M=\left(M,M,M\right)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-die Oversampling-Größe der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- 
+, die Oversampling Größe 
 \begin_inset Formula $\v m=\left(m,m,m\right)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-die Ordnung der B-Spline Fensterfunktion der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-die Länge 
+ der NFFT und die Ordnung der B-Spline Fensterfunktion der NFFT gewählt
+ werden.
+ Zusätzlich muss die Länge 
 \begin_inset Formula $h$
 \end_inset
 
@@ -3602,19 +3491,15 @@ die Länge
 \begin_inset Formula $\KR$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Itemize
-den Grad der Glattheit von 
-\begin_inset Formula $\KR$
-\end_inset
-
-, 
+ sowie 
 \begin_inset Formula $p$
 \end_inset
 
+, der Grad der Glattheit von 
+\begin_inset Formula $\KR$
+\end_inset
 
+ gesetzt werden.
 \end_layout
 
 \begin_layout Standard
@@ -3702,28 +3587,7 @@ k_{\mathrm{cut}}=\frac{\sqrt{3}L\alpha}{2\pi}\sqrt{\LambertW{\frac{4}{3L^{2}}\le
 \begin_inset Newline newline
 \end_inset
 
-Da die 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- über die Fourierkoeffizienten bis zum Index 
+Da die NFFT über die Fourierkoeffizienten bis zum Index 
 \begin_inset Formula $k_{\mathrm{cut}}$
 \end_inset
 
@@ -3763,51 +3627,10 @@ ng-Faktor
 \begin_inset Formula $\v{m'}/\v M'$
 \end_inset
 
- sowie die B-Spline Ordnung der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- für größere Systeme übernommen werden können.
+ sowie die B-Spline Ordnung der NFFT für größere Systeme übernommen werden
+ können.
  Beide Parameter müssen so gewählt werden, dass der beider Approximation
- durch dir 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- entstehende Fehler verschwindet.
+ durch dir NFFT entstehende Fehler verschwindet.
 \end_layout
 
 \begin_layout Enumerate
@@ -3875,28 +3698,7 @@ Man benötigt also als Eingabeparameter nur
 \begin_inset Formula $\v m'$
 \end_inset
 
- und die Ordnung der B-Spline Fensterfunktion der 
-\begin_inset Preview
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-NFFT/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- bestimmen.
+ und die Ordnung der B-Spline Fensterfunktion der NFFT bestimmen.
 \end_layout
 
 \begin_layout Standard
