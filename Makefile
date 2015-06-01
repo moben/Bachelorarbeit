@@ -14,8 +14,11 @@ cleanfiles = 				\
 
 all: Bachelorarbeit.pdf
 
+# lyx doesn't update the .tex if it would be the same
+# thus `touch`
 %.tex: %.lyx
 	lyx -e pdflatex $< 
+	touch $@
 
 %.bcf: %.tex $(bib)
 	pdflatex -interaction=nonstopmode $<
