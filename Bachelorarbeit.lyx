@@ -727,7 +727,7 @@ reference "sec:0d-Ewald-Theore"
  In Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Fehlerformel"
+reference "sec:0d-Fehlerformel"
 
 \end_inset
 
@@ -1983,7 +1983,7 @@ Auch der langreichweitiger Term
 
  exponentiell schnell fallen.
  Sei dazu 
-\begin_inset Formula $\v M=\left(M_{1},M_{2},M_{3}\right)\in2\set N^{3}$
+\begin_inset Formula $\v M=\left(M,M,M\right)\in2\set N^{3}$
 \end_inset
 
  und 
@@ -1991,7 +1991,7 @@ Auch der langreichweitiger Term
 \end_inset
 
 =
-\begin_inset Formula $\thrange{M_{1}}{M_{2}}{M_{3}}$
+\begin_inset Formula $\left\{ \hrange M\right\} ^{3}$
 \end_inset
 
  eine Indexmenge.
@@ -2191,6 +2191,13 @@ P2NFFT mit 3d-periodischen Randbedingungen
 
 \begin_layout Subsection
 Parameterwahl bei 3d-periodischen Randbedingungen
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:3d-Fehlerformel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2688,9 +2695,9 @@ reference "eq:3d:potential:ewald-simple"
  dabei die Gewichtung der beiden Terme.
  Wir bezeichnen diese Summe mit 
 \begin_inset Formula 
-\[
-\phi_{0,\mathrm{N}}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}.
-\]
+\begin{equation}
+\phi_{0,\mathrm{N}}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}.\label{eq:0d:potential:near}
+\end{equation}
 
 \end_inset
 
@@ -2804,17 +2811,17 @@ reference "eq:0d:potential:ewald-simple"
 
  durch 
 \begin_inset Formula 
-\begin{align*}
-\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{i=1}^{N}q_{i}\Tf{\alpha\norm{\xij}{}}
-\end{align*}
+\begin{align}
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & =\sum_{i=1}^{N}q_{i}\Tf{\alpha\norm{\xij}{}}\label{eq:0d:potential:far}
+\end{align}
 
 \end_inset
 
  und 
 \begin_inset Formula 
-\[
-\phi_{0,\mathrm{E}}\left(\v x_{j}\right)=-\frac{2\alpha}{\sqrt{\pi}}q_{j}
-\]
+\begin{equation}
+\phi_{0,\mathrm{E}}\left(\v x_{j}\right)=-\frac{2\alpha}{\sqrt{\pi}}q_{j}\label{eq:0d:potential:self}
+\end{equation}
 
 \end_inset
 
@@ -3295,23 +3302,24 @@ auf
 \end_layout
 
 \begin_layout Standard
-Sei 
-\begin_inset Formula $\v M=\left(M_{1},M_{2},M_{3}\right)\in2\set N^{3}$
+Sei dazu 
+\begin_inset Formula $\v M=\left(M,M,M\right)\in2\set N^{3}$
 \end_inset
 
  und 
-\begin_inset Formula $\I{\v M}$
-\end_inset
-
-=
-\begin_inset Formula $\thrange{M_{1}}{M_{2}}{M_{3}}$
+\begin_inset Formula $\I{\v M}=\left\{ \hrange M\right\} ^{3}$
 \end_inset
 
 .
-\end_layout
+ Dann sind die Fourier-Koeffizienten von 
+\begin_inset Formula $\KR$
+\end_inset
 
-\begin_layout Standard
-ist konvergieren die Fourierkoeffizienten 
+ innerhalb des Intervalls 
+\begin_inset Formula $\I{\v M}$
+\end_inset
+
+ durch 
 \begin_inset Formula 
 \[
 \hat{b}_{\v k}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v l\in\I{\v M}}\KRf{h\norm{\v l\odot\v M^{-1}}{}}\e^{-\tpii\v k\left(\v l\odot\v M^{-1}\right)},\qquad\v k\in\I{\v M}
@@ -3319,33 +3327,45 @@ ist konvergieren die Fourierkoeffizienten
 
 \end_inset
 
- exponentiell schnell gegen 
-\begin_inset Formula $0$
+ gegeben.
+ Entsprechend kann 
+\begin_inset Formula $\Tf{\norm{\cdot}{}}$
 \end_inset
 
-.
- Deshalb kann die Funktion 
-\begin_inset Formula $\T$
+, beziehungsweise 
+\begin_inset Formula $\KRf{\norm{\cdot}{}}$
 \end_inset
 
- auf dem Intervall 
-\begin_inset Formula $\left[-L,L\right]$
+ auf 
+\begin_inset Formula $\sqrt{3}L\set T^{3}$
 \end_inset
 
- durch die Partialsumme ihrer Fourier-Reihe,
+ durch 
 \begin_inset Formula 
-\[
-\Tf{\norm{\v x}{}}\approx\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x/h}
-\]
+\begin{equation}
+\Tf{\norm{\v x}{}}=\KRf{\norm{\v x}{}}\approx\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x/h}\label{eq:0d:Theta-Fourier-Approx}
+\end{equation}
 
 \end_inset
 
  approximiert werden.
- Dabei entsteht ein Fehler, welcher jedoch klein wird wenn 
-\begin_inset Formula $p$
+ In Abschnitt  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:0d-Fehlerformel"
+
 \end_inset
 
- hinreichend groß ist.
+ werden wir darauf eingehen wie 
+\begin_inset Formula $p\in2\set N$
+\end_inset
+
+ und 
+\begin_inset Formula $\v M\in2\set N^{3}$
+\end_inset
+
+ gewählt werden können, so dass der dabei entstehende Fehler eine gegebene
+ Größenordnung nicht überschreitet.
  
 \begin_inset Note Note
 status open
@@ -3360,15 +3380,34 @@ Wie groß ist der Fehler?
 \end_layout
 
 \begin_layout Standard
-Daraus ergibt sich für die Potentiale 
+Durch diese Approximation erhalten wir also eine Darstellung von 
+\begin_inset Formula $\Tf{\norm{\cdot}{}}$
+\end_inset
+
+ als Fourier-Reihe.
+ Durch Einsetzen von 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0d:Theta-Fourier-Approx"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0d:potential:far"
+
+\end_inset
+
+ ergibt sich für den langreichweitigen Teil des Potentials 
 \begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
 , 
-\begin_inset Formula $j=\range 1N.$
+\begin_inset Formula $j=\range 1N$
 \end_inset
 
- 
+ die Approximation 
 \begin_inset Formula 
 \begin{align*}
 \phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{i=1}^{N}q_{i}\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\xij/h}\\
@@ -3392,15 +3431,54 @@ NFFT
  berechnet werden.
 \end_layout
 
-\begin_layout Subsection
-Parameterwahl
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Fehlerformel"
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[alg2]
+\end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+SIGNIFIKANTE OPERATIONEN?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parameterwahl
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:0d-Fehlerformel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im Folgenden Abschnitt werden wir analog zu Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:3d-Fehlerformel"
+
+\end_inset
+
+ des 3d-periodischen Falls darlegen, wie die Parameter für [alg2] so gewählt
+ werden können, dass die Approximation einen gewünschten Fehler nicht überschrei
+tet.
 \end_layout
 
 \begin_layout Standard
@@ -3901,7 +3979,7 @@ Wir wollen nun zeigen, dass die nichtperiodische Ewald-Summation mit der
  Parameterwahl aus Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Fehlerformel"
+reference "sec:0d-Fehlerformel"
 
 \end_inset
 
@@ -3948,7 +4026,7 @@ NePiPo
 Für dieses Ladungssystem wählen wir wie in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Fehlerformel"
+reference "sec:0d-Fehlerformel"
 
 \end_inset
 
