@@ -36,7 +36,7 @@
 \renewcommand*{\titlepagestyle}{empty}
 \pagestyle{scrheadings}
 \end_preamble
-\options parskip=full*
+\options parskip=full*,BCOR=8mm
 \use_default_options true
 \begin_modules
 eqs-within-sections
@@ -114,8 +114,8 @@ eqs-within-sections
 \rightmargin 4cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip medskip
 \quotes_language german
 \papercolumns 1
 \papersides 1
@@ -3504,6 +3504,10 @@ reference "sec:3d-Fehlerformel"
 \end_layout
 
 \begin_layout Standard
+Diese Parameter lassen sich wie folgt gewinnen:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -3514,10 +3518,6 @@ TODO: Wie relevant ist die Wahl des Fensters und der Interpolationsordnung?
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Diese Parameter lassen sich wie folgt gewinnen:
 \end_layout
 
 \begin_layout Enumerate
