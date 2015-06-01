@@ -7,11 +7,10 @@
 \usepackage[style=numeric,backend=biber]{biblatex}
 \addbibresource{./references.bib}
 
-\usepackage{parskip}
 \usepackage{babel}
 \usepackage{csquotes}
-%\usepackage{setspace}
-%\onehalfspacing
+\usepackage{setspace}
+\onehalfspacing
 
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{tikz}
@@ -23,6 +22,7 @@
 %\usepackage{libertine}
 %\usepackage[libertine]{newtxmath}
 
+\usepackage{pdfpages}
 
 \usepackage[headsepline, ilines]{scrpage2}
 \usepackage{microtype}
@@ -36,6 +36,7 @@
 \renewcommand*{\titlepagestyle}{empty}
 \pagestyle{scrheadings}
 \end_preamble
+\options parskip=full*
 \use_default_options true
 \begin_modules
 eqs-within-sections
@@ -62,7 +63,7 @@ eqs-within-sections
 \index_command default
 \float_placement h
 \paperfontsize default
-\spacing onehalf
+\spacing single
 \use_hyperref true
 \pdf_title "Erweiterung der Ewald-Summation aufnichtperiodische Randbedingungen"
 \pdf_author "Benedikt Morbach"
@@ -113,8 +114,8 @@ eqs-within-sections
 \rightmargin 4cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation skip
-\defskip medskip
+\paragraph_separation indent
+\paragraph_indentation default
 \quotes_language german
 \papercolumns 1
 \papersides 1
@@ -4226,7 +4227,7 @@ ximation aufgeteilt sind.
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Separate versions of figure below
@@ -5309,6 +5310,33 @@ printbibliography
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+includepdf[pages=-]{abschlussarbeit_selbststaendigkeitserklaerung.pdf}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
