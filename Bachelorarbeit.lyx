@@ -5328,15 +5328,11 @@ status open
 
 
 \backslash
-includepdf[pages=-]{abschlussarbeit_selbststaendigkeitserklaerung.pdf}
+includepdf[pages=-]{abschlussarbeit_selbststaendigkeitserklaerung_printed.pdf}
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
