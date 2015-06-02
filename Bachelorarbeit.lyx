@@ -5459,6 +5459,12 @@ Laufzeitvergleich 0dp
 \end_layout
 
 \begin_layout Standard
+Zuletzt soll die in dieser Arbeit beschriebene nichtperiodische Ewald-Summation
+ mit einer anderen Methode zur Lösung des Coulomb-Problems mit nichtperiodischen
+ Eingabedaten verglichen werden.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
