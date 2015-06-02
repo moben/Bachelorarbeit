@@ -705,7 +705,7 @@ key "NePiPo13"
 \end_inset
 
  arithmetischen Operationen berechnet werden.
- Diese NFFT basierten Algorithmen sind als P2NFFT, neben anderen Methoden
+ Diese NFFT basierten Algorithmen sind als P²NFFT, neben anderen Methoden
  zur Simulation der Coulomb-Wechselwirkungen in der ScaFaCoS (Scalable Fast
  Coulomb Solvers) Softwarebibliothek 
 \begin_inset CommandInset citation
@@ -720,8 +720,8 @@ key "scafacos"
 \begin_layout Standard
 Ziel dieser Arbeit ist es diese Erkenntnisse auf das Problem mit nichtperiodisch
 en Randbedingungen anzuwenden und eine Ewald-Summation für nichtperiodische
- Systeme innerhalb der P2NFFT zu implementieren.
- Gegenüber des bereits in der P2NFFT vorhandenen nicht Ewald-basierten Algorithm
+ Systeme innerhalb der P²NFFT zu implementieren.
+ Gegenüber des bereits in der P²NFFT vorhandenen nicht Ewald-basierten Algorithm
 us hat dieser den Vorteil, dass für Ewald-Methoden Abschätzungen für den
  bei der Approximation entstehenden Fehler existieren.
  Da sich diese Fehlerbetrachtung schon auf den 2d- und 3d-periodischen Algorithm
@@ -837,7 +837,7 @@ key "NePiPo13"
  Dabei entwickeln wir zunächst in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:0d-Ewald-Theore"
+reference "sec:0d-Ewald-Theorie"
 
 \end_inset
 
@@ -873,7 +873,7 @@ reference "chapter:Test"
  Außerdem betrachten wir die Geschwindigkeit der Implementierung des neuen
  Algorithmus und vergleichen diese sowohl mit der Geschwindigkeit der 3d-periodi
 schen Ewald-Summation als auch der einer nicht-Ewald Methode für 0d-periodische
- Systeme, die beide bereits in der P2NFFT Bibliothek als Teil von ScaFaCoS
+ Systeme, die beide bereits in der P²NFFT Bibliothek als Teil von ScaFaCoS
  implementiert sind.
 \end_layout
 
@@ -2521,7 +2521,7 @@ Gesamtenergie
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-P2NFFT mit 3d-periodischen Randbedingungen
+P²NFFT mit 3d-periodischen Randbedingungen
 \end_layout
 
 \end_inset
@@ -2931,7 +2931,7 @@ name "chapter:0d-Ewald"
 Theorie
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:0d-Ewald-Theore"
+name "sec:0d-Ewald-Theorie"
 
 \end_inset
 
@@ -4204,7 +4204,7 @@ NFFT muss hinreichend genau sein.
 \end_layout
 
 \begin_layout Section
-Laufzeit- und Ergebnisvergleich
+Laufzeit- und Genauigkeitsvergleiche
 \begin_inset CommandInset label
 LatexCommand label
 name "chapter:Test"
@@ -4218,16 +4218,16 @@ name "chapter:Test"
 Im Rahmen dieser Arbeit wurde der in Kapitel 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:0d-Ewald-Theore"
+reference "sec:0d-Ewald-Theorie"
 
 \end_inset
 
- beschriebenen Algorithmus innerhalb der P2NFFT Bibliothek implementiert,
+ beschriebenen Algorithmus innerhalb der P²NFFT Bibliothek implementiert,
  die Teil des 
 \emph on
-scafacos
+ScaFaCoS
 \emph default
- Projekts 
+ (Scalable Fast Coulomb Solver) Open-Source Projekts 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "scafacos"
@@ -4237,7 +4237,7 @@ key "scafacos"
  ist.
  Dies erlaubt es den Algorithmus leicht mit anderen Algorithmen zur Lösung
  des 3d-periodischen oder nichtperiodischen Coulomb-Problems zu vergleichen
- die als Teil der P2NFFT implementiert sind.
+ die als Teil der P²NFFT implementiert sind.
  In diesem Kapitel werden solche Vergleiche bezüglich Genauigkeit und Geschwindi
 gkeit anstellen.
  Außerdem erlaubt das scafacos Projekt einen leichten Vergleich mit einer
@@ -4245,6 +4245,28 @@ gkeit anstellen.
 \end_layout
 
 \begin_layout Subsection
+Verifizierung der Parameterwahl
+\end_layout
+
+\begin_layout Standard
+Die Fehlerabschätzung nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KoPe92a"
+
+\end_inset
+
+ ist nur für das 3d-periodische Coulomb-Problem bewiesen.
+ Deswegen werden wir in diesem Abschnitt numerisch überprüfen, ob der durch
+ diese Abschätzung gewonnene Parameter 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ auch im nichtperiodischen Fall den mittleren Quadratischen Fehler der Energie
+ minimiert.
+\end_layout
+
+\begin_layout Standard
 Überprüfung der Fehlerformel, optimales 
 \begin_inset Formula $\alpha$
 \end_inset
@@ -4683,8 +4705,8 @@ reference "graph:0dp-3dp-runtime"
 
 \end_inset
 
- werden die Laufzeiten einer nichtperiodischen P2NFFT mit denen der 3d-periodisc
-hen P2NFFT bei gleicher Problemgröße verglichen.
+ werden die Laufzeiten einer nichtperiodischen P²NFFT mit denen der 3d-periodisc
+hen P²NFFT bei gleicher Problemgröße verglichen.
  Beide wurden mittels der zuvor eingeführten Algorithmen so aufgerufen,
  dass ein 
 \begin_inset Formula $\Delta U<10^{-9}$
@@ -4897,7 +4919,7 @@ name "graph:0dp-time"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P2NFFT
+Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P²NFFT
 \end_layout
 
 \end_inset
@@ -5286,7 +5308,7 @@ end{tikzpicture}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P2NFFT,
+Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P²NFFT,
  jeweils mit 
 \begin_inset Formula $\rcut=0,62$
 \end_inset
@@ -5647,7 +5669,7 @@ Vergleich der Laufzeiten von Ewald-Summation und
 \begin_inset Formula $\frac{1}{x}$
 \end_inset
 
--Summation innerhalb der P2NFFT, mit einem Energie RMS Fehler 
+-Summation innerhalb der P²NFFT, mit einem Energie RMS Fehler 
 \begin_inset Formula $<10^{-4}$
 \end_inset
 
