@@ -5460,8 +5460,128 @@ Laufzeitvergleich 0dp
 
 \begin_layout Standard
 Zuletzt soll die in dieser Arbeit beschriebene nichtperiodische Ewald-Summation
- mit einer anderen Methode zur Lösung des Coulomb-Problems mit nichtperiodischen
- Eingabedaten verglichen werden.
+ mit einer anderen Methode nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "postni04,post02"
+
+\end_inset
+
+ zur Lösung des Coulomb-Problems mit nichtperiodischen Eingabedaten verglichen
+ werden, die auch innerhalb der P²NFFT Bibliothek implementiert ist.
+\end_layout
+
+\begin_layout Standard
+Diese teilt die Potentiale 
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\frac{1}{\norm{\xij}{}}
+\]
+
+\end_inset
+
+ nicht mittels des Ewald-Splittings auf.
+ Stattdessen wird 
+\begin_inset Formula $\mathcal{K}:\set T^{3}\rightarrow\set R$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\mathcal{K}\left(\v x\right)=\frac{1}{\norm{\v x}{}}
+\]
+
+\end_inset
+
+ definiert, so dass 
+\begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
+\end_inset
+
+ als 
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\mathcal{K}\left(\xij\right)
+\]
+
+\end_inset
+
+ geschrieben werden kann.
+ Da die Funktion 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ eine Polstelle im Punkt 
+\begin_inset Formula $\v x=\v 0$
+\end_inset
+
+ besitzt und deshalb ist sie nicht stetig differenzierbar ist und außerdem
+ nicht stetig 1-periodisch fortsetzbar ist, lassen sich NFFT-basierte Lösungsmet
+hoden nicht direkt anwenden.
+ Deshalb wird 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ durch 
+\begin_inset Formula 
+\[
+\mathcal{K}_{R}\left(\v x\right)=\begin{cases}
+T_{I}\left(\v x\right) & \text{falls }\norm{\v x}{}\leq\varepsilon_{I}\\
+T_{B}\left(\v x\right) & \text{falls }\frac{1}{2}-\varepsilon_{B}<\norm{\v x}{}<\frac{1}{2}\\
+T_{B}\left(\frac{1}{2}\right) & \text{falls }\norm{\v x}{}\geq\varepsilon_{B}\\
+\mathcal{K}\left(\v x\right) & \text{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+ so approximiert, dass 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ 
+\begin_inset Formula $p$
+\end_inset
+
+-mal stetig differenzierbar ist.
+ Es werden also zwei Regularisierungsfunktionen verwendet: 
+\begin_inset Formula $T_{I}$
+\end_inset
+
+ in einer Umgebung der Polstelle im Punkt 
+\begin_inset Formula $\v x=\v 0$
+\end_inset
+
+ und 
+\begin_inset Formula $T_{B}$
+\end_inset
+
+ am Rand des Definitionsbereiches.
+\end_layout
+
+\begin_layout Standard
+Der Vorteil der in dieser Arbeit behandelten Methode auf Basis der Ewald-Summati
+on liegt darin, dass für diese eine simple Methode zur Bestimmung der notwendige
+n Parameter existiert, die in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:0d-Fehlerformel"
+
+\end_inset
+
+ erläutert und in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Genauigkeitstest"
+
+\end_inset
+
+ zumindest numerisch überprüft wurde.
+ Für die Methode auf Basis des 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ Kerns ist eine solche Methode nicht bekannt, was das Erreichen einer gewünschte
+n Genauigkeit erschwert.
 \end_layout
 
 \begin_layout Standard
