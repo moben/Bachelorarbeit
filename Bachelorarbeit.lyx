@@ -705,9 +705,15 @@ key "NePiPo13"
 \end_inset
 
  arithmetischen Operationen berechnet werden.
- Diese NFFT basierten Algorithmen sind als P²NFFT, neben anderen Methoden
- zur Simulation der Coulomb-Wechselwirkungen in der ScaFaCoS (Scalable Fast
- Coulomb Solvers) Softwarebibliothek 
+ Diese NFFT basierten Algorithmen sind als P²NFFT 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PiPo13"
+
+\end_inset
+
+, neben anderen Methoden zur Simulation der Coulomb-Wechselwirkungen in
+ der ScaFaCoS (Scalable Fast Coulomb Solvers) Softwarebibliothek 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "scafacos"
@@ -4225,9 +4231,9 @@ reference "sec:0d-Ewald-Theorie"
  beschriebenen Algorithmus innerhalb der P²NFFT Bibliothek implementiert,
  die Teil des 
 \emph on
-ScaFaCoS
+Scalable Fast Coulomb Solver 
 \emph default
- (Scalable Fast Coulomb Solver) Open-Source Projekts 
+(ScaFaCoS) Open-Source Projekts 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "scafacos"
@@ -4235,13 +4241,33 @@ key "scafacos"
 \end_inset
 
  ist.
- Dies erlaubt es den Algorithmus leicht mit anderen Algorithmen zur Lösung
- des 3d-periodischen oder nichtperiodischen Coulomb-Problems zu vergleichen
- die als Teil der P²NFFT implementiert sind.
+ ScaFaCoS ermöglicht einen einfachen Vergleich zwischen verschiedenen Algorithme
+n und deren Implementationen zur Lösung von Coulomb-Problemen.
+ Wir nutzen dies um den entwickelten Algorithmus mit bereits als Teil der
+ P²NFFT 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PiPo13"
+
+\end_inset
+
+ implementierten Algorithmen zur Lösung des 3d-periodischen oder nichtperiodisch
+en Coulomb-Problems zu vergleichen.
  In diesem Kapitel werden solche Vergleiche bezüglich Genauigkeit und Geschwindi
 gkeit anstellen.
- Außerdem erlaubt das scafacos Projekt einen leichten Vergleich mit einer
- exakten Lösung (bis auf Maschinengenauigkeit).
+ Die Referenzwerte für die beobachteten Fehler unserer Implementation wurden
+ mit Hilfe der ebenfalls in ScaFaCoS implementierten 
+\emph on
+Fast Multipole Method
+\emph default
+ (FMM) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Da10,DaKa10,Ka12"
+
+\end_inset
+
+ berechnet.
 \end_layout
 
 \begin_layout Subsection
