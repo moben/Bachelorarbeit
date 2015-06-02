@@ -367,6 +367,9 @@ pagestyle{empty}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -379,6 +382,15 @@ setkomafont{titlehead}{
 Large 
 \backslash
 centering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setkomafont{publishers}{
+\backslash
+normalsize}
 \end_layout
 
 \end_inset
@@ -421,15 +433,41 @@ Benedikt Morbach
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="2">
+<lyxtabular version="3" rows="3" columns="2">
 <features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
 <column alignment="left" valignment="top">
 <row>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family sans
+\size small
+Matrikel-Nummer:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+264538
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family sans
+\size small
 Prüfer/Betreuer:
 \end_layout
 
@@ -454,7 +492,7 @@ Daniel Potts
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" usebox="none">
+<cell alignment="left" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -4176,6 +4214,36 @@ name "chapter:Test"
 
 \end_layout
 
+\begin_layout Standard
+Im Rahmen dieser Arbeit wurde der in Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:0d-Ewald-Theore"
+
+\end_inset
+
+ beschriebenen Algorithmus innerhalb der P2NFFT Bibliothek implementiert,
+ die Teil des 
+\emph on
+scafacos
+\emph default
+ Projekts 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "scafacos"
+
+\end_inset
+
+ ist.
+ Dies erlaubt es den Algorithmus leicht mit anderen Algorithmen zur Lösung
+ des 3d-periodischen oder nichtperiodischen Coulomb-Problems zu vergleichen
+ die als Teil der P2NFFT implementiert sind.
+ In diesem Kapitel werden solche Vergleiche bezüglich Genauigkeit und Geschwindi
+gkeit anstellen.
+ Außerdem erlaubt das scafacos Projekt einen leichten Vergleich mit einer
+ exakten Lösung (bis auf Maschinengenauigkeit).
+\end_layout
+
 \begin_layout Subsection
 Überprüfung der Fehlerformel, optimales 
 \begin_inset Formula $\alpha$
@@ -4225,17 +4293,14 @@ reference "sec:0d-Fehlerformel"
 \end_inset
 
  einen gegebenen Fehler einhalten kann.
- Dazu verwenden wir wie in [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NePiPo
-\end_layout
+ Dazu verwenden wir wie in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
 
 \end_inset
 
-] ein System von 
+ ein System von 
 \begin_inset Formula $N=1000$
 \end_inset
 
@@ -4312,7 +4377,14 @@ Dazu wählen wir zunächst die Parameter für die 3d-periodische Ewald-Summation
 \end_inset
 
 , so dass der Anteil an Rechenzeit im Nah- und Fernfeld gleich groß wird.
- Daraus ergeben sich nach [KolafaPerram] 
+ Daraus ergeben sich nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KoPe92a"
+
+\end_inset
+
+ 
 \begin_inset Formula $\alpha=7,489225$
 \end_inset
 
@@ -4379,12 +4451,12 @@ reference "table:0dp-error"
  zu entnehmen ist wird die gewünschte Genauigkeit für alle Testgrößen eingehalte
 n.
  Allerdings steigt der Fehler stetig an.
- TODO: Warum? bug? falsch gemessen? 
+ 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
+TODO: Warum? bug? falsch gemessen? 
 \end_layout
 
 \end_inset
