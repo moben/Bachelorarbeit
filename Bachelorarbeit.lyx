@@ -1754,7 +1754,7 @@ U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)\label{eq:general-e
 \end_layout
 
 \begin_layout Section
-Ewald Summation mit 3d-periodischen Randbedingungen
+Das Coulomb-Problem mit 3d-periodischen Randbedingungen
 \begin_inset CommandInset label
 LatexCommand label
 name "chapter:3d-Ewald"
@@ -1765,7 +1765,7 @@ name "chapter:3d-Ewald"
 \end_layout
 
 \begin_layout Subsection
-Theorie
+Ewald-Summation mit 3d-periodischen Randbedingungen
 \end_layout
 
 \begin_layout Standard
@@ -1879,7 +1879,7 @@ gegeben.
 \end_layout
 
 \begin_layout Standard
-Die so genannte Ewald Summation nach 
+Die so genannte Ewald-Summation nach 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ew21"
@@ -2923,7 +2923,7 @@ TODO: ursprüngliche Formel erläutern.?
 \end_layout
 
 \begin_layout Section
-Nichtperiodische Ewald Summation
+Das Coulomb-Problem mit nichtperiodischen Randbedingungen
 \begin_inset CommandInset label
 LatexCommand label
 name "chapter:0d-Ewald"
@@ -2934,7 +2934,7 @@ name "chapter:0d-Ewald"
 \end_layout
 
 \begin_layout Subsection
-Theorie
+Ewald-Summation mit nichtperiodischen Randbedingungen
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:0d-Ewald-Theorie"
@@ -3840,7 +3840,7 @@ SIGNIFIKANTE OPERATIONEN?
 \end_layout
 
 \begin_layout Subsection
-Parameterwahl
+Parameterwahlbei nichtperiodischen Randbedingungen
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:0d-Fehlerformel"
@@ -4221,6 +4221,51 @@ name "chapter:Test"
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/test.0dp.N.txt}
+\backslash
+ndptest
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/test.3dp.N.txt}
+\backslash
+tdptest
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/speed.error.0dp.other.1e-4.txt}
+\backslash
+ndptestOtherEfour
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/speed.error.0dp.ewald.1e-4.txt}
+\backslash
+ndptestEwaldEfour
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Im Rahmen dieser Arbeit wurde der in Kapitel 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4393,10 +4438,176 @@ key "KoPe92a"
 \end_layout
 
 \begin_layout Subsection
-Genauigkeitstest
+Fehlermessung
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Genauigkeitstest"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstabletypesetfile[
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns={N,L,h,M0,m0,abs_energy},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/N/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		fixed, dec sep align,
+\end_layout
+
+\begin_layout Plain Layout
+
+		set thousands separator={
+\backslash
+,}
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/abs_energy/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		column name=$
+\backslash
+Delta U$,
+\end_layout
+
+\begin_layout Plain Layout
+
+		sci precision=2, sci zerofill, sci e
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/M0/.style={column name=$M$},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/m0/.style={column name=$m$},
+\end_layout
+
+\begin_layout Plain Layout
+
+	column type/.add={|}{},
+\end_layout
+
+\begin_layout Plain Layout
+
+	every first column/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		column type={c}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+]{
+\backslash
+ndptest}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "table:0dp-error"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Erreichte Genauigkeit der nichtperiodischen Ewald P²NFFT für verschiedene
+ Größen des gleichverteilten Systems.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Zeigen, dass Parameter aus kleinen Testgrößen auch bei großen Systemen verwendet
+ werden können und den gleichen Fehler einhalten.
+\begin_inset Newline newline
+\end_inset
+
+Bestimme 
+\begin_inset Formula $\v m/\v M$
+\end_inset
+
+, B-Spline, 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+, führe Tests mit verschiedenen Größen durch.
+ Vergleiche Fehler.
+\end_layout
 
 \end_inset
 
@@ -4575,280 +4786,8 @@ TODO: Warum? bug? falsch gemessen?
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pgfplotstableread{data/test.0dp.N.txt}
-\backslash
-ndptest
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-pgfplotstableread{data/test.3dp.N.txt}
-\backslash
-tdptest
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-pgfplotstableread{data/speed.error.0dp.other.1e-4.txt}
-\backslash
-ndptestOtherEfour
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-pgfplotstableread{data/speed.error.0dp.ewald.1e-4.txt}
-\backslash
-ndptestEwaldEfour
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pgfplotstabletypesetfile[
-\end_layout
-
-\begin_layout Plain Layout
-
-	columns={N,L,h,M0,m0,abs_energy},
-\end_layout
-
-\begin_layout Plain Layout
-
-	columns/N/.style={
-\end_layout
-
-\begin_layout Plain Layout
-
-		fixed, dec sep align,
-\end_layout
-
-\begin_layout Plain Layout
-
-		set thousands separator={
-\backslash
-,}
-\end_layout
-
-\begin_layout Plain Layout
-
-	},
-\end_layout
-
-\begin_layout Plain Layout
-
-	columns/abs_energy/.style={
-\end_layout
-
-\begin_layout Plain Layout
-
-		column name=$
-\backslash
-Delta U$,
-\end_layout
-
-\begin_layout Plain Layout
-
-		sci precision=2, sci zerofill, sci e
-\end_layout
-
-\begin_layout Plain Layout
-
-	},
-\end_layout
-
-\begin_layout Plain Layout
-
-	columns/M0/.style={column name=$M$},
-\end_layout
-
-\begin_layout Plain Layout
-
-	columns/m0/.style={column name=$m$},
-\end_layout
-
-\begin_layout Plain Layout
-
-	column type/.add={|}{},
-\end_layout
-
-\begin_layout Plain Layout
-
-	every first column/.style={
-\end_layout
-
-\begin_layout Plain Layout
-
-		column type={c}
-\end_layout
-
-\begin_layout Plain Layout
-
-	}
-\end_layout
-
-\begin_layout Plain Layout
-
-]{
-\backslash
-ndptest}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "table:0dp-error"
-
-\end_inset
-
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Erreichte Genauigkeit der nichtperiodischen Ewald P²NFFT für verschiedene
- Größen des gleichverteilten Systems.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Zeigen, dass Parameter aus kleinen Testgrößen auch bei großen Systemen verwendet
- werden können und den gleichen Fehler einhalten.
-\begin_inset Newline newline
-\end_inset
-
-Bestimme 
-\begin_inset Formula $\v m/\v M$
-\end_inset
-
-, B-Spline, 
-\begin_inset Formula $p$
-\end_inset
-
-, 
-\begin_inset Formula $P$
-\end_inset
-
-, führe Tests mit verschiedenen Größen durch.
- Vergleiche Fehler.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
-Laufzeitvergleich 3dp
-\end_layout
-
-\begin_layout Standard
-In Abbildung 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "graph:0dp-3dp-runtime"
-
-\end_inset
-
- werden die Laufzeiten der in der P²NFFT implementierten nichtperiodischen
- Ewald-Summation mit denen der 3d-periodischen P²NFFT bei gleicher Problemgröße
- verglichen.
- Die Parameter für beide Algorithmen wurden dabei wie in Abschnitt 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Genauigkeitstest"
-
-\end_inset
-
- so bestimmt, dass für den mittleren quadratischen Fehler 
-\begin_inset Formula $\Delta U<10^{-9}$
-\end_inset
-
- gilt.
- Offensichtlich ist die Berechnung des nichtperiodischen Falls um einen
- Faktor von ca.
-\begin_inset space \thinspace{}
-\end_inset
-
- 6-8 langsamer, vor allem da durch die Regularisierung die FFT-Größe steigt,
- was den Aufwand für die Berechnung des Fernfeldes erhöht.
- Allerdings wurden beide Tests aus Gründen der Vergleichbarkeit untereinander,
- sowie unter anderem mit Ergebnissen aus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ArBoDa13"
-
-\end_inset
-
- und 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "NePiPo13"
-
-\end_inset
-
- mit 
-\begin_inset Formula $\rcut=0.62$
-\end_inset
-
- durchgeführt.
- Dies hat jedoch im nichtperiodischen Fall zur Folge, dass sowohl die Laufzeit
- als auch der Fehler sehr ungleichmäßig zwischen der Nahfeld- und Fernfeld-Appro
-ximation aufgeteilt sind.
- Erfahrungsgemäß ließen sich sowohl Laufzeit als auch Genauigkeit durch
- eine bessere Wahl von 
-\begin_inset Formula $\rcut$
-\end_inset
-
-, so dass beide Berechnungen gleich schnell ablaufen noch weiter verbessern.
+Laufzeitvergleich der 3d- und nichtperiodischen Ewald-Summation
 \end_layout
 
 \begin_layout Standard
@@ -4856,7 +4795,7 @@ ximation aufgeteilt sind.
 status open
 
 \begin_layout Plain Layout
-Obsolet: Separate versions of figure below
+Obsolete: Separate versions of figure below
 \end_layout
 
 \begin_layout Plain Layout
@@ -5454,134 +5393,79 @@ name "graph:0dp-3dp-runtime"
 
 \end_layout
 
-\begin_layout Subsection
-Laufzeitvergleich 0dp
-\end_layout
-
 \begin_layout Standard
-Zuletzt soll die in dieser Arbeit beschriebene nichtperiodische Ewald-Summation
- mit einer anderen Methode nach 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "postni04,post02"
-
-\end_inset
-
- zur Lösung des Coulomb-Problems mit nichtperiodischen Eingabedaten verglichen
- werden, die auch innerhalb der P²NFFT Bibliothek implementiert ist.
-\end_layout
-
-\begin_layout Standard
-Diese teilt die Potentiale 
-\begin_inset Formula 
-\[
-\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\frac{1}{\norm{\xij}{}}
-\]
-
-\end_inset
-
- nicht mittels des Ewald-Splittings auf.
- Stattdessen wird 
-\begin_inset Formula $\mathcal{K}:\set T^{3}\rightarrow\set R$
-\end_inset
-
-, 
-\begin_inset Formula 
-\[
-\mathcal{K}\left(\v x\right)=\frac{1}{\norm{\v x}{}}
-\]
-
-\end_inset
-
- definiert, so dass 
-\begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
-\end_inset
-
- als 
-\begin_inset Formula 
-\[
-\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\mathcal{K}\left(\xij\right)
-\]
-
-\end_inset
-
- geschrieben werden kann.
- Da die Funktion 
-\begin_inset Formula $\mathcal{K}\left(\v x\right)$
-\end_inset
-
- eine Polstelle im Punkt 
-\begin_inset Formula $\v x=\v 0$
-\end_inset
-
- besitzt und deshalb ist sie nicht stetig differenzierbar ist und außerdem
- nicht stetig 1-periodisch fortsetzbar ist, lassen sich NFFT-basierte Lösungsmet
-hoden nicht direkt anwenden.
- Deshalb wird 
-\begin_inset Formula $\mathcal{K}\left(\v x\right)$
-\end_inset
-
- durch 
-\begin_inset Formula 
-\[
-\mathcal{K}_{R}\left(\v x\right)=\begin{cases}
-T_{I}\left(\v x\right) & \text{falls }\norm{\v x}{}\leq\varepsilon_{I}\\
-T_{B}\left(\v x\right) & \text{falls }\frac{1}{2}-\varepsilon_{B}<\norm{\v x}{}<\frac{1}{2}\\
-T_{B}\left(\frac{1}{2}\right) & \text{falls }\norm{\v x}{}\geq\varepsilon_{B}\\
-\mathcal{K}\left(\v x\right) & \text{sonst}
-\end{cases}
-\]
-
-\end_inset
-
- so approximiert, dass 
-\begin_inset Formula $\mathcal{K}\left(\v x\right)$
-\end_inset
-
- 
-\begin_inset Formula $p$
-\end_inset
-
--mal stetig differenzierbar ist.
- Es werden also zwei Regularisierungsfunktionen verwendet: 
-\begin_inset Formula $T_{I}$
-\end_inset
-
- in einer Umgebung der Polstelle im Punkt 
-\begin_inset Formula $\v x=\v 0$
-\end_inset
-
- und 
-\begin_inset Formula $T_{B}$
-\end_inset
-
- am Rand des Definitionsbereiches.
-\end_layout
-
-\begin_layout Standard
-Der Vorteil der in dieser Arbeit behandelten Methode auf Basis der Ewald-Summati
-on liegt darin, dass für diese eine simple Methode zur Bestimmung der notwendige
-n Parameter existiert, die in Abschnitt 
+In Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:0d-Fehlerformel"
+reference "graph:0dp-3dp-runtime"
 
 \end_inset
 
- erläutert und in Abschnitt 
+ werden die Laufzeiten der in der P²NFFT implementierten nichtperiodischen
+ Ewald-Summation mit denen der 3d-periodischen P²NFFT bei gleicher Problemgröße
+ verglichen.
+ Die Parameter für beide Algorithmen wurden dabei wie in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Genauigkeitstest"
 
 \end_inset
 
- zumindest numerisch überprüft wurde.
- Für die Methode auf Basis des 
-\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+ so bestimmt, dass für den mittleren quadratischen Fehler 
+\begin_inset Formula $\Delta U<10^{-9}$
 \end_inset
 
- Kerns ist eine solche Methode nicht bekannt, was das Erreichen einer gewünschte
-n Genauigkeit erschwert.
+ gilt.
+ Offensichtlich ist die Berechnung des nichtperiodischen Falls um einen
+ Faktor von ca.
+\begin_inset space \thinspace{}
+\end_inset
+
+ 6-8 langsamer, vor allem da durch die Regularisierung die FFT-Größe steigt,
+ was den Aufwand für die Berechnung des Fernfeldes erhöht.
+ Allerdings wurden beide Tests aus Gründen der Vergleichbarkeit untereinander,
+ sowie unter anderem mit Ergebnissen aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArBoDa13"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
+
+\end_inset
+
+ mit 
+\begin_inset Formula $\rcut=0.62$
+\end_inset
+
+ durchgeführt.
+ Dies hat jedoch im nichtperiodischen Fall zur Folge, dass sowohl die Laufzeit
+ als auch der Fehler sehr ungleichmäßig zwischen der Nahfeld- und Fernfeld-Appro
+ximation aufgeteilt sind.
+ Erfahrungsgemäß ließen sich sowohl Laufzeit als auch Genauigkeit durch
+ eine bessere Wahl von 
+\begin_inset Formula $\rcut$
+\end_inset
+
+, so dass beide Berechnungen gleich schnell ablaufen noch weiter verbessern.
+ Dies ist auch in Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "graph:0dp-ewald-other-runtime"
+
+\end_inset
+
+ zu beobachten.
+ Da dort die Laufzeiten für Nah- und Fernfeld in der gleichen Größenordnung
+ liegen ist auch die Gesamtlaufzeit deutlich geringer.
+\end_layout
+
+\begin_layout Subsection
+Laufzeitvergleich der nichtperiodischen Summationsmethoden
 \end_layout
 
 \begin_layout Standard
@@ -5897,13 +5781,13 @@ Vergleich der Laufzeiten von Ewald-Summation und
 \begin_inset Formula $\frac{1}{x}$
 \end_inset
 
--Summation innerhalb der P²NFFT, mit einem Energie RMS Fehler 
-\begin_inset Formula $<10^{-4}$
+-Summation innerhalb der P²NFFT, mit 
+\begin_inset Formula $\Delta U<10^{-4}$
 \end_inset
 
 .
  Parameter der 
-\begin_inset Formula $\frac{1}{x}$
+\begin_inset Formula $\frac{1}{\norm{\v x}{}}$
 \end_inset
 
 -Summation: 
@@ -5922,18 +5806,28 @@ Vergleich der Laufzeiten von Ewald-Summation und
 \begin_inset Formula $p=10$
 \end_inset
 
-, 
-\begin_inset Formula $m\text{(Fenster)}=4$
+, B-Spline Ordnung: 
+\begin_inset Formula $4$
 \end_inset
 
 , Taylor-IC Interpolation.
 \begin_inset Newline newline
 \end_inset
 
-Die Parameter der Ewald-Summation wurden mittels Kolafa-Peram so gewählt,
- dass die gleiche Genauigkeit erreicht wurde.
- 
-\begin_inset Formula $m=4$
+Die Parameter der Ewald-Summation: 
+\begin_inset Formula $\rcut=0,62$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha=5,44$
+\end_inset
+
+, B-Spline Ordnung: 
+\begin_inset Formula $4$
+\end_inset
+
+, Oversampling Faktor 
+\begin_inset Formula $1,16$
 \end_inset
 
 , 
@@ -5944,19 +5838,7 @@ Die Parameter der Ewald-Summation wurden mittels Kolafa-Peram so gewählt,
 \begin_inset Formula $p=6$
 \end_inset
 
-, Oversampling Faktor 
-\begin_inset Formula $1,16$
-\end_inset
 
-
-\begin_inset Newline newline
-\end_inset
-
-FIXME: 
-\begin_inset Formula $m$
-\end_inset
-
- umbenennen! erwähnen, dass grad_ad verwendet wurde (bei NFFT einführen)
 \end_layout
 
 \end_inset
@@ -5974,6 +5856,191 @@ name "graph:0dp-ewald-other-runtime"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Zuletzt soll die in dieser Arbeit beschriebene nichtperiodische Ewald-Summation
+ mit einer anderen Methode nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "postni04,post02"
+
+\end_inset
+
+ zur Lösung des Coulomb-Problems mit nichtperiodischen Eingabedaten verglichen
+ werden, die auch innerhalb der P²NFFT Bibliothek implementiert ist.
+\end_layout
+
+\begin_layout Standard
+Diese teilt die Potentiale 
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\frac{1}{\norm{\xij}{}}
+\]
+
+\end_inset
+
+ nicht mittels des Ewald-Splittings auf.
+ Stattdessen wird 
+\begin_inset Formula $\mathcal{K}:\set T^{3}\rightarrow\set R$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\mathcal{K}\left(\v x\right)=\frac{1}{\norm{\v x}{}}
+\]
+
+\end_inset
+
+ definiert, so dass 
+\begin_inset Formula $\phi_{0}\left(\v x_{j}\right)$
+\end_inset
+
+ als 
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}Nq_{i}\mathcal{K}\left(\xij\right)
+\]
+
+\end_inset
+
+ geschrieben werden kann.
+ Da die Funktion 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ eine Polstelle im Punkt 
+\begin_inset Formula $\v x=\v 0$
+\end_inset
+
+ besitzt und deshalb ist sie nicht stetig differenzierbar ist und außerdem
+ nicht stetig 1-periodisch fortsetzbar ist, lassen sich NFFT-basierte Lösungsmet
+hoden nicht direkt anwenden.
+ Deshalb wird 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ durch 
+\begin_inset Formula 
+\[
+\mathcal{K}_{R}\left(\v x\right)=\begin{cases}
+T_{I}\left(\v x\right) & \text{falls }\norm{\v x}{}\leq\varepsilon_{I}\\
+T_{B}\left(\v x\right) & \text{falls }\frac{1}{2}-\varepsilon_{B}<\norm{\v x}{}<\frac{1}{2}\\
+T_{B}\left(\frac{1}{2}\right) & \text{falls }\norm{\v x}{}\geq\varepsilon_{B}\\
+\mathcal{K}\left(\v x\right) & \text{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+ so approximiert, dass 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ 
+\begin_inset Formula $p$
+\end_inset
+
+-mal stetig differenzierbar ist.
+ Es werden also zwei Regularisierungsfunktionen verwendet: 
+\begin_inset Formula $T_{I}$
+\end_inset
+
+ in einer Umgebung der Polstelle im Punkt 
+\begin_inset Formula $\v x=\v 0$
+\end_inset
+
+ und 
+\begin_inset Formula $T_{B}$
+\end_inset
+
+ am Rand des Definitionsbereiches.
+\end_layout
+
+\begin_layout Standard
+Der Vorteil der in dieser Arbeit behandelten Methode auf Basis der Ewald-Summati
+on liegt darin, dass für diese eine simple Methode zur Bestimmung der notwendige
+n Parameter existiert, die in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:0d-Fehlerformel"
+
+\end_inset
+
+ erläutert und in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Genauigkeitstest"
+
+\end_inset
+
+ zumindest numerisch überprüft wurde.
+ Für die Methode auf Basis des 
+\begin_inset Formula $\mathcal{K}\left(\v x\right)$
+\end_inset
+
+ Kerns ist eine solche Methode nicht bekannt, was das Erreichen einer gewünschte
+n Genauigkeit erschwert.
+\end_layout
+
+\begin_layout Standard
+In Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "graph:0dp-ewald-other-runtime"
+
+\end_inset
+
+ werden die Laufzeiten der beiden Methoden verglichen.
+ Die Parameter sind dabei in beiden Fällen so gewählt, dass der mittlerer
+ quadratischer Fehler der Energie 
+\begin_inset Formula $\Delta U$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $10^{-4}$
+\end_inset
+
+ nicht überschreitet.
+ Für die Ewald-Methode geschah dies mittels der bereits beschriebenen Parameterw
+ahl, während die Parameter für die 
+\begin_inset Formula $\frac{1}{\norm{\v x}{}}$
+\end_inset
+
+-Summation manuell bestimmt wurden.
+\end_layout
+
+\begin_layout Standard
+Wie der Abbildung zu entnehmen ist liegt die Laufzeit beider Methoden in
+ der selben Größenordnung.
+ Die Ewald-Methode ist dabei ca.
+\begin_inset space \thinspace{}
+\end_inset
+
+15-20% langsamer.
+ Es ist jedoch nicht auszuschließen, dass dieser Unterschied in praktischen
+ Anwendungen schrumpft, da es mit der Ewald-Methode deutlich einfacher ist
+ optimale Parameter zu wählen.
+ Möglicherweise besteht auch noch Optimierungspotential in der Implementierung,
+ da diese deutlich jünger ist als die der 
+\begin_inset Formula $\frac{1}{\norm{\v x}{}}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+-Summation.
 \end_layout
 
 \begin_layout Standard
