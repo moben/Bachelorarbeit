@@ -4270,6 +4270,71 @@ key "Da10,DaKa10,Ka12"
  berechnet.
 \end_layout
 
+\begin_layout Standard
+Alle Laufzeittests wurden auf einem Intel i5-4570 Prozessor mit einer Frequenz
+ von 3.60
+\begin_inset space \thinspace{}
+\end_inset
+
+GHz und 32
+\begin_inset space \thinspace{}
+\end_inset
+
+GiB Arbeitsspeicher ausgeführt.
+ Obwohl die P²NFFT Bibliothek in der Lage ist die verwendeten Algorithmen
+ stark zu parallelisieren wurde nur ein Prozessorkern verwendet um eine
+ etwaige Beeinflussung der Messungen durch eine unterschiedliche Parallelisierun
+g der Algorithmen auszuschließen.
+\end_layout
+
+\begin_layout Standard
+Um die folgenden Messungen leichter mit den schon vorhandenen Messungen
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
+
+\end_inset
+
+ zur Genauigkeit und Geschwindigkeit der Algorithmen und deren Implementation
+ der P²NFFT vergleichbar zu machen verwenden wir in allen Messungen ein
+ System von 
+\begin_inset Formula $N=1000$
+\end_inset
+
+ Ladungen 
+\begin_inset Formula $q_{j}=\left(-1\right)^{j}$
+\end_inset
+
+, deren Positionen 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+ in dem Würfel 
+\begin_inset Formula $L\set T^{3}$
+\end_inset
+
+ der Länge 
+\begin_inset Formula $L=1$
+\end_inset
+
+ gleichverteilt sind.
+ Für dieses System gilt offensichtlich 
+\begin_inset Formula 
+\[
+\sum_{j=1}^{N}q_{j}=0,
+\]
+
+\end_inset
+
+da 
+\begin_inset Formula $N$
+\end_inset
+
+ gerade ist.
+ Das System ist also ladungsneutral.
+\end_layout
+
 \begin_layout Subsection
 Verifizierung der Parameterwahl
 \end_layout
@@ -4340,52 +4405,25 @@ reference "sec:0d-Fehlerformel"
 
 \end_inset
 
- einen gegebenen Fehler einhalten kann.
- Dazu verwenden wir wie in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "NePiPo13"
-
+ einen gegebenen mittleren quadratischen Fehler der Energie 
+\begin_inset Formula $\Delta U$
 \end_inset
 
- ein System von 
-\begin_inset Formula $N=1000$
-\end_inset
-
- Ladungen 
-\begin_inset Formula $q_{j}=\left(-1\right)^{j}$
-\end_inset
-
-, deren Positionen 
-\begin_inset Formula $\v x_{j}$
-\end_inset
-
- gleichmäßig zufällig auf den Würfel 
-\begin_inset Formula $L\set T^{3}$
-\end_inset
-
- der Länge 
-\begin_inset Formula $L=1$
-\end_inset
-
- verteilt sind.
- Damit gilt 
-\begin_inset Formula $\sum_{j=1}^{N}q_{j}=0$
-\end_inset
-
-, das System ist also ladungsneutral.
+ einhalten kann.
+ 
 \end_layout
 
 \begin_layout Standard
-Für dieses Ladungssystem wählen wir wie in Abschnitt 
+Dazu wählen wir mit dem in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:0d-Fehlerformel"
 
 \end_inset
 
- die Parameter so, dass der mittlere quadratische Fehler der Energie 
-\begin_inset Formula $\Delta U_{0}$
+ eingeführten Verfahren die Parameter für [alg2] so, dass der mittlere quadratis
+che Fehler der Energie 
+\begin_inset Formula $\Delta U$
 \end_inset
 
  die Größenordnung 
@@ -4419,12 +4457,17 @@ reference "sec:0d-Fehlerformel"
 
 \begin_layout Standard
 Dazu wählen wir zunächst die Parameter für die 3d-periodische Ewald-Summation
- auf dem gleichen System.
+ auf dem System mit 
+\begin_inset Formula $N=1000$
+\end_inset
+
+ Partikeln.
  Wir setzen 
 \begin_inset Formula $\rcut=0,62$
 \end_inset
 
-, so dass der Anteil an Rechenzeit im Nah- und Fernfeld gleich groß wird.
+, so dass der Anteil an Rechenzeit im Nah- und Fernfeld gleich groß wird,
+ was erfahrungsgemäß die Laufzeit minimiert.
  Daraus ergeben sich nach 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4441,7 +4484,7 @@ key "KoPe92a"
 \end_inset
 
 .
- Dann werden der Oversampling-Faktor 
+ Anschließend werden der Oversampling-Faktor 
 \begin_inset Formula $m'/M'$
 \end_inset
 
