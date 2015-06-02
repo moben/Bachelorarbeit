@@ -652,27 +652,7 @@ key "Ew21"
 \begin_inset Formula $\O{N\log N}$
 \end_inset
 
- erreichen, wie 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-beispielsweise?
-\end_layout
-
-\end_inset
-
- in [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-potts,seidel?,
-\end_layout
-
-\end_inset
-
-] gezeigt wurde.
+ erreichen.
 \end_layout
 
 \begin_layout Standard
@@ -1260,7 +1240,14 @@ H
 .
  Da die für viele Anwendungen zu rechenintensiv ist werden wir die Approximation
  der NDFT durch die so genannte schnelle nicht-äquidistante Fourier-Transformati
-on (NFFT) nach [] einführen.
+on (NFFT) nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "postta01"
+
+\end_inset
+
+ einführen.
 \end_layout
 
 \begin_layout Standard
@@ -1273,27 +1260,21 @@ Sei dazu
 \begin_inset Formula $\psi$
 \end_inset
 
- existieren verschiedene Ansätze, zum Beispiel als Gauß-Funktion nach [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-habil,31
-\end_layout
+ existieren verschiedene Ansätze, zum Beispiel als Gauß-Funktion nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "duro93"
 
 \end_inset
 
-] oder Kaiser-Bessel-Funktionen nach [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-habil, 44,45
-\end_layout
+ oder Kaiser-Bessel-Funktionen nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "four"
 
 \end_inset
 
-], wir werden jedoch im weiteren Verlauf der Arbeit eine B-Spline-basierte
+, wir werden jedoch im weiteren Verlauf der Arbeit eine B-Spline-basierte
  Fensterfunktion 
 \begin_inset Formula $\psi$
 \end_inset
@@ -1433,7 +1414,7 @@ die Indizes aus
 
 \begin_layout Standard
 Als nicht-äquidistante schnelle Fourier-Transformation (NFFT) bezeichnen
- wir die Approximation der NDFT nach [], 
+ wir die Approximation der NDFT durch, 
 \begin_inset Formula 
 \[
 f_{j}\approx\sum_{\v l\in\I{\v m}}g_{\v l}\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N.
@@ -2297,7 +2278,14 @@ Bei der analytischen Differentiation wird hingegen
 \end_inset
 
 -Differentiation, hat jedoch den Vorteil, dass die Ableitung nur in einer
- Dimension berechnet werden muss und nicht in drei.[]
+ Dimension berechnet werden muss und nicht in drei.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DaPeYo93,DeHo98a"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3704,7 +3692,7 @@ Sei dazu
  durch 
 \begin_inset Formula 
 \begin{equation}
-\hat{b}_{\v k}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v l\in\I{\v M}}\KRf{h\norm{\v l\odot\v M^{-1}}{}}\e^{-\tpii\v k\left(\v l\odot\v M^{-1}\right)},\qquad\v k\in\I{\v M}\label{eq:0d:regularization:fourier-coefficients}
+\hat{c}_{\v k}\coloneqq\frac{1}{\abs{\I{\v M}}}\sum_{\v l\in\I{\v M}}\KRf{h\norm{\v l\odot\v M^{-1}}{}}\e^{-\tpii\v k\left(\v l\odot\v M^{-1}\right)},\qquad\v k\in\I{\v M}\label{eq:0d:regularization:fourier-coefficients}
 \end{equation}
 
 \end_inset
@@ -3725,7 +3713,7 @@ Sei dazu
  durch 
 \begin_inset Formula 
 \begin{equation}
-\Tf{\norm{\v x}{}}=\KRf{\norm{\v x}{}}\approx\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\v x/h}\label{eq:0d:Theta-Fourier-Approx}
+\Tf{\norm{\v x}{}}=\KRf{\norm{\v x}{}}\approx\sum_{\v k\in\I{\v M}}\hat{c}_{\v k}\e^{\tpii\v k\cdot\v x/h}\label{eq:0d:Theta-Fourier-Approx}
 \end{equation}
 
 \end_inset
@@ -3792,8 +3780,8 @@ reference "eq:0d:potential:far"
  die Approximation 
 \begin_inset Formula 
 \begin{align}
-\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{i=1}^{N}q_{i}\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\e^{\tpii\v k\cdot\xij/h}\nonumber \\
- & =\sum_{\v k\in\I{\v M}}\hat{b}_{\v k}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\cdot\v x_{i}/h}\right)\e^{-\tpii\v k\cdot\v x_{j}/h}.\label{eq:0d:potential:far:Fourier-Approx}
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right) & \approx\sum_{i=1}^{N}q_{i}\sum_{\v k\in\I{\v M}}\hat{c}_{\v k}\e^{\tpii\v k\cdot\xij/h}\nonumber \\
+ & =\sum_{\v k\in\I{\v M}}\hat{c}_{\v k}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\cdot\v x_{i}/h}\right)\e^{-\tpii\v k\cdot\v x_{j}/h}.\label{eq:0d:potential:far:Fourier-Approx}
 \end{align}
 
 \end_inset
@@ -3802,15 +3790,24 @@ reference "eq:0d:potential:far"
 \end_layout
 
 \begin_layout Standard
-Diese können also wie bei 3d-periodischen Eingabedaten mittels einer 
-\emph on
-adjungierten NFFT
-\emph default
- gefolgt von einer 
-\emph on
-NFFT
-\emph default
- berechnet werden.
+Dabei kann wie im 3d-periodischen Fall die innere Summe 
+\begin_inset Formula 
+\begin{equation}
+\hat{b}_{\v k}=\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\cdot\v x_{i}/h}\label{eq:0d:ewald:potential:far:inner}
+\end{equation}
+
+\end_inset
+
+ durch eine adjungierte NFFT berechnet werden.
+ Daraufhin kann der fernreichweitige Anteil der Potentiale 
+\begin_inset Formula 
+\begin{equation}
+\phi_{0,\mathrm{F}}\left(\v x_{j}\right)\approx\sum_{\v k\in\I{\v M}}\hat{c}_{\v k}\hat{b}_{\v k}\e^{-\tpii\v k\cdot\v x_{j}/h}\label{eq:0d:ewald:potential:far:outer}
+\end{equation}
+
+\end_inset
+
+ durch eine NFFT Berechnet werden.
 \end_layout
 
 \begin_layout Standard
@@ -4206,8 +4203,43 @@ reference "alg:0d:p2nfft"
 \end_inset
 
  für die Lösung des Coulomb-Problems mit nichtperiodischen Eingabedaten.
- Dabei ist zu Beachten, dass bei einer Simulation in der sich nur die Positionen
+ Dabei ist zu Beachten, dass Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:0d:p2nfft"
+
+\end_inset
+
+ bis auf die Berechnung der Regularisierung die gleiche Struktur wie Algorithmus
  
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:3d:p2nfft"
+
+\end_inset
+
+ aufweist.
+ Da die Regularisierungsgröße 
+\begin_inset Formula $P$
+\end_inset
+
+ bei steigender Anzahl 
+\begin_inset Formula $N$
+\end_inset
+
+ der Partikel konstant gewählt werden kann ist Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:0d:p2nfft"
+
+\end_inset
+
+ somit Teil der gleichen Komplexitätsklasse 
+\begin_inset Formula $\mathcal{O}\left(N\log N\right)$
+\end_inset
+
+.
+ Außerdem muss bei einer Simulation in der sich nur die Positionen 
 \begin_inset Formula $\v{x_{j}}$
 \end_inset
 
@@ -4219,20 +4251,8 @@ reference "alg:0d:p2nfft"
 \begin_inset Formula $\KRf{\norm{\cdot}{}}$
 \end_inset
 
- nur einmal berechnet werden muss.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-SIGNIFIKANTE OPERATIONEN?
-\end_layout
-
-\end_inset
-
-
+ nur einmal berechnet werden.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4349,7 +4369,7 @@ reference "eq:0d:regularization"
 
 \begin_layout Enumerate
 Berechne die Fourier-Koeffizienten 
-\begin_inset Formula $\hat{b}_{\v k}$
+\begin_inset Formula $\hat{c}_{\v k}$
 \end_inset
 
  der Regularisierung 
@@ -4398,7 +4418,7 @@ Berechnung der Fourier-Koeffizienten
  in 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:3d:ewald:potential:far:inner"
+reference "eq:0d:ewald:potential:far:inner"
 
 \end_inset
 
@@ -4407,13 +4427,13 @@ reference "eq:3d:ewald:potential:far:inner"
 
 \begin_layout Enumerate
 Berechnung des langreichweitigen Teils der Potentiale 
-\begin_inset Formula $\phi_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\begin_inset Formula $\phi_{0,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
  in 
 \begin_inset CommandInset ref
 LatexCommand eqref
-reference "eq:3d:ewald:potential:far:outer"
+reference "eq:0d:ewald:potential:far:outer"
 
 \end_inset
 
@@ -4422,35 +4442,21 @@ reference "eq:3d:ewald:potential:far:outer"
 
 \begin_layout Enumerate
 Berechnung des langreichweitigen Teils der Kräfte 
-\begin_inset Formula $F_{3,\mathrm{F}}\left(\v x_{j}\right)$
+\begin_inset Formula $F_{0,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
  mittels 
 \begin_inset Formula $i\v k$
 \end_inset
 
--Differentiation 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:3d:split:force:far:ik"
-
-\end_inset
-
- oder analytischer Differentiation 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:3d:split:force:far:ad"
-
-\end_inset
-
-.
+-Differentiation oder analytischer Differentiation.
 \end_layout
 
 \begin_layout Enumerate
 Berechnung der Potentiale
 \begin_inset Formula 
 \[
-\phi_{3}\left(\v x_{j}\right)=\phi_{3,\mathrm{N}}\left(\v x_{j}\right)+\phi_{3,\mathrm{F}}\left(\v x_{j}\right)+\phi_{3,\mathrm{E}}\left(\v x_{j}\right)
+\phi_{0}\left(\v x_{j}\right)=\phi_{0,\mathrm{N}}\left(\v x_{j}\right)+\phi_{0,\mathrm{F}}\left(\v x_{j}\right)+\phi_{0,\mathrm{E}}\left(\v x_{j}\right)
 \]
 
 \end_inset
@@ -4458,7 +4464,7 @@ Berechnung der Potentiale
  und Kräfte 
 \begin_inset Formula 
 \[
-F_{3}\left(\v x_{j}\right)=F_{3,\mathrm{N}}\left(\v x_{j}\right)+F_{3,\mathrm{F}}\left(\v x_{j}\right).
+F_{0}\left(\v x_{j}\right)=F_{0,\mathrm{N}}\left(\v x_{j}\right)+F_{0,\mathrm{F}}\left(\v x_{j}\right).
 \]
 
 \end_inset
@@ -4468,11 +4474,11 @@ F_{3}\left(\v x_{j}\right)=F_{3,\mathrm{N}}\left(\v x_{j}\right)+F_{3,\mathrm{F}
 
 \begin_layout Enumerate
 Berechnung der Energien 
-\begin_inset Formula $U_{3}\left(\v x_{j}\right)=q_{j}\phi_{3}\left(\v x_{j}\right)$
+\begin_inset Formula $U_{0}\left(\v x_{j}\right)=q_{j}\phi_{0}\left(\v x_{j}\right)$
 \end_inset
 
  und der Gesamtenergie 
-\begin_inset Formula $U_{3}$
+\begin_inset Formula $U_{0}$
 \end_inset
 
 .
@@ -4489,11 +4495,11 @@ Ausgabe:
 \end_inset
 
 Energien 
-\begin_inset Formula $U_{3}\left(\v x_{j}\right)$
+\begin_inset Formula $U_{0}\left(\v x_{j}\right)$
 \end_inset
 
  und Kräfte 
-\begin_inset Formula $F_{3}\left(\v x_{j}\right)$
+\begin_inset Formula $F_{0}\left(\v x_{j}\right)$
 \end_inset
 
  an den Punkten 
@@ -4509,7 +4515,7 @@ Energien
 \end_inset
 
 Gesamtenergie 
-\begin_inset Formula $U_{3}$
+\begin_inset Formula $U_{0}$
 \end_inset
 
 .
@@ -4519,7 +4525,7 @@ Gesamtenergie
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-P²NFFT mit 3d-periodischen Randbedingungen
+P²NFFT mit nichtperiodischen Randbedingungen
 \end_layout
 
 \end_inset
@@ -6339,23 +6345,6 @@ Wie der Abbildung zu entnehmen ist liegt die Laufzeit beider Methoden in
 \color none
 \lang english
 -Summation.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Vergleich mit alter 0D-Methode bei gleicher Qualität.
-\end_layout
-
-\begin_layout Plain Layout
-Wie stellt man das sicher? → Fehlerformel
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
