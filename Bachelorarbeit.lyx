@@ -505,6 +505,10 @@ Daniel Potts
 \begin_inset Text
 
 \begin_layout Plain Layout
+Dipl.-Math.
+\begin_inset space \thinspace{}
+\end_inset
+
 Michael Pippig
 \end_layout
 
@@ -5821,6 +5825,9 @@ key "fftw,FFTW05"
 \end_inset
 
  können Größen entstehen die schlechter faktorisierbar sind.
+ Es ist davon auszugehen, dass dieser Effekt bei kleinen Partikelzahlen
+ in der gleichen Form auftritt, aber durch den im Vergleich deutlich höheren
+ Rechenaufwand durch die Regularisierung maskiert wird.
 \end_layout
 
 \begin_layout Subsection
@@ -6416,32 +6423,104 @@ name "chapter:Fazit"
 \begin_layout Standard
 In dieser Arbeit wurde eine Methode zur Berechnung von Coulomb-Interaktionen
  von Eingabedaten mit nichtperiodischen Randbedingungen entwickelt.
- Dieser Algorithmus basiert auf der Ewald-Summation
+ Dazu wurde zuerst das klassische Coulomb-Problem mit dreidimensional-periodisch
+en Eingabedaten, sowie dessen Lösung durch die weit verbreitete Ewald-Summation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Ew21"
 
 \end_inset
 
-, die für die Lösung des entsprechenden Problems mit dreidimensional-periodische
-n Eingabedaten bereits sehr verbreitet ist, sowie den vorangegangenen Arbeiten
+ eingeführt.
+ Anschließend wurde die schnellen Berechnung des dreidimensional-periodischen
+ Falles mittels der schnellen Fourier-Transformation für nicht-äquidistante
+ Daten (NFFT) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PiPo10,PiPo13"
 
 \end_inset
 
- zur schnellen Berechnung des dreidimensional-periodischen Falles mittels
- der schnellen Fourier-Transformation für nicht-äquidistante Daten (NFFT)
- und zur Übertragung dieses Ansatzes auf Systeme mit ein- und zweidimensional-pe
-riodischen Eingabedaten
+ betrachtet.
+ Anschließend wurde auf Basis der vorangegangenen Arbeiten zur Übertragung
+ dieses Ansatzes auf Systeme mit ein- und zweidimensional-periodischen Eingabeda
+ten
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NePo13,NePiPo13"
 
 \end_inset
 
-.
+ ein entsprechender Algorithmus für Systeme mit nichtperiodischen Eingabedaten
+ entwickelt werden.
+ Mit Hilfe von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
+
+\end_inset
+
+ konnte auch eine Methode zur Wahl der Eingabeparameter des neuen Algorithmus
+ beschrieben werden, so dass dessen Approximationsfehler einen gegebenen
+ Wert nicht überschreitet.
+\end_layout
+
+\begin_layout Standard
+Anschließend wurde der Algorithmus als Teil der P²NFFT Methode
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PiPo13"
+
+\end_inset
+
+ innerhalb der ScaFaCoS Open-Source Softwarebibliothek
+\begin_inset CommandInset citation
+LatexCommand cite
+key "scafacos"
+
+\end_inset
+
+ implementiert und getestet.
+ Dabei wurde sowohl die Einhaltung eines gewünschten Fehlers mittels der
+ zuvor beschriebenen Parameterwahl erfolgreich überprüft, als auch die Laufzeit
+ unter gleicher Genauigkeit mit der Implementation der dreidimensional-periodisc
+hen Falls der Ewald-Summation und der Implementation einer auf einem anderen
+ Ansatz basierenden Lösung
+\begin_inset CommandInset citation
+LatexCommand cite
+key "postni04,post02"
+
+\end_inset
+
+ des nichtperiodischen Problems verglichen.
+ Während unser neuer Algorithmus erwartungsgemäß aufgrund des höheren Rechenaufw
+ands bei gleichen Problemgrößen langsamer ist als die dreidimensional-periodisch
+e Variante, ist die Leistung im Vergleich mit dem zweiten nichtperiodischen
+ Ansatz ähnlich.
+\end_layout
+
+\begin_layout Standard
+Ziel weiterer Arbeiten könnte es sein die Methode zur Wahl der Parameter
+ noch weiter zu verbessern.
+ So fiel bei der Überprüfung der Größe des Fehlers auf, dass die Begrenzung
+ zwar eingehalten wird, der Fehler sich ihr aber mit steigender Problemgröße
+ zu nähern scheint.
+ Es ist noch unklar, ob dies ein Implementationsfehler ist, oder eine Eigenschaf
+t der Parameterwahl.
+ Sollte letzteres der Fall sein wäre es möglich, dass der gleiche Effekt
+ auch im ein- und zweidimensional-periodischen Fall auftritt, da die Algorithmen
+ sehr ähnlich aufgebaut sind.
+ Des Weiteren fiel im zweiten Testfall auf, dass für hohe Genauigkeiten
+ der Abschneideparameter 
+\begin_inset Formula $\rcut$
+\end_inset
+
+ des dreidimensional-peridischen Falles für die nichtperiodische Ewald-Summation
+ nicht optimal ist, da die Laufzeit unter einem Ungleichgewicht der Nah-
+ und Fernfeld Komponenten leidet.
+ Es wäre eventuell denkbar durch eine leichte Anhebung dieses Parameters
+ den zusätzlichen Rechenaufwand durch die Regularisierung im Fernfeld zu
+ kompensieren.
 \end_layout
 
 \begin_layout Standard
