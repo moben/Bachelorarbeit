@@ -2211,7 +2211,7 @@ reference "eq:3dp-ewald-split"
  Anteil der Kraft 
 \begin_inset Formula 
 \begin{equation}
-\v F_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{\tpii q_{j}}{L}\sum_{\v k\in\set Z^{3}\backslash\left\{ \v 0\right\} }\hat{a}_{\v k}\v k\hat{b}_{\v k}\e^{-\tpii\v k\v x_{j}/L}.\label{eq:3d:split:force:far}
+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)=\frac{\tpii q_{j}}{L}\sum_{\v k\in\set Z^{3}\backslash\left\{ \v 0\right\} }\hat{a}_{\v k}\v k\hat{b}_{\v k}\e^{-\tpii\v k\v x_{j}/L}.\label{eq:3d:split:force:far:ik}
 \end{equation}
 
 \end_inset
@@ -2242,9 +2242,9 @@ Bei der analytischen Differentiation wird hingegen
 
  und berechnet damit 
 \begin_inset Formula 
-\[
-\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\approx-q_{j}\sum_{\v l\in\I{\v m}}g_{\v l}\nabla\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N.
-\]
+\begin{equation}
+\v F_{3,\mathrm{F}}\left(\v x_{j}\right)\approx-q_{j}\sum_{\v l\in\I{\v m}}g_{\v l}\nabla\mathrm{\tilde{\varphi}}\left(\v x_{j}-\v l\odot\mathbf{m}^{-1}\right),\qquad j=\range 1N.\label{eq:3d:split:force:far:ad}
+\end{equation}
 
 \end_inset
 
@@ -2258,6 +2258,7 @@ Bei der analytischen Differentiation wird hingegen
 
 \begin_layout Standard
 \begin_inset Float algorithm
+placement H
 wide false
 sideways false
 status open
@@ -2311,11 +2312,7 @@ Ewald-Splitting Parameter
 \end_layout
 
 \begin_layout Description
-Berechnung 
-\begin_inset space ~
-\end_inset
-
-Jeweils für 
+Berechnung: Jeweils für 
 \begin_inset Formula $j=\range 1N$
 \end_inset
 
@@ -2392,17 +2389,25 @@ Berechnung des langreichweitigen Teils der Kräfte
 \begin_inset Formula $F_{3,\mathrm{F}}\left(\v x_{j}\right)$
 \end_inset
 
- 
-\begin_inset Note Note
-status open
+ mittels 
+\begin_inset Formula $i\v k$
+\end_inset
 
-\begin_layout Plain Layout
-TODOTODOTODO
-\end_layout
+-Differentiation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3d:split:force:far:ik"
 
 \end_inset
 
+ oder analytischer Differentiation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:3d:split:force:far:ad"
 
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2417,7 +2422,7 @@ Berechnung der Potentiale
  und Kräfte 
 \begin_inset Formula 
 \[
-F_{3}\left(\v x_{j}\right)=F_{3,\mathrm{N}}\left(\v x_{j}\right)+F_{3,\mathrm{F}}\left(\v x_{j}\right)
+F_{3}\left(\v x_{j}\right)=F_{3,\mathrm{N}}\left(\v x_{j}\right)+F_{3,\mathrm{F}}\left(\v x_{j}\right).
 \]
 
 \end_inset
@@ -2434,7 +2439,7 @@ Berechnung der Energien
 \begin_inset Formula $U_{3}$
 \end_inset
 
- 
+.
 \end_layout
 
 \end_deeper
@@ -2471,7 +2476,7 @@ Gesamtenergie
 \begin_inset Formula $U_{3}$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Plain Layout
@@ -2480,6 +2485,13 @@ Gesamtenergie
 \begin_layout Plain Layout
 P2NFFT mit 3d-periodischen Randbedingungen
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:3d:p2nfft"
 
 \end_inset
 
@@ -2518,7 +2530,14 @@ ion mit 3d-periodischen Randbedingungen eingehen gewählt werden können,
 \begin_inset Formula $\v x_{j}$
 \end_inset
 
-, beispielsweise durch [alg1].
+, beispielsweise durch Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:3d:p2nfft"
+
+\end_inset
+
+.
  Sei weiterhin 
 \begin_inset Formula $U_{d}\left(\v x_{j}\right)$
 \end_inset
@@ -2583,8 +2602,15 @@ reference "eq:general-force"
 \end_layout
 
 \begin_layout Standard
-Die folgenden Parameter, die in [alg1] eingehen, sind so zu setzen, dass
- für die Energie eine gegebene Abweichung im Quadratischen Mittel, 
+Die folgenden Parameter, die in Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:3d:p2nfft"
+
+\end_inset
+
+ eingehen, sind so zu setzen, dass für die Energie eine gegebene Abweichung
+ im Quadratischen Mittel, 
 \begin_inset Formula $\Delta U_{d}$
 \end_inset
 
@@ -2876,8 +2902,14 @@ name "sec:0d-Ewald-Theore"
 
 \begin_layout Standard
 In diesem Abschnitt werden wir erläutern wie die NFFT-basierte Lösung des
- Coulomb-Problems mit [alg1] auf nichtperiodische Eingabedaten übertragen
- werden kann.
+ Coulomb-Problems mit Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:3d:p2nfft"
+
+\end_inset
+
+ auf nichtperiodische Eingabedaten übertragen werden kann.
  Im Wesentlichen folgen wir dabei 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -4030,77 +4062,49 @@ m=\frac{m'}{M'}\cdot M.
 \end_layout
 
 \begin_layout Standard
-Wie in 
+Der Parameter 
+\begin_inset Formula $P$
+\end_inset
+
+ ergibt sich dabei indem man zunächst 
+\begin_inset Formula $p$
+\end_inset
+
+, der den Grad der Glattheit von 
+\begin_inset Formula $\KR$
+\end_inset
+
+ hinreichend groß wählt und anschließend 
+\begin_inset Formula $P$
+\end_inset
+
+ so anpasst, dass die gewünschte Genauigkeit erreicht wird.
+ Wie in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NePiPo13"
 
 \end_inset
 
- werden wir numerisch demonstrieren, dass die Oversampling-Größe 
-\begin_inset Formula $\v m'$
+ werden wir numerisch demonstrieren, dass 
+\begin_inset Formula $p=10$
 \end_inset
 
- für einen kleinen Testfall bestimmt werden kann und anschließend der Oversampli
-ng-Faktor 
-\begin_inset Formula $m/M$
+ in der Regel ausreichend ist und sowohl der Oversampling-Faktor 
+\begin_inset Formula $m'/M'$
 \end_inset
 
- sowie die B-Spline Ordnung der NFFT für größere Systeme übernommen werden
- können.
-\end_layout
-
-\begin_layout Enumerate
-Beide Parameter müssen so gewählt werden, dass der bei der Approximation
- durch dir NFFT entstehende Fehler verschwindet.
-\end_layout
-
-\begin_layout Enumerate
-Sei 
-\begin_inset Formula $P\in2\set N$
-\end_inset
-
- die Anzahl der Punkte in jeder Dimension um die die FFT Größe erweitert
- wird um die Fortsetzung von 
-\begin_inset Formula $\phi_{d,\mathrm{F}}$
-\end_inset
-
- aufzunehmen.
- Der Polynomgrad 
-\begin_inset Formula $p$
-\end_inset
-
- wird so gewählt, dass 
-\begin_inset Formula $\KR$
-\end_inset
-
- hinreichend glatt wird und 
+ und die B-Spline Ordnung des 3d-periodisschen Falls, als auch die Regularisieru
+ngsgröße
 \begin_inset Formula $P$
 \end_inset
 
- wird erneut numerisch mittels eines kleinen Testfalls bestimmt.
- Beide Parameter bleiben für größere Systeme konstant.
-\end_layout
-
-\begin_layout Enumerate
-Zuletzt wird die FFT Größe 
-\begin_inset Formula $\v M=\left(M,M,M\right)$
-\end_inset
-
- des um 
-\begin_inset Formula $P$
-\end_inset
-
- erweiterten Systems definiert durch 
-\begin_inset Formula $M=2M'+P$
-\end_inset
-
- .
- Entsprechend sei 
-\begin_inset Formula $m=M\cdot\frac{m'}{M'}$
-\end_inset
-
-.
+ für einen Testfall mit einer kleineren Partikelzahl bestimmt werden und
+ anschließend für größere Systeme übernommen werden können.
+ Daraus folgt auch, dass die zusätzliche Berechnung der Regularisierung
+ im Vergleich zum 3d-periodischen Fall sich nicht auf das asymptotische
+ Verhalten des Algorithmus auswirkt und somit bei steigender Anzahl der
+ Partikel die Laufzeit immer weniger beeinflusst.
 \end_layout
 
 \begin_layout Standard
