@@ -4394,6 +4394,13 @@ key "KoPe92a"
 
 \begin_layout Subsection
 Genauigkeitstest
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Genauigkeitstest"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4479,18 +4486,23 @@ key "KoPe92a"
 \begin_inset Formula $\alpha=7,489225$
 \end_inset
 
- und die FFT-Größe 
+ und die NFFT-Größe des 3d-periodischen Algorithmus 
+\begin_inset Formula $\v{M'}=\left(M',M',M'\right)$
+\end_inset
+
+ mit 
 \begin_inset Formula $M'\in2\set N$
 \end_inset
 
 .
- Anschließend werden der Oversampling-Faktor 
-\begin_inset Formula $m'/M'$
+ Anschließend werden die Oversampling-Größe des 3d-periodischen Algorithmus
+ 
+\begin_inset Formula $\v{m'}=\left(m',m',m'\right)$
 \end_inset
 
- und die B-Spline Ordnung so ermittelt, dass der durch die NFFT entstehende
- Fehler nicht mehr sichtbar ist.
- Hier wird dies für 
+ und die B-Spline Ordnung so ermittelt, dass die durch die NFFT entstehenden
+ Fehler nicht mehr sichtbar sind.
+ Hier wird dies für einen Oversampling-Faktor 
 \begin_inset Formula $m'/M'=1,23$
 \end_inset
 
@@ -4520,11 +4532,16 @@ Anschließend wählen wir
 \end_inset
 
  so, dass die gewünschte Genauigkeit erreicht wird.
- Zuletzt sei 
-\begin_inset Formula $M=2M'+P$
+ Daraus ergeben sich zuletzt die NFFT-Größe des nichtperiodischen Algorithmus
+ 
+\begin_inset Formula $\v M=\left(M,M,M\right)$
 \end_inset
 
- und 
+ mit 
+\begin_inset Formula $M=2\left[\sqrt{3}M'\right]+P$
+\end_inset
+
+ und die entsprechende Oversampling-Größe 
 \begin_inset Formula $m=1.23M$
 \end_inset
 
@@ -4541,8 +4558,11 @@ reference "table:0dp-error"
 
  zu entnehmen ist wird die gewünschte Genauigkeit für alle Testgrößen eingehalte
 n.
- Allerdings steigt der Fehler stetig an.
- 
+ Allerdings ist anzumerken, dass der Fehler leicht fluktuiert und ansteigt.
+ Die Gründe dafür konnten noch nicht eindeutig geklärt werden.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -4721,7 +4741,8 @@ name "table:0dp-error"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Erreichte Genauigkeit
+Erreichte Genauigkeit der nichtperiodischen Ewald P²NFFT für verschiedene
+ Größen des gleichverteilten Systems.
 \end_layout
 
 \end_inset
@@ -4732,6 +4753,9 @@ Erreichte Genauigkeit
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -4774,10 +4798,17 @@ reference "graph:0dp-3dp-runtime"
 
 \end_inset
 
- werden die Laufzeiten einer nichtperiodischen P²NFFT mit denen der 3d-periodisc
-hen P²NFFT bei gleicher Problemgröße verglichen.
- Beide wurden mittels der zuvor eingeführten Algorithmen so aufgerufen,
- dass ein 
+ werden die Laufzeiten der in der P²NFFT implementierten nichtperiodischen
+ Ewald-Summation mit denen der 3d-periodischen P²NFFT bei gleicher Problemgröße
+ verglichen.
+ Die Parameter für beide Algorithmen wurden dabei wie in Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Genauigkeitstest"
+
+\end_inset
+
+ so bestimmt, dass für den mittleren quadratischen Fehler 
 \begin_inset Formula $\Delta U<10^{-9}$
 \end_inset
 
@@ -4790,27 +4821,21 @@ hen P²NFFT bei gleicher Problemgröße verglichen.
  6-8 langsamer, vor allem da durch die Regularisierung die FFT-Größe steigt,
  was den Aufwand für die Berechnung des Fernfeldes erhöht.
  Allerdings wurden beide Tests aus Gründen der Vergleichbarkeit untereinander,
- sowie unter anderem mit Ergebnissen aus [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-mixed paper, siehe NePiPo quelle
-\end_layout
+ sowie unter anderem mit Ergebnissen aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ArBoDa13"
 
 \end_inset
 
-] und [
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-NePiPo
-\end_layout
+ und 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
 
 \end_inset
 
-] mit 
+ mit 
 \begin_inset Formula $\rcut=0.62$
 \end_inset
 
@@ -4818,12 +4843,12 @@ NePiPo
  Dies hat jedoch im nichtperiodischen Fall zur Folge, dass sowohl die Laufzeit
  als auch der Fehler sehr ungleichmäßig zwischen der Nahfeld- und Fernfeld-Appro
 ximation aufgeteilt sind.
- Durch eine bessere Wahl von 
+ Erfahrungsgemäß ließen sich sowohl Laufzeit als auch Genauigkeit durch
+ eine bessere Wahl von 
 \begin_inset Formula $\rcut$
 \end_inset
 
- ließen sich sowohl Laufzeit als auch Genauigkeit noch weiter verbessern.
- 
+, so dass beide Berechnungen gleich schnell ablaufen noch weiter verbessern.
 \end_layout
 
 \begin_layout Standard
@@ -4831,7 +4856,7 @@ ximation aufgeteilt sind.
 status open
 
 \begin_layout Plain Layout
-Separate versions of figure below
+Obsolet: Separate versions of figure below
 \end_layout
 
 \begin_layout Plain Layout
@@ -5377,8 +5402,8 @@ end{tikzpicture}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P²NFFT,
- jeweils mit 
+Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer Ewald-Summati
+on mittels P²NFFT, jeweils mit 
 \begin_inset Formula $\rcut=0,62$
 \end_inset
 
@@ -5387,7 +5412,11 @@ Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P²NFFT,
 \begin_inset Formula $1,23$
 \end_inset
 
- und als B-Spline Ordnung 7 gewählt.
+ und als B-Spline Ordnung 
+\begin_inset Formula $7$
+\end_inset
+
+ gewählt.
  Im nichtperiodischen Fall wurde 
 \begin_inset Formula $p=10$
 \end_inset
@@ -5397,11 +5426,15 @@ Vergleich der Laufzeiten von nichtperiodischer und 3d-periodischer P²NFFT,
 \end_inset
 
  gewählt.
- Damit wurde in beiden Tests ein RMS Fehler der Energie von 
+ Damit überschreitet 
+\begin_inset Formula $\Delta U$
+\end_inset
+
+ in in beiden Tests nicht 
 \begin_inset Formula $10^{-9}$
 \end_inset
 
- nicht überschritten.
+ nicht.
 \end_layout
 
 \end_inset
