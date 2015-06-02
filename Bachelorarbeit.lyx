@@ -5706,8 +5706,22 @@ reference "graph:0dp-3dp-runtime"
 \end_inset
 
  werden die Laufzeiten der in der P²NFFT implementierten nichtperiodischen
- Ewald-Summation mit denen der 3d-periodischen P²NFFT bei gleicher Problemgröße
- verglichen.
+ Ewald-Summation nach Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:0d:p2nfft"
+
+\end_inset
+
+ mit denen der bereits vorhandenen 3d-periodischen P²NFFT nach Algorithmus
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "alg:3d:p2nfft"
+
+\end_inset
+
+ bei gleicher Problemgröße verglichen.
  Die Parameter für beide Algorithmen wurden dabei wie in Abschnitt 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5749,13 +5763,14 @@ key "NePiPo13"
  durchgeführt.
  Dies hat jedoch im nichtperiodischen Fall zur Folge, dass sowohl die Laufzeit
  als auch der Fehler sehr ungleichmäßig zwischen der Nahfeld- und Fernfeld-Appro
-ximation aufgeteilt sind.
- Erfahrungsgemäß ließen sich sowohl Laufzeit als auch Genauigkeit durch
- eine bessere Wahl von 
+ximation aufgeteilt sind, wodurch die Gesamtlaufzeit eine Größenordnung
+ länger ist als die der 3d-periodischen Implementation.
+ Erfahrungsgemäß ließen sich durch eine bessere Wahl von 
 \begin_inset Formula $\rcut$
 \end_inset
 
-, so dass beide Berechnungen gleich schnell ablaufen noch weiter verbessern.
+, so dass beide ungefähr Berechnungen gleich schnell ablaufen, sowohl Laufzeit
+ als auch Genauigkeit noch weiter verbessern.
  Dies ist auch in Abbildung 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5766,6 +5781,46 @@ reference "graph:0dp-ewald-other-runtime"
  zu beobachten.
  Da dort die Laufzeiten für Nah- und Fernfeld in der gleichen Größenordnung
  liegen ist auch die Gesamtlaufzeit deutlich geringer.
+\end_layout
+
+\begin_layout Standard
+Bei der Betrachtung der Laufzeit/Partikel fällt zunächst auf, dass diese
+ für den nichtperiodischen Fall mit steigender Partikelzahl fällt.
+ Dies ist damit zu begründen, dass der Berechnungsaufwand durch die Regularisier
+ung mit steigender Problemgröße einen immer geringeren Anteil der Rechenzeit
+ ausmacht.
+ Somit ist das asymptotische Verhalten beider Algorithmen identisch.
+ Des Weiteren ist zu erkennen, dass die Laufzeit der nichtperiodischen Ewald-Sum
+mation für größere Partikelzahlen stark zu schwanken scheint.
+ Dies ist ein Resultat der Implementierung mittels der verbreiteten FFTW
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fftw,FFTW05"
+
+\end_inset
+
+ Softwarebibliothek.
+ Diese liefert zwar in der Regel hervorragende Leistung, welche aber auch
+ in Abhängigkeit von der Faktorisierbarkeit der FFT-Größe stark schwanken
+ kann.
+ So sind Eingabegrößen deren Dimensionen Potenzen von 
+\begin_inset Formula $2$
+\end_inset
+
+ sind besonders effizient, Primzahlen hingegen vergleichsweise ineffizient.
+ Zwar sind die von der P²NFFT verwendeten Größen 
+\begin_inset Formula $m$
+\end_inset
+
+ und 
+\begin_inset Formula $M$
+\end_inset
+
+ gerade, aber durch die Addition des Regularisierungsparameters 
+\begin_inset Formula $P$
+\end_inset
+
+ können Größen entstehen die schlechter faktorisierbar sind.
 \end_layout
 
 \begin_layout Subsection
@@ -6348,7 +6403,7 @@ Wie der Abbildung zu entnehmen ist liegt die Laufzeit beider Methoden in
 \end_layout
 
 \begin_layout Section
-Fazit
+Zusammenfassung
 \begin_inset CommandInset label
 LatexCommand label
 name "chapter:Fazit"
@@ -6356,6 +6411,37 @@ name "chapter:Fazit"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In dieser Arbeit wurde eine Methode zur Berechnung von Coulomb-Interaktionen
+ von Eingabedaten mit nichtperiodischen Randbedingungen entwickelt.
+ Dieser Algorithmus basiert auf der Ewald-Summation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ew21"
+
+\end_inset
+
+, die für die Lösung des entsprechenden Problems mit dreidimensional-periodische
+n Eingabedaten bereits sehr verbreitet ist, sowie den vorangegangenen Arbeiten
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PiPo10,PiPo13"
+
+\end_inset
+
+ zur schnellen Berechnung des dreidimensional-periodischen Falles mittels
+ der schnellen Fourier-Transformation für nicht-äquidistante Daten (NFFT)
+ und zur Übertragung dieses Ansatzes auf Systeme mit ein- und zweidimensional-pe
+riodischen Eingabedaten
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePo13,NePiPo13"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
