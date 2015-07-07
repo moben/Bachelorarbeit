@@ -792,8 +792,54 @@ Sphärische Summationsreihenfolge
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
- Berechnung der Fourier-Reihe mittels Nicht-äquidistanter Fourier-Transformation
- (NFFT)
+ Berechnung der Fourier-Reihe mittels Nicht-äquidistanter
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Fourier-Transformation (NFFT)
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Komplexität 
+\begin_inset Formula $\O{N\mathrm{log}N}$
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1238,7 +1284,7 @@ Implementierung der Ewald-Summation für nichtperiodische Eingabedaten innerhalb
 \end_layout
 
 \begin_layout Itemize
-Stark erleichtert die Ähnlichkeit zu den 2d- und 1d-periodischen Varianten
+Stark erleichtert durch die Ähnlichkeit zu den 2d- und 1d-periodischen Varianten
 \end_layout
 
 \end_deeper
@@ -2599,6 +2645,42 @@ nichtperiodische Randbedingungen:
 \[
 \mathcal{S}_{0}=\left\{ 0\right\} ^{3}\quad\Rightarrow\quad\phi_{0}\left(\v x_{j}\right)=\sum_{i=1}^{N}\frac{q_{i}}{\norm{\xij}{}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+3d-Ewald + Fourier
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Anwendung auf das Coulomb-Problem: 
+\begin_inset Formula 
+\begin{multline*}
+\phi_{3}\left(\v x_{j}\right)=\overbrace{\sum_{\v n\in\set Z^{3}}\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}}^{\phi_{3,\mathrm{N}}}\\
++\underbrace{\frac{1}{\pi L}\sum_{\v k\in\I M\backslash\left\{ \v 0\right\} }\frac{\e^{-\pi^{2}\norm{\v k}{}^{2}/\alpha^{2}L^{2}}}{\norm{\v k}{}^{2}}\left(\sum_{i=1}^{N}q_{i}\e^{\tpii\v k\v x_{i}/L}\right)\e^{-\tpii\v k\v x_{j}/L}}_{\phi_{3,\mathrm{F}}}\underbrace{-\frac{2\alpha}{\sqrt{\pi}}q_{j}}_{\phi_{3,\mathrm{E}}}
+\end{multline*}
 
 \end_inset
 
