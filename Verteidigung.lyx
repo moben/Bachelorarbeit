@@ -1,0 +1,2614 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage[style=authoryear,backend=biber]{biblatex}
+
+\makeatletter
+
+\newrobustcmd*{\parentexttrack}[1]{%
+  \begingroup
+  \blx@blxinit
+  \blx@setsfcodes
+  \blx@bibopenparen#1\blx@bibcloseparen
+  \endgroup}
+
+\AtEveryCite{%
+  \let\parentext=\parentexttrack%
+  \let\bibopenparen=\bibopenbracket%
+  \let\bibcloseparen=\bibclosebracket}
+
+\makeatother
+
+\addbibresource{./references.bib}
+
+%\usepackage[usenames,dvipsnames]{xcolor}
+
+%[fakcolor=ma]
+\usecolortheme{tuc2014}
+\useinnertheme{tuc2014}
+\useoutertheme{tuc2014}
+\usefonttheme{professionalfonts}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots}
+
+
+\institute{Fakultät für Mathematik}
+\titlegraphic{\includegraphics[height=0.2\textheight]{tuc2014/logo/tuc_green}}
+\tucurl{}
+
+\renewcommand{\cite}{\parencite}
+\end_preamble
+\options xcolor={usenames,dvipsnames}
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\branch Fold
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\branch defines
+\selected 1
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Branch Fold
+status open
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Macro definitions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\midd}[1]{\thinspace\middle#1\thinspace}
+{#1}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\mathbf{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\set}[1]{\mathbb{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\I}[1]{\mathcal{I}_{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\O}[1]{\operatorname{\mathcal{O}}\left(#1\right)}
+{\mathcal{O}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\norm}[2]{\left\Vert #1\right\Vert _{#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\abs}[1]{\left|#1\right|}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\d}{\mathrm{d}}
+{\mathrm{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\der}[2]{\frac{\d^{#2}}{\d#1^{#2}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pder}[2]{\frac{\mathrm{\partial}^{#2}}{\mathrm{\partial}#1^{#2}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\nsum}[2]{\sideset{}{^{\prime}}\sum\limits _{#1}^{#2}}
+{\sum_{\substack{#1\\
+\neq
+}
+}^{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\range}[2]{#1,\ldots,#2}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\hrange}[1]{\range{-\frac{#1}{2}}{\frac{#1}{2}-1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\thrange}[3]{\left\{  \hrange{#1}\right\}  \times\left\{  \hrange{#2}\right\}  \times\left\{  \hrange{#3}\right\}  }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\erf}[1]{\operatorname{erf}\left(#1\right)}
+{erf\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\erfc}[1]{\operatorname{erfc}\left(#1\right)}
+{erfc\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\LambertW}[1]{\operatorname{W}\left(#1\right)}
+{\mathrm{W}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Branch defines
+status open
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\T}{\operatorname{\Theta}}
+{\Theta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\KR}{\operatorname{K_{R}}}
+{K_{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\KB}{\operatorname{K_{B}}}
+{K_{B}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Tf}[1]{\T\left(#1\right)}
+{\Theta\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\KRf}[1]{\KR\left(#1\right)}
+{\KR\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\KBf}[1]{\KB\left(#1\right)}
+{\KB\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tpii}{2\pi\mathrm{i}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\e}{\mathrm{e}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\xij}{\v x_{ij}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\rcut}{r_{\mathrm{cut}}}
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setbeamertemplate{footline}{}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+usenavigationsymbolstemplate{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+Verteidigung – Bachelorarbeit
+\end_layout
+
+\begin_layout Title
+Erweiterung der Ewald-Summation auf nichtperiodische Randbedingungen
+\end_layout
+
+\begin_layout Author
+Benedikt Morbach
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/test.0dp.N.txt}
+\backslash
+ndptest
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/test.3dp.N.txt}
+\backslash
+tdptest
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/speed.error.0dp.other.1e-4.txt}
+\backslash
+ndptestOtherEfour
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstableread{data/speed.error.0dp.ewald.1e-4.txt}
+\backslash
+ndptestEwaldEfour
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Inhalt
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Grundlagen
+\end_layout
+
+\begin_layout Subsection*
+Das Coulomb-Problem
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Gegeben
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $N\in\set N$
+\end_inset
+
+ Ladungen 
+\begin_inset Formula $q_{j}\in\set R$
+\end_inset
+
+ an Positionen 
+\begin_inset Formula $\v x_{j}\in L\set T^{3}=\left(-\frac{1}{2},\frac{1}{2}\right]^{3}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Gesucht
+\end_layout
+
+\end_inset
+
+Die Potentiale 
+\begin_inset Formula 
+\[
+\phi_{3}\left(\v x_{j}\right)=\sum_{\v n\in\set Z^{3}}\nsum{i=1}N\frac{q_{i}}{\norm{\xij+L\v n}{}}
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula $\xij\coloneqq\v x_{j}-\v x_{i}$
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset Formula $\nsum{i=1}N$
+\end_inset
+
+ bedeutet 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ für 
+\begin_inset Formula $\v n=\v 0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Komplexität 
+\begin_inset Formula $\O{N^{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+Ewald-Summation
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Fehlerfunktion/komplementäre Fehlerfunktion 
+\begin_inset Formula 
+\begin{eqnarray*}
+\erf r & = & \frac{2}{\sqrt{\pi}}\int_{0}^{r}\e^{-t^{2}}\mathrm{d}t\\
+\erfc r & = & 1-\erf r
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Ewald-Splitting: 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{r}=\frac{\erf{\alpha r}}{r}+\frac{\erfc{\alpha r}}{r}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Anwendung auf das Coulomb-Problem: 
+\begin_inset Formula 
+\begin{align*}
+\phi_{3}\left(\v x_{j}\right)= & \overbrace{\sum_{\v n\in\set Z^{3}}\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}}^{\phi_{3,\mathrm{N}}}\\
+ & +\underbrace{\sum_{\v n\in\set Z^{3}}\sum_{i=1}^{N}q_{i}\frac{\erf{\alpha\norm{\xij+L\v n}{}}}{\norm{\xij+L\v n}{}}}_{\phi_{3,\mathrm{F}}}\underbrace{-\frac{2\alpha}{\sqrt{\pi}}q_{j}}_{\phi_{3,\mathrm{E}}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nahfeldanteil 
+\begin_inset Formula $\phi_{3,\mathrm{N}}$
+\end_inset
+
+ konzentriert in einer Umgebung um 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+, fällt schnell
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Kann durch direkte Berechnung approximiert werden
+\end_layout
+
+\begin_layout Itemize
+Fernfeldanteil 
+\begin_inset Formula $\phi_{3,\mathrm{F}}$
+\end_inset
+
+ langreichweitig, aber differenzierbar und periodisch
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Kann durch Fourier-Reihe approximiert werden
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Bedingungen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ladungsneutrales System 
+\begin_inset Formula $\sum_{i=1}^{N}q_{i}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sphärische Summationsreihenfolge
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Berechnung der Fourier-Reihe mittels Nicht-äquidistanter Fourier-Transformation
+ (NFFT)
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Ziele
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Entwicklung eines schnellen Algorithmus zur Berechnung der Coulomb-Kräfte
+ in Partikelsystemen mit nichtperiodischen Randbedingungen mittels 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ewald-Splitting
+\end_layout
+
+\begin_layout Itemize
+Schneller Summation durch NFFT
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Implementierung innerhalb des ScaFaCoS Projektes
+\end_layout
+
+\begin_layout Itemize
+Überprüfung der Parameterwahl
+\end_layout
+
+\begin_layout Itemize
+Vergleich der Genauigkeit und Laufzeit mit Algorithmen für 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+periodische Randbedingungen
+\end_layout
+
+\begin_layout Itemize
+nichtperiodische Randbedingungen
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Nichtperiodische Ewald-Summation
+\end_layout
+
+\begin_layout Subsection*
+Vorbetrachtungen
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Potential für nichtperiodische Randbedingungen
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}N\frac{q_{i}}{\norm{\xij}{}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Ewald-Splitting 
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\underbrace{\nsum{i=1}Nq_{i}\frac{\erfc{\alpha\norm{\xij}{}}}{\norm{\xij}{}}}_{\phi_{0,\mathrm{N}}}+\underbrace{\sum_{i=1}^{N}q_{i}\frac{\erf{\alpha\norm{\xij}{}}}{\norm{\xij}{}}}_{\phi_{0,\mathrm{F}}}\underbrace{-\frac{2\alpha}{\sqrt{\pi}}q_{j}}_{\phi_{0,\mathrm{E}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nahfeldanteil 
+\begin_inset Formula $\phi_{3,\mathrm{N}}$
+\end_inset
+
+ konzentriert in einer Umgebung um 
+\begin_inset Formula $\v x_{j}$
+\end_inset
+
+, fällt schnell
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Kann durch direkte Berechnung approximiert werden
+\end_layout
+
+\begin_layout Itemize
+Fernfeldanteil 
+\begin_inset Formula $\phi_{3,\mathrm{F}}$
+\end_inset
+
+ 
+\emph on
+nicht mehr 
+\emph default
+periodisch
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Fourier-Methoden nicht direkt anwendbar
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+Konzept
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Adaption der Erkenntnisse zu 2d- und 1d-periodischen Systemen
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NePiPo13"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Periodisierung von 
+\begin_inset Formula 
+\[
+\Tf r\coloneqq\begin{cases}
+\frac{2\alpha}{\sqrt{\pi}} & :r=0\\
+\frac{\erf{\alpha r}}{r} & :\text{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+ durch 2-Punkt Taylorinterpolation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FeSt03"
+
+\end_inset
+
+, mit 
+\begin_inset Formula 
+\[
+\phi_{0,\mathrm{F}}=\sum_{i=1}^{N}q_{i}\Tf{\norm{\xij}{}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+Periodisierung
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Approximierung von 
+\begin_inset Formula $\Tf r$
+\end_inset
+
+ durch 
+\begin_inset Formula 
+\[
+\Tf r\approx\KRf r\coloneqq\begin{cases}
+\Tf r & :\abs r\in\left[0,\sqrt{3}L\right]\\
+\KBf r & :\abs r\in\left(\sqrt{3}L,\frac{h}{2}\right]\\
+\KBf{\frac{h}{2}} & :\abs r>\frac{h}{2}
+\end{cases}
+\]
+
+\end_inset
+
+ für 
+\begin_inset Formula $h>2\sqrt{3}L$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\phi_{0,\mathrm{F}}$
+\end_inset
+
+ also auf 
+\begin_inset Formula $\left[-\sqrt{3}L,\sqrt{3}L\right]$
+\end_inset
+
+ exakt 
+\end_layout
+
+\begin_layout Itemize
+Regularisierung 
+\begin_inset Formula $\KBf r$
+\end_inset
+
+ als hinreichend glattes Polynom so gewählt, dass 
+\begin_inset Formula $\KRf r$
+\end_inset
+
+ 
+\begin_inset Formula $h$
+\end_inset
+
+-periodisch glatt fortsetzbar ist
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+Parameterwahl
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Basierend auf der Fehlerabschätzung nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "KoPe92a"
+
+\end_inset
+
+ zur Ewald-Summation
+\end_layout
+
+\begin_layout Itemize
+Für 2d- und 1d-periodische Eingabedaten heuristisch überprüft
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bestimmung der Parameter für den 3d-periodischen Fall
+\end_layout
+
+\begin_layout Itemize
+Wahl der Parameter der NFFT auf einem kleinen Testfall
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Für nichtperiodische Eingabedaten zusätzlich
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Wahl der Parameter der Periodisierung
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Kann auch auf einem kleinen Testfall durchgeführt werden
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Parameterwahl auch für den nichtperiodischen Fall anwendbar
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+Implementierung
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Implementierung der Ewald-Summation für nichtperiodische Eingabedaten innerhalb
+ der P²NFFT Bibliothek als Teil des ScaFaCoS Projektes
+\end_layout
+
+\begin_layout Itemize
+Stark erleichtert die Ähnlichkeit zu den 2d- und 1d-periodischen Varianten
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Tests
+\end_layout
+
+\begin_layout Subsection*
+Genauigkeit der nichtperiodischen Ewald P²NFFT
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Zunächst: 
+\end_layout
+
+\begin_layout Itemize
+Testen der Parameterwahl
+\end_layout
+
+\begin_layout Itemize
+Erreichen einer gewünschten Genauigkeit bezüglich des
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Fehler im quadratischen Mittel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula $\Delta U_{d}=\left(\frac{1}{N}\sum_{j=1}^{N}\abs{U_{d}\left(\v x_{j}\right)-\tilde{U}_{d}\left(\v x_{j}\right)}^{2}\right)^{1/2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mit der Energie 
+\begin_inset Formula $U_{d}\left(\v x_{j}\right)=q_{j}\phi_{d}\left(\v x_{j}\right)$
+\end_inset
+
+ und einer Approximation 
+\begin_inset Formula $\tilde{U}_{d}\left(\v x_{j}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pgfplotstabletypesetfile[
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns={N,L,h,M0,m0,abs_energy},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/N/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		fixed, dec sep align,
+\end_layout
+
+\begin_layout Plain Layout
+
+		set thousands separator={
+\backslash
+,}
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/abs_energy/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		column name=$
+\backslash
+Delta U$,
+\end_layout
+
+\begin_layout Plain Layout
+
+		sci precision=2, sci zerofill, sci e
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/M0/.style={column name=$M$},
+\end_layout
+
+\begin_layout Plain Layout
+
+	columns/m0/.style={column name=$m$},
+\end_layout
+
+\begin_layout Plain Layout
+
+	column type/.add={|}{},
+\end_layout
+
+\begin_layout Plain Layout
+
+	every first column/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+		column type={c}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+]{
+\backslash
+ndptest}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "table:0dp-error"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vergleich mit exakt Berechneten Werten eines Systems mit gleichverteilten
+ Partikeln
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Fehler 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+ wird eingehalten
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Aber: Tatsächlicher Fehler steigt für größere Systeme leicht an
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Parameterwahl nicht perfekt?
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+Vergleich mit 3d-P²NFFT
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Laufzeitvergleich mit P²NFFT mit 3d-periodischen Eingabedaten
+\end_layout
+
+\begin_layout Itemize
+Gleiche Genauigkeit: 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=0.6]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{groupplot}[
+\end_layout
+
+\begin_layout Plain Layout
+
+		group style={
+\end_layout
+
+\begin_layout Plain Layout
+
+			group size=2 by 1,
+\end_layout
+
+\begin_layout Plain Layout
+
+			horizontal sep=1.5cm
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend columns=2,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend cell align=left,
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+			ylabel={Zeit [Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			ymode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			legend to name=grouplegend3,
+\end_layout
+
+\begin_layout Plain Layout
+
+			legend style={/tikz/every even column/.append style={column sep=0.5cm}}
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=orange]   table [y=rt-run]   {
+\backslash
+ndptest};  
+\backslash
+addlegendentry{nichtperiodisch Gesamtzeit}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=blue]   table [y=rt-run]   {
+\backslash
+tdptest};  
+\backslash
+addlegendentry{3d-periodisch Gesamtzeit}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=magenta]  table [y=rt-near]  {
+\backslash
+ndptest};  
+\backslash
+addlegendentry{nichtperiodisch Nahfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=red]  table [y=rt-near]  {
+\backslash
+tdptest};  
+\backslash
+addlegendentry{3d-periodisch Nahfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=darkgray] table [y=rt-far]   {
+\backslash
+ndptest};  
+\backslash
+addlegendentry{nichtperiodisch Fernfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=green!70!black] table [y=rt-far]   {
+\backslash
+tdptest};  
+\backslash
+addlegendentry{3d-periodisch Fernfeld}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+			ylabel={Zeit/Ladung [Sekunden]}
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o,       color=orange]   table [y expr=
+\backslash
+thisrow{rt-run}/
+\backslash
+thisrow{N}]  {
+\backslash
+ndptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=triangle,color=blue]   table [y expr=
+\backslash
+thisrow{rt-run}/
+\backslash
+thisrow{N}]  {
+\backslash
+tdptest};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (legend) at ($(group c1r1.south)!0.5!(group c2r1.south)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+		[below, yshift=-2
+\backslash
+pgfkeysvalueof{/pgfplots/every axis title shift}]
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\backslash
+ref{grouplegend3}};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ca.
+ 0,5 - 1 Größenordnung langsamer
+\end_layout
+
+\begin_layout Itemize
+Gründe:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Zusatzaufwand durch Regularisierung
+\end_layout
+
+\begin_layout Enumerate
+Größere Fourier-Transformationen nötig
+\end_layout
+
+\begin_layout Enumerate
+Parameterwahl nicht optimal (Verhältnis Nah-/Fernfeld)
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ Eventuell verbesserbar
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Subsection*
+Vergleich mit Nicht-Ewald Methode
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Laufzeitvergleich mit anderer Methode für nichtperiodische Eingabedaten
+ nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "post02,postni04"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Approximation 
+\begin_inset Formula 
+\[
+\frac{1}{r}\approx\mathrm{K}\left(r\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{K}\left(r\right)$
+\end_inset
+
+ als Regularisierung von 
+\begin_inset Formula $\frac{1}{r}$
+\end_inset
+
+ sowohl in einer Umgebung des Ursprungs als auch des Randes von 
+\begin_inset Formula $h\set T$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Aufteilung von 
+\begin_inset Formula 
+\[
+\phi_{0}\left(\v x_{j}\right)=\nsum{i=1}N\frac{q_{i}}{\norm{\xij}{}}
+\]
+
+\end_inset
+
+ in drei Teile
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Gleiche Genauigkeit: 
+\begin_inset Formula $10^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=0.6]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{groupplot}[
+\end_layout
+
+\begin_layout Plain Layout
+
+		group style={
+\end_layout
+
+\begin_layout Plain Layout
+
+			group size=2 by 1,
+\end_layout
+
+\begin_layout Plain Layout
+
+			horizontal sep=1.5cm,
+\end_layout
+
+\begin_layout Plain Layout
+
+			every plot/.style={
+\end_layout
+
+\begin_layout Plain Layout
+
+				ymin=0.01,
+\end_layout
+
+\begin_layout Plain Layout
+
+				ymax=10,
+\end_layout
+
+\begin_layout Plain Layout
+
+				enlargelimits=true
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend to name=grouplegend0,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend columns=3,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend cell align=left,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend pos=south east,
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend style={/tikz/every even column/.append style={column sep=0.5cm}},
+\end_layout
+
+\begin_layout Plain Layout
+
+		legend entries={
+\end_layout
+
+\begin_layout Plain Layout
+
+			Gesamtzeit,
+\end_layout
+
+\begin_layout Plain Layout
+
+			Nahfeld,
+\end_layout
+
+\begin_layout Plain Layout
+
+			Fernfeld
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+			ylabel={Zeit [Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			ymode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			title=Ewald-Summation
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=orange]   table [y=rt-run]   {
+\backslash
+ndptestEwaldEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=magenta]  table [y=rt-near]  {
+\backslash
+ndptestEwaldEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=darkgray] table [y=rt-far]   {
+\backslash
+ndptestEwaldEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+nextgroupplot[
+\end_layout
+
+\begin_layout Plain Layout
+
+			xlabel={
+\backslash
+#Ladungen},
+\end_layout
+
+\begin_layout Plain Layout
+
+%			ylabel={Zeit [Sekunden]},
+\end_layout
+
+\begin_layout Plain Layout
+
+			xmode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			ymode=log,
+\end_layout
+
+\begin_layout Plain Layout
+
+			title=$
+\backslash
+frac1x$-Summation
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=orange]   table [y=rt-run]   {
+\backslash
+ndptestOtherEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=magenta]  table [y=rt-near]  {
+\backslash
+ndptestOtherEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+addplot+[mark=o, color=darkgray] table [y=rt-far]   {
+\backslash
+ndptestOtherEfour};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{groupplot}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (legend) at ($(group c1r1.south)!0.5!(group c2r1.south)$)
+\end_layout
+
+\begin_layout Plain Layout
+
+		[below, yshift=-2
+\backslash
+pgfkeysvalueof{/pgfplots/every axis title shift}]
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\backslash
+ref{grouplegend0}};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nahezu gleiche Geschwindigkeit (Nicht-Ewald Methode minimal schneller)
+\end_layout
+
+\begin_layout Itemize
+Stark vereinfachte Parameterwahl
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Keine Fehlerabschätzung für Nicht-Ewald Methode bekannt
+\end_layout
+
+\begin_layout Itemize
+Für Ewald-Methode zumindest heuristisch überprüft
+\end_layout
+
+\begin_layout Itemize
+Geringe Verbesserungen durch Optimierung der Parameterwahl möglich
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Zusammenfassung & Ausblick
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Zusammenfassung
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Schneller Algorithmus für nichtperiodische Randbedingungen mittels NFFT
+\end_layout
+
+\begin_layout Itemize
+ScaFaCoS und P²NFFT ermöglichen eine einfache Implementierung
+\end_layout
+
+\begin_layout Itemize
+Genauigkeit und Geschwindigkeit in ersten Tests vergleichbar mit bisherigen
+ Methoden
+\end_layout
+
+\begin_layout Itemize
+Fehlertuning leichter handhabbar
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ausblick
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bessere Heuristik für die Wahl des Parameters 
+\begin_inset Formula $\rcut$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Aber: Konflikt mit der Fehlerabschätzung
+\end_layout
+
+\begin_layout Itemize
+Implementierung des Fehlertunings für alle Randbedingungen innerhalb der
+ P²NFFT
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Fragen?
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Fragen?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size largest
+Vielen Dank für ihre Aufmerksamkeit
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section*
+Literatur
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "references"
+options "bibtotoc,plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+refname}
+\backslash
+printbibliography
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section*
+Zusatzfolien
+\end_layout
+
+\begin_layout Subsection*
+Unterschiedliche Randbedingungen
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\mathcal{S}_{d}$
+\end_inset
+
+ abhängig von den Randbedingungen
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+3d-periodische Randbedingungen: 
+\begin_inset Formula $d=3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula 
+\[
+\mathcal{S}_{3}=\set Z^{3}\quad\Rightarrow\quad\phi_{3}\left(\v x_{j}\right)=\sum_{\v n\in\set Z^{3}}\nsum{i=1}N\frac{q_{i}}{\norm{\xij+L\v n}{}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+nichtperiodische Randbedingungen: 
+\begin_inset Formula $d=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Block
+\begin_inset Formula 
+\[
+\mathcal{S}_{0}=\left\{ 0\right\} ^{3}\quad\Rightarrow\quad\phi_{0}\left(\v x_{j}\right)=\sum_{i=1}^{N}\frac{q_{i}}{\norm{\xij}{}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\end_body
+\end_document
